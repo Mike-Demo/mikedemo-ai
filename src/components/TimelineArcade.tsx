@@ -62,7 +62,10 @@ export function TimelineArcade({
   }
 
   return (
-    <div className="arcade-rail-scroll">
+    <div
+      className="arcade-rail-scroll"
+      data-preview={previewIndex === null ? undefined : "true"}
+    >
       <ol
         className={`arcade-rail${compact ? " arcade-rail-compact" : ""}`}
         aria-label="Project timeline, newest first"

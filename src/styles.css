@@ -261,6 +261,12 @@ main {
   padding-block: var(--wa-space-m);
   scroll-snap-type: x proximity;
   scroll-padding-inline: var(--wa-space-l);
+  transition: padding-block-end var(--wa-transition-fast) var(--wa-transition-easing);
+}
+
+/* Make vertical room for the preview popup so it isn't clipped by the scroller. */
+.arcade-rail-scroll[data-preview] {
+  padding-block-end: 15rem;
 }
 
 .arcade-rail {
