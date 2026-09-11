@@ -153,6 +153,10 @@ main {
   box-shadow: var(--wa-space-xs) var(--wa-space-xs) 0 0 var(--wa-color-warning-60);
 }
 
+.credential-issuer {
+  font-size: var(--wa-font-size-s);
+}
+
 .pixel-card-title {
   font-family: var(--wa-font-family-heading);
   font-size: var(--wa-font-size-xs);
