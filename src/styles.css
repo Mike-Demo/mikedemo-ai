@@ -576,18 +576,18 @@ main {
 }
 
 .calendar-event-done {
-  background: var(--wa-color-success-quiet, #c2f0c2);
-  color: var(--wa-color-success-on-quiet, inherit);
+  background: var(--wa-color-success-fill-quiet);
+  color: var(--wa-color-success-on-quiet);
 }
 
 .calendar-event-upcoming {
-  background: var(--wa-color-brand-quiet, #cfe0ff);
-  color: var(--wa-color-brand-on-quiet, inherit);
+  background: var(--wa-color-brand-fill-quiet);
+  color: var(--wa-color-brand-on-quiet);
 }
 
 .calendar-event-milestone {
-  background: var(--wa-color-warning-quiet, #ffe9b3);
-  color: var(--wa-color-warning-on-quiet, inherit);
+  background: var(--wa-color-warning-fill-quiet);
+  color: var(--wa-color-warning-on-quiet);
 }
 
 .calendar-legend {
