@@ -140,8 +140,8 @@ main {
 
 /* Project's own site icon, sized to the badge it sits in. */
 .project-logo {
-  width: 1.5em;
-  height: 1.5em;
+  width: var(--wa-space-l);
+  height: var(--wa-space-l);
   object-fit: contain;
   image-rendering: auto;
 }
