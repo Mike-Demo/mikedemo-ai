@@ -76,4 +76,11 @@ export { WaTree } from "./webawesome/react/tree";
 export { WaTreeItem } from "./webawesome/react/tree-item";
 export { WaZoomableFrame } from "./webawesome/react/zoomable-frame";
 export { WebAwesomeLoader } from "./webawesome/setup";
+export {
+  WEB_AWESOME_VERSION,
+  WEB_AWESOME_CDN,
+  WEB_AWESOME_HTML_CLASSES,
+  FONT_AWESOME_VERSION,
+} from "./webawesome/setup";
+export { baseCredits } from "./webawesome/patterns/licenses";
 export { ThemeEditor } from "./webawesome/theme-editor/theme-editor";
