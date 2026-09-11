@@ -39,13 +39,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "stylesheet", href: themeCss },
-      { rel: "stylesheet", href: `${WEB_AWESOME_CDN}/styles/webawesome.css` },
-      { rel: "stylesheet", href: `${WEB_AWESOME_CDN}/styles/themes/default.css` },
-      { rel: "stylesheet", href: `${WEB_AWESOME_CDN}/styles/utilities.css` },
-      {
-        rel: "stylesheet",
-        href: `https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@${FONT_AWESOME_VERSION}/css/all.min.css`,
-      },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
