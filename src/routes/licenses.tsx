@@ -1,10 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type { ReactElement } from "react";
 
-import {
-  LicensesPage,
-  baseCredits,
-} from "@/design-system/font-awsome-web-awesome-171158";
+import { LicensesPage } from "@/design-system/font-awsome-web-awesome-171158";
+import { baseCredits } from "@/design-system/font-awsome-web-awesome-171158/webawesome/patterns/licenses";
 
 import { SiteShell } from "@/components/SiteShell";
 
