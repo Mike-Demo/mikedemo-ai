@@ -107,7 +107,20 @@ function ProjectPage(): ReactElement {
             Visit live site
           </WaButton>
         </div>
+
+        <div className="wa-stack wa-gap-xs">
+          <h2 className="pixel-display tech-heading">Level Select</h2>
+          <p className="wa-color-text-quiet">
+            Where this project sits in the timeline — pick another level to jump across.
+          </p>
+          <TimelineArcade
+            projects={projectsNewestFirst}
+            currentSlug={project.slug}
+            compact
+          />
+        </div>
       </section>
+
     </SiteShell>
   );
 }
