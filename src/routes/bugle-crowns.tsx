@@ -35,6 +35,7 @@ const description =
   "Bugle Crowns, my AI agent team in the AWS Agentic Football Cup: Week 1 record, match results, season schedule, and the tactical changes proposed for Round 2.";
 
 export const Route = createFileRoute("/bugle-crowns")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: "Bugle Crowns — AWS Agentic Football Cup | MikeDemo" },
