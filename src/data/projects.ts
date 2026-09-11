@@ -1,6 +1,13 @@
 /**
  * Portfolio content. Edit this single file to add or update projects.
  */
+import aiDeployerLogo from "@/assets/project-icons/ai-deployer.svg";
+import crosspostLogo from "@/assets/project-icons/crosspost.png";
+import onDeviceAiLogo from "@/assets/project-icons/on-device-ai.svg";
+import pretendProLogo from "@/assets/project-icons/pretendpro.png";
+import skillFinderLogo from "@/assets/project-icons/skill-finder-plus.svg";
+import staLogo from "@/assets/project-icons/sta-2e-d20-roller.jpg";
+
 export interface Project {
   readonly slug: string;
   readonly name: string;
@@ -10,6 +17,8 @@ export interface Project {
   readonly tech: readonly string[];
   readonly url: string;
   readonly icon: string;
+  /** The project's own site icon, when it publishes one. */
+  readonly logo?: string;
   /** ISO date the project was first built. */
   readonly started: string;
 }
@@ -25,6 +34,7 @@ export const projects: readonly Project[] = [
     tech: ["TypeScript", "React", "WebLLM", "WebGPU"],
     url: "https://on-device-minds.lovable.app",
     icon: "microchip",
+    logo: onDeviceAiLogo,
     started: "2026-09-11",
   },
   {
@@ -37,6 +47,7 @@ export const projects: readonly Project[] = [
     tech: ["TypeScript", "React", "TanStack Start", "Tailwind CSS", "Zod"],
     url: "https://cozy-ai-deploy.lovable.app",
     icon: "server",
+    logo: aiDeployerLogo,
     started: "2026-09-09",
   },
   {
@@ -49,6 +60,7 @@ export const projects: readonly Project[] = [
     tech: ["TypeScript", "React", "TanStack Start", "Supabase"],
     url: "https://tweet-caster-magic.lovable.app",
     icon: "retweet",
+    logo: crosspostLogo,
     started: "2026-09-06",
   },
   {
@@ -61,6 +73,7 @@ export const projects: readonly Project[] = [
     tech: ["TypeScript", "React", "AI SDK", "Supabase", "hCaptcha"],
     url: "https://prompt-skill-picker.lovable.app",
     icon: "wand-magic-sparkles",
+    logo: skillFinderLogo,
     started: "2026-09-02",
   },
   {
@@ -85,6 +98,7 @@ export const projects: readonly Project[] = [
     tech: ["TypeScript", "React", "Tailwind CSS", "shadcn/ui", "Supabase"],
     url: "https://pretend-pro-suite.lovable.app",
     icon: "user-tie",
+    logo: pretendProLogo,
     started: "2026-08-30",
   },
   {
@@ -97,6 +111,7 @@ export const projects: readonly Project[] = [
     tech: ["TypeScript", "React", "Tailwind CSS"],
     url: "https://sta-d20.lovable.app",
     icon: "dice-d20",
+    logo: staLogo,
     started: "2026-02-23",
   },
 ];

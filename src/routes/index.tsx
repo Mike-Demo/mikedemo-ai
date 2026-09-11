@@ -8,6 +8,7 @@ import {
   WaTag,
 } from "@/design-system/font-awsome-web-awesome-171158";
 
+import { ProjectIcon } from "@/components/ProjectIcon";
 import { SiteShell } from "@/components/SiteShell";
 import { projects } from "@/data/projects";
 
@@ -39,7 +40,7 @@ function ProjectCard({ project }: { project: (typeof projects)[number] }): React
       <div className="wa-stack wa-gap-s">
         <div className="wa-cluster wa-align-items-center wa-gap-s">
           <span className="pixel-icon-badge" aria-hidden="true">
-            <WaIcon name={project.icon} />
+            <ProjectIcon project={project} />
           </span>
           <h2 className="pixel-card-title">{project.name}</h2>
         </div>
@@ -121,7 +122,7 @@ function Index(): ReactElement {
                       params={{ slug: project.slug }}
                       className="site-nav-link timeline-name"
                     >
-                      <WaIcon name={project.icon} aria-hidden="true" /> {project.name}
+                      <ProjectIcon project={project} /> {project.name}
                     </Link>
                     <p className="wa-color-text-quiet timeline-summary">{project.summary}</p>
                   </div>

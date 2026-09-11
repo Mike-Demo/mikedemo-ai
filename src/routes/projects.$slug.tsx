@@ -8,6 +8,7 @@ import {
   WaTag,
 } from "@/design-system/font-awsome-web-awesome-171158";
 
+import { ProjectIcon } from "@/components/ProjectIcon";
 import { SiteShell } from "@/components/SiteShell";
 import { getProject } from "@/data/projects";
 
@@ -66,7 +67,7 @@ function ProjectPage(): ReactElement {
 
         <div className="wa-cluster wa-align-items-center wa-gap-m">
           <span className="pixel-icon-badge pixel-icon-badge-large" aria-hidden="true">
-            <WaIcon name={project.icon} />
+            <ProjectIcon project={project} />
           </span>
           <div className="wa-stack wa-gap-2xs">
             <h1 className="pixel-display section-title">{project.name}</h1>
