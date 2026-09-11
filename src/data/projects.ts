@@ -6,6 +6,7 @@ import bugleCrownsLogo from "@/assets/project-icons/bugle-crowns.png";
 import crosspostLogo from "@/assets/project-icons/crosspost.png";
 import onDeviceAiLogo from "@/assets/project-icons/on-device-ai.svg";
 import pretendProLogo from "@/assets/project-icons/pretendpro.png";
+import prideBlobsLogo from "@/assets/project-icons/pride-blobs.png";
 import skillFinderLogo from "@/assets/project-icons/skill-finder-plus.svg";
 import staLogo from "@/assets/project-icons/sta-2e-d20-roller.jpg";
 
