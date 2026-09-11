@@ -7,11 +7,7 @@ import {
 } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 
-import {
-  WEB_AWESOME_CDN,
-  WEB_AWESOME_HTML_CLASSES,
-  FONT_AWESOME_VERSION,
-} from "@/design-system/font-awsome-web-awesome-171158";
+import { WEB_AWESOME_HTML_CLASSES } from "@/design-system/font-awsome-web-awesome-171158";
 
 import appCss from "../styles.css?url";
 import themeCss from "@/design-system/font-awsome-web-awesome-171158/webawesome/theme.css?url";
