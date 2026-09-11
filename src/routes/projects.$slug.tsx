@@ -5,7 +5,9 @@ import {
   WaButton,
   WaCallout,
   WaIcon,
-  WaTag,
+} from "@/design-system/font-awsome-web-awesome-171158";
+
+import { TechTagList } from "@/components/TechTagList";
 } from "@/design-system/font-awsome-web-awesome-171158";
 
 import { ProjectCredits } from "@/components/ProjectCredits";
