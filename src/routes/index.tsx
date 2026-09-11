@@ -105,10 +105,10 @@ function Index(): ReactElement {
         <ol className="timeline-alternating" aria-label="Project timeline, newest to oldest">
           {projectsByDate.map((project) => (
             <li key={project.slug} className="timeline-alternating-item">
-              <ProjectCard project={project} />
               <time className="pixel-display timeline-date" dateTime={project.started}>
                 {formatDate(project.started)}
               </time>
+              <ProjectCard project={project} />
             </li>
           ))}
         </ol>
