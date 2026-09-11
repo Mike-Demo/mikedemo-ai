@@ -1,6 +1,13 @@
 /**
  * Portfolio content. Edit this single file to add or update projects.
  */
+import aiDeployerLogo from "@/assets/project-icons/ai-deployer.svg";
+import crosspostLogo from "@/assets/project-icons/crosspost.png";
+import onDeviceAiLogo from "@/assets/project-icons/on-device-ai.svg";
+import pretendProLogo from "@/assets/project-icons/pretendpro.png";
+import skillFinderLogo from "@/assets/project-icons/skill-finder-plus.svg";
+import staLogo from "@/assets/project-icons/sta-2e-d20-roller.ico";
+
 export interface Project {
   readonly slug: string;
   readonly name: string;

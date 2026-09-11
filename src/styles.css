@@ -138,6 +138,18 @@ main {
   font-size: var(--wa-font-size-2xl);
 }
 
+/* Project's own site icon, sized to the badge it sits in. */
+.project-logo {
+  width: 1em;
+  height: 1em;
+  object-fit: contain;
+  image-rendering: auto;
+}
+
+.timeline-name .project-logo {
+  vertical-align: -0.125em;
+}
+
 /* Project detail */
 
 .project-lede {
