@@ -45,6 +45,15 @@ export function SiteShell({ children }: { children: ReactNode }): ReactElement {
                 <WaIcon family="brands" name={link.icon} aria-hidden="true" />
               </a>
             ))}
+            <a
+              href="https://councils.forbes.com/profile/Mike-Demopoulos-Partnerships-Lead-North-America-hosting-com/ad134482-08d5-4acc-810f-16e790de5b2b"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="site-nav-link site-nav-icon"
+              aria-label="Forbes profile"
+            >
+              <WaIcon family="brands" name="forbes" aria-hidden="true" />
+            </a>
           </nav>
         </div>
       </header>
