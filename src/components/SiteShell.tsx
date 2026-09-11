@@ -7,10 +7,11 @@ import {
   WaPage,
   WebAwesomeLoader,
 } from "@/design-system/font-awsome-web-awesome-171158";
+import { DEFAULT_SOCIAL_LINKS } from "@/design-system/font-awsome-web-awesome-171158/webawesome/patterns/site-footer";
 
 /**
- * Shared page shell: Web Awesome loader, sticky header, main content, and
- * the standard site footer (social links included).
+ * Shared page shell: Web Awesome loader, sticky header with icon navigation
+ * and social links, main content, and the standard site footer.
  */
 export function SiteShell({ children }: { children: ReactNode }): ReactElement {
   return (
@@ -22,14 +23,30 @@ export function SiteShell({ children }: { children: ReactNode }): ReactElement {
           <WaIcon name="gamepad" aria-hidden="true" />
           MikeDemo
         </Link>
-        <nav aria-label="Main navigation" className="wa-cluster wa-gap-m">
-          <Link to="/" className="site-nav-link">
-            Projects
-          </Link>
-          <Link to="/licenses" className="site-nav-link">
-            Licenses
-          </Link>
-        </nav>
+        <div className="wa-cluster wa-gap-l wa-align-items-center">
+          <nav aria-label="Main navigation" className="wa-cluster wa-gap-m">
+            <Link to="/" className="site-nav-link site-nav-icon" aria-label="Projects">
+              <WaIcon name="rocket" aria-hidden="true" />
+            </Link>
+            <Link to="/licenses" className="site-nav-link site-nav-icon" aria-label="Licenses and credits">
+              <WaIcon name="scale-balanced" aria-hidden="true" />
+            </Link>
+          </nav>
+          <nav aria-label="Social links" className="wa-cluster wa-gap-m">
+            {DEFAULT_SOCIAL_LINKS.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="site-nav-link site-nav-icon"
+                aria-label={link.label}
+              >
+                <WaIcon family="brands" name={link.icon} aria-hidden="true" />
+              </a>
+            ))}
+          </nav>
+        </div>
       </header>
 
       <main>{children}</main>
