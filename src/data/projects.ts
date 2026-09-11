@@ -27,12 +27,12 @@ export const projects: readonly Project[] = [
   {
     slug: "on-device-ai",
     name: "On-Device AI",
-    domain: "on-device-minds.lovable.app",
+    domain: "ai.mikedemo.dev",
     summary: "An AI model running inside the page — on-device inference with no server round-trips.",
     description:
       "On-Device AI runs a real language model entirely inside the browser. Inference happens on your own hardware via WebLLM and WebGPU — no server round-trips, and no data ever leaves your machine. It includes on-device inference demos, model comparisons, and diagnostics.",
     tech: ["TypeScript", "React", "WebLLM", "WebGPU"],
-    url: "https://on-device-minds.lovable.app",
+    url: "https://ai.mikedemo.dev",
     icon: "microchip",
     logo: onDeviceAiLogo,
     started: "2026-09-11",
@@ -40,12 +40,12 @@ export const projects: readonly Project[] = [
   {
     slug: "ai-deployer",
     name: "AI Deployer",
-    domain: "cozy-ai-deploy.lovable.app",
+    domain: "local.mikedemo.dev",
     summary: "Copy-and-paste install guides for self-hosted AI agents — no live SSH, no accounts.",
     description:
       "AI Deployer generates personalized, copy-and-paste install guides for self-hosted AI agents like OpenClaw, Ollama, and n8n. Pick your stack, get a tailored VPS install guide — no live SSH sessions and no account required.",
     tech: ["TypeScript", "React", "TanStack Start", "Tailwind CSS", "Zod"],
-    url: "https://cozy-ai-deploy.lovable.app",
+    url: "https://local.mikedemo.dev",
     icon: "server",
     logo: aiDeployerLogo,
     started: "2026-09-09",
@@ -53,12 +53,12 @@ export const projects: readonly Project[] = [
   {
     slug: "crosspost",
     name: "Crosspost",
-    domain: "tweet-caster-magic.lovable.app",
+    domain: "tweet.mikedemo.dev",
     summary: "Crossposting from tweet.app to X, automatically.",
     description:
       "Crosspost keeps your posts in sync: write once on tweet.app and it republishes to X automatically. One composer, two timelines, zero copy-pasting.",
     tech: ["TypeScript", "React", "TanStack Start", "Supabase"],
-    url: "https://tweet-caster-magic.lovable.app",
+    url: "https://tweet.mikedemo.dev",
     icon: "retweet",
     logo: crosspostLogo,
     started: "2026-09-06",
@@ -66,12 +66,12 @@ export const projects: readonly Project[] = [
   {
     slug: "skill-finder-plus",
     name: "Skill Finder Plus",
-    domain: "prompt-skill-picker.lovable.app",
+    domain: "skills.mikedemo.dev",
     summary: "A directory of agent skills for Claude, ChatGPT, Cursor, Copilot, Grok, MCP, and Perplexity.",
     description:
       "Skill Finder Plus is a browsable library of agent skills across every major AI platform — Claude, ChatGPT, Cursor, GitHub Copilot, Grok, MCP servers, and Perplexity. Find the right skill for your assistant of choice without digging through repos.",
     tech: ["TypeScript", "React", "AI SDK", "Supabase", "hCaptcha"],
-    url: "https://prompt-skill-picker.lovable.app",
+    url: "https://skills.mikedemo.dev",
     icon: "wand-magic-sparkles",
     logo: skillFinderLogo,
     started: "2026-09-02",
@@ -91,12 +91,12 @@ export const projects: readonly Project[] = [
   {
     slug: "pretendpro",
     name: "PretendPro Office Suite",
-    domain: "pretend-pro-suite.lovable.app",
+    domain: "pretend.pro",
     summary: "A fake productivity suite — set up your fake workday.",
     description:
       "PretendPro Office Suite is a parody productivity platform built purely for entertainment. Set up your fake workday with mock applications that simulate a convincingly busy environment — spreadsheets that type themselves, meetings that attend themselves, and more.",
     tech: ["TypeScript", "React", "Tailwind CSS", "shadcn/ui", "Supabase"],
-    url: "https://pretend-pro-suite.lovable.app",
+    url: "https://pretend.pro",
     icon: "user-tie",
     logo: pretendProLogo,
     started: "2026-08-30",
@@ -104,12 +104,12 @@ export const projects: readonly Project[] = [
   {
     slug: "sta-2e-d20-roller",
     name: "STA 2e D20 Roller — LCARS",
-    domain: "sta-d20.lovable.app",
+    domain: "2d20.space",
     summary: "A Star Trek Adventures 2d20 dice roller with an LCARS interface.",
     description:
       "STA 2e D20 Roller brings the Star Trek Adventures 2d20 system to the table with a full LCARS-styled interface — challenge dice, momentum, threat, and a dice guide, all wrapped in Starfleet's favorite operating system.",
     tech: ["TypeScript", "React", "Tailwind CSS"],
-    url: "https://sta-d20.lovable.app",
+    url: "https://2d20.space",
     icon: "dice-d20",
     logo: staLogo,
     started: "2026-02-23",
