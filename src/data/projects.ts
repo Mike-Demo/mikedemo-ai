@@ -120,6 +120,19 @@ export const projects: readonly Project[] = [
     started: "2026-08-30",
   },
   {
+    slug: "pride-blobs",
+    name: "Pride Blobs",
+    domain: "project--e4ae0ed4-df6b-4f52-9c92-49c8c2ad714d.lovable.app",
+    summary: "Deterministic pride-flag blobatars from any name — same string, same avatar, every time.",
+    description:
+      "Pride Blobs (Pridatar) is a pride-focused fork of blobatar. Type any name and get a striped pride blobatar rendered as SVG. Fifteen flags, a live playground, and downloadable PNGs, all generated in the browser with no backend.",
+    tech: ["TypeScript", "React", "SVG", "Canvas API"],
+    url: "https://project--e4ae0ed4-df6b-4f52-9c92-49c8c2ad714d.lovable.app",
+    icon: "palette",
+    logo: prideBlobsLogo,
+    started: "2026-08-24",
+  },
+  {
     slug: "sta-2e-d20-roller",
     name: "STA 2e D20 Roller — LCARS",
     domain: "2d20.space",
