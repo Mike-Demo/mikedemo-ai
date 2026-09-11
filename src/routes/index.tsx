@@ -158,13 +158,13 @@ function Index(): ReactElement {
         <h2 id="projects-heading" className="pixel-display section-title">
           The Lineup
         </h2>
-        <ol className="timeline-alternating" aria-label="Project timeline, newest to oldest">
-          {projectsByDate.map((project) => (
-            <li key={project.slug} className="timeline-alternating-item">
-              <time className="pixel-display timeline-date" dateTime={project.started}>
-                {formatDate(project.started)}
+        <ol className="timeline-alternating" aria-label="Project and credential timeline, oldest to newest">
+          {itemsByDate.map((item) => (
+            <li key={item.kind === "project" ? item.slug : item.id} className="timeline-alternating-item">
+              <time className="pixel-display timeline-date" dateTime={item.started}>
+                {"period" in item ? item.period : formatDate(item.started)}
               </time>
-              <ProjectCard project={project} />
+              <TimelineCard item={item} />
             </li>
           ))}
         </ol>
