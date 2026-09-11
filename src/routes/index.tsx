@@ -38,7 +38,7 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-function ProjectCard({ project }: { project: (typeof projects)[number] }): ReactElement {
+function ProjectCard({ project }: { project: Project }): ReactElement {
   return (
     <WaCard className="pixel-card" appearance="outlined">
       <div className="wa-stack wa-gap-s">
