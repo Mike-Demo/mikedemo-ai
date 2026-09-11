@@ -227,6 +227,79 @@ export const recommendations: readonly Recommendation[] = [
   },
 ];
 
+export interface ScheduleEntry {
+  readonly label: string;
+  readonly dates: string;
+  readonly detail: string;
+  readonly status: "done" | "upcoming" | "milestone";
+}
+
+/**
+ * Season calendar from https://agenticfootballcup.ai/schedule (Alpha Season,
+ * 11 Sep – 25 Oct 2026). Each competition week opens Thursday and closes
+ * Saturday night; the finale is live in Las Vegas.
+ */
+export const seasonSchedule: readonly ScheduleEntry[] = [
+  {
+    label: "Week 1",
+    dates: "Sep 10 – 12",
+    detail: "Practice + matches. Finished: 6W 4L, 28–23 goals, rank #8.",
+    status: "done",
+  },
+  {
+    label: "Week 2",
+    dates: "Sep 17 – 19",
+    detail: "Opens Sep 17. First test of the INTERCEPT patch against organized shapes.",
+    status: "upcoming",
+  },
+  {
+    label: "Week 3",
+    dates: "Sep 24 – 26",
+    detail: "Practice + matches window.",
+    status: "upcoming",
+  },
+  {
+    label: "Week 4",
+    dates: "Oct 1 – 3",
+    detail: "Practice + matches window.",
+    status: "upcoming",
+  },
+  {
+    label: "Week 5",
+    dates: "Oct 8 – 10",
+    detail: "Practice + matches window.",
+    status: "upcoming",
+  },
+  {
+    label: "Week 6",
+    dates: "Oct 15 – 17",
+    detail: "Practice + matches window.",
+    status: "upcoming",
+  },
+  {
+    label: "Registration closes",
+    dates: "Oct 21",
+    detail: "Last day to register a team for the Alpha Season.",
+    status: "milestone",
+  },
+  {
+    label: "Week 7",
+    dates: "Oct 22 – 24",
+    detail: "Final week. Season ends Oct 24 — top of your league after Week 7 goes to Las Vegas.",
+    status: "upcoming",
+  },
+  {
+    label: "Grand Finale · Las Vegas",
+    dates: "Nov 30 – Dec 4",
+    detail:
+      "Six league champions and four wildcards play the Alpha Season's last match live on the re:Invent stage. 1st US$30,000 · 2nd US$15,000 · 3rd US$5,000.",
+    status: "milestone",
+  },
+];
+
+export const scheduleUrl = "https://agenticfootballcup.ai/schedule";
+export const leaderboardUrl = "https://agenticfootballcup.ai/leaderboard";
+
 export const practiceFocus =
   "Organized-shape counter: testing the INTERCEPT initiative before Round 2";
 
