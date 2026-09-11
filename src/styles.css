@@ -113,7 +113,7 @@ main {
 }
 
 .pixel-card-title {
-  font-family: "Press Start 2P", var(--wa-font-family-code);
+  font-family: var(--wa-font-family-heading);
   font-size: var(--wa-font-size-xs);
   line-height: var(--wa-line-height-expanded);
   margin: 0;
