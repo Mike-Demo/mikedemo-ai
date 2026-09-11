@@ -82,6 +82,12 @@ main {
   font-size: var(--wa-font-size-l);
 }
 
+.hero-quote {
+  font-size: var(--wa-font-size-m);
+  color: var(--wa-color-brand-60);
+  max-width: 56ch;
+}
+
 /* Sections */
 
 .section {
