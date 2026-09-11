@@ -357,7 +357,7 @@ main {
 .timeline-marker:hover .timeline-marker-title,
 .timeline-marker:focus-visible .timeline-marker-title,
 .timeline-alternating-item[data-active="true"] .timeline-marker-title {
-  max-width: 12ch;
+  max-width: 20ch;
   opacity: 1;
 }
 
