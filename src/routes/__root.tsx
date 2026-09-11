@@ -7,11 +7,7 @@ import {
 } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 
-import {
-  WEB_AWESOME_CDN,
-  WEB_AWESOME_HTML_CLASSES,
-  FONT_AWESOME_VERSION,
-} from "@/design-system/font-awsome-web-awesome-171158";
+import { WEB_AWESOME_HTML_CLASSES } from "@/design-system/font-awsome-web-awesome-171158";
 
 import appCss from "../styles.css?url";
 import themeCss from "@/design-system/font-awsome-web-awesome-171158/webawesome/theme.css?url";
@@ -39,13 +35,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "stylesheet", href: themeCss },
-      { rel: "stylesheet", href: `${WEB_AWESOME_CDN}/styles/webawesome.css` },
-      { rel: "stylesheet", href: `${WEB_AWESOME_CDN}/styles/themes/default.css` },
-      { rel: "stylesheet", href: `${WEB_AWESOME_CDN}/styles/utilities.css` },
-      {
-        rel: "stylesheet",
-        href: `https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@${FONT_AWESOME_VERSION}/css/all.min.css`,
-      },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
