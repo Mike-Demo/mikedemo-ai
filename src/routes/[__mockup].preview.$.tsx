@@ -51,7 +51,7 @@ function MockupPreview(): ReactElement | null {
   return (
     <div
       ref={(node) => stampSource(node, "src/components/mockups/" + (_splat ?? "") + ".tsx", 0, mockupName)}
-      style={{ position: "fixed", inset: 0, overflow: "hidden", background: "var(--wa-color-surface-raised)", zIndex: 2147483647 }}
+      style={{ position: "fixed", inset: 0, overflow: "hidden", background: "#fff", zIndex: 2147483647 }}
     >
       <Suspense fallback={null}>{content}</Suspense>
     </div>
@@ -108,7 +108,7 @@ function pickComponent(mod: Record<string, unknown>): ComponentType | undefined 
 function errorContent(message: string): ReactElement {
   return createElement(
     "pre",
-    { style: { color: "var(--wa-color-red)", padding: "var(--wa-space-xl)", whiteSpace: "pre-wrap", fontFamily: "var(--wa-font-family-code)" } },
+    { style: { color: "red", padding: "2rem", whiteSpace: "pre-wrap", fontFamily: "ui-monospace, monospace" } },
     message,
   );
 }
