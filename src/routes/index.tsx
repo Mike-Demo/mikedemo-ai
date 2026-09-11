@@ -89,9 +89,46 @@ function formatDate(iso: string): string {
   });
 }
 
+function CredentialCard({ credential }: { credential: Credential }): ReactElement {
+  return (
+    <WaCard className="pixel-card credential-card" appearance="outlined">
+      <div className="wa-stack wa-gap-s">
+        <div className="wa-cluster wa-align-items-center wa-gap-s">
+          <span className="pixel-icon-badge" aria-hidden="true">
+            <WaIcon name={credential.icon} />
+          </span>
+          <div className="wa-stack wa-gap-3xs">
+            <h3 className="pixel-card-title">{credential.title}</h3>
+            <span className="wa-color-text-quiet" style={{ fontSize: "var(--wa-font-size-s)" }}>
+              {credential.issuer}
+            </span>
+          </div>
+        </div>
+        <p className="wa-color-text-quiet">{credential.summary}</p>
+        <a
+          href={credential.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="site-nav-link"
+        >
+          <WaIcon name="arrow-up-right-from-square" aria-hidden="true" /> View credential
+        </a>
+      </div>
+    </WaCard>
+  );
+}
+
+function TimelineCard({ item }: { item: TimelineItem }): ReactElement {
+  return item.kind === "project" ? (
+    <ProjectCard project={item} />
+  ) : (
+    <CredentialCard credential={item} />
+  );
+}
+
 function Index(): ReactElement {
-  const projectsByDate = [...projects].sort(
-    (a, b) => b.started.localeCompare(a.started)
+  const itemsByDate = [...timelineItems].sort(
+    (a, b) => a.started.localeCompare(b.started)
   );
 
   return (
