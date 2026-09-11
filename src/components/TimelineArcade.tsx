@@ -40,6 +40,9 @@ export function TimelineArcade({
   const scrollRef = useRef<HTMLDivElement | null>(null);
   const nodeRefs = useRef<Array<HTMLAnchorElement | null>>([]);
   const [preview, setPreview] = useState<PreviewState | null>(null);
+  // Persists across blurs so the arrow buttons keep stepping from the last
+  // active node even after clicking a button steals focus.
+  const [selected, setSelected] = useState<number | null>(null);
 
   function computeLeft(index: number): number {
     const node = nodeRefs.current[index];
@@ -56,6 +59,7 @@ export function TimelineArcade({
   }
 
   function showPreview(index: number): void {
+    setSelected(index);
     setPreview({ index, left: computeLeft(index) });
   }
 
@@ -73,7 +77,10 @@ export function TimelineArcade({
     const focusedIndex = nodeRefs.current.findIndex(
       (element) => element !== null && element === document.activeElement,
     );
-    const base = preview?.index ?? (focusedIndex >= 0 ? focusedIndex : delta > 0 ? -1 : projects.length);
+    const base =
+      preview?.index ??
+      selected ??
+      (focusedIndex >= 0 ? focusedIndex : delta > 0 ? -1 : projects.length);
     const next = Math.min(Math.max(base + delta, 0), projects.length - 1);
     const node = nodeRefs.current[next];
     node?.focus();
@@ -123,7 +130,7 @@ export function TimelineArcade({
         type="button"
         className="arcade-arrow"
         aria-label="Previous project"
-        disabled={preview?.index === 0}
+        disabled={selected === 0}
         onClick={() => step(-1)}
       >
         <WaIcon name="chevron-left" aria-hidden="true" />
@@ -205,7 +212,7 @@ export function TimelineArcade({
         type="button"
         className="arcade-arrow"
         aria-label="Next project"
-        disabled={preview?.index === projects.length - 1}
+        disabled={selected === projects.length - 1}
         onClick={() => step(1)}
       >
         <WaIcon name="chevron-right" aria-hidden="true" />
