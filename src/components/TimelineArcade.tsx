@@ -55,6 +55,16 @@ export function TimelineArcade({ projects }: TimelineArcadeProps): ReactElement 
     return () => dialog.removeEventListener("wa-after-hide", close);
   }, [close]);
 
+  // `open` is a Lit property on <wa-dialog>, so set it directly instead of
+  // letting React write it as an attribute value.
+  useEffect(() => {
+    const dialog = dialogRef.current as (HTMLElement & { open?: boolean }) | null;
+    if (dialog) {
+      dialog.open = openIndex !== null;
+    }
+  }, [openIndex]);
+
+
 
   function handleKeyDown(event: KeyboardEvent<HTMLButtonElement>, index: number): void {
     const offsets: Record<string, number> = {
