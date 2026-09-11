@@ -255,6 +255,9 @@ export interface ScheduleEntry {
   readonly dates: string;
   readonly detail: string;
   readonly status: "done" | "upcoming" | "milestone";
+  /** Inclusive ISO date range (2026 Alpha Season), used by the calendar view. */
+  readonly start: string;
+  readonly end: string;
 }
 
 /**
