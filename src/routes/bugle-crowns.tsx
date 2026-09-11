@@ -76,7 +76,7 @@ function BugleCrownsPage(): ReactElement {
           <div className="wa-stack wa-gap-2xs">
             <h1 className="pixel-display section-title">Bugle Crowns</h1>
             <span className="wa-color-text-quiet">AWS Agentic Football Cup · {weekId}</span>
-            <span className="wa-color-text-quiet" style={{ fontSize: "var(--wa-font-size-s)" }}>
+            <span className="quiet-small">
               Run by AWSOfficial Alpha Season, supported by Minds from Animoca Brands
             </span>
           </div>
@@ -261,7 +261,7 @@ function BugleCrownsPage(): ReactElement {
                       ) : null}
                     </div>
                     {match.playedAt ? (
-                      <p className="wa-color-text-quiet" style={{ fontSize: "var(--wa-font-size-s)" }}>
+                      <p className="quiet-small">
                         <time dateTime={match.playedAt}>
                           {new Date(match.playedAt).toLocaleString("en-US", {
                             weekday: "short",
