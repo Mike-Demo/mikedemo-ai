@@ -71,33 +71,30 @@ function BugleCrownsPage(): ReactElement {
 
   return (
     <SiteShell>
-      <section className="section section-narrow wa-stack wa-gap-l">
+      <section className="hero-section wa-stack wa-gap-m wa-align-items-center">
         <nav aria-label="Breadcrumb">
           <Link to="/" className="site-nav-link">
             <WaIcon name="arrow-left" aria-hidden="true" /> All projects
           </Link>
         </nav>
 
-        <div className="wa-cluster wa-align-items-center wa-gap-m">
-          {project ? (
-            <span className="pixel-icon-badge pixel-icon-badge-large" aria-hidden="true">
-              <ProjectIcon project={project} />
-            </span>
-          ) : null}
-          <div className="wa-stack wa-gap-2xs">
-            <h1 className="pixel-display section-title">Bugle Crowns</h1>
-            <span className="wa-color-text-quiet">AWS Agentic Football Cup · {weekId}</span>
-            <span className="quiet-small">
-              Run by AWSOfficial Alpha Season, supported by Minds from Animoca Brands
-            </span>
-          </div>
-        </div>
-
-        <p className="project-lede">
+        {project ? (
+          <span className="pixel-icon-badge pixel-icon-badge-large" aria-hidden="true">
+            <ProjectIcon project={project} />
+          </span>
+        ) : null}
+        <h1 className="pixel-display hero-title">Bugle Crowns</h1>
+        <p className="pixel-display hero-eyebrow">AWS Agentic Football Cup · {weekId}</p>
+        <p className="hero-subtitle">
           Five AI agents, 120-second matches, one very opinionated coach. Bugle Crowns is my team in
           the AWS Agentic Football Cup — here is how Week 1 went and what changes next.
         </p>
+        <p className="quiet-small">
+          Run by AWSOfficial Alpha Season, supported by Minds from Animoca Brands
+        </p>
+      </section>
 
+      <section className="section wa-stack wa-gap-l">
         {project ? <ProjectSummaryCard project={project} /> : null}
 
         <div className="wa-stack wa-gap-xs">

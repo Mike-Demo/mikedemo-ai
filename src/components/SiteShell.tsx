@@ -9,6 +9,8 @@ import {
 } from "@/design-system/font-awsome-web-awesome-171158";
 import { DEFAULT_SOCIAL_LINKS } from "@/design-system/font-awsome-web-awesome-171158/webawesome/patterns/site-footer";
 
+import { PixelWipe } from "@/components/PixelWipe";
+
 /**
  * Shared page shell: Web Awesome loader, sticky header with icon navigation
  * and social links, main content, and the standard site footer.
@@ -61,7 +63,9 @@ export function SiteShell({ children }: { children: ReactNode }): ReactElement {
         </div>
       </header>
 
-      <main>{children}</main>
+      <PixelWipe />
+
+      <main className="page-enter">{children}</main>
 
       <div slot="footer">
         <SiteFooter />

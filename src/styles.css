@@ -261,6 +261,12 @@ main {
   padding-block: var(--wa-space-m);
   scroll-snap-type: x proximity;
   scroll-padding-inline: var(--wa-space-l);
+  transition: padding-block-end var(--wa-transition-fast) var(--wa-transition-easing);
+}
+
+/* Make vertical room for the preview popup so it isn't clipped by the scroller. */
+.arcade-rail-scroll[data-preview] {
+  padding-block-end: 15rem;
 }
 
 .arcade-rail {
@@ -371,6 +377,106 @@ main {
   max-width: 100%;
 }
 
+/* Preview popup shown for the focused/hovered rail node. */
+.arcade-preview {
+  position: absolute;
+  inset-block-start: calc(100% + var(--wa-space-2xs));
+  inset-inline-start: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  width: 17rem;
+  max-width: 80vw;
+  display: grid;
+  gap: var(--wa-space-2xs);
+  padding: var(--wa-space-s);
+  text-align: start;
+  background-color: var(--wa-color-surface-raised);
+  border: var(--wa-border-width-m) var(--wa-border-style) var(--wa-color-brand-60);
+  border-radius: var(--wa-border-radius-square);
+  box-shadow: var(--wa-space-2xs) var(--wa-space-2xs) 0 0 var(--wa-color-shadow);
+  animation: arcade-preview-in var(--wa-transition-fast) var(--wa-transition-easing) both;
+}
+
+.arcade-node[data-align="start"] .arcade-preview {
+  inset-inline-start: 0;
+  transform: none;
+}
+
+.arcade-node[data-align="end"] .arcade-preview {
+  inset-inline-start: auto;
+  inset-inline-end: 0;
+  transform: none;
+}
+
+.arcade-preview-title {
+  font-size: var(--wa-font-size-2xs);
+  margin: 0;
+}
+
+.arcade-preview-date {
+  font-size: var(--wa-font-size-2xs);
+  color: var(--wa-color-brand-60);
+  margin: 0;
+}
+
+.arcade-preview-summary {
+  margin: 0;
+  font-size: var(--wa-font-size-s);
+  line-height: var(--wa-line-height-expanded);
+  color: var(--wa-color-text-quiet);
+}
+
+.arcade-preview-hint {
+  margin: 0;
+  font-size: var(--wa-font-size-2xs);
+  color: var(--wa-color-brand-60);
+}
+
+@keyframes arcade-preview-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, var(--wa-space-2xs));
+  }
+}
+
+/* 8-bit page wipe */
+
+.pixel-wipe {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  pointer-events: none;
+}
+
+.pixel-wipe-block {
+  background-color: var(--wa-color-surface-lowered);
+  animation: pixel-wipe-clear 260ms steps(2, end) both;
+}
+
+@keyframes pixel-wipe-clear {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.page-enter {
+  animation: page-enter-rise 320ms var(--wa-transition-easing) both;
+  animation-delay: 180ms;
+}
+
+@keyframes page-enter-rise {
+  from {
+    opacity: 0;
+    transform: translateY(var(--wa-space-m));
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .arcade-node-icon {
     transition: none;
@@ -378,6 +484,15 @@ main {
 
   .arcade-rail-scroll {
     scroll-behavior: auto;
+  }
+
+  .arcade-preview,
+  .page-enter {
+    animation: none;
+  }
+
+  .pixel-wipe {
+    display: none;
   }
 }
 
