@@ -401,11 +401,15 @@ main {
     justify-self: stretch;
   }
 
-  .timeline-alternating-item .timeline-date {
+  .timeline-alternating-item .timeline-center {
     grid-column: 1 / 2;
     grid-row: 1;
     justify-self: start;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--wa-space-xs);
   }
+
 
   .timeline-alternating-item::before {
     inset-inline-start: var(--wa-space-m);
