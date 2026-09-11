@@ -1,25 +1,17 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import type { KeyboardEvent, ReactElement } from "react";
-import { useMemo } from "react";
+import { createFileRoute } from "@tanstack/react-router";
+import type { ReactElement } from "react";
 
 import {
   WaButton,
-  WaCard,
   WaIcon,
 } from "@/design-system/font-awsome-web-awesome-171158";
 
-import { ProjectCredits } from "@/components/ProjectCredits";
-import { ProjectIcon } from "@/components/ProjectIcon";
+import { CredentialsSection } from "@/components/CredentialsSection";
 import { SiteShell } from "@/components/SiteShell";
-import { TechTagList } from "@/components/TechTagList";
+import { TimelineArcade } from "@/components/TimelineArcade";
 import headshotSrc from "@/assets/headshot.png";
-import type { Project } from "@/data/projects";
-import type { Credential, TimelineItem } from "@/data/timeline";
-import { timelineItems } from "@/data/timeline";
-import {
-  scrollToTimelineItem,
-  useActiveTimelineItem,
-} from "@/lib/use-active-timeline-item";
+import { projectsNewestFirst } from "@/data/timeline";
+
 
 export const Route = createFileRoute("/")({
   staticData: { sitemap: true },
