@@ -299,15 +299,24 @@ main {
   color: var(--wa-color-brand-60);
 }
 
-.arcade-node-button {
+/* Each node is a single link: icon plate, date and name all activate it. */
+.arcade-node-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--wa-space-2xs);
+  text-decoration: none;
+  color: var(--wa-color-text-normal);
+}
+
+.arcade-node-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   inline-size: var(--wa-space-3xl);
   block-size: var(--wa-space-3xl);
   padding: var(--wa-space-2xs);
-  cursor: pointer;
-  color: var(--wa-color-text-normal);
+  font-size: var(--wa-font-size-xl);
   background-color: var(--wa-color-surface-raised);
   border: var(--wa-border-width-m) var(--wa-border-style) var(--wa-color-shadow);
   border-radius: var(--wa-border-radius-square);
@@ -317,17 +326,15 @@ main {
     box-shadow var(--wa-transition-fast) var(--wa-transition-easing);
 }
 
-.arcade-node-button:hover,
-.arcade-node-button:focus-visible {
+.arcade-node-link:hover .arcade-node-icon,
+.arcade-node-link:focus-visible .arcade-node-icon {
   transform: translate(calc(-1 * var(--wa-space-3xs)), calc(-1 * var(--wa-space-3xs)));
   box-shadow: var(--wa-space-xs) var(--wa-space-xs) 0 0 var(--wa-color-brand-60);
 }
 
-.arcade-node-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: var(--wa-font-size-xl);
+.arcade-node[data-current] .arcade-node-icon {
+  border-color: var(--wa-color-brand-60);
+  box-shadow: var(--wa-space-2xs) var(--wa-space-2xs) 0 0 var(--wa-color-brand-60);
 }
 
 .arcade-node-icon .project-logo {
@@ -351,12 +358,21 @@ main {
   color: var(--wa-color-text-quiet);
 }
 
-.arcade-dialog::part(body) {
-  padding-block-start: var(--wa-space-s);
+/* Compact rail used on project pages. */
+.arcade-rail-compact {
+  gap: var(--wa-space-l);
+}
+
+.arcade-rail-compact .arcade-node {
+  width: 7rem;
+}
+
+.project-summary-card {
+  max-width: 100%;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .arcade-node-button {
+  .arcade-node-icon {
     transition: none;
   }
 
@@ -364,6 +380,7 @@ main {
     scroll-behavior: auto;
   }
 }
+
 
 
 /* Match log: pixel scoreboard table. */
