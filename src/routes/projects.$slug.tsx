@@ -8,6 +8,7 @@ import {
   WaTag,
 } from "@/design-system/font-awsome-web-awesome-171158";
 
+import { ProjectIcon } from "@/components/ProjectIcon";
 import { SiteShell } from "@/components/SiteShell";
 import { getProject } from "@/data/projects";
 
