@@ -57,6 +57,7 @@ export const weekRecord: WeekRecord = {
   cleanSheets: 1,
   played: 10,
   possible: 70,
+  points: 221,
 };
 
 export const rankMovement = {
