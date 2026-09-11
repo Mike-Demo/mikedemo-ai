@@ -14,6 +14,7 @@ import { SiteShell } from "@/components/SiteShell";
 import { getProject } from "@/data/projects";
 
 export const Route = createFileRoute("/projects/$slug")({
+  staticData: { sitemap: true },
   loader: ({ params }) => {
     const project = getProject(params.slug);
     if (!project) throw notFound();

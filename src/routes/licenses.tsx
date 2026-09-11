@@ -12,6 +12,7 @@ import {
 import { SiteShell } from "@/components/SiteShell";
 
 export const Route = createFileRoute("/licenses")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: "Open Source Licenses — MikeDemo" },

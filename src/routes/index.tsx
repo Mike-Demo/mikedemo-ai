@@ -17,6 +17,7 @@ import type { Credential, TimelineItem } from "@/data/timeline";
 import { timelineItems } from "@/data/timeline";
 
 export const Route = createFileRoute("/")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: "MikeDemo — AI Project Portfolio" },
