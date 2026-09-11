@@ -59,7 +59,8 @@ main {
 
 /* Project credit links */
 
-.project-credits {
+.project-credits,
+.quiet-small {
   margin: 0;
   font-size: var(--wa-font-size-s);
   color: var(--wa-color-text-quiet);
