@@ -42,7 +42,7 @@ function ProjectCard({ project }: { project: (typeof projects)[number] }): React
           <span className="pixel-icon-badge" aria-hidden="true">
             <ProjectIcon project={project} />
           </span>
-          <h2 className="pixel-card-title">{project.name}</h2>
+          <h3 className="pixel-card-title">{project.name}</h3>
         </div>
         <p className="wa-color-text-quiet">{project.summary}</p>
         <div className="wa-cluster wa-gap-2xs">
@@ -79,7 +79,9 @@ function formatDate(iso: string): string {
 }
 
 function Index(): ReactElement {
-  const timelineProjects = [...projects].sort((a, b) => a.started.localeCompare(b.started));
+  const projectsByDate = [...projects].sort(
+    (a, b) => b.started.localeCompare(a.started)
+  );
 
   return (
     <SiteShell>
@@ -100,37 +102,16 @@ function Index(): ReactElement {
         <h2 id="projects-heading" className="pixel-display section-title">
           The Lineup
         </h2>
-        <div className="wa-flank:end wa-gap-xl">
-          <div className="wa-grid wa-gap-m projects-grid">
-            {projects.map((project) => (
-              <ProjectCard key={project.slug} project={project} />
-            ))}
-          </div>
-          <aside className="wa-stack wa-gap-m timeline-aside" aria-labelledby="timeline-heading">
-            <h2 id="timeline-heading" className="pixel-display section-title">
-              Build Timeline
-            </h2>
-            <ol className="timeline">
-              {timelineProjects.map((project) => (
-                <li key={project.slug} className="timeline-item">
-                  <time className="pixel-display timeline-date" dateTime={project.started}>
-                    {formatDate(project.started)}
-                  </time>
-                  <div className="timeline-body wa-stack wa-gap-2xs">
-                    <Link
-                      to="/projects/$slug"
-                      params={{ slug: project.slug }}
-                      className="site-nav-link timeline-name"
-                    >
-                      <ProjectIcon project={project} /> {project.name}
-                    </Link>
-                    <p className="wa-color-text-quiet timeline-summary">{project.summary}</p>
-                  </div>
-                </li>
-              ))}
-            </ol>
-          </aside>
-        </div>
+        <ol className="timeline-alternating" aria-label="Project timeline, newest to oldest">
+          {projectsByDate.map((project) => (
+            <li key={project.slug} className="timeline-alternating-item">
+              <ProjectCard project={project} />
+              <time className="pixel-display timeline-date" dateTime={project.started}>
+                {formatDate(project.started)}
+              </time>
+            </li>
+          ))}
+        </ol>
       </section>
     </SiteShell>
   );
