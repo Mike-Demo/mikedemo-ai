@@ -10,6 +10,11 @@ import prideBlobsLogo from "@/assets/project-icons/pride-blobs.png";
 import skillFinderLogo from "@/assets/project-icons/skill-finder-plus.svg";
 import staLogo from "@/assets/project-icons/sta-2e-d20-roller.jpg";
 
+export interface ProjectCredit {
+  readonly name: string;
+  readonly url: string;
+}
+
 export interface Project {
   readonly slug: string;
   readonly name: string;
@@ -25,6 +30,8 @@ export interface Project {
   readonly started: string;
   /** Set when the project has a bespoke detail page instead of /projects/$slug. */
   readonly detailPath?: "/bugle-crowns";
+  /** Upstream projects and source material worth crediting. */
+  readonly credits?: readonly ProjectCredit[];
 }
 
 export const projects: readonly Project[] = [
@@ -41,6 +48,7 @@ export const projects: readonly Project[] = [
     logo: bugleCrownsLogo,
     started: "2026-09-10",
     detailPath: "/bugle-crowns",
+    credits: [{ name: "AWS Agentic Football Cup", url: "https://agenticfootballcup.com" }],
   },
   {
     slug: "on-device-ai",
@@ -54,6 +62,10 @@ export const projects: readonly Project[] = [
     icon: "microchip",
     logo: onDeviceAiLogo,
     started: "2026-09-11",
+    credits: [
+      { name: "WebLLM by MLC AI", url: "https://github.com/mlc-ai/web-llm" },
+      { name: "WebGPU", url: "https://www.w3.org/TR/webgpu/" },
+    ],
   },
   {
     slug: "ai-deployer",
@@ -67,6 +79,11 @@ export const projects: readonly Project[] = [
     icon: "server",
     logo: aiDeployerLogo,
     started: "2026-09-09",
+    credits: [
+      { name: "OpenClaw", url: "https://github.com/openclaw" },
+      { name: "Ollama", url: "https://github.com/ollama/ollama" },
+      { name: "n8n", url: "https://github.com/n8n-io/n8n" },
+    ],
   },
   {
     slug: "crosspost",
@@ -80,6 +97,10 @@ export const projects: readonly Project[] = [
     icon: "retweet",
     logo: crosspostLogo,
     started: "2026-09-06",
+    credits: [
+      { name: "tweet.app", url: "https://tweet.app" },
+      { name: "X", url: "https://x.com" },
+    ],
   },
   {
     slug: "skill-finder-plus",
@@ -105,6 +126,10 @@ export const projects: readonly Project[] = [
     url: "https://project--9fea97bb-e317-446f-b683-1274350846c6.lovable.app",
     icon: "swatchbook",
     started: "2026-09-03",
+    credits: [
+      { name: "Web Awesome", url: "https://webawesome.com" },
+      { name: "Font Awesome Free", url: "https://fontawesome.com" },
+    ],
   },
   {
     slug: "pretendpro",
@@ -131,6 +156,9 @@ export const projects: readonly Project[] = [
     icon: "palette",
     logo: prideBlobsLogo,
     started: "2026-08-24",
+    credits: [
+      { name: "blobatar by Alain00 (MIT)", url: "https://github.com/Alain00/blobatar" },
+    ],
   },
   {
     slug: "sta-2e-d20-roller",
@@ -144,6 +172,10 @@ export const projects: readonly Project[] = [
     icon: "dice-d20",
     logo: staLogo,
     started: "2026-02-23",
+    credits: [
+      { name: "Star Trek Adventures (Modiphius Entertainment)", url: "https://www.modiphius.net" },
+      { name: "LCARS design by Jim Robertus", url: "https://thelcars.com" },
+    ],
   },
 ];
 
