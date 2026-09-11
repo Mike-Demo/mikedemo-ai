@@ -17,6 +17,8 @@ export interface Project {
   readonly tech: readonly string[];
   readonly url: string;
   readonly icon: string;
+  /** The project's own site icon, when it publishes one. */
+  readonly logo?: string;
   /** ISO date the project was first built. */
   readonly started: string;
 }
