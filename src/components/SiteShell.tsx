@@ -63,7 +63,9 @@ export function SiteShell({ children }: { children: ReactNode }): ReactElement {
         </div>
       </header>
 
-      <main>{children}</main>
+      <PixelWipe />
+
+      <main className="page-enter">{children}</main>
 
       <div slot="footer">
         <SiteFooter />
