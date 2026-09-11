@@ -99,28 +99,28 @@ function formatDate(iso: string): string {
 
 function CredentialCard({ credential }: { credential: Credential }): ReactElement {
   return (
-    <WaCard className="pixel-card credential-card" appearance="outlined">
-      <div className="wa-stack wa-gap-s">
-        <div className="wa-cluster wa-align-items-center wa-gap-s">
-          <span className="pixel-icon-badge" aria-hidden="true">
-            <WaIcon name={credential.icon} />
-          </span>
-          <div className="wa-stack wa-gap-3xs">
-            <h3 className="pixel-card-title">{credential.title}</h3>
+    <>
+      <h3 className="pixel-display credential-card-heading">{credential.title}</h3>
+      <WaCard className="pixel-card credential-card" appearance="outlined">
+        <div className="wa-stack wa-gap-s">
+          <div className="wa-cluster wa-align-items-center wa-gap-s">
+            <span className="pixel-icon-badge" aria-hidden="true">
+              <WaIcon name={credential.icon} />
+            </span>
             <span className="wa-color-text-quiet credential-issuer">{credential.issuer}</span>
           </div>
+          <p className="wa-color-text-quiet">{credential.summary}</p>
+          <a
+            href={credential.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="site-nav-link"
+          >
+            <WaIcon name="arrow-up-right-from-square" aria-hidden="true" /> View credential
+          </a>
         </div>
-        <p className="wa-color-text-quiet">{credential.summary}</p>
-        <a
-          href={credential.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="site-nav-link"
-        >
-          <WaIcon name="arrow-up-right-from-square" aria-hidden="true" /> View credential
-        </a>
-      </div>
-    </WaCard>
+      </WaCard>
+    </>
   );
 }
 
