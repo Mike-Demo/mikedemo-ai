@@ -502,7 +502,8 @@ main {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .arcade-node-icon {
+  .arcade-node-icon,
+  .arcade-arrow {
     transition: none;
   }
 
