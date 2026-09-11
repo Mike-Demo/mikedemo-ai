@@ -270,6 +270,7 @@ function BugleCrownsPage(): ReactElement {
                             day: "numeric",
                             hour: "numeric",
                             minute: "2-digit",
+                            timeZone: "America/Chicago",
                             timeZoneName: "short",
                           })}
                         </time>
