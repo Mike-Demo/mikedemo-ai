@@ -24,15 +24,18 @@ export const Route = createFileRoute("/projects/$slug")({
     if (!loaderData) {
       return { meta: [{ title: "Project not found — MikeDemo" }] };
     }
+    const url = `https://mikedemo.dev/projects/${loaderData.slug}`;
     return {
       meta: [
         { title: `${loaderData.name} — MikeDemo` },
         { name: "description", content: loaderData.summary },
         { property: "og:title", content: `${loaderData.name} — MikeDemo` },
         { property: "og:description", content: loaderData.summary },
-        { property: "og:type", content: "website" },
-        { name: "twitter:card", content: "summary_large_image" },
+        { property: "og:type", content: "article" },
+        { property: "og:url", content: url },
+        { name: "twitter:card", content: "summary" },
       ],
+      links: [{ rel: "canonical", href: url }],
     };
   },
   notFoundComponent: ProjectNotFound,
