@@ -11,10 +11,14 @@ import {
 } from "@/design-system/font-awsome-web-awesome-171158";
 
 import { ProjectIcon } from "@/components/ProjectIcon";
+import { ProjectSummaryCard } from "@/components/ProjectSummaryCard";
 import { SeasonCalendar } from "@/components/SeasonCalendar";
 import { SiteShell } from "@/components/SiteShell";
 import { TechTagList } from "@/components/TechTagList";
+import { TimelineArcade } from "@/components/TimelineArcade";
 import { getProject } from "@/data/projects";
+import { projectsNewestFirst } from "@/data/timeline";
+
 import {
   drills,
   latestMatch,
@@ -93,6 +97,22 @@ function BugleCrownsPage(): ReactElement {
           Five AI agents, 120-second matches, one very opinionated coach. Bugle Crowns is my team in
           the AWS Agentic Football Cup — here is how Week 1 went and what changes next.
         </p>
+
+        {project ? <ProjectSummaryCard project={project} /> : null}
+
+        <div className="wa-stack wa-gap-xs">
+          <h2 className="pixel-display tech-heading">Level Select</h2>
+          <p className="wa-color-text-quiet">
+            Where this project sits in the timeline — pick another level to jump across.
+          </p>
+          <TimelineArcade
+            projects={projectsNewestFirst}
+            currentSlug="bugle-crowns"
+            compact
+          />
+        </div>
+
+
 
         <div className="wa-stack wa-gap-2xs">
           <h2 className="pixel-display tech-heading">Squad stack</h2>

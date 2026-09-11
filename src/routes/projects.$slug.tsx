@@ -7,11 +7,13 @@ import {
   WaIcon,
 } from "@/design-system/font-awsome-web-awesome-171158";
 
-import { ProjectCredits } from "@/components/ProjectCredits";
-import { TechTagList } from "@/components/TechTagList";
+import { ProjectSummaryCard } from "@/components/ProjectSummaryCard";
 import { ProjectIcon } from "@/components/ProjectIcon";
 import { SiteShell } from "@/components/SiteShell";
+import { TimelineArcade } from "@/components/TimelineArcade";
 import { getProject } from "@/data/projects";
+import { projectsNewestFirst } from "@/data/timeline";
+
 
 export const Route = createFileRoute("/projects/$slug")({
   staticData: { sitemap: true },
@@ -82,17 +84,8 @@ function ProjectPage(): ReactElement {
 
         <p className="project-lede">{project.description}</p>
 
-        <div className="wa-stack wa-gap-xs">
-          <h2 className="pixel-display tech-heading">Tech stack</h2>
-          <TechTagList items={project.tech} label="Tech stack" />
-        </div>
+        <ProjectSummaryCard project={project} />
 
-        {project.credits?.length ? (
-          <div className="wa-stack wa-gap-xs">
-            <h2 className="pixel-display tech-heading">Credits</h2>
-            <ProjectCredits project={project} />
-          </div>
-        ) : null}
 
         <div className="wa-cluster wa-gap-m">
           <WaButton variant="brand" size="large" href={project.url} target="_blank" rel="noopener noreferrer">
@@ -100,7 +93,20 @@ function ProjectPage(): ReactElement {
             Visit live site
           </WaButton>
         </div>
+
+        <div className="wa-stack wa-gap-xs">
+          <h2 className="pixel-display tech-heading">Level Select</h2>
+          <p className="wa-color-text-quiet">
+            Where this project sits in the timeline — pick another level to jump across.
+          </p>
+          <TimelineArcade
+            projects={projectsNewestFirst}
+            currentSlug={project.slug}
+            compact
+          />
+        </div>
       </section>
+
     </SiteShell>
   );
 }
