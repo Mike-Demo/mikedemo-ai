@@ -57,7 +57,7 @@ function ProjectPage(): ReactElement {
 
   return (
     <SiteShell>
-      <section className="section wa-stack wa-gap-l" style={{ maxWidth: "48rem" }}>
+      <section className="section section-narrow wa-stack wa-gap-l">
         <nav aria-label="Breadcrumb">
           <Link to="/" className="site-nav-link">
             <WaIcon name="arrow-left" aria-hidden="true" /> All projects

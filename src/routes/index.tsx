@@ -88,10 +88,7 @@ function Index(): ReactElement {
         <h2 id="projects-heading" className="pixel-display section-title">
           The Lineup
         </h2>
-        <div
-          className="wa-grid wa-gap-m"
-          style={{ "--min-column-size": "var(--wa-grid-min, 20rem)" } as CSSProperties}
-        >
+        <div className="wa-grid wa-gap-m projects-grid">
           {projects.map((project) => (
             <ProjectCard key={project.slug} project={project} />
           ))}
