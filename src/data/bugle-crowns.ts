@@ -40,6 +40,7 @@ export interface WeekRecord {
   readonly cleanSheets: number;
   readonly played: number;
   readonly possible: number;
+  readonly points: number;
 }
 
 export const weekId = "Round 1 · Week 1";
