@@ -37,7 +37,7 @@ export const projects: readonly Project[] = [
     tech: ["AI Agents", "AWS", "Prompt Engineering"],
     url: "https://agenticfootballcup.com",
     icon: "futbol",
-    logo: bugleCrownsLogo.url,
+    logo: bugleCrownsLogo,
     started: "2026-09-10",
     detailPath: "/bugle-crowns",
   },
