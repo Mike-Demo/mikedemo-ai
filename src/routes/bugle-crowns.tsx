@@ -25,6 +25,7 @@ import {
   recommendations,
   scheduleUrl,
   seasonSchedule,
+  squadStack,
   weekId,
   weekRecord,
 } from "@/data/bugle-crowns";
