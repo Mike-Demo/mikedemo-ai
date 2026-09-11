@@ -2,6 +2,7 @@
  * Portfolio content. Edit this single file to add or update projects.
  */
 import aiDeployerLogo from "@/assets/project-icons/ai-deployer.svg";
+import bugleCrownsLogo from "@/assets/project-icons/bugle-crowns.png";
 import crosspostLogo from "@/assets/project-icons/crosspost.png";
 import onDeviceAiLogo from "@/assets/project-icons/on-device-ai.svg";
 import pretendProLogo from "@/assets/project-icons/pretendpro.png";
@@ -21,9 +22,25 @@ export interface Project {
   readonly logo?: string;
   /** ISO date the project was first built. */
   readonly started: string;
+  /** Set when the project has a bespoke detail page instead of /projects/$slug. */
+  readonly detailPath?: "/bugle-crowns";
 }
 
 export const projects: readonly Project[] = [
+  {
+    slug: "bugle-crowns",
+    name: "Bugle Crowns",
+    domain: "agenticfootballcup.com",
+    summary: "My AI agent team in the AWS Agentic Football Cup — five agents, 120-second matches.",
+    description:
+      "Bugle Crowns is my team in the AWS Agentic Football Cup, where AI agents play 120-second football matches against each other. Each of the five positions runs its own agent with its own instructions, and every week's results feed back into the next round of tactical tuning.",
+    tech: ["AI Agents", "AWS", "Prompt Engineering"],
+    url: "https://agenticfootballcup.com",
+    icon: "futbol",
+    logo: bugleCrownsLogo,
+    started: "2026-09-10",
+    detailPath: "/bugle-crowns",
+  },
   {
     slug: "on-device-ai",
     name: "On-Device AI",

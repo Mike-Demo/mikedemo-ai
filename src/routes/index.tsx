@@ -53,13 +53,19 @@ function ProjectCard({ project }: { project: (typeof projects)[number] }): React
           ))}
         </div>
         <div className="wa-cluster wa-gap-s">
-          <Link
-            to="/projects/$slug"
-            params={{ slug: project.slug }}
-            className="site-nav-link"
-          >
-            Details
-          </Link>
+          {project.detailPath ? (
+            <Link to={project.detailPath} className="site-nav-link">
+              Details
+            </Link>
+          ) : (
+            <Link
+              to="/projects/$slug"
+              params={{ slug: project.slug }}
+              className="site-nav-link"
+            >
+              Details
+            </Link>
+          )}
           <a href={project.url} target="_blank" rel="noopener noreferrer" className="site-nav-link">
             <WaIcon name="arrow-up-right-from-square" aria-hidden="true" /> {project.domain}
           </a>
