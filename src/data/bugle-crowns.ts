@@ -92,6 +92,109 @@ export const latestMatch: MatchResult = {
   ],
 };
 
+export interface MatchLogEntry {
+  readonly match: number;
+  readonly opponent: string;
+  readonly result: "win" | "loss" | "draw";
+  readonly scoreFor: number;
+  readonly scoreAgainst: number;
+  readonly summary: string;
+}
+
+/** All ten Round 1 Week 1 matches, taken from the Player Portal match reports. */
+export const matchLog: readonly MatchLogEntry[] = [
+  {
+    match: 1,
+    opponent: "Bugle Flotillas",
+    result: "loss",
+    scoreFor: 2,
+    scoreAgainst: 5,
+    summary:
+      "Flotillas controlled 64% possession and 147 MARK commands while our 333 MOVE_TO instructions left coverage gaps; three goals in minute 2 settled it.",
+  },
+  {
+    match: 2,
+    opponent: "Bugle Lancers",
+    result: "win",
+    scoreFor: 4,
+    scoreAgainst: 1,
+    summary:
+      "Two goals inside the opening minute and sustained pressing overwhelmed a movement-heavy Lancers setup. Sara opened the scoring from goal.",
+  },
+  {
+    match: 3,
+    opponent: "Copper Canyons",
+    result: "win",
+    scoreFor: 3,
+    scoreAgainst: 2,
+    summary:
+      "A fast-paced opener where both sides scored twice early; our finishing edge decided a tight finish despite sterile spells of possession.",
+  },
+  {
+    match: 4,
+    opponent: "Bugle Owls",
+    result: "loss",
+    scoreFor: 2,
+    scoreAgainst: 3,
+    summary:
+      "56% possession, but Owls' FOLLOW_PLAYER tracking (90 commands) cut passing lanes and their sharper shooting punished 233 MOVE_TO versus 45 SHOOT.",
+  },
+  {
+    match: 5,
+    opponent: "Bugle Eagles",
+    result: "win",
+    scoreFor: 4,
+    scoreAgainst: 0,
+    summary:
+      "The week's only clean sheet. 162 PRESS_BALL commands strangled Eagles' buildup and four rapid goals arrived despite a possession deficit.",
+  },
+  {
+    match: 6,
+    opponent: "Bugle Pioneers",
+    result: "win",
+    scoreFor: 4,
+    scoreAgainst: 3,
+    summary:
+      "A goal-heavy shootout settled by shot accuracy — 4 of 5 on target against 3 of 4 — with possession almost dead level.",
+  },
+  {
+    match: 7,
+    opponent: "Copper Bandits",
+    result: "win",
+    scoreFor: 4,
+    scoreAgainst: 3,
+    summary:
+      "Another frenetic trade of goals; forward play stayed clinical while the Bandits kept pace until the closing exchanges.",
+  },
+  {
+    match: 8,
+    opponent: "Bugle Oars",
+    result: "loss",
+    scoreFor: 1,
+    scoreAgainst: 2,
+    summary:
+      "We dominated territory but not the final third. Oars' direct play exploited our heavy PRESS_BALL reliance and won it with 42 SHOOT commands.",
+  },
+  {
+    match: 9,
+    opponent: "Bugle Bastions",
+    result: "win",
+    scoreFor: 3,
+    scoreAgainst: 2,
+    summary:
+      "A frenetic three minutes of traded goals; midfield incisiveness and on-target accuracy beat the Bastions' higher shot volume.",
+  },
+  {
+    match: 10,
+    opponent: "Bugle Hornets",
+    result: "loss",
+    scoreFor: 1,
+    scoreAgainst: 2,
+    summary:
+      "Played on pure v2.4.1 with zero audibles. The Hornets' 129 FOLLOW_PLAYER commands collapsed our buildup into 251 MOVE_TO and 60% possession produced one shot on target.",
+  },
+];
+
 export const performanceDiagnosis: readonly string[] = [
   "Match 10: L 1-2 vs Bugle Hornets — our first league loss to a non-pressing opponent in 10 matches, played with zero audibles on pure v2.4.1.",
   "The Hornets ran a FOLLOW_PLAYER-heavy organized shape (129 commands, 32% of their 405 — the highest opponent tracking volume we have faced) plus 15 INTERCEPT, and zero PRESS_BALL. Under that shape our build-up collapsed into movement: 251 MOVE_TO (62%), our highest since the M1 Flotillas collapse.",

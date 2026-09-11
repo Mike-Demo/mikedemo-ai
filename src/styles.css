@@ -367,3 +367,45 @@ main {
     }
   }
 }
+
+/* Match log: pixel scoreboard table. */
+
+.match-table-scroll {
+  overflow-x: auto;
+}
+
+.match-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--wa-font-size-s);
+  border: var(--wa-border-width-m) var(--wa-border-style) var(--wa-color-shadow);
+  box-shadow: var(--wa-space-3xs) var(--wa-space-3xs) 0 0 var(--wa-color-shadow);
+  background-color: var(--wa-color-surface-lowered);
+}
+
+.match-table caption {
+  caption-side: bottom;
+  text-align: start;
+  padding-block-start: var(--wa-space-2xs);
+  font-size: var(--wa-font-size-2xs);
+}
+
+.match-table th,
+.match-table td {
+  padding: var(--wa-space-2xs) var(--wa-space-s);
+  text-align: start;
+  border-block-end: var(--wa-border-width-s) var(--wa-border-style) var(--wa-color-surface-border);
+  white-space: nowrap;
+}
+
+.match-table thead th,
+.match-table tfoot th,
+.match-table tfoot td {
+  font-weight: var(--wa-font-weight-bold);
+}
+
+.match-table tfoot td,
+.match-table tfoot th {
+  border-block-start: var(--wa-border-width-m) var(--wa-border-style) var(--wa-color-shadow);
+  border-block-end: none;
+}

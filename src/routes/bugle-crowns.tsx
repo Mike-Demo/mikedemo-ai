@@ -15,6 +15,7 @@ import { getProject } from "@/data/projects";
 import {
   drills,
   latestMatch,
+  matchLog,
   performanceDiagnosis,
   practiceFocus,
   rankMovement,
@@ -127,6 +128,90 @@ function BugleCrownsPage(): ReactElement {
               </div>
             </div>
           </WaCard>
+        </div>
+
+        <div className="wa-stack wa-gap-s">
+          <h2 className="pixel-display tech-heading">Week 1 standings</h2>
+          <div className="match-table-scroll">
+            <table className="match-table">
+              <caption className="wa-color-text-quiet">
+                All ten Round 1 Week 1 matches, in the order they were played.
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Opponent</th>
+                  <th scope="col">Result</th>
+                  <th scope="col">Score</th>
+                  <th scope="col">GD</th>
+                </tr>
+              </thead>
+              <tbody>
+                {matchLog.map((match) => {
+                  const diff = match.scoreFor - match.scoreAgainst;
+                  return (
+                    <tr key={match.match}>
+                      <td>{match.match}</td>
+                      <th scope="row">{match.opponent}</th>
+                      <td>
+                        <WaTag
+                          variant={match.result === "win" ? "success" : "danger"}
+                          appearance="filled"
+                          size="small"
+                        >
+                          {match.result === "win" ? "W" : "L"}
+                        </WaTag>
+                      </td>
+                      <td>
+                        {match.scoreFor}–{match.scoreAgainst}
+                      </td>
+                      <td>{diff > 0 ? `+${diff}` : String(diff)}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td />
+                  <th scope="row">Total</th>
+                  <td>
+                    {weekRecord.wins}W {weekRecord.losses}L
+                  </td>
+                  <td>
+                    {weekRecord.goalsFor}–{weekRecord.goalsAgainst}
+                  </td>
+                  <td>
+                    {weekRecord.goalsFor - weekRecord.goalsAgainst > 0 ? "+" : ""}
+                    {weekRecord.goalsFor - weekRecord.goalsAgainst}
+                  </td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+
+        <div className="wa-stack wa-gap-s">
+          <h2 className="pixel-display tech-heading">Every match</h2>
+          <div className="wa-stack wa-gap-s">
+            {matchLog.map((match) => (
+              <WaCard key={match.match} className="pixel-card" appearance="outlined">
+                <div className="wa-stack wa-gap-2xs">
+                  <h3 className="pixel-card-title">
+                    Match {match.match} · {match.result === "win" ? "W" : "L"} {match.scoreFor}-
+                    {match.scoreAgainst} vs {match.opponent}
+                  </h3>
+                  <p>{match.summary}</p>
+                  {match.match === 10 ? (
+                    <ol className="wa-stack wa-gap-2xs goal-timeline">
+                      {latestMatch.goalTimeline.map((goal) => (
+                        <li key={goal.event}>{goal.event}</li>
+                      ))}
+                    </ol>
+                  ) : null}
+                </div>
+              </WaCard>
+            ))}
+          </div>
         </div>
 
         <div className="wa-stack wa-gap-s">
