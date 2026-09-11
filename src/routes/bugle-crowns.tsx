@@ -250,10 +250,31 @@ function BugleCrownsPage(): ReactElement {
               {matchLog.map((match) => (
                 <WaCard key={match.match} className="pixel-card" appearance="outlined">
                   <div className="wa-stack wa-gap-2xs">
-                    <h3 className="pixel-card-title">
-                      Match {match.match} · {match.result === "win" ? "W" : "L"} {match.scoreFor}-
-                      {match.scoreAgainst} vs {match.opponent}
-                    </h3>
+                    <div className="wa-cluster wa-gap-xs wa-align-items-center">
+                      <h3 className="pixel-card-title">
+                        Match {match.match} · {match.result === "win" ? "W" : "L"} {match.scoreFor}-
+                        {match.scoreAgainst} vs {match.opponent}
+                      </h3>
+                      {match.possession ? (
+                        <WaTag variant="neutral" appearance="outlined" size="small">
+                          {match.possession}% possession
+                        </WaTag>
+                      ) : null}
+                    </div>
+                    {match.playedAt ? (
+                      <p className="wa-color-text-quiet" style={{ fontSize: "var(--wa-font-size-s)" }}>
+                        <time dateTime={match.playedAt}>
+                          {new Date(match.playedAt).toLocaleString("en-US", {
+                            weekday: "short",
+                            month: "short",
+                            day: "numeric",
+                            hour: "numeric",
+                            minute: "2-digit",
+                            timeZoneName: "short",
+                          })}
+                        </time>
+                      </p>
+                    ) : null}
                     <p>{match.summary}</p>
                     {match.match === 10 ? (
                       <ol className="wa-stack wa-gap-2xs goal-timeline">
