@@ -66,7 +66,7 @@ function ProjectPage(): ReactElement {
 
         <div className="wa-cluster wa-align-items-center wa-gap-m">
           <span className="pixel-icon-badge pixel-icon-badge-large" aria-hidden="true">
-            <WaIcon name={project.icon} />
+            <ProjectIcon project={project} />
           </span>
           <div className="wa-stack wa-gap-2xs">
             <h1 className="pixel-display section-title">{project.name}</h1>
