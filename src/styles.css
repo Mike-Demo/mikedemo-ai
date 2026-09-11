@@ -12,7 +12,7 @@ main {
 }
 
 .pixel-display {
-  font-family: "Press Start 2P", var(--wa-font-family-code);
+  font-family: var(--wa-font-family-heading);
   line-height: var(--wa-line-height-expanded);
 }
 
