@@ -8,10 +8,14 @@ import {
 } from "@/design-system/font-awsome-web-awesome-171158";
 
 import { ProjectCredits } from "@/components/ProjectCredits";
+import { ProjectSummaryCard } from "@/components/ProjectSummaryCard";
 import { TechTagList } from "@/components/TechTagList";
 import { ProjectIcon } from "@/components/ProjectIcon";
 import { SiteShell } from "@/components/SiteShell";
+import { TimelineArcade } from "@/components/TimelineArcade";
 import { getProject } from "@/data/projects";
+import { projectsNewestFirst } from "@/data/timeline";
+
 
 export const Route = createFileRoute("/projects/$slug")({
   staticData: { sitemap: true },
