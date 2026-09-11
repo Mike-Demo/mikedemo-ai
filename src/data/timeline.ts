@@ -36,6 +36,6 @@ export const credentials: readonly Credential[] = [
 ];
 
 export const timelineItems: readonly TimelineItem[] = [
-  ...projects.map((project) => ({ ...project, kind: "project" as const })),
   ...credentials,
+  ...projects.map((project) => ({ ...project, kind: "project" as const })),
 ];
