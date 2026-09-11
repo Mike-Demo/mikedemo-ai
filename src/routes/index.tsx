@@ -94,7 +94,7 @@ function Index(): ReactElement {
     <SiteShell>
       <section className="hero-section wa-stack wa-gap-m wa-align-items-center">
         <img
-          src={headshotAsset.url}
+          src={headshotSrc}
           alt="MikeDemo"
           className="hero-headshot"
           width="160"
