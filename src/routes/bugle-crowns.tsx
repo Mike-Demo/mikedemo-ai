@@ -12,6 +12,7 @@ import {
 
 import { ProjectIcon } from "@/components/ProjectIcon";
 import { SiteShell } from "@/components/SiteShell";
+import { TechTagList } from "@/components/TechTagList";
 import { getProject } from "@/data/projects";
 import {
   drills,
