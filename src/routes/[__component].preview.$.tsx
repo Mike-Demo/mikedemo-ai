@@ -129,10 +129,10 @@ function PreviewDocument({ previewPath }: { previewPath: string }): ReactElement
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        padding: "2rem",
+        padding: "var(--wa-space-xl)",
         boxSizing: "border-box",
         overflow: "hidden",
-        background: "#fff",
+        background: "var(--wa-color-surface-raised)",
         zIndex: 2147483647,
       }}
     >
@@ -275,17 +275,17 @@ function mountContent(
 }
 
 function errorContent(message: string): ReactElement {
-  return textContent(message, "red");
+  return textContent(message, "var(--wa-color-red)");
 }
 
 function noticeContent(message: string): ReactElement {
-  return textContent(message, "#6b7280");
+  return textContent(message, "var(--wa-color-text-quiet)");
 }
 
 function textContent(message: string, color: string): ReactElement {
   return createElement(
     "pre",
-    { style: { color, padding: "2rem", whiteSpace: "pre-wrap", fontFamily: "ui-monospace, monospace" } },
+    { style: { color, padding: "var(--wa-space-xl)", whiteSpace: "pre-wrap", fontFamily: "var(--wa-font-family-code)" } },
     message,
   );
 }

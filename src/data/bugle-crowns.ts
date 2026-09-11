@@ -344,7 +344,7 @@ export const drills: readonly Drill[] = [
 export const squadStack: readonly string[] = [
   "Microsoft Copilot",
   "Perplexity",
-  "Gro\nMinds from Animoca Brands\nk Minds",
+  "Minds from Animoca Brands (GrokBot)",
   "Nova Pro",
   "Nova Micro",
   "GitHub Copilot (prompting help)",
