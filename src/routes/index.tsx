@@ -99,9 +99,7 @@ function CredentialCard({ credential }: { credential: Credential }): ReactElemen
           </span>
           <div className="wa-stack wa-gap-3xs">
             <h3 className="pixel-card-title">{credential.title}</h3>
-            <span className="wa-color-text-quiet" style={{ fontSize: "var(--wa-font-size-s)" }}>
-              {credential.issuer}
-            </span>
+            <span className="wa-color-text-quiet credential-issuer">{credential.issuer}</span>
           </div>
         </div>
         <p className="wa-color-text-quiet">{credential.summary}</p>
