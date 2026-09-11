@@ -1,9 +1,150 @@
-* {
+/* Pixel-funky portfolio styling, built entirely on Web Awesome tokens. */
+
+html,
+body {
+  min-height: 100%;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
-body {
-  font-family: system-ui, -apple-system, sans-serif;
+main {
+  padding: 0;
+}
+
+.pixel-display {
+  font-family: "Press Start 2P", var(--wa-font-family-code);
+  line-height: var(--wa-line-height-expanded);
+}
+
+/* Header */
+
+.site-header {
+  padding-block: var(--wa-space-s);
+  padding-inline: var(--wa-space-xl);
+  border-block-end: var(--wa-border-width-m) var(--wa-border-style) var(--wa-color-shadow);
+  background-color: var(--wa-color-surface-raised);
+}
+
+.site-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--wa-space-s);
+  font-size: var(--wa-font-size-s);
+  color: var(--wa-color-brand-60);
+  text-decoration: none;
+}
+
+.site-nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--wa-space-2xs);
+  color: inherit;
+  text-decoration: var(--wa-link-decoration-default);
+}
+
+.site-nav-link:hover {
+  text-decoration: var(--wa-link-decoration-hover);
+}
+
+/* Hero */
+
+.hero-section {
+  padding-block: var(--wa-space-5xl);
+  padding-inline: var(--wa-space-xl);
+  text-align: center;
+  background-color: var(--wa-color-surface-lowered);
+  border-block-end: var(--wa-border-width-m) var(--wa-border-style) var(--wa-color-shadow);
+}
+
+.hero-eyebrow {
+  font-size: var(--wa-font-size-xs);
+  color: var(--wa-color-brand-60);
+}
+
+.hero-title {
+  font-size: var(--wa-font-size-3xl);
+  max-width: 24ch;
+}
+
+.hero-subtitle {
+  max-width: 56ch;
+  color: var(--wa-color-text-quiet);
+  font-size: var(--wa-font-size-l);
+}
+
+/* Sections */
+
+.section {
+  padding-block: var(--wa-space-3xl);
+  padding-inline: var(--wa-space-xl);
+  max-width: 72rem;
+  margin-inline: auto;
+}
+
+/* Narrower measure for long-form project detail pages. */
+.section-narrow {
+  max-width: 48rem;
+}
+
+/* Responsive card grid sizing (wa-grid custom property). */
+.projects-grid {
+  --min-column-size: 20rem;
+}
+
+.section-title {
+  font-size: var(--wa-font-size-xl);
+}
+
+/* Pixel cards: chunky border + hard offset shadow */
+
+.pixel-card {
+  border-width: var(--wa-border-width-m);
+  border-color: var(--wa-color-shadow);
+  border-radius: var(--wa-border-radius-square);
+  box-shadow: var(--wa-space-2xs) var(--wa-space-2xs) 0 0 var(--wa-color-shadow);
+  transition:
+    transform var(--wa-transition-fast) var(--wa-transition-easing),
+    box-shadow var(--wa-transition-fast) var(--wa-transition-easing);
+}
+
+.pixel-card:hover {
+  transform: translate(calc(-1 * var(--wa-space-3xs)), calc(-1 * var(--wa-space-3xs)));
+  box-shadow: var(--wa-space-xs) var(--wa-space-xs) 0 0 var(--wa-color-shadow);
+}
+
+.pixel-card-title {
+  font-family: "Press Start 2P", var(--wa-font-family-code);
+  font-size: var(--wa-font-size-xs);
+  line-height: var(--wa-line-height-expanded);
+  margin: 0;
+}
+
+.pixel-icon-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--wa-space-3xl);
+  height: var(--wa-space-3xl);
+  font-size: var(--wa-font-size-l);
+  color: var(--wa-color-brand-60);
+  background-color: var(--wa-color-surface-lowered);
+  border: var(--wa-border-width-m) var(--wa-border-style) var(--wa-color-shadow);
+  border-radius: var(--wa-border-radius-square);
+}
+
+.pixel-icon-badge-large {
+  width: var(--wa-space-5xl);
+  height: var(--wa-space-5xl);
+  font-size: var(--wa-font-size-2xl);
+}
+
+/* Project detail */
+
+.project-lede {
+  font-size: var(--wa-font-size-l);
+  line-height: var(--wa-line-height-expanded);
+}
+
+.tech-heading {
+  font-size: var(--wa-font-size-s);
 }
