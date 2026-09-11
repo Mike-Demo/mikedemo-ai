@@ -35,7 +35,8 @@ export const credentials: readonly Credential[] = [
   },
 ];
 
-export const timelineItems: readonly TimelineItem[] = [
-  ...credentials,
-  ...projects.map((project) => ({ ...project, kind: "project" as const })),
-];
+/** Projects along the arcade rail, newest first. */
+export const projectsNewestFirst: readonly Project[] = [...projects].sort((a, b) =>
+  b.started.localeCompare(a.started)
+);
+
