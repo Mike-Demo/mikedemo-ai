@@ -1,7 +1,5 @@
 /**
  * Portfolio content. Edit this single file to add or update projects.
- * Summaries and tech stacks for projects without a matching Lovable
- * project are best-effort placeholders — adjust them here.
  */
 export interface Project {
   readonly slug: string;
@@ -19,10 +17,10 @@ export const projects: readonly Project[] = [
     slug: "on-device-ai",
     name: "On-Device AI",
     domain: "AI.mikedemo.dev",
-    summary: "An agent framework that runs lightweight machine learning models entirely in the browser.",
+    summary: "An AI model running inside the page — on-device inference with no server round-trips.",
     description:
-      "On-Device AI explores the feasibility of running AI workloads directly in the browser environment — no server round-trips, no data leaving the machine. It executes lightweight machine learning models on-device through a web-based agent framework.",
-    tech: ["TypeScript", "React", "Browser ML", "Web APIs"],
+      "On-Device AI runs a real language model entirely inside the browser. Inference happens on your own hardware via WebLLM and WebGPU — no server round-trips, and no data ever leaves your machine. It includes on-device inference demos, model comparisons, and diagnostics.",
+    tech: ["TypeScript", "React", "WebLLM", "WebGPU"],
     url: "https://ai.mikedemo.dev",
     icon: "microchip",
   },
@@ -30,56 +28,67 @@ export const projects: readonly Project[] = [
     slug: "ai-deployer",
     name: "AI Deployer",
     domain: "LOCAL.mikedemo.dev",
-    summary: "Deploy AI agents and models onto your own VPS over SSH, with a streamlined install flow.",
+    summary: "Copy-and-paste install guides for self-hosted AI agents — no live SSH, no accounts.",
     description:
-      "AI Deployer streamlines getting AI agents and models onto personal VPS hosting. It provides a clean interface for installing and managing deployments over SSH, so self-hosting AI infrastructure stops being a weekend project.",
-    tech: ["TypeScript", "React", "SSH", "VPS Hosting"],
+      "AI Deployer generates personalized, copy-and-paste install guides for self-hosted AI agents like OpenClaw, Ollama, and n8n. Pick your stack, get a tailored VPS install guide — no live SSH sessions and no account required.",
+    tech: ["TypeScript", "React", "TanStack Start", "Tailwind CSS", "Zod"],
     url: "https://local.mikedemo.dev",
     icon: "server",
   },
   {
-    slug: "skill-builder",
-    name: "Skill Builder Bot",
-    domain: "SKILLS.mikedemo.dev",
-    summary: "A guided, interactive assistant for creating custom agent skills.",
+    slug: "crosspost",
+    name: "Crosspost",
+    domain: "tweet.app",
+    summary: "Crossposting from tweet.app to X, automatically.",
     description:
-      "Skill Builder Bot walks users through creating custom skills with a guided, interactive process. It leverages AI tooling to take a skill from idea to working definition without hand-editing configuration files.",
-    tech: ["TypeScript", "React", "AI Tooling", "Guided Flows"],
+      "Crosspost keeps your posts in sync: write once on tweet.app and it republishes to X automatically. One composer, two timelines, zero copy-pasting.",
+    tech: ["TypeScript", "React", "TanStack Start", "Supabase"],
+    url: "https://tweet.app",
+    icon: "retweet",
+  },
+  {
+    slug: "skill-finder-plus",
+    name: "Skill Finder Plus",
+    domain: "SKILLS.mikedemo.dev",
+    summary: "A directory of agent skills for Claude, ChatGPT, Cursor, Copilot, Grok, MCP, and Perplexity.",
+    description:
+      "Skill Finder Plus is a browsable library of agent skills across every major AI platform — Claude, ChatGPT, Cursor, GitHub Copilot, Grok, MCP servers, and Perplexity. Find the right skill for your assistant of choice without digging through repos.",
+    tech: ["TypeScript", "React", "AI SDK", "Supabase", "hCaptcha"],
     url: "https://skills.mikedemo.dev",
     icon: "wand-magic-sparkles",
   },
   {
-    slug: "mikedemo-cv",
-    name: "MikeDemo.cv",
-    domain: "MikeDemo.cv",
-    summary: "My online CV — experience, projects, and skills in one link.",
+    slug: "awesome-design-system",
+    name: "Font Awsome & Web Awesome",
+    domain: "Lovable",
+    summary: "The open-source design system powering this very portfolio.",
     description:
-      "MikeDemo.cv is my living resume on the web: experience, selected projects, and skills, always up to date and always one link away.",
-    tech: ["TypeScript", "React", "Web Awesome"],
-    url: "https://mikedemo.cv",
-    icon: "id-card",
-  },
-  {
-    slug: "mikedemo-work",
-    name: "MikeDemo.work",
-    domain: "MikeDemo.work",
-    summary: "A showcase of professional work and selected engagements.",
-    description:
-      "MikeDemo.work is the professional companion to this portfolio — a home for client work, case studies, and selected engagements.",
-    tech: ["TypeScript", "React", "Web Awesome"],
-    url: "https://mikedemo.work",
-    icon: "briefcase",
+      "Font Awsome & Web Awesome (\"Awesome DS\") is a complete design system built on Web Awesome components and Font Awesome Free icons — design tokens, themes, layout utilities, and patterns. This portfolio is built with it.",
+    tech: ["TypeScript", "React", "Web Awesome", "Font Awesome Free"],
+    url: "https://project--9fea97bb-e317-446f-b683-1274350846c6.lovable.app",
+    icon: "swatchbook",
   },
   {
     slug: "pretendpro",
     name: "PretendPro Office Suite",
     domain: "Pretend.Pro",
-    summary: "A playful parody productivity suite that simulates looking busy at work.",
+    summary: "A fake productivity suite — set up your fake workday.",
     description:
-      "PretendPro Office Suite is a parody productivity platform built purely for entertainment. Its collection of mock applications simulates a convincingly busy work environment — spreadsheets that type themselves, meetings that attend themselves, and more.",
-    tech: ["TypeScript", "React", "Parody UX", "Mock Apps"],
+      "PretendPro Office Suite is a parody productivity platform built purely for entertainment. Set up your fake workday with mock applications that simulate a convincingly busy environment — spreadsheets that type themselves, meetings that attend themselves, and more.",
+    tech: ["TypeScript", "React", "Tailwind CSS", "shadcn/ui", "Supabase"],
     url: "https://pretend.pro",
     icon: "user-tie",
+  },
+  {
+    slug: "sta-2e-d20-roller",
+    name: "STA 2e D20 Roller — LCARS",
+    domain: "2d20.space",
+    summary: "A Star Trek Adventures 2d20 dice roller with an LCARS interface.",
+    description:
+      "STA 2e D20 Roller brings the Star Trek Adventures 2d20 system to the table with a full LCARS-styled interface — challenge dice, momentum, threat, and a dice guide, all wrapped in Starfleet's favorite operating system.",
+    tech: ["TypeScript", "React", "Tailwind CSS"],
+    url: "https://2d20.space",
+    icon: "dice-d20",
   },
 ];
 
