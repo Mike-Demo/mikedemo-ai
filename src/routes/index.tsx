@@ -49,13 +49,11 @@ function ProjectCard({ project }: { project: Project }): ReactElement {
           <h3 className="pixel-card-title">{project.name}</h3>
         </div>
         <p className="wa-color-text-quiet">{project.summary}</p>
-        <div className="wa-cluster wa-gap-2xs">
-          {project.tech.map((item) => (
-            <WaTag key={item} variant="brand" appearance="filled" size="small">
-              {item}
-            </WaTag>
-          ))}
-        </div>
+        <TechTagList
+          items={project.tech}
+          size="small"
+          label={`${project.name} tech stack`}
+        />
         <ProjectCredits project={project} />
         <div className="wa-cluster wa-gap-s">
           {project.detailPath ? (
