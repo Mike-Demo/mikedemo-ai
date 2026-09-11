@@ -14,7 +14,6 @@ import { SiteShell } from "@/components/SiteShell";
 import headshotSrc from "@/assets/headshot.png";
 import type { Credential, TimelineItem } from "@/data/timeline";
 import { timelineItems } from "@/data/timeline";
-import { projects } from "@/data/projects";
 
 export const Route = createFileRoute("/")({
   head: () => ({
