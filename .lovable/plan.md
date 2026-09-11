@@ -17,7 +17,8 @@ Restyle the homepage timeline to match the CodePen "Timeline Style Navigation" p
    - On desktop, the number column stays visually tied to the center rail; the active number "lights up" as you scroll past each card, matching the pen's feel.
    - On mobile (existing single-column breakpoint), numbers shrink and sit on the left rail above each card; no sticky behavior.
 
-4. **Accessibility & motion**
+4. **Keyboard, accessibility & motion**
+   - The numbers form a keyboard-navigable list: Tab reaches each number, Enter/Space activates it, and arrow keys move between numbers, each move smooth-scrolling its card into view and moving focus there.
    - Smooth scrolling respects `prefers-reduced-motion` (reduced motion = instant jump).
    - Keep the existing scroll-driven entrance animations and add a stepped "stamp" transition when a number becomes active (`steps()` for the retro snap), all inside the existing reduced-motion guard.
    - The rail remains a semantic `<ol>` with real `<time>` elements; numbers are decorative position markers plus accessible labels.
