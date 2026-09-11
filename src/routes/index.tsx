@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import type { CSSProperties, ReactElement } from "react";
+import type { ReactElement } from "react";
 
 import {
   WaButton,
