@@ -339,6 +339,7 @@ main {
   font-size: var(--wa-font-size-2xs);
   max-width: 0;
   overflow: hidden;
+  text-overflow: ellipsis;
   white-space: nowrap;
   opacity: 0;
   transition:
