@@ -9,7 +9,7 @@ import { getProject } from "@/data/projects";
 
 const title = "AI Agent Skills: What They Are and Where to Find Them";
 const description =
-  "A plain-language guide to AI agent skills — how Claude, ChatGROUPT and other assistants package reusable instructions, and where to browse ready-made skills.";
+  "A plain-language guide to AI agent skills: how Claude, ChatGPT, Cursor, Copilot, Grok, MCP and Perplexity package reusable instructions, and where to browse ready-made skills.";
 
 export const Route = createFileRoute("/agent-skills")({
   staticData: { sitemap: true },

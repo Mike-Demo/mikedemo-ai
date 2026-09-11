@@ -33,8 +33,12 @@ export const Route = createFileRoute("/")({
           "A portfolio of MikeDemo's AI projects: on-device browser ML, AI deployment tooling, agent skill builders, and a parody office suite.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://mikedemo.dev/" },
+      { property: "og:image", content: "https://mikedemo.dev/og-cover.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: "https://mikedemo.dev/og-cover.jpg" },
     ],
+    links: [{ rel: "canonical", href: "https://mikedemo.dev/" }],
   }),
   component: Index,
 });
