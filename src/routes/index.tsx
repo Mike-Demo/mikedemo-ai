@@ -12,6 +12,7 @@ import { ProjectCredits } from "@/components/ProjectCredits";
 import { ProjectIcon } from "@/components/ProjectIcon";
 import { SiteShell } from "@/components/SiteShell";
 import headshotSrc from "@/assets/headshot.png";
+import type { Project } from "@/data/projects";
 import type { Credential, TimelineItem } from "@/data/timeline";
 import { timelineItems } from "@/data/timeline";
 
