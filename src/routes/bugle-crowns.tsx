@@ -22,7 +22,7 @@ import {
   matchLog,
   performanceDiagnosis,
   practiceFocus,
-  rankMovement,
+  
   recommendations,
   scheduleUrl,
   seasonSchedule,
@@ -130,11 +130,10 @@ function BugleCrownsPage(): ReactElement {
             <Stat label="Goals for" value={String(weekRecord.goalsFor)} />
             <Stat label="Goals against" value={String(weekRecord.goalsAgainst)} />
             <Stat label="Clean sheets" value={String(weekRecord.cleanSheets)} />
-            <Stat label="Rank" value={`#${rankMovement.after} (${rankMovement.delta})`} />
             <Stat label="Points" value={String(rankMovement.points)} />
           </div>
           <p className="wa-color-text-quiet">
-            {weekRecord.played} of a possible {weekRecord.possible} matches played. {rankMovement.note}
+            {weekRecord.played} of a possible {weekRecord.possible} matches played.
           </p>
         </div>
 
