@@ -10,6 +10,7 @@ import {
 
 import { ProjectIcon } from "@/components/ProjectIcon";
 import { SiteShell } from "@/components/SiteShell";
+import headshotAsset from "@/assets/headshot.png.asset.json";
 import { projects } from "@/data/projects";
 
 export const Route = createFileRoute("/")({
