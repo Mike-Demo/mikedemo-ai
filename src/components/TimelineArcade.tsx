@@ -31,6 +31,7 @@ export function TimelineArcade({ projects }: TimelineArcadeProps): ReactElement 
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const nodeRefs = useRef<Array<HTMLButtonElement | null>>([]);
   const openerIndex = useRef<number | null>(null);
+  const dialogRef = useRef<HTMLElement | null>(null);
 
   const open = useCallback((index: number): void => {
     openerIndex.current = index;
@@ -44,6 +45,16 @@ export function TimelineArcade({ projects }: TimelineArcadeProps): ReactElement 
       nodeRefs.current[index]?.focus();
     }
   }, []);
+
+  useEffect(() => {
+    const dialog = dialogRef.current;
+    if (!dialog) {
+      return;
+    }
+    dialog.addEventListener("wa-after-hide", close);
+    return () => dialog.removeEventListener("wa-after-hide", close);
+  }, [close]);
+
 
   function handleKeyDown(event: KeyboardEvent<HTMLButtonElement>, index: number): void {
     const offsets: Record<string, number> = {
