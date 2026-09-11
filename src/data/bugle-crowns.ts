@@ -1,6 +1,7 @@
 /**
  * Bugle Crowns — AWS Agentic Football Cup, Round 1 Week 1 debrief.
- * Flat-file content derived from the week's steward debrief JSON.
+ * Flat-file content derived from the week's steward debrief JSON and the
+ * Player Portal match reports.
  */
 
 export interface GoalEvent {
@@ -98,10 +99,12 @@ export interface MatchLogEntry {
   readonly result: "win" | "loss" | "draw";
   readonly scoreFor: number;
   readonly scoreAgainst: number;
+  readonly possession?: number;
+  readonly playedAt?: string;
   readonly summary: string;
 }
 
-/** All ten Round 1 Week 1 matches, taken from the Player Portal match reports. */
+/** All ten Round 1 Week 1 matches, in the order they were played. */
 export const matchLog: readonly MatchLogEntry[] = [
   {
     match: 1,
@@ -109,6 +112,8 @@ export const matchLog: readonly MatchLogEntry[] = [
     result: "loss",
     scoreFor: 2,
     scoreAgainst: 5,
+    possession: 36,
+    playedAt: "2026-09-11T09:08:00-05:00",
     summary:
       "Flotillas controlled 64% possession and 147 MARK commands while our 333 MOVE_TO instructions left coverage gaps; three goals in minute 2 settled it.",
   },
@@ -118,17 +123,21 @@ export const matchLog: readonly MatchLogEntry[] = [
     result: "win",
     scoreFor: 4,
     scoreAgainst: 1,
+    possession: 51,
+    playedAt: "2026-09-11T09:47:00-05:00",
     summary:
       "Two goals inside the opening minute and sustained pressing overwhelmed a movement-heavy Lancers setup. Sara opened the scoring from goal.",
   },
   {
     match: 3,
-    opponent: "Copper Canyons",
-    result: "win",
-    scoreFor: 3,
+    opponent: "Bugle Oars",
+    result: "loss",
+    scoreFor: 1,
     scoreAgainst: 2,
+    possession: 53,
+    playedAt: "2026-09-11T10:21:00-05:00",
     summary:
-      "A fast-paced opener where both sides scored twice early; our finishing edge decided a tight finish despite sterile spells of possession.",
+      "We dominated territory but not the final third. Oars' direct play exploited our heavy PRESS_BALL reliance and won it with 42 SHOOT commands.",
   },
   {
     match: 4,
@@ -136,6 +145,8 @@ export const matchLog: readonly MatchLogEntry[] = [
     result: "loss",
     scoreFor: 2,
     scoreAgainst: 3,
+    possession: 56,
+    playedAt: "2026-09-11T10:56:00-05:00",
     summary:
       "56% possession, but Owls' FOLLOW_PLAYER tracking (90 commands) cut passing lanes and their sharper shooting punished 233 MOVE_TO versus 45 SHOOT.",
   },
@@ -145,44 +156,54 @@ export const matchLog: readonly MatchLogEntry[] = [
     result: "win",
     scoreFor: 4,
     scoreAgainst: 0,
+    possession: 42,
+    playedAt: "2026-09-11T11:32:00-05:00",
     summary:
       "The week's only clean sheet. 162 PRESS_BALL commands strangled Eagles' buildup and four rapid goals arrived despite a possession deficit.",
   },
   {
     match: 6,
-    opponent: "Bugle Pioneers",
-    result: "win",
-    scoreFor: 4,
-    scoreAgainst: 3,
-    summary:
-      "A goal-heavy shootout settled by shot accuracy — 4 of 5 on target against 3 of 4 — with possession almost dead level.",
-  },
-  {
-    match: 7,
-    opponent: "Copper Bandits",
-    result: "win",
-    scoreFor: 4,
-    scoreAgainst: 3,
-    summary:
-      "Another frenetic trade of goals; forward play stayed clinical while the Bandits kept pace until the closing exchanges.",
-  },
-  {
-    match: 8,
-    opponent: "Bugle Oars",
-    result: "loss",
-    scoreFor: 1,
-    scoreAgainst: 2,
-    summary:
-      "We dominated territory but not the final third. Oars' direct play exploited our heavy PRESS_BALL reliance and won it with 42 SHOOT commands.",
-  },
-  {
-    match: 9,
     opponent: "Bugle Bastions",
     result: "win",
     scoreFor: 3,
     scoreAgainst: 2,
+    possession: 51,
+    playedAt: "2026-09-11T12:07:00-05:00",
     summary:
       "A frenetic three minutes of traded goals; midfield incisiveness and on-target accuracy beat the Bastions' higher shot volume.",
+  },
+  {
+    match: 7,
+    opponent: "Bugle Pioneers",
+    result: "win",
+    scoreFor: 4,
+    scoreAgainst: 3,
+    possession: 49,
+    playedAt: "2026-09-11T12:54:00-05:00",
+    summary:
+      "A goal-heavy shootout settled by shot accuracy — 4 of 5 on target against 3 of 4 — with possession almost dead level.",
+  },
+  {
+    match: 8,
+    opponent: "Copper Bandits",
+    result: "win",
+    scoreFor: 4,
+    scoreAgainst: 3,
+    possession: 51,
+    playedAt: "2026-09-11T14:10:00-05:00",
+    summary:
+      "Another frenetic trade of goals; forward play stayed clinical while the Bandits kept pace until the closing exchanges.",
+  },
+  {
+    match: 9,
+    opponent: "Copper Canyons",
+    result: "win",
+    scoreFor: 3,
+    scoreAgainst: 2,
+    possession: 53,
+    playedAt: "2026-09-11T18:59:00-05:00",
+    summary:
+      "A fast-paced opener where both sides scored twice early; our finishing edge decided a tight finish despite sterile spells of possession.",
   },
   {
     match: 10,
@@ -190,6 +211,8 @@ export const matchLog: readonly MatchLogEntry[] = [
     result: "loss",
     scoreFor: 1,
     scoreAgainst: 2,
+    possession: 60,
+    playedAt: "2026-09-11T20:41:00-05:00",
     summary:
       "Played on pure v2.4.1 with zero audibles. The Hornets' 129 FOLLOW_PLAYER commands collapsed our buildup into 251 MOVE_TO and 60% possession produced one shot on target.",
   },
@@ -315,4 +338,14 @@ export const drills: readonly Drill[] = [
       "In Round 2 real matches, note each opponent's FOLLOW_PLAYER volume — if an opponent exceeds ~25% tracking, expect the MOVE collapse and do not panic-patch mid-match",
     rationale: "Tracking-shape threshold finding from M4 (Owls 19%) and M10 (Hornets 32%)",
   },
+];
+
+/** The AI services that power the on-field agents and the coach's prompting workflow. */
+export const squadStack: readonly string[] = [
+  "Microsoft Copilot",
+  "Perplexity",
+  "Grok Minds",
+  "Nova Pro",
+  "Nova Micro",
+  "GitHub Copilot (prompting help)",
 ];
