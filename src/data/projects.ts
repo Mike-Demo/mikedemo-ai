@@ -10,6 +10,8 @@ export interface Project {
   readonly tech: readonly string[];
   readonly url: string;
   readonly icon: string;
+  /** ISO date the project was first built. */
+  readonly started: string;
 }
 
 export const projects: readonly Project[] = [
