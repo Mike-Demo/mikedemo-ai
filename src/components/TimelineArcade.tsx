@@ -119,12 +119,13 @@ export function TimelineArcade({ projects }: TimelineArcadeProps): ReactElement 
       </div>
 
       <WaDialog
+        ref={dialogRef}
         className="arcade-dialog"
         open={active !== null}
         label={active?.name ?? ""}
         light-dismiss
-        onWaAfterHide={close}
       >
+
         {active ? (
           <div className="wa-stack wa-gap-m">
             <div className="wa-cluster wa-align-items-center wa-gap-s">
