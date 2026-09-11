@@ -13,23 +13,13 @@ import appCss from "../styles.css?url";
 import themeCss from "@/design-system/font-awsome-web-awesome-171158/webawesome/theme.css?url";
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
+  staticData: { sitemap: false },
   head: () => ({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "MikeDemo — AI Project Portfolio" },
-      {
-        name: "description",
-        content:
-          "A portfolio of MikeDemo's AI projects: on-device browser ML, AI deployment tooling, agent skill builders, and a parody office suite.",
-      },
       { name: "author", content: "MikeDemo" },
-      { property: "og:title", content: "MikeDemo — AI Project Portfolio" },
-      {
-        property: "og:description",
-        content:
-          "A portfolio of MikeDemo's AI projects: on-device browser ML, AI deployment tooling, agent skill builders, and a parody office suite.",
-      },
+      { property: "og:site_name", content: "MikeDemo" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
