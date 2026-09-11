@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import type { KeyboardEvent, ReactElement } from "react";
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+
 
 import { WaDialog, WaIcon } from "@/design-system/font-awsome-web-awesome-171158";
 
