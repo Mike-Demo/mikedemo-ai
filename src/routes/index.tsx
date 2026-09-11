@@ -8,6 +8,7 @@ import {
   WaTag,
 } from "@/design-system/font-awsome-web-awesome-171158";
 
+import { ProjectCredits } from "@/components/ProjectCredits";
 import { ProjectIcon } from "@/components/ProjectIcon";
 import { SiteShell } from "@/components/SiteShell";
 import headshotSrc from "@/assets/headshot.png";
@@ -53,6 +54,7 @@ function ProjectCard({ project }: { project: (typeof projects)[number] }): React
             </WaTag>
           ))}
         </div>
+        <ProjectCredits project={project} />
         <div className="wa-cluster wa-gap-s">
           {project.detailPath ? (
             <Link to={project.detailPath} className="site-nav-link">

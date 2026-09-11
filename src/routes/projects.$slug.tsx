@@ -8,6 +8,7 @@ import {
   WaTag,
 } from "@/design-system/font-awsome-web-awesome-171158";
 
+import { ProjectCredits } from "@/components/ProjectCredits";
 import { ProjectIcon } from "@/components/ProjectIcon";
 import { SiteShell } from "@/components/SiteShell";
 import { getProject } from "@/data/projects";
@@ -87,6 +88,13 @@ function ProjectPage(): ReactElement {
             ))}
           </div>
         </div>
+
+        {project.credits?.length ? (
+          <div className="wa-stack wa-gap-xs">
+            <h2 className="pixel-display tech-heading">Credits</h2>
+            <ProjectCredits project={project} />
+          </div>
+        ) : null}
 
         <div className="wa-cluster wa-gap-m">
           <WaButton variant="brand" size="large" href={project.url} target="_blank" rel="noopener noreferrer">

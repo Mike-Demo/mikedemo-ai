@@ -46,6 +46,25 @@ main {
   text-decoration: var(--wa-link-decoration-hover);
 }
 
+.site-nav-icon {
+  font-size: var(--wa-font-size-l);
+  color: var(--wa-color-brand-60);
+  text-decoration: none;
+}
+
+.site-nav-icon:hover {
+  color: var(--wa-color-brand-50);
+  text-decoration: none;
+}
+
+/* Project credit links */
+
+.project-credits {
+  margin: 0;
+  font-size: var(--wa-font-size-s);
+  color: var(--wa-color-text-quiet);
+}
+
 /* Hero */
 
 .hero-section {
