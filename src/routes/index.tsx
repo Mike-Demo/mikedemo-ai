@@ -10,6 +10,7 @@ import {
 
 import { ProjectIcon } from "@/components/ProjectIcon";
 import { SiteShell } from "@/components/SiteShell";
+import headshotSrc from "@/assets/headshot.png";
 import { projects } from "@/data/projects";
 
 export const Route = createFileRoute("/")({
@@ -92,6 +93,13 @@ function Index(): ReactElement {
   return (
     <SiteShell>
       <section className="hero-section wa-stack wa-gap-m wa-align-items-center">
+        <img
+          src={headshotSrc}
+          alt="MikeDemo"
+          className="hero-headshot"
+          width="160"
+          height="160"
+        />
         <p className="pixel-display hero-eyebrow">PRESS START</p>
         <h1 className="pixel-display hero-title">AI Projects by MikeDemo</h1>
         <p className="hero-subtitle">
