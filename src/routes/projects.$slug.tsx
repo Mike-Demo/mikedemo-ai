@@ -82,10 +82,13 @@ function ProjectPage(): ReactElement {
 
         <p className="project-lede">{project.description}</p>
 
+        <ProjectSummaryCard project={project} />
+
         <div className="wa-stack wa-gap-xs">
           <h2 className="pixel-display tech-heading">Tech stack</h2>
           <TechTagList items={project.tech} label="Tech stack" />
         </div>
+
 
         {project.credits?.length ? (
           <div className="wa-stack wa-gap-xs">

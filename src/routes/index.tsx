@@ -71,8 +71,9 @@ function Index(): ReactElement {
           Level Select
         </h2>
         <p className="wa-color-text-quiet">
-          Newest first. Pick an icon to open the project — arrow keys move along the rail.
+          Newest first. Pick a level to open the project — arrow keys move along the rail.
         </p>
+
         <TimelineArcade projects={projectsNewestFirst} />
       </section>
     </SiteShell>
