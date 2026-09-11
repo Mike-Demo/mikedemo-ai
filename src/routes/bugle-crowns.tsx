@@ -98,6 +98,22 @@ function BugleCrownsPage(): ReactElement {
           the AWS Agentic Football Cup — here is how Week 1 went and what changes next.
         </p>
 
+        {project ? <ProjectSummaryCard project={project} /> : null}
+
+        <div className="wa-stack wa-gap-xs">
+          <h2 className="pixel-display tech-heading">Level Select</h2>
+          <p className="wa-color-text-quiet">
+            Where this project sits in the timeline — pick another level to jump across.
+          </p>
+          <TimelineArcade
+            projects={projectsNewestFirst}
+            currentSlug="bugle-crowns"
+            compact
+          />
+        </div>
+
+
+
         <div className="wa-stack wa-gap-2xs">
           <h2 className="pixel-display tech-heading">Squad stack</h2>
           <TechTagList
