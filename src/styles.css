@@ -424,3 +424,16 @@ main {
   border-block-start: var(--wa-border-width-m) var(--wa-border-style) var(--wa-color-shadow);
   border-block-end: none;
 }
+
+/* Technology tag lists: no bullets, icon sits snug against its label. */
+
+.tag-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tag-icon {
+  margin-inline-end: var(--wa-space-3xs);
+  color: var(--wa-color-brand-60);
+}
