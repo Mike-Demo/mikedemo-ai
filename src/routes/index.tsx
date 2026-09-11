@@ -99,36 +99,37 @@ function Index(): ReactElement {
         <h2 id="projects-heading" className="pixel-display section-title">
           The Lineup
         </h2>
-        <div className="wa-grid wa-gap-m projects-grid">
-          {projects.map((project) => (
-            <ProjectCard key={project.slug} project={project} />
-          ))}
+        <div className="wa-flank:end wa-gap-xl">
+          <div className="wa-grid wa-gap-m projects-grid">
+            {projects.map((project) => (
+              <ProjectCard key={project.slug} project={project} />
+            ))}
+          </div>
+          <aside className="wa-stack wa-gap-m timeline-aside" aria-labelledby="timeline-heading">
+            <h2 id="timeline-heading" className="pixel-display section-title">
+              Build Timeline
+            </h2>
+            <ol className="timeline">
+              {timelineProjects.map((project) => (
+                <li key={project.slug} className="timeline-item">
+                  <time className="pixel-display timeline-date" dateTime={project.started}>
+                    {formatDate(project.started)}
+                  </time>
+                  <div className="timeline-body wa-stack wa-gap-2xs">
+                    <Link
+                      to="/projects/$slug"
+                      params={{ slug: project.slug }}
+                      className="site-nav-link timeline-name"
+                    >
+                      <WaIcon name={project.icon} aria-hidden="true" /> {project.name}
+                    </Link>
+                    <p className="wa-color-text-quiet timeline-summary">{project.summary}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </aside>
         </div>
-      </section>
-
-      <section id="timeline" className="section section-narrow wa-stack wa-gap-l" aria-labelledby="timeline-heading">
-        <h2 id="timeline-heading" className="pixel-display section-title">
-          Build Timeline
-        </h2>
-        <ol className="timeline">
-          {timelineProjects.map((project) => (
-            <li key={project.slug} className="timeline-item">
-              <time className="pixel-display timeline-date" dateTime={project.started}>
-                {formatDate(project.started)}
-              </time>
-              <div className="timeline-body wa-stack wa-gap-2xs">
-                <Link
-                  to="/projects/$slug"
-                  params={{ slug: project.slug }}
-                  className="site-nav-link timeline-name"
-                >
-                  <WaIcon name={project.icon} aria-hidden="true" /> {project.name}
-                </Link>
-                <p className="wa-color-text-quiet timeline-summary">{project.summary}</p>
-              </div>
-            </li>
-          ))}
-        </ol>
       </section>
     </SiteShell>
   );

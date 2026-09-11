@@ -151,6 +151,11 @@ main {
 
 /* Build timeline: chunky rail with hard-shadow date badges */
 
+/* Sidebar column next to the project cards (wa-flank sizes by content). */
+.timeline-aside {
+  max-inline-size: 26rem;
+}
+
 .timeline {
   list-style: none;
   margin: 0;
