@@ -233,6 +233,7 @@ function BugleCrownsPage(): ReactElement {
                       <td>
                         {weekRecord.goalsFor}–{weekRecord.goalsAgainst}
                       </td>
+                      <td>—</td>
                       <td>
                         {weekRecord.goalsFor - weekRecord.goalsAgainst > 0 ? "+" : ""}
                         {weekRecord.goalsFor - weekRecord.goalsAgainst}
