@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BugleCrownsRouteImport } from './routes/bugle-crowns'
 import { Route as LicensesRouteImport } from './routes/licenses'
 import { Route as ProjectsSlugRouteImport } from './routes/projects.$slug'
 import { Route as Char91__componentChar93PreviewSplatRouteImport } from './routes/[__component].preview.$'
@@ -18,6 +19,11 @@ import { Route as Char91__mockupChar93PreviewSplatRouteImport } from './routes/[
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BugleCrownsRoute = BugleCrownsRouteImport.update({
+  id: '/bugle-crowns',
+  path: '/bugle-crowns',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LicensesRoute = LicensesRouteImport.update({
@@ -45,6 +51,7 @@ const Char91__mockupChar93PreviewSplatRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/bugle-crowns': typeof BugleCrownsRoute
   '/licenses': typeof LicensesRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/__component/preview/$': typeof Char91__componentChar93PreviewSplatRoute
@@ -52,6 +59,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/bugle-crowns': typeof BugleCrownsRoute
   '/licenses': typeof LicensesRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/__component/preview/$': typeof Char91__componentChar93PreviewSplatRoute
@@ -60,6 +68,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/bugle-crowns': typeof BugleCrownsRoute
   '/licenses': typeof LicensesRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/__component/preview/$': typeof Char91__componentChar93PreviewSplatRoute
@@ -69,6 +78,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/bugle-crowns'
     | '/licenses'
     | '/projects/$slug'
     | '/__component/preview/$'
@@ -76,6 +86,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/bugle-crowns'
     | '/licenses'
     | '/projects/$slug'
     | '/__component/preview/$'
@@ -83,6 +94,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/bugle-crowns'
     | '/licenses'
     | '/projects/$slug'
     | '/__component/preview/$'
@@ -91,6 +103,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BugleCrownsRoute: typeof BugleCrownsRoute
   LicensesRoute: typeof LicensesRoute
   ProjectsSlugRoute: typeof ProjectsSlugRoute
   Char91__componentChar93PreviewSplatRoute: typeof Char91__componentChar93PreviewSplatRoute
@@ -104,6 +117,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bugle-crowns': {
+      id: '/bugle-crowns'
+      path: '/bugle-crowns'
+      fullPath: '/bugle-crowns'
+      preLoaderRoute: typeof BugleCrownsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/licenses': {
@@ -139,6 +159,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BugleCrownsRoute: BugleCrownsRoute,
   LicensesRoute: LicensesRoute,
   ProjectsSlugRoute: ProjectsSlugRoute,
   Char91__componentChar93PreviewSplatRoute:
