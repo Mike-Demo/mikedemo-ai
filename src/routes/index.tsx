@@ -106,6 +106,7 @@ function Index(): ReactElement {
           A collection of experiments in on-device machine learning, AI deployment, agent tooling,
           and one extremely productive-looking parody office suite.
         </p>
+        <p className="pixel-display hero-quote">“Tools are tools, just don’t be one”</p>
         <WaButton variant="brand" size="large" href="#projects">
           <WaIcon slot="start" name="rocket" aria-hidden="true" />
           See the projects
