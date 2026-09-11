@@ -338,10 +338,6 @@ function BugleCrownsPage(): ReactElement {
           </WaAccordionItem>
         </WaAccordion>
 
-        <WaCallout variant="neutral">
-          Part of the Week 1 debrief was cut off when it was pasted in, so a couple of proposed
-          changes are missing here. Send the full file and I'll add them.
-        </WaCallout>
       </section>
     </SiteShell>
   );
