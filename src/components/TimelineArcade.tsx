@@ -114,9 +114,6 @@ export function TimelineArcade({
             </li>
           );
         })}
-
-          );
-        })}
       </ol>
     </div>
   );
