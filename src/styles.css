@@ -413,11 +413,11 @@ main {
 }
 
 /* Preview popup shown for the focused/hovered rail node. */
+/* Floating preview card: anchored to the wrap, horizontally placed via inline style. */
 .arcade-preview {
   position: absolute;
   inset-block-start: calc(100% + var(--wa-space-2xs));
-  inset-inline-start: 50%;
-  transform: translateX(-50%);
+  inset-inline-start: 0;
   z-index: 2;
   width: 17rem;
   max-width: 80vw;
@@ -430,17 +430,6 @@ main {
   border-radius: var(--wa-border-radius-square);
   box-shadow: var(--wa-space-2xs) var(--wa-space-2xs) 0 0 var(--wa-color-shadow);
   animation: arcade-preview-in var(--wa-transition-fast) var(--wa-transition-easing) both;
-}
-
-.arcade-node[data-align="start"] .arcade-preview {
-  inset-inline-start: 0;
-  transform: none;
-}
-
-.arcade-node[data-align="end"] .arcade-preview {
-  inset-inline-start: auto;
-  inset-inline-end: 0;
-  transform: none;
 }
 
 .arcade-preview-title {
@@ -470,7 +459,7 @@ main {
 @keyframes arcade-preview-in {
   from {
     opacity: 0;
-    transform: translate(-50%, var(--wa-space-2xs));
+    transform: translateY(var(--wa-space-2xs));
   }
 }
 
