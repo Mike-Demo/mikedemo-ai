@@ -147,12 +147,12 @@ export const projects: readonly Project[] = [
   {
     slug: "pride-blobs",
     name: "Pride Blobs",
-    domain: "project--e4ae0ed4-df6b-4f52-9c92-49c8c2ad714d.lovable.app",
+    domain: "blobs.gay",
     summary: "Deterministic pride-flag blobatars from any name — same string, same avatar, every time.",
     description:
       "Pride Blobs (Pridatar) is a pride-focused fork of blobatar. Type any name and get a striped pride blobatar rendered as SVG. Fifteen flags, a live playground, and downloadable PNGs, all generated in the browser with no backend.",
     tech: ["TypeScript", "React", "SVG", "Canvas API"],
-    url: "https://project--e4ae0ed4-df6b-4f52-9c92-49c8c2ad714d.lovable.app",
+    url: "https://blobs.gay",
     icon: "palette",
     logo: prideBlobsLogo,
     started: "2026-08-24",
