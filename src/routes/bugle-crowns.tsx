@@ -130,7 +130,7 @@ function BugleCrownsPage(): ReactElement {
             <Stat label="Goals for" value={String(weekRecord.goalsFor)} />
             <Stat label="Goals against" value={String(weekRecord.goalsAgainst)} />
             <Stat label="Clean sheets" value={String(weekRecord.cleanSheets)} />
-            <Stat label="Points" value={String(rankMovement.points)} />
+            <Stat label="Points" value={String(weekRecord.points)} />
           </div>
           <p className="wa-color-text-quiet">
             {weekRecord.played} of a possible {weekRecord.possible} matches played.
