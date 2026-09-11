@@ -11,6 +11,7 @@ import {
 } from "@/design-system/font-awsome-web-awesome-171158";
 
 import { ProjectIcon } from "@/components/ProjectIcon";
+import { SeasonCalendar } from "@/components/SeasonCalendar";
 import { SiteShell } from "@/components/SiteShell";
 import { TechTagList } from "@/components/TechTagList";
 import { getProject } from "@/data/projects";
@@ -138,48 +139,9 @@ function BugleCrownsPage(): ReactElement {
         </div>
 
         <WaAccordion className="wa-stack wa-gap-s">
-          <WaAccordionItem label="Upcoming schedule">
-            <div className="wa-stack wa-gap-s schedule-list">
-              {seasonSchedule.map((entry) => (
-                <div key={entry.label} className="wa-cluster wa-gap-m schedule-row">
-                  <WaTag
-                    variant={
-                      entry.status === "done"
-                        ? "success"
-                        : entry.status === "milestone"
-                          ? "warning"
-                          : "brand"
-                    }
-                    appearance="filled"
-                    size="small"
-                  >
-                    {entry.dates}
-                  </WaTag>
-                  <div className="wa-stack wa-gap-3xs">
-                    <strong>
-                      {entry.label}
-                      {entry.status === "done" ? " (played)" : ""}
-                    </strong>
-                    <span className="wa-color-text-quiet">{entry.detail}</span>
-                  </div>
-                </div>
-              ))}
-              <p className="wa-color-text-quiet">
-                Times per{" "}
-                <a href={scheduleUrl} target="_blank" rel="noopener noreferrer">
-                  agenticfootballcup.ai/schedule
-                </a>
-                . League A standings on the{" "}
-                <a href={leaderboardUrl} target="_blank" rel="noopener noreferrer">
-                  live leaderboard
-                </a>
-                .
-              </p>
-            </div>
-          </WaAccordionItem>
-
-          <WaAccordionItem label="Week 1 · Standings">
-            <div className="wa-stack wa-gap-s">
+          <WaAccordionItem label="Week 1 · Full debrief">
+            <div className="wa-stack wa-gap-l">
+              <h3 className="pixel-display tech-heading">Standings</h3>
               <div className="match-table-scroll">
                 <table className="match-table">
                   <caption className="wa-color-text-quiet">
@@ -239,11 +201,8 @@ function BugleCrownsPage(): ReactElement {
                   </tfoot>
                 </table>
               </div>
-            </div>
-          </WaAccordionItem>
-
-          <WaAccordionItem label="Week 1 · Every match">
-            <div className="wa-stack wa-gap-s">
+              <h3 className="pixel-display tech-heading">Every match</h3>
+              <div className="wa-stack wa-gap-s">
               {matchLog.map((match) => (
                 <WaCard key={match.match} className="pixel-card" appearance="outlined">
                   <div className="wa-stack wa-gap-2xs">
@@ -284,11 +243,8 @@ function BugleCrownsPage(): ReactElement {
                   </div>
                 </WaCard>
               ))}
-            </div>
-          </WaAccordionItem>
-
-          <WaAccordionItem label="Week 1 · What we learned">
-            <div className="wa-stack wa-gap-s">
+              <h3 className="pixel-display tech-heading">What we learned</h3>
+              <div className="wa-stack wa-gap-s">
               {performanceDiagnosis.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
@@ -335,6 +291,21 @@ function BugleCrownsPage(): ReactElement {
           </WaAccordionItem>
         </WaAccordion>
 
+        <div className="wa-stack wa-gap-s">
+          <h2 className="pixel-display tech-heading">Season calendar</h2>
+          <SeasonCalendar />
+          <p className="wa-color-text-quiet">
+            Times per{" "}
+            <a href={scheduleUrl} target="_blank" rel="noopener noreferrer">
+              agenticfootballcup.ai/schedule
+            </a>
+            . League A standings on the{" "}
+            <a href={leaderboardUrl} target="_blank" rel="noopener noreferrer">
+              live leaderboard
+            </a>
+            .
+          </p>
+        </div>
       </section>
     </SiteShell>
   );
