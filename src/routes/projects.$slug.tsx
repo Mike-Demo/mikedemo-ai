@@ -80,13 +80,7 @@ function ProjectPage(): ReactElement {
 
         <div className="wa-stack wa-gap-xs">
           <h2 className="pixel-display tech-heading">Tech stack</h2>
-          <div className="wa-cluster wa-gap-2xs">
-            {project.tech.map((item) => (
-              <WaTag key={item} variant="brand" appearance="filled">
-                {item}
-              </WaTag>
-            ))}
-          </div>
+          <TechTagList items={project.tech} label="Tech stack" />
         </div>
 
         {project.credits?.length ? (
