@@ -52,7 +52,7 @@ export function SiteShell({ children }: { children: ReactNode }): ReactElement {
               className="site-nav-link site-nav-icon"
               aria-label="Forbes profile"
             >
-              <WaIcon family="brands" name="forbes" aria-hidden="true" />
+              <WaIcon family="solid" name="user-tie" aria-hidden="true" />
             </a>
           </nav>
         </div>
