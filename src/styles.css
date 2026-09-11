@@ -437,3 +437,90 @@ main {
   margin-inline-end: var(--wa-space-3xs);
   color: var(--wa-color-brand-60);
 }
+
+/* Season calendar (Bugle Crowns) */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--wa-space-m, 1rem);
+}
+
+.calendar-month {
+  border: var(--wa-border-width-s, 1px) solid var(--wa-color-surface-border, currentColor);
+  border-radius: var(--wa-border-radius-m, 0.5rem);
+  padding: var(--wa-space-s, 0.75rem);
+  background: var(--wa-color-surface-raised, transparent);
+}
+
+.calendar-month-name {
+  font-size: var(--wa-font-size-s, 0.875rem);
+  margin: 0 0 var(--wa-space-xs, 0.5rem);
+}
+
+.calendar-weekdays,
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+
+.calendar-weekday {
+  font-size: var(--wa-font-size-2xs, 0.625rem);
+  color: var(--wa-color-text-quiet);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.calendar-cell {
+  min-block-size: 3.25rem;
+  padding: var(--wa-space-3xs, 0.125rem);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border-radius: var(--wa-border-radius-s, 0.25rem);
+}
+
+.calendar-cell-blank {
+  background: transparent;
+}
+
+.calendar-cell-event {
+  background: var(--wa-color-surface-lowered, rgba(0, 0, 0, 0.04));
+  outline: var(--wa-border-width-s, 1px) solid var(--wa-color-surface-border, transparent);
+}
+
+.calendar-day-number {
+  font-size: var(--wa-font-size-2xs, 0.625rem);
+  color: var(--wa-color-text-quiet);
+}
+
+.calendar-event {
+  display: inline-block;
+  font-size: var(--wa-font-size-2xs, 0.625rem);
+  line-height: 1.2;
+  padding: 0 var(--wa-space-2xs, 0.25rem);
+  border-radius: var(--wa-border-radius-pill, 999px);
+}
+
+.calendar-event-done {
+  background: var(--wa-color-success-quiet, #c2f0c2);
+  color: var(--wa-color-success-on-quiet, inherit);
+}
+
+.calendar-event-upcoming {
+  background: var(--wa-color-brand-quiet, #cfe0ff);
+  color: var(--wa-color-brand-on-quiet, inherit);
+}
+
+.calendar-event-milestone {
+  background: var(--wa-color-warning-quiet, #ffe9b3);
+  color: var(--wa-color-warning-on-quiet, inherit);
+}
+
+.calendar-legend {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: var(--wa-font-size-s, 0.875rem);
+  color: var(--wa-color-text-quiet);
+}
