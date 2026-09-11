@@ -5,7 +5,6 @@ import {
   WaAccordion,
   WaAccordionItem,
   WaButton,
-  WaCallout,
   WaCard,
   WaIcon,
   WaTag,
