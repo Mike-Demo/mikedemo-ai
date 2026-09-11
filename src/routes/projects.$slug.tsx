@@ -5,10 +5,10 @@ import {
   WaButton,
   WaCallout,
   WaIcon,
-  WaTag,
 } from "@/design-system/font-awsome-web-awesome-171158";
 
 import { ProjectCredits } from "@/components/ProjectCredits";
+import { TechTagList } from "@/components/TechTagList";
 import { ProjectIcon } from "@/components/ProjectIcon";
 import { SiteShell } from "@/components/SiteShell";
 import { getProject } from "@/data/projects";
@@ -80,13 +80,7 @@ function ProjectPage(): ReactElement {
 
         <div className="wa-stack wa-gap-xs">
           <h2 className="pixel-display tech-heading">Tech stack</h2>
-          <div className="wa-cluster wa-gap-2xs">
-            {project.tech.map((item) => (
-              <WaTag key={item} variant="brand" appearance="filled">
-                {item}
-              </WaTag>
-            ))}
-          </div>
+          <TechTagList items={project.tech} label="Tech stack" />
         </div>
 
         {project.credits?.length ? (

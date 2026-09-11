@@ -12,6 +12,7 @@ import {
 
 import { ProjectIcon } from "@/components/ProjectIcon";
 import { SiteShell } from "@/components/SiteShell";
+import { TechTagList } from "@/components/TechTagList";
 import { getProject } from "@/data/projects";
 import {
   drills,
@@ -89,15 +90,12 @@ function BugleCrownsPage(): ReactElement {
 
         <div className="wa-stack wa-gap-2xs">
           <h2 className="pixel-display tech-heading">Squad stack</h2>
-          <ul className="wa-cluster wa-gap-xs">
-            {squadStack.map((item) => (
-              <li key={item}>
-                <WaTag variant="brand" appearance="outlined" size="small">
-                  {item}
-                </WaTag>
-              </li>
-            ))}
-          </ul>
+          <TechTagList
+            items={squadStack}
+            appearance="outlined"
+            size="small"
+            label="Squad stack technologies"
+          />
         </div>
 
         <div className="wa-cluster wa-gap-m">
