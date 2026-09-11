@@ -12,7 +12,9 @@ import { ProjectCredits } from "@/components/ProjectCredits";
 import { ProjectIcon } from "@/components/ProjectIcon";
 import { SiteShell } from "@/components/SiteShell";
 import headshotSrc from "@/assets/headshot.png";
-import { projects } from "@/data/projects";
+import type { Project } from "@/data/projects";
+import type { Credential, TimelineItem } from "@/data/timeline";
+import { timelineItems } from "@/data/timeline";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -36,7 +38,7 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-function ProjectCard({ project }: { project: (typeof projects)[number] }): ReactElement {
+function ProjectCard({ project }: { project: Project }): ReactElement {
   return (
     <WaCard className="pixel-card" appearance="outlined">
       <div className="wa-stack wa-gap-s">
@@ -87,9 +89,44 @@ function formatDate(iso: string): string {
   });
 }
 
+function CredentialCard({ credential }: { credential: Credential }): ReactElement {
+  return (
+    <WaCard className="pixel-card credential-card" appearance="outlined">
+      <div className="wa-stack wa-gap-s">
+        <div className="wa-cluster wa-align-items-center wa-gap-s">
+          <span className="pixel-icon-badge" aria-hidden="true">
+            <WaIcon name={credential.icon} />
+          </span>
+          <div className="wa-stack wa-gap-3xs">
+            <h3 className="pixel-card-title">{credential.title}</h3>
+            <span className="wa-color-text-quiet credential-issuer">{credential.issuer}</span>
+          </div>
+        </div>
+        <p className="wa-color-text-quiet">{credential.summary}</p>
+        <a
+          href={credential.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="site-nav-link"
+        >
+          <WaIcon name="arrow-up-right-from-square" aria-hidden="true" /> View credential
+        </a>
+      </div>
+    </WaCard>
+  );
+}
+
+function TimelineCard({ item }: { item: TimelineItem }): ReactElement {
+  return item.kind === "project" ? (
+    <ProjectCard project={item} />
+  ) : (
+    <CredentialCard credential={item} />
+  );
+}
+
 function Index(): ReactElement {
-  const projectsByDate = [...projects].sort(
-    (a, b) => b.started.localeCompare(a.started)
+  const itemsByDate = [...timelineItems].sort(
+    (a, b) => a.started.localeCompare(b.started)
   );
 
   return (
@@ -111,7 +148,7 @@ function Index(): ReactElement {
         <p className="pixel-display hero-quote">“Tools are tools, just don’t be one”</p>
         <WaButton variant="brand" size="large" href="#projects">
           <WaIcon slot="start" name="rocket" aria-hidden="true" />
-          See the projects
+          See the timeline
         </WaButton>
       </section>
 
@@ -119,13 +156,13 @@ function Index(): ReactElement {
         <h2 id="projects-heading" className="pixel-display section-title">
           The Lineup
         </h2>
-        <ol className="timeline-alternating" aria-label="Project timeline, newest to oldest">
-          {projectsByDate.map((project) => (
-            <li key={project.slug} className="timeline-alternating-item">
-              <time className="pixel-display timeline-date" dateTime={project.started}>
-                {formatDate(project.started)}
+        <ol className="timeline-alternating" aria-label="Project and credential timeline, oldest to newest">
+          {itemsByDate.map((item) => (
+            <li key={item.kind === "project" ? item.slug : item.id} className="timeline-alternating-item">
+              <time className="pixel-display timeline-date" dateTime={item.started}>
+                {"period" in item ? item.period : formatDate(item.started)}
               </time>
-              <ProjectCard project={project} />
+              <TimelineCard item={item} />
             </li>
           ))}
         </ol>

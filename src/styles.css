@@ -143,6 +143,20 @@ main {
   box-shadow: var(--wa-space-xs) var(--wa-space-xs) 0 0 var(--wa-color-shadow);
 }
 
+/* Credential milestone: slightly different shadow/border tone so it reads as a certificate, not a project. */
+.credential-card {
+  border-color: var(--wa-color-warning-60);
+  box-shadow: var(--wa-space-2xs) var(--wa-space-2xs) 0 0 var(--wa-color-warning-60);
+}
+
+.credential-card:hover {
+  box-shadow: var(--wa-space-xs) var(--wa-space-xs) 0 0 var(--wa-color-warning-60);
+}
+
+.credential-issuer {
+  font-size: var(--wa-font-size-s);
+}
+
 .pixel-card-title {
   font-family: var(--wa-font-family-heading);
   font-size: var(--wa-font-size-xs);
