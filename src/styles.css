@@ -446,6 +446,20 @@ main {
   .timeline-alternating-item::before {
     inset-inline-start: var(--wa-space-m);
   }
+
+  /* Stack credential heading above its card on narrow screens. */
+  .timeline-alternating-item > .credential-card-heading {
+    grid-column: 1 / 2;
+    grid-row: 2;
+    justify-self: stretch;
+  }
+
+  .timeline-alternating-item:nth-child(odd) > .pixel-card.credential-card,
+  .timeline-alternating-item:nth-child(even) > .pixel-card.credential-card {
+    grid-column: 1 / 2;
+    grid-row: 3;
+    justify-self: stretch;
+  }
 }
 
 /* Scroll-linked entrance: each item slides in as it enters the viewport.
