@@ -34,6 +34,7 @@ export const projects: readonly Project[] = [
     tech: ["TypeScript", "React", "WebLLM", "WebGPU"],
     url: "https://on-device-minds.lovable.app",
     icon: "microchip",
+    logo: onDeviceAiLogo,
     started: "2026-09-11",
   },
   {
@@ -46,6 +47,7 @@ export const projects: readonly Project[] = [
     tech: ["TypeScript", "React", "TanStack Start", "Tailwind CSS", "Zod"],
     url: "https://cozy-ai-deploy.lovable.app",
     icon: "server",
+    logo: aiDeployerLogo,
     started: "2026-09-09",
   },
   {
@@ -58,6 +60,7 @@ export const projects: readonly Project[] = [
     tech: ["TypeScript", "React", "TanStack Start", "Supabase"],
     url: "https://tweet-caster-magic.lovable.app",
     icon: "retweet",
+    logo: crosspostLogo,
     started: "2026-09-06",
   },
   {
@@ -70,6 +73,7 @@ export const projects: readonly Project[] = [
     tech: ["TypeScript", "React", "AI SDK", "Supabase", "hCaptcha"],
     url: "https://prompt-skill-picker.lovable.app",
     icon: "wand-magic-sparkles",
+    logo: skillFinderLogo,
     started: "2026-09-02",
   },
   {
@@ -94,6 +98,7 @@ export const projects: readonly Project[] = [
     tech: ["TypeScript", "React", "Tailwind CSS", "shadcn/ui", "Supabase"],
     url: "https://pretend-pro-suite.lovable.app",
     icon: "user-tie",
+    logo: pretendProLogo,
     started: "2026-08-30",
   },
   {
@@ -106,6 +111,7 @@ export const projects: readonly Project[] = [
     tech: ["TypeScript", "React", "Tailwind CSS"],
     url: "https://sta-d20.lovable.app",
     icon: "dice-d20",
+    logo: staLogo,
     started: "2026-02-23",
   },
 ];
