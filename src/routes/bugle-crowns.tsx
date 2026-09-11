@@ -77,6 +77,9 @@ function BugleCrownsPage(): ReactElement {
           <div className="wa-stack wa-gap-2xs">
             <h1 className="pixel-display section-title">Bugle Crowns</h1>
             <span className="wa-color-text-quiet">AWS Agentic Football Cup · {weekId}</span>
+            <span className="wa-color-text-quiet" style={{ fontSize: "var(--wa-font-size-s)" }}>
+              Run by AWSOfficial Alpha Season, supported by Minds from Animoca Brands
+            </span>
           </div>
         </div>
 
@@ -84,6 +87,19 @@ function BugleCrownsPage(): ReactElement {
           Five AI agents, 120-second matches, one very opinionated coach. Bugle Crowns is my team in
           the AWS Agentic Football Cup — here is how Week 1 went and what changes next.
         </p>
+
+        <div className="wa-stack wa-gap-2xs">
+          <h2 className="pixel-display tech-heading">Squad stack</h2>
+          <ul className="wa-cluster wa-gap-xs">
+            {squadStack.map((item) => (
+              <li key={item}>
+                <WaTag variant="brand" appearance="outlined" size="small">
+                  {item}
+                </WaTag>
+              </li>
+            ))}
+          </ul>
+        </div>
 
         <div className="wa-cluster wa-gap-m">
           <WaButton
