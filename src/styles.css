@@ -81,6 +81,16 @@ main {
   margin-inline: auto;
 }
 
+/* Narrower measure for long-form project detail pages. */
+.section-narrow {
+  max-width: 48rem;
+}
+
+/* Responsive card grid sizing (wa-grid custom property). */
+.projects-grid {
+  --min-column-size: 20rem;
+}
+
 .section-title {
   font-size: var(--wa-font-size-xl);
 }
