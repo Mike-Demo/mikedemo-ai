@@ -255,18 +255,53 @@ main {
 
 /* Arcade level-select rail: horizontal, newest first, icons as the markers. */
 
+.arcade-rail-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--wa-space-s);
+}
+
 .arcade-rail-scroll {
+  flex: 1;
+  min-width: 0;
   overflow-x: auto;
   overflow-y: hidden;
   padding-block: var(--wa-space-m);
   scroll-snap-type: x proximity;
   scroll-padding-inline: var(--wa-space-l);
-  transition: padding-block-end var(--wa-transition-fast) var(--wa-transition-easing);
 }
 
-/* Make vertical room for the preview popup so it isn't clipped by the scroller. */
-.arcade-rail-scroll[data-preview] {
-  padding-block-end: 15rem;
+/* Pixel arrow buttons flanking the rail. */
+.arcade-arrow {
+  flex-shrink: 0;
+  display: inline-grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  font-size: var(--wa-font-size-m);
+  cursor: pointer;
+  color: var(--wa-color-brand-60);
+  background-color: var(--wa-color-surface-raised);
+  border: var(--wa-border-width-m) var(--wa-border-style) var(--wa-color-brand-60);
+  border-radius: var(--wa-border-radius-square);
+  box-shadow: var(--wa-space-2xs) var(--wa-space-2xs) 0 0 var(--wa-color-shadow);
+  transition:
+    transform var(--wa-transition-fast) var(--wa-transition-easing),
+    box-shadow var(--wa-transition-fast) var(--wa-transition-easing);
+}
+
+.arcade-arrow:hover:not(:disabled),
+.arcade-arrow:focus-visible {
+  transform: translate(calc(-1 * var(--wa-space-3xs)), calc(-1 * var(--wa-space-3xs)));
+  box-shadow: var(--wa-space-xs) var(--wa-space-xs) 0 0 var(--wa-color-shadow);
+}
+
+.arcade-arrow:disabled {
+  opacity: 0.35;
+  cursor: default;
+  box-shadow: none;
 }
 
 .arcade-rail {
@@ -378,11 +413,11 @@ main {
 }
 
 /* Preview popup shown for the focused/hovered rail node. */
+/* Floating preview card: anchored to the wrap, horizontally placed via inline style. */
 .arcade-preview {
   position: absolute;
   inset-block-start: calc(100% + var(--wa-space-2xs));
-  inset-inline-start: 50%;
-  transform: translateX(-50%);
+  inset-inline-start: 0;
   z-index: 2;
   width: 17rem;
   max-width: 80vw;
@@ -395,17 +430,6 @@ main {
   border-radius: var(--wa-border-radius-square);
   box-shadow: var(--wa-space-2xs) var(--wa-space-2xs) 0 0 var(--wa-color-shadow);
   animation: arcade-preview-in var(--wa-transition-fast) var(--wa-transition-easing) both;
-}
-
-.arcade-node[data-align="start"] .arcade-preview {
-  inset-inline-start: 0;
-  transform: none;
-}
-
-.arcade-node[data-align="end"] .arcade-preview {
-  inset-inline-start: auto;
-  inset-inline-end: 0;
-  transform: none;
 }
 
 .arcade-preview-title {
@@ -435,7 +459,7 @@ main {
 @keyframes arcade-preview-in {
   from {
     opacity: 0;
-    transform: translate(-50%, var(--wa-space-2xs));
+    transform: translateY(var(--wa-space-2xs));
   }
 }
 
@@ -478,7 +502,8 @@ main {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .arcade-node-icon {
+  .arcade-node-icon,
+  .arcade-arrow {
     transition: none;
   }
 
