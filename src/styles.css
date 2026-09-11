@@ -12,7 +12,7 @@ main {
 }
 
 .pixel-display {
-  font-family: "Press Start 2P", var(--wa-font-family-code);
+  font-family: var(--wa-font-family-heading);
   line-height: var(--wa-line-height-expanded);
 }
 
@@ -86,10 +86,6 @@ main {
   max-width: 48rem;
 }
 
-/* Responsive card grid sizing (wa-grid custom property). */
-.projects-grid {
-  --min-column-size: 20rem;
-}
 
 .section-title {
   font-size: var(--wa-font-size-xl);
@@ -113,7 +109,7 @@ main {
 }
 
 .pixel-card-title {
-  font-family: "Press Start 2P", var(--wa-font-family-code);
+  font-family: var(--wa-font-family-heading);
   font-size: var(--wa-font-size-xs);
   line-height: var(--wa-line-height-expanded);
   margin: 0;
@@ -140,14 +136,10 @@ main {
 
 /* Project's own site icon, sized to the badge it sits in. */
 .project-logo {
-  width: 1.5em;
-  height: 1.5em;
+  width: var(--wa-space-l);
+  height: var(--wa-space-l);
   object-fit: contain;
   image-rendering: auto;
-}
-
-.timeline-name .project-logo {
-  vertical-align: -0.125em;
 }
 
 /* Project detail */
@@ -161,43 +153,71 @@ main {
   font-size: var(--wa-font-size-s);
 }
 
-/* Build timeline: chunky rail with hard-shadow date badges */
+/* Alternating timeline: project cards and dates share one reverse-chronological flow. */
 
-/* Sidebar column next to the project cards (wa-flank sizes by content). */
-.timeline-aside {
-  max-inline-size: 26rem;
-}
-
-.timeline {
+.timeline-alternating {
   list-style: none;
   margin: 0;
   padding: 0;
-  border-inline-start: var(--wa-border-width-m) var(--wa-border-style) var(--wa-color-shadow);
-}
-
-.timeline-item {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--wa-space-m);
-  padding-block: var(--wa-space-m);
-  padding-inline-start: var(--wa-space-m);
+  display: grid;
+  gap: var(--wa-space-xl);
   position: relative;
 }
 
-.timeline-item::before {
+/* Central rail that runs through every item. */
+.timeline-alternating::before {
   content: "";
   position: absolute;
-  inset-inline-start: calc(-1 * var(--wa-space-xs));
+  inset-block-start: 0;
+  inset-block-end: 0;
+  inset-inline-start: 50%;
+  border-inline-start: var(--wa-border-width-m) var(--wa-border-style) var(--wa-color-shadow);
+  transform: translateX(-50%);
+}
+
+.timeline-alternating-item {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: start;
+  gap: var(--wa-space-xl);
+  position: relative;
+}
+
+.timeline-alternating-item::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 50%;
   inset-block-start: var(--wa-space-l);
   width: var(--wa-space-s);
   height: var(--wa-space-s);
   background-color: var(--wa-color-brand-60);
   border: var(--wa-border-width-m) var(--wa-border-style) var(--wa-color-shadow);
   border-radius: var(--wa-border-radius-square);
+  transform: translateX(-50%);
+}
+
+/* Odd items = newest side (left), even items = right. The date badge lives in the center column. */
+.timeline-alternating-item:nth-child(odd) .pixel-card {
+  grid-column: 1 / 2;
+  grid-row: 1;
+  justify-self: end;
+}
+
+.timeline-alternating-item:nth-child(even) .pixel-card {
+  grid-column: 3 / 4;
+  grid-row: 1;
+  justify-self: start;
+}
+
+.timeline-alternating-item .timeline-date {
+  grid-column: 2 / 3;
+  grid-row: 1;
+  justify-self: center;
+  position: relative;
+  z-index: 1;
 }
 
 .timeline-date {
-  flex-shrink: 0;
   font-size: var(--wa-font-size-2xs);
   color: var(--wa-color-brand-60);
   background-color: var(--wa-color-surface-lowered);
@@ -208,18 +228,36 @@ main {
   margin-block-start: var(--wa-space-3xs);
 }
 
-.timeline-name {
-  font-weight: var(--wa-font-weight-semibold);
-}
+@media (max-width: 60rem) {
+  .timeline-alternating {
+    gap: var(--wa-space-l);
+  }
 
-.timeline-summary {
-  margin: 0;
-}
+  .timeline-alternating::before {
+    inset-inline-start: var(--wa-space-m);
+  }
 
-@media (max-width: 40rem) {
-  .timeline-item {
-    flex-direction: column;
-    gap: var(--wa-space-2xs);
+  .timeline-alternating-item {
+    grid-template-columns: 1fr;
+    gap: var(--wa-space-s);
+    padding-inline-start: var(--wa-space-3xl);
+  }
+
+  .timeline-alternating-item:nth-child(odd) .pixel-card,
+  .timeline-alternating-item:nth-child(even) .pixel-card {
+    grid-column: 1 / 2;
+    grid-row: 2;
+    justify-self: stretch;
+  }
+
+  .timeline-alternating-item .timeline-date {
+    grid-column: 1 / 2;
+    grid-row: 1;
+    justify-self: start;
+  }
+
+  .timeline-alternating-item::before {
+    inset-inline-start: var(--wa-space-m);
   }
 }
 
@@ -248,7 +286,7 @@ main {
 
 @media (prefers-reduced-motion: no-preference) {
   @supports (animation-timeline: view()) {
-    .timeline-item {
+    .timeline-alternating-item {
       animation: timeline-item-enter linear both;
       animation-timeline: view();
       animation-range: entry 0% entry 60%;
