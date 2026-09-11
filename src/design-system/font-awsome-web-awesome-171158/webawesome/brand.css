@@ -7,4 +7,10 @@
  * hand so the two never disagree.
  */
 
-/* No overrides: the stock Web Awesome default theme ships as-is. */
+/* Press Start 2P is this brand's display face: map it onto the heading token. */
+@layer wa-theme {
+  :where(:root),
+  .wa-theme-default {
+    --wa-font-family-heading: "Press Start 2P", var(--wa-font-family-code);
+  }
+}
