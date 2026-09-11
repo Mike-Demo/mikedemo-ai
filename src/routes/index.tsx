@@ -68,7 +68,18 @@ function ProjectCard({ project }: { project: (typeof projects)[number] }): React
   );
 }
 
+function formatDate(iso: string): string {
+  return new Date(`${iso}T00:00:00Z`).toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+    timeZone: "UTC",
+  });
+}
+
 function Index(): ReactElement {
+  const timelineProjects = [...projects].sort((a, b) => a.started.localeCompare(b.started));
+
   return (
     <SiteShell>
       <section className="hero-section wa-stack wa-gap-m wa-align-items-center">
@@ -93,6 +104,31 @@ function Index(): ReactElement {
             <ProjectCard key={project.slug} project={project} />
           ))}
         </div>
+      </section>
+
+      <section id="timeline" className="section section-narrow wa-stack wa-gap-l" aria-labelledby="timeline-heading">
+        <h2 id="timeline-heading" className="pixel-display section-title">
+          Build Timeline
+        </h2>
+        <ol className="timeline">
+          {timelineProjects.map((project) => (
+            <li key={project.slug} className="timeline-item">
+              <time className="pixel-display timeline-date" dateTime={project.started}>
+                {formatDate(project.started)}
+              </time>
+              <div className="timeline-body wa-stack wa-gap-2xs">
+                <Link
+                  to="/projects/$slug"
+                  params={{ slug: project.slug }}
+                  className="site-nav-link timeline-name"
+                >
+                  <WaIcon name={project.icon} aria-hidden="true" /> {project.name}
+                </Link>
+                <p className="wa-color-text-quiet timeline-summary">{project.summary}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
       </section>
     </SiteShell>
   );

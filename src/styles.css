@@ -148,3 +148,60 @@ main {
 .tech-heading {
   font-size: var(--wa-font-size-s);
 }
+
+/* Build timeline: chunky rail with hard-shadow date badges */
+
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-inline-start: var(--wa-border-width-m) var(--wa-border-style) var(--wa-color-shadow);
+}
+
+.timeline-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--wa-space-m);
+  padding-block: var(--wa-space-m);
+  padding-inline-start: var(--wa-space-m);
+  position: relative;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: calc(-1 * var(--wa-space-xs));
+  inset-block-start: var(--wa-space-l);
+  width: var(--wa-space-s);
+  height: var(--wa-space-s);
+  background-color: var(--wa-color-brand-60);
+  border: var(--wa-border-width-m) var(--wa-border-style) var(--wa-color-shadow);
+  border-radius: var(--wa-border-radius-square);
+}
+
+.timeline-date {
+  flex-shrink: 0;
+  font-size: var(--wa-font-size-2xs);
+  color: var(--wa-color-brand-60);
+  background-color: var(--wa-color-surface-lowered);
+  border: var(--wa-border-width-m) var(--wa-border-style) var(--wa-color-shadow);
+  border-radius: var(--wa-border-radius-square);
+  box-shadow: var(--wa-space-3xs) var(--wa-space-3xs) 0 0 var(--wa-color-shadow);
+  padding: var(--wa-space-2xs) var(--wa-space-xs);
+  margin-block-start: var(--wa-space-3xs);
+}
+
+.timeline-name {
+  font-weight: var(--wa-font-weight-semibold);
+}
+
+.timeline-summary {
+  margin: 0;
+}
+
+@media (max-width: 40rem) {
+  .timeline-item {
+    flex-direction: column;
+    gap: var(--wa-space-2xs);
+  }
+}

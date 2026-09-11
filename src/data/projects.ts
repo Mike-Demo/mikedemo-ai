@@ -10,6 +10,8 @@ export interface Project {
   readonly tech: readonly string[];
   readonly url: string;
   readonly icon: string;
+  /** ISO date the project was first built. */
+  readonly started: string;
 }
 
 export const projects: readonly Project[] = [
@@ -23,6 +25,7 @@ export const projects: readonly Project[] = [
     tech: ["TypeScript", "React", "WebLLM", "WebGPU"],
     url: "https://ai.mikedemo.dev",
     icon: "microchip",
+    started: "2026-09-11",
   },
   {
     slug: "ai-deployer",
@@ -34,6 +37,7 @@ export const projects: readonly Project[] = [
     tech: ["TypeScript", "React", "TanStack Start", "Tailwind CSS", "Zod"],
     url: "https://local.mikedemo.dev",
     icon: "server",
+    started: "2026-09-09",
   },
   {
     slug: "crosspost",
@@ -45,6 +49,7 @@ export const projects: readonly Project[] = [
     tech: ["TypeScript", "React", "TanStack Start", "Supabase"],
     url: "https://tweet.app",
     icon: "retweet",
+    started: "2026-09-06",
   },
   {
     slug: "skill-finder-plus",
@@ -56,6 +61,7 @@ export const projects: readonly Project[] = [
     tech: ["TypeScript", "React", "AI SDK", "Supabase", "hCaptcha"],
     url: "https://skills.mikedemo.dev",
     icon: "wand-magic-sparkles",
+    started: "2026-09-02",
   },
   {
     slug: "awesome-design-system",
@@ -67,6 +73,7 @@ export const projects: readonly Project[] = [
     tech: ["TypeScript", "React", "Web Awesome", "Font Awesome Free"],
     url: "https://project--9fea97bb-e317-446f-b683-1274350846c6.lovable.app",
     icon: "swatchbook",
+    started: "2026-09-03",
   },
   {
     slug: "pretendpro",
@@ -78,6 +85,7 @@ export const projects: readonly Project[] = [
     tech: ["TypeScript", "React", "Tailwind CSS", "shadcn/ui", "Supabase"],
     url: "https://pretend.pro",
     icon: "user-tie",
+    started: "2026-08-30",
   },
   {
     slug: "sta-2e-d20-roller",
@@ -89,6 +97,7 @@ export const projects: readonly Project[] = [
     tech: ["TypeScript", "React", "Tailwind CSS"],
     url: "https://2d20.space",
     icon: "dice-d20",
+    started: "2026-02-23",
   },
 ];
 
