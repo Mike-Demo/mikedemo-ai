@@ -200,19 +200,22 @@ main {
   transform: translateX(-50%);
 }
 
-/* Odd items = newest side (left), even items = right. */
+/* Odd items = newest side (left), even items = right. The date badge lives in the center column. */
 .timeline-alternating-item:nth-child(odd) .pixel-card {
   grid-column: 1 / 2;
+  grid-row: 1;
   justify-self: end;
 }
 
 .timeline-alternating-item:nth-child(even) .pixel-card {
   grid-column: 3 / 4;
+  grid-row: 1;
   justify-self: start;
 }
 
 .timeline-alternating-item .timeline-date {
   grid-column: 2 / 3;
+  grid-row: 1;
   justify-self: center;
   position: relative;
   z-index: 1;
@@ -239,19 +242,21 @@ main {
   }
 
   .timeline-alternating-item {
-    grid-template-columns: auto 1fr;
-    gap: var(--wa-space-m);
-    padding-inline-start: var(--wa-space-xl);
+    grid-template-columns: 1fr;
+    gap: var(--wa-space-s);
+    padding-inline-start: var(--wa-space-3xl);
   }
 
   .timeline-alternating-item:nth-child(odd) .pixel-card,
   .timeline-alternating-item:nth-child(even) .pixel-card {
-    grid-column: 2 / 3;
+    grid-column: 1 / 2;
+    grid-row: 2;
     justify-self: stretch;
   }
 
   .timeline-alternating-item .timeline-date {
     grid-column: 1 / 2;
+    grid-row: 1;
     justify-self: start;
   }
 
