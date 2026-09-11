@@ -28,6 +28,9 @@ export function SiteShell({ children }: { children: ReactNode }): ReactElement {
             <Link to="/" className="site-nav-link site-nav-icon" aria-label="Projects">
               <WaIcon name="rocket" aria-hidden="true" />
             </Link>
+            <Link to="/agent-skills" className="site-nav-link site-nav-icon" aria-label="AI agent skills guide">
+              <WaIcon name="wand-magic-sparkles" aria-hidden="true" />
+            </Link>
             <Link to="/licenses" className="site-nav-link site-nav-icon" aria-label="Licenses and credits">
               <WaIcon name="scale-balanced" aria-hidden="true" />
             </Link>
