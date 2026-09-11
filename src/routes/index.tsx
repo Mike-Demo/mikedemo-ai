@@ -127,10 +127,54 @@ function TimelineCard({ item }: { item: TimelineItem }): ReactElement {
   );
 }
 
+function timelineItemId(item: TimelineItem): string {
+  return `timeline-${item.kind === "project" ? item.slug : item.id}`;
+}
+
+function timelineItemTitle(item: TimelineItem): string {
+  return item.kind === "project" ? item.name : item.title;
+}
+
 function Index(): ReactElement {
-  const itemsByDate = [...timelineItems].sort(
-    (a, b) => a.started.localeCompare(b.started)
+  const itemsByDate = useMemo(
+    () => [...timelineItems].sort((a, b) => a.started.localeCompare(b.started)),
+    []
   );
+  const ids = useMemo(() => itemsByDate.map(timelineItemId), [itemsByDate]);
+  const activeId = useActiveTimelineItem(ids);
+
+  function handleMarkerKeyDown(
+    event: KeyboardEvent<HTMLAnchorElement>,
+    index: number
+  ): void {
+    const offsets: Record<string, number> = {
+      ArrowDown: 1,
+      ArrowRight: 1,
+      ArrowUp: -1,
+      ArrowLeft: -1,
+    };
+
+    let nextIndex: number | null = null;
+    if (event.key in offsets) {
+      nextIndex = index + (offsets[event.key] ?? 0);
+    } else if (event.key === "Home") {
+      nextIndex = 0;
+    } else if (event.key === "End") {
+      nextIndex = ids.length - 1;
+    }
+
+    if (nextIndex === null || nextIndex < 0 || nextIndex >= ids.length) {
+      return;
+    }
+
+    event.preventDefault();
+    const nextId = ids[nextIndex];
+    if (!nextId) {
+      return;
+    }
+    document.querySelector<HTMLAnchorElement>(`a[href="#${nextId}"]`)?.focus();
+    scrollToTimelineItem(nextId);
+  }
 
   return (
     <SiteShell>
@@ -160,14 +204,45 @@ function Index(): ReactElement {
           The Lineup
         </h2>
         <ol className="timeline-alternating" aria-label="Project and credential timeline, oldest to newest">
-          {itemsByDate.map((item) => (
-            <li key={item.kind === "project" ? item.slug : item.id} className="timeline-alternating-item">
-              <time className="pixel-display timeline-date" dateTime={item.started}>
-                {"period" in item ? item.period : formatDate(item.started)}
-              </time>
-              <TimelineCard item={item} />
-            </li>
-          ))}
+          {itemsByDate.map((item, index) => {
+            const id = timelineItemId(item);
+            const title = timelineItemTitle(item);
+            const isActive = activeId === id;
+
+            return (
+              <li
+                key={id}
+                id={id}
+                className="timeline-alternating-item"
+                data-active={isActive ? "true" : undefined}
+              >
+                <div className="timeline-center">
+                  <a
+                    className="timeline-marker"
+                    href={`#${id}`}
+                    aria-label={`Jump to ${title}`}
+                    aria-current={isActive ? "true" : undefined}
+                    onKeyDown={(event) => handleMarkerKeyDown(event, index)}
+                    onClick={(event) => {
+                      event.preventDefault();
+                      scrollToTimelineItem(id);
+                    }}
+                  >
+                    <span className="pixel-display timeline-number" aria-hidden="true">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <span className="pixel-display timeline-marker-title" aria-hidden="true">
+                      {title}
+                    </span>
+                  </a>
+                  <time className="pixel-display timeline-date" dateTime={item.started}>
+                    {"period" in item ? item.period : formatDate(item.started)}
+                  </time>
+                </div>
+                <TimelineCard item={item} />
+              </li>
+            );
+          })}
         </ol>
       </section>
     </SiteShell>
