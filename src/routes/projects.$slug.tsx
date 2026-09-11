@@ -88,18 +88,6 @@ function ProjectPage(): ReactElement {
 
         <ProjectSummaryCard project={project} />
 
-        <div className="wa-stack wa-gap-xs">
-          <h2 className="pixel-display tech-heading">Tech stack</h2>
-          <TechTagList items={project.tech} label="Tech stack" />
-        </div>
-
-
-        {project.credits?.length ? (
-          <div className="wa-stack wa-gap-xs">
-            <h2 className="pixel-display tech-heading">Credits</h2>
-            <ProjectCredits project={project} />
-          </div>
-        ) : null}
 
         <div className="wa-cluster wa-gap-m">
           <WaButton variant="brand" size="large" href={project.url} target="_blank" rel="noopener noreferrer">
