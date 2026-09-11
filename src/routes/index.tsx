@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import type { ReactElement } from "react";
+import type { KeyboardEvent, ReactElement } from "react";
+import { useMemo } from "react";
 
 import {
   WaButton,
@@ -15,6 +16,10 @@ import headshotSrc from "@/assets/headshot.png";
 import type { Project } from "@/data/projects";
 import type { Credential, TimelineItem } from "@/data/timeline";
 import { timelineItems } from "@/data/timeline";
+import {
+  scrollToTimelineItem,
+  useActiveTimelineItem,
+} from "@/lib/use-active-timeline-item";
 
 export const Route = createFileRoute("/")({
   staticData: { sitemap: true },
