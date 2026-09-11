@@ -1,8 +1,8 @@
 /**
  * Portfolio content. Edit this single file to add or update projects.
  */
-import bugleCrownsLogo from "@/assets/bugle-crowns.png.asset.json";
 import aiDeployerLogo from "@/assets/project-icons/ai-deployer.svg";
+import bugleCrownsLogo from "@/assets/project-icons/bugle-crowns.png";
 import crosspostLogo from "@/assets/project-icons/crosspost.png";
 import onDeviceAiLogo from "@/assets/project-icons/on-device-ai.svg";
 import pretendProLogo from "@/assets/project-icons/pretendpro.png";
