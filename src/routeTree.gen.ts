@@ -9,13 +9,25 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as LicensesRouteImport } from './routes/licenses'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ProjectsSlugRouteImport } from './routes/projects.$slug'
 import { Route as Char91__mockupChar93PreviewSplatRouteImport } from './routes/[__mockup].preview.$'
 import { Route as Char91__componentChar93PreviewSplatRouteImport } from './routes/[__component].preview.$'
 
+const LicensesRoute = LicensesRouteImport.update({
+  id: '/licenses',
+  path: '/licenses',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsSlugRoute = ProjectsSlugRouteImport.update({
+  id: '/projects/$slug',
+  path: '/projects/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const Char91__mockupChar93PreviewSplatRoute =
@@ -33,41 +45,79 @@ const Char91__componentChar93PreviewSplatRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/licenses': typeof LicensesRoute
+  '/projects/$slug': typeof ProjectsSlugRoute
   '/__component/preview/$': typeof Char91__componentChar93PreviewSplatRoute
   '/__mockup/preview/$': typeof Char91__mockupChar93PreviewSplatRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/licenses': typeof LicensesRoute
+  '/projects/$slug': typeof ProjectsSlugRoute
   '/__component/preview/$': typeof Char91__componentChar93PreviewSplatRoute
   '/__mockup/preview/$': typeof Char91__mockupChar93PreviewSplatRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/licenses': typeof LicensesRoute
+  '/projects/$slug': typeof ProjectsSlugRoute
   '/__component/preview/$': typeof Char91__componentChar93PreviewSplatRoute
   '/__mockup/preview/$': typeof Char91__mockupChar93PreviewSplatRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/__component/preview/$' | '/__mockup/preview/$'
+  fullPaths:
+    | '/'
+    | '/licenses'
+    | '/projects/$slug'
+    | '/__component/preview/$'
+    | '/__mockup/preview/$'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/__component/preview/$' | '/__mockup/preview/$'
-  id: '__root__' | '/' | '/__component/preview/$' | '/__mockup/preview/$'
+  to:
+    | '/'
+    | '/licenses'
+    | '/projects/$slug'
+    | '/__component/preview/$'
+    | '/__mockup/preview/$'
+  id:
+    | '__root__'
+    | '/'
+    | '/licenses'
+    | '/projects/$slug'
+    | '/__component/preview/$'
+    | '/__mockup/preview/$'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  LicensesRoute: typeof LicensesRoute
+  ProjectsSlugRoute: typeof ProjectsSlugRoute
   Char91__componentChar93PreviewSplatRoute: typeof Char91__componentChar93PreviewSplatRoute
   Char91__mockupChar93PreviewSplatRoute: typeof Char91__mockupChar93PreviewSplatRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/licenses': {
+      id: '/licenses'
+      path: '/licenses'
+      fullPath: '/licenses'
+      preLoaderRoute: typeof LicensesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects/$slug': {
+      id: '/projects/$slug'
+      path: '/projects/$slug'
+      fullPath: '/projects/$slug'
+      preLoaderRoute: typeof ProjectsSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/__mockup/preview/$': {
@@ -89,6 +139,8 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  LicensesRoute: LicensesRoute,
+  ProjectsSlugRoute: ProjectsSlugRoute,
   Char91__componentChar93PreviewSplatRoute:
     Char91__componentChar93PreviewSplatRoute,
   Char91__mockupChar93PreviewSplatRoute: Char91__mockupChar93PreviewSplatRoute,
