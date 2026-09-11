@@ -61,12 +61,15 @@ export function TimelineArcade({
       >
         {projects.map((project, index) => {
           const isCurrent = project.slug === currentSlug;
-          const icon = (
+          const body = (
             <>
               <span className="arcade-node-icon" aria-hidden="true">
                 <ProjectIcon project={project} />
               </span>
-              <span className="wa-visually-hidden">{`Open ${project.name}`}</span>
+              <time className="pixel-display arcade-node-date" dateTime={project.started}>
+                {formatMonthYear(project.started)}
+              </time>
+              <span className="pixel-display arcade-node-name">{project.name}</span>
             </>
           );
 
@@ -81,42 +84,37 @@ export function TimelineArcade({
               </span>
 
               {isCurrent ? (
-                <span className="arcade-node-button" aria-current="true">
-                  <span className="arcade-node-icon" aria-hidden="true">
-                    <ProjectIcon project={project} />
-                  </span>
-                  <span className="wa-visually-hidden">{`${project.name}, current project`}</span>
+                <span className="arcade-node-link" aria-current="page">
+                  {body}
                 </span>
               ) : project.detailPath ? (
                 <Link
                   to={project.detailPath}
-                  className="arcade-node-button"
+                  className="arcade-node-link"
                   ref={(element) => {
                     nodeRefs.current[index] = element;
                   }}
                   onKeyDown={(event) => handleKeyDown(event, index)}
                 >
-                  {icon}
+                  {body}
                 </Link>
               ) : (
                 <Link
                   to="/projects/$slug"
                   params={{ slug: project.slug }}
-                  className="arcade-node-button"
+                  className="arcade-node-link"
                   ref={(element) => {
                     nodeRefs.current[index] = element;
                   }}
                   onKeyDown={(event) => handleKeyDown(event, index)}
                 >
-                  {icon}
+                  {body}
                 </Link>
               )}
-
-              <time className="pixel-display arcade-node-date" dateTime={project.started}>
-                {formatMonthYear(project.started)}
-              </time>
-              <span className="pixel-display arcade-node-name">{project.name}</span>
             </li>
+          );
+        })}
+
           );
         })}
       </ol>
