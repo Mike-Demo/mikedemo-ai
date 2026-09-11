@@ -150,7 +150,7 @@ function Index(): ReactElement {
         <p className="pixel-display hero-quote">“Tools are tools, just don’t be one”</p>
         <WaButton variant="brand" size="large" href="#projects">
           <WaIcon slot="start" name="rocket" aria-hidden="true" />
-          See the projects
+          See the timeline
         </WaButton>
       </section>
 
