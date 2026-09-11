@@ -61,6 +61,16 @@ main {
   color: var(--wa-color-brand-60);
 }
 
+.hero-headshot {
+  display: block;
+  width: 8rem;
+  height: 8rem;
+  object-fit: cover;
+  border-radius: var(--wa-border-radius-circle);
+  border: var(--wa-border-width-m) var(--wa-border-style) var(--wa-color-shadow);
+  box-shadow: var(--wa-space-2xs) var(--wa-space-2xs) 0 0 var(--wa-color-shadow);
+}
+
 .hero-title {
   font-size: var(--wa-font-size-3xl);
   max-width: 24ch;
