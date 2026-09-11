@@ -125,7 +125,7 @@ function AgentSkillsPage(): ReactElement {
 
         <div className="wa-stack wa-gap-xs">
           <h2 className="pixel-display tech-heading">What makes a skill worth saving</h2>
-          <ul className="wa-stack wa-gap-2xs">
+          <ul className="checklist">
             <li>It describes a repeatable job, not a one-off question.</li>
             <li>It states the steps and the output shape, so results stay consistent.</li>
             <li>It names the edge cases you keep having to correct by hand.</li>

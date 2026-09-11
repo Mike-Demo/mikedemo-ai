@@ -236,6 +236,16 @@ main {
   padding-inline-start: var(--wa-space-l);
 }
 
+/* Markerless checklist: tokenized spacing instead of default bullets. */
+.checklist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--wa-space-2xs);
+  color: var(--wa-color-text-quiet);
+}
+
 /* Alternating timeline: project cards and dates share one reverse-chronological flow. */
 
 .timeline-alternating {
