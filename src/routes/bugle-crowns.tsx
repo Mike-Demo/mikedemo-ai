@@ -11,10 +11,14 @@ import {
 } from "@/design-system/font-awsome-web-awesome-171158";
 
 import { ProjectIcon } from "@/components/ProjectIcon";
+import { ProjectSummaryCard } from "@/components/ProjectSummaryCard";
 import { SeasonCalendar } from "@/components/SeasonCalendar";
 import { SiteShell } from "@/components/SiteShell";
 import { TechTagList } from "@/components/TechTagList";
+import { TimelineArcade } from "@/components/TimelineArcade";
 import { getProject } from "@/data/projects";
+import { projectsNewestFirst } from "@/data/timeline";
+
 import {
   drills,
   latestMatch,
