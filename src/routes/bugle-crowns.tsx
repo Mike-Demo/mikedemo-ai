@@ -243,11 +243,13 @@ function BugleCrownsPage(): ReactElement {
                   </div>
                 </WaCard>
               ))}
+              </div>
               <h3 className="pixel-display tech-heading">What we learned</h3>
               <div className="wa-stack wa-gap-s">
-              {performanceDiagnosis.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
+                {performanceDiagnosis.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
             </div>
           </WaAccordionItem>
 
