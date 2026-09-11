@@ -253,229 +253,118 @@ main {
   color: var(--wa-color-text-quiet);
 }
 
-/* Alternating timeline: project cards and dates share one reverse-chronological flow. */
+/* Arcade level-select rail: horizontal, newest first, icons as the markers. */
 
-.timeline-alternating {
+.arcade-rail-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-block: var(--wa-space-m);
+  scroll-snap-type: x proximity;
+  scroll-padding-inline: var(--wa-space-l);
+}
+
+.arcade-rail {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: grid;
+  display: flex;
+  align-items: flex-start;
   gap: var(--wa-space-xl);
+  min-width: max-content;
   position: relative;
 }
 
-/* Central rail that runs through every item. */
-.timeline-alternating::before {
+/* The chunky track running behind the nodes. */
+.arcade-rail::before {
   content: "";
   position: absolute;
-  inset-block-start: 0;
-  inset-block-end: 0;
-  inset-inline-start: 50%;
-  border-inline-start: var(--wa-border-width-m) var(--wa-border-style) var(--wa-color-shadow);
-  transform: translateX(-50%);
+  inset-inline: 0;
+  inset-block-start: var(--wa-space-2xl);
+  border-block-start: var(--wa-border-width-l) var(--wa-border-style) var(--wa-color-shadow);
 }
 
-.timeline-alternating-item {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: start;
-  gap: var(--wa-space-xl);
-  position: relative;
-}
-
-.timeline-alternating-item::before {
-  content: "";
-  position: absolute;
-  inset-inline-start: 50%;
-  inset-block-start: var(--wa-space-l);
-  width: var(--wa-space-s);
-  height: var(--wa-space-s);
-  background-color: var(--wa-color-brand-60);
-  border: var(--wa-border-width-m) var(--wa-border-style) var(--wa-color-shadow);
-  border-radius: var(--wa-border-radius-square);
-  transform: translateX(-50%);
-}
-
-/* Odd items = newest side (left), even items = right. The date badge lives in the center column. */
-.timeline-alternating-item:nth-child(odd) .pixel-card {
-  grid-column: 1 / 2;
-  grid-row: 1;
-  justify-self: end;
-}
-
-.timeline-alternating-item:nth-child(even) .pixel-card {
-  grid-column: 3 / 4;
-  grid-row: 1;
-  justify-self: start;
-}
-
-.timeline-alternating-item .timeline-center {
-  grid-column: 2 / 3;
-  grid-row: 1;
-  justify-self: center;
-  position: relative;
-  z-index: 1;
+.arcade-node {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: var(--wa-space-2xs);
+  width: 9rem;
+  scroll-snap-align: center;
+  position: relative;
+  z-index: 1;
 }
 
-/* Numbered rail marker: number only until active/hover/focus reveals the label. */
-.timeline-marker {
+.arcade-level {
+  font-size: var(--wa-font-size-2xs);
+  color: var(--wa-color-brand-60);
+}
+
+.arcade-node-button {
   display: inline-flex;
   align-items: center;
-  gap: var(--wa-space-2xs);
-  padding: var(--wa-space-2xs) var(--wa-space-xs);
+  justify-content: center;
+  inline-size: var(--wa-space-3xl);
+  block-size: var(--wa-space-3xl);
+  padding: var(--wa-space-2xs);
+  cursor: pointer;
   color: var(--wa-color-text-normal);
-  text-decoration: none;
   background-color: var(--wa-color-surface-raised);
   border: var(--wa-border-width-m) var(--wa-border-style) var(--wa-color-shadow);
   border-radius: var(--wa-border-radius-square);
-  box-shadow: var(--wa-space-3xs) var(--wa-space-3xs) 0 0 var(--wa-color-shadow);
+  box-shadow: var(--wa-space-2xs) var(--wa-space-2xs) 0 0 var(--wa-color-shadow);
   transition:
-    color var(--wa-transition-fast) var(--wa-transition-easing),
+    transform var(--wa-transition-fast) var(--wa-transition-easing),
     box-shadow var(--wa-transition-fast) var(--wa-transition-easing);
 }
 
-.timeline-number {
-  font-size: var(--wa-font-size-xs);
+.arcade-node-button:hover,
+.arcade-node-button:focus-visible {
+  transform: translate(calc(-1 * var(--wa-space-3xs)), calc(-1 * var(--wa-space-3xs)));
+  box-shadow: var(--wa-space-xs) var(--wa-space-xs) 0 0 var(--wa-color-brand-60);
 }
 
-.timeline-marker-title {
-  font-size: var(--wa-font-size-2xs);
-  max-width: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  opacity: 0;
-  transition:
-    max-width var(--wa-transition-normal) var(--wa-transition-easing),
-    opacity var(--wa-transition-fast) var(--wa-transition-easing);
+.arcade-node-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--wa-font-size-xl);
 }
 
-.timeline-marker:hover,
-.timeline-marker:focus-visible,
-.timeline-alternating-item[data-active="true"] .timeline-marker {
-  color: var(--wa-color-brand-60);
-  box-shadow: var(--wa-space-2xs) var(--wa-space-2xs) 0 0 var(--wa-color-shadow);
+.arcade-node-icon .project-logo {
+  inline-size: var(--wa-space-xl);
+  block-size: var(--wa-space-xl);
 }
 
-.timeline-marker:hover .timeline-marker-title,
-.timeline-marker:focus-visible .timeline-marker-title,
-.timeline-alternating-item[data-active="true"] .timeline-marker-title {
-  max-width: max-content;
-  opacity: 1;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .timeline-marker,
-  .timeline-marker-title {
-    transition: none;
-  }
-}
-
-
-.timeline-date {
+.arcade-node-date {
   font-size: var(--wa-font-size-2xs);
   color: var(--wa-color-brand-60);
   background-color: var(--wa-color-surface-lowered);
   border: var(--wa-border-width-m) var(--wa-border-style) var(--wa-color-shadow);
   border-radius: var(--wa-border-radius-square);
-  box-shadow: var(--wa-space-3xs) var(--wa-space-3xs) 0 0 var(--wa-color-shadow);
-  padding: var(--wa-space-2xs) var(--wa-space-xs);
-  margin-block-start: var(--wa-space-3xs);
+  padding: var(--wa-space-3xs) var(--wa-space-2xs);
 }
 
-@media (max-width: 60rem) {
-  .timeline-alternating {
-    gap: var(--wa-space-l);
+.arcade-node-name {
+  font-size: var(--wa-font-size-2xs);
+  line-height: var(--wa-line-height-expanded);
+  text-align: center;
+  color: var(--wa-color-text-quiet);
+}
+
+.arcade-dialog::part(body) {
+  padding-block-start: var(--wa-space-s);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arcade-node-button {
+    transition: none;
   }
 
-  .timeline-alternating::before {
-    inset-inline-start: var(--wa-space-m);
-  }
-
-  .timeline-alternating-item {
-    grid-template-columns: 1fr;
-    gap: var(--wa-space-s);
-    padding-inline-start: var(--wa-space-3xl);
-  }
-
-  .timeline-alternating-item:nth-child(odd) .pixel-card,
-  .timeline-alternating-item:nth-child(even) .pixel-card {
-    grid-column: 1 / 2;
-    grid-row: 2;
-    justify-self: stretch;
-  }
-
-  .timeline-alternating-item .timeline-center {
-    grid-column: 1 / 2;
-    grid-row: 1;
-    justify-self: start;
-    flex-direction: row;
-    align-items: center;
-    gap: var(--wa-space-xs);
-  }
-
-
-  .timeline-alternating-item::before {
-    inset-inline-start: var(--wa-space-m);
-  }
-
-  /* Stack credential heading above its card on narrow screens. */
-  .timeline-alternating-item > .credential-card-heading {
-    grid-column: 1 / 2;
-    grid-row: 2;
-    justify-self: stretch;
-  }
-
-  .timeline-alternating-item:nth-child(odd) > .pixel-card.credential-card,
-  .timeline-alternating-item:nth-child(even) > .pixel-card.credential-card {
-    grid-column: 1 / 2;
-    grid-row: 3;
-    justify-self: stretch;
+  .arcade-rail-scroll {
+    scroll-behavior: auto;
   }
 }
 
-/* Scroll-linked entrance: each item slides in as it enters the viewport.
-   Falls back to no animation where scroll-driven animations are unsupported. */
-@keyframes timeline-item-enter {
-  from {
-    opacity: 0;
-    transform: translateX(var(--wa-space-m));
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* The date badge "stamps" in with a chunky retro snap. */
-@keyframes timeline-date-stamp {
-  from {
-    transform: scale(1.3) translate(calc(-1 * var(--wa-space-3xs)), calc(-1 * var(--wa-space-3xs)));
-  }
-  to {
-    transform: scale(1) translate(0, 0);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  @supports (animation-timeline: view()) {
-    .timeline-alternating-item {
-      animation: timeline-item-enter linear both;
-      animation-timeline: view();
-      animation-range: entry 0% entry 60%;
-    }
-
-    .timeline-date {
-      animation: timeline-date-stamp steps(4) both;
-      animation-timeline: view();
-      animation-range: entry 20% entry 60%;
-    }
-  }
-}
 
 /* Match log: pixel scoreboard table. */
 
