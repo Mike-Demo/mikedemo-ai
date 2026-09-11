@@ -342,7 +342,7 @@ export const drills: readonly Drill[] = [
 
 /** The AI services that power the on-field agents and the coach's prompting workflow. */
 export const squadStack: readonly string[] = [
-  "Microsoft Copilot",
+  "Microsoft Copilot Cowork",
   "Perplexity",
   "Minds from Animoca Brands (GrokBot)",
   "Nova Pro",
