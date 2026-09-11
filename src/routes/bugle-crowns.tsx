@@ -194,6 +194,7 @@ function BugleCrownsPage(): ReactElement {
                       <th scope="col">Opponent</th>
                       <th scope="col">Result</th>
                       <th scope="col">Score</th>
+                      <th scope="col">Poss.</th>
                       <th scope="col">GD</th>
                     </tr>
                   </thead>
@@ -216,6 +217,7 @@ function BugleCrownsPage(): ReactElement {
                           <td>
                             {match.scoreFor}–{match.scoreAgainst}
                           </td>
+                          <td>{match.possession ? `${match.possession}%` : "—"}</td>
                           <td>{diff > 0 ? `+${diff}` : String(diff)}</td>
                         </tr>
                       );
