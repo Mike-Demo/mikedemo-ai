@@ -10,6 +10,7 @@ import { ProjectSummaryCard } from "@/components/ProjectSummaryCard";
 import { SiteShell } from "@/components/SiteShell";
 import { getProject } from "@/data/projects";
 import { projectsNewestFirst } from "@/data/timeline";
+import { breadcrumbJsonLd, projectJsonLd, SITE_URL } from "@/lib/jsonld";
 
 
 export const Route = createFileRoute("/projects/$slug")({
@@ -42,6 +43,17 @@ export const Route = createFileRoute("/projects/$slug")({
         { name: "twitter:image", content: cover },
       ],
       links: [{ rel: "canonical", href: url }],
+      scripts: [
+        { type: "application/ld+json", children: projectJsonLd(loaderData) },
+        {
+          type: "application/ld+json",
+          children: breadcrumbJsonLd([
+            { name: "Home", url: `${SITE_URL}/` },
+            { name: "Projects", url: `${SITE_URL}/projects` },
+            { name: loaderData.name, url },
+          ]),
+        },
+      ],
     };
 
   },

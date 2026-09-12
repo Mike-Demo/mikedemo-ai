@@ -11,6 +11,7 @@ import { SiteShell } from "@/components/SiteShell";
 import { TechTagList } from "@/components/TechTagList";
 import { getProject } from "@/data/projects";
 import { projectsNewestFirst } from "@/data/timeline";
+import { breadcrumbJsonLd, SITE_URL } from "@/lib/jsonld";
 
 import {
   drills,
@@ -45,6 +46,33 @@ export const Route = createFileRoute("/bugle-crowns")({
       { name: "twitter:image", content: "https://mikedemo.dev/og-cover.jpg" },
     ],
     links: [{ rel: "canonical", href: "https://mikedemo.dev/bugle-crowns" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "SportsTeam",
+          name: "Bugle Crowns",
+          url: `${SITE_URL}/bugle-crowns`,
+          description,
+          sport: "Soccer",
+          memberOf: {
+            "@type": "SportsOrganization",
+            name: "AWS Agentic Football Cup",
+            url: "https://agenticfootballcup.com",
+          },
+          coach: { "@id": `${SITE_URL}/#person` },
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: breadcrumbJsonLd([
+          { name: "Home", url: `${SITE_URL}/` },
+          { name: "Projects", url: `${SITE_URL}/projects` },
+          { name: "Bugle Crowns", url: `${SITE_URL}/bugle-crowns` },
+        ]),
+      },
+    ],
   }),
   component: BugleCrownsPage,
 });

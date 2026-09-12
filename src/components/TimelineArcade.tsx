@@ -5,7 +5,7 @@ import { useRef, useState } from "react";
 import { ProjectCredits } from "@/components/ProjectCredits";
 import { ProjectIcon } from "@/components/ProjectIcon";
 import { TechTagList } from "@/components/TechTagList";
-import { NesButton, NesContainer, NesIcon } from "@/design-system/nes-229931";
+import { NesButton, NesContainer, NesIcon, NesText } from "@/design-system/nes-229931";
 import type { Project } from "@/data/projects";
 import { formatMonthYear } from "@/lib/format-date";
 
@@ -117,12 +117,14 @@ export function TimelineArcade({
 
           {!compact ? (
             <NesContainer className="selected-project" dark aria-live="polite">
-              <div className="selected-project-content wa-stack wa-gap-m">
+              <div className="selected-project-content stack stack-m">
                 <div className="selected-project-topline">
-                  <span className="pixel-display">PLAYER 1</span>
-                  <span className="pixel-display">READY!</span>
+                  <NesText variant="success" className="pixel-display">PLAYER 1</NesText>
+                  <NesText variant="success" className="pixel-display">READY!</NesText>
                 </div>
-                <h3 className="pixel-display selected-project-title">{selectedProject.name}</h3>
+                <h3 className="pixel-display selected-project-title">
+                  <NesText variant="warning">{selectedProject.name}</NesText>
+                </h3>
                 <p>{selectedProject.summary}</p>
                 <TechTagList items={selectedProject.tech.slice(0, 4)} size="small" />
                 <ProjectCredits project={selectedProject} />

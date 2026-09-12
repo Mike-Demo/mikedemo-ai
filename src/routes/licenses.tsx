@@ -10,6 +10,7 @@ import {
 } from "@/design-system/font-awsome-web-awesome-171158";
 import { NesContainer } from "@/design-system/nes-229931";
 import { SiteShell } from "@/components/SiteShell";
+import { breadcrumbJsonLd, SITE_URL } from "@/lib/jsonld";
 
 interface LicenseGroup {
   readonly title: string;
@@ -88,6 +89,15 @@ export const Route = createFileRoute("/licenses")({
       { name: "twitter:card", content: "summary" },
     ],
     links: [{ rel: "canonical", href: "https://mikedemo.dev/licenses" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: breadcrumbJsonLd([
+          { name: "Home", url: `${SITE_URL}/` },
+          { name: "Open Source Licenses", url: `${SITE_URL}/licenses` },
+        ]),
+      },
+    ],
   }),
   component: Licenses,
 });

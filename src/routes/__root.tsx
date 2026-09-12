@@ -9,6 +9,7 @@ import type { ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import nesCss from "@/design-system/nes-229931/styles/nes.css?url";
+import { identityJsonLd } from "@/lib/jsonld";
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   staticData: { sitemap: false },
@@ -52,6 +53,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.png", type: "image/png" },
     ],
+    scripts: [{ type: "application/ld+json", children: identityJsonLd() }],
   }),
   shellComponent: RootShell,
   component: RootComponent,

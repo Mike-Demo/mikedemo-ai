@@ -188,8 +188,8 @@ a:focus-visible, summary:focus-visible { outline: var(--pixel-border) solid var(
 .level-date { grid-area: date; align-self: start; color: var(--nes-gray-light); font-size: var(--text-sm); }
 .selected-project { position: relative; z-index: 1; min-block-size: 100%; align-self: stretch; overflow-y: auto; }
 .selected-project-content { min-height: 100%; }
-.selected-project-topline { display: flex; justify-content: space-between; gap: var(--space-3); color: var(--nes-green); font-size: var(--text-xs); }
-.selected-project-title { margin-block: var(--space-3); color: var(--nes-yellow); font-size: var(--text-md); }
+.selected-project-topline { display: flex; justify-content: space-between; gap: var(--space-3); font-size: var(--text-xs); }
+.selected-project-title { margin-block: var(--space-3); font-size: var(--text-md); }
 .cabinet-start { margin-block-start: auto; }
 .cabinet-controls { display: flex; justify-content: center; align-items: center; gap: var(--space-4); min-height: var(--space-8); padding: var(--space-4); color: var(--nes-white); background: var(--nes-gray); border-block-start: var(--pixel-border) solid var(--nes-white); }
 .control-label { color: var(--nes-black); font-size: var(--text-xs); }
