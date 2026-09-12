@@ -6,6 +6,7 @@ import { NesContainer, NesIcon, NesList } from "@/design-system/nes-229931";
 import { SiteShell } from "@/components/SiteShell";
 import { TechTagList } from "@/components/TechTagList";
 import { getProject } from "@/data/projects";
+import { breadcrumbJsonLd, SITE_URL } from "@/lib/jsonld";
 
 const title = "AI Agent Skills: What They Are and Where to Find Them";
 const description =
@@ -37,6 +38,13 @@ export const Route = createFileRoute("/agent-skills")({
           author: { "@type": "Person", name: "Mike Demopoulos" },
           mainEntityOfPage: "https://mikedemo.dev/agent-skills",
         }),
+      },
+      {
+        type: "application/ld+json",
+        children: breadcrumbJsonLd([
+          { name: "Home", url: `${SITE_URL}/` },
+          { name: "AI Agent Skills", url: `${SITE_URL}/agent-skills` },
+        ]),
       },
     ],
   }),
