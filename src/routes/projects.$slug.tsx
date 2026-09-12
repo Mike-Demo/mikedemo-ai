@@ -4,9 +4,9 @@ import type { ReactElement } from "react";
 import { NesContainer } from "@/design-system/nes-229931";
 
 import { ProjectCabinet } from "@/components/ProjectCabinet";
+import { ProjectPager } from "@/components/ProjectPager";
 import { ProjectSummaryCard } from "@/components/ProjectSummaryCard";
 import { SiteShell } from "@/components/SiteShell";
-import { TimelineArcade } from "@/components/TimelineArcade";
 import { getProject } from "@/data/projects";
 import { projectsNewestFirst } from "@/data/timeline";
 
@@ -54,10 +54,10 @@ function ProjectNotFound(): ReactElement {
       <section className="section stack stack-m">
         <h1 className="pixel-display section-title">Project not found</h1>
         <NesContainer title="CARTRIDGE ERROR">
-          That cartridge isn't in the collection. Try one of the projects on the home page.
+          That cartridge isn't in the collection. Try another project from Level Select.
         </NesContainer>
-        <Link to="/" className="site-nav-link">
-          ← Back to all projects
+        <Link to="/projects" className="site-nav-link">
+          ← Back to Level Select
         </Link>
       </section>
     </SiteShell>
@@ -79,17 +79,7 @@ function ProjectPage(): ReactElement {
             </a>
           </div>
 
-          <section className="stack stack-xs" aria-labelledby="project-level-select">
-            <h2 id="project-level-select" className="pixel-display tech-heading">Project Timeline</h2>
-            <p className="text-quiet">
-              Where this project sits in the timeline — pick another level to jump across.
-            </p>
-            <TimelineArcade
-              projects={projectsNewestFirst}
-              currentSlug={project.slug}
-              compact
-            />
-          </section>
+          <ProjectPager projects={projectsNewestFirst} currentSlug={project.slug} />
         </ProjectCabinet>
       </section>
     </SiteShell>

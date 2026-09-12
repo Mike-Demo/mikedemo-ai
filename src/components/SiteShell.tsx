@@ -24,7 +24,7 @@ export function SiteShell({ children }: { children: ReactNode }): ReactElement {
           MikeDemo
         </Link>
         <nav aria-label="Main navigation" className="site-nav">
-          <Link to="/" className="site-nav-link" activeProps={{ className: "is-active" }}>
+          <Link to="/projects" className="site-nav-link" activeProps={{ className: "is-active" }}>
             Projects
           </Link>
           <Link to="/agent-skills" className="site-nav-link" activeProps={{ className: "is-active" }}>

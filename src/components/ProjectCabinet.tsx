@@ -34,7 +34,7 @@ export function ProjectCabinet({
       <div className="project-cabinet-bezel">
         <div className="project-cabinet-screen">
           <nav aria-label="Breadcrumb" className="project-cabinet-back">
-            <Link to="/" className="site-nav-link">
+            <Link to="/projects" className="site-nav-link">
               ← LEVEL SELECT
             </Link>
           </nav>

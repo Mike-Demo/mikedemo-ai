@@ -1,12 +1,10 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import type { ReactElement } from "react";
 
-import { NesButton } from "@/design-system/nes-229931";
 import { CredentialsSection } from "@/components/CredentialsSection";
 import { SiteShell } from "@/components/SiteShell";
-import { TimelineArcade } from "@/components/TimelineArcade";
 import headshotSrc from "@/assets/headshot.png";
-import { projectsNewestFirst } from "@/data/timeline";
+import { NesButton } from "@/design-system/nes-229931";
 
 
 export const Route = createFileRoute("/")({
@@ -37,6 +35,11 @@ export const Route = createFileRoute("/")({
 });
 
 function Index(): ReactElement {
+  const navigate = useNavigate();
+  const openProjects = (): void => {
+    void navigate({ to: "/projects" });
+  };
+
   return (
     <SiteShell>
       <section className="hero-section">
@@ -54,25 +57,21 @@ function Index(): ReactElement {
           and one extremely productive-looking parody office suite.
         </p>
         <p className="pixel-display hero-quote">“Tools are tools, just don’t be one”</p>
-        <NesButton
-          variant="primary"
-          onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
-        >
-          SELECT A LEVEL
+        <NesButton variant="primary" onClick={openProjects}>
+          SELECT A PROJECT
         </NesButton>
       </section>
 
       <CredentialsSection />
 
-      <section id="projects" className="section stack stack-l" aria-labelledby="projects-heading">
-        <h2 id="projects-heading" className="pixel-display section-title">
-          Level Select
-        </h2>
-        <p className="text-quiet">
-          Choose a cartridge. Arrow keys move the cursor; Enter launches the selected project.
-        </p>
-
-        <TimelineArcade projects={projectsNewestFirst} />
+      <section className="section home-project-callout" aria-labelledby="projects-heading">
+        <div className="stack stack-m">
+          <h2 id="projects-heading" className="pixel-display section-title">Ready Player One?</h2>
+          <p>Explore every AI experiment from the dedicated arcade cabinet.</p>
+          <div>
+            <NesButton variant="primary" onClick={openProjects}>OPEN LEVEL SELECT</NesButton>
+          </div>
+        </div>
       </section>
     </SiteShell>
   );
