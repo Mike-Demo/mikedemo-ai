@@ -186,7 +186,7 @@ a:focus-visible, summary:focus-visible { outline: var(--pixel-border) solid var(
 .level-icon { grid-area: icon; width: var(--icon-size); height: var(--icon-size); }
 .level-name { grid-area: name; align-self: end; min-width: 0; overflow-wrap: anywhere; font-size: var(--text-xs); }
 .level-date { grid-area: date; align-self: start; color: var(--nes-gray-light); font-size: var(--text-sm); }
-.selected-project { position: relative; z-index: 1; block-size: 0; min-block-size: 100%; align-self: stretch; overflow-y: auto; }
+.selected-project { position: relative; z-index: 1; min-block-size: 100%; align-self: stretch; overflow-y: auto; }
 .selected-project-content { min-height: 100%; }
 .selected-project-topline { display: flex; justify-content: space-between; gap: var(--space-3); color: var(--nes-green); font-size: var(--text-xs); }
 .selected-project-title { margin-block: var(--space-3); color: var(--nes-yellow); font-size: var(--text-md); }
@@ -250,6 +250,18 @@ a:focus-visible, summary:focus-visible { outline: var(--pixel-border) solid var(
 .match-card, .recommendation-card, .manual-card, .license-card { height: 100%; }
 .goal-timeline { margin: 0; padding-inline-start: var(--space-6); }
 .checklist { margin-inline-start: var(--space-6); }
+
+@media (min-width: 64.0625em) {
+  .cabinet-screen-layout { position: relative; }
+  .cabinet-screen-layout .level-grid { margin-inline-end: calc(var(--flank-size) + var(--wa-space-l)); }
+  .cabinet-screen-layout > .selected-project { position: absolute; inset-block: 0; inset-inline-end: 0; inline-size: var(--flank-size); min-block-size: 0; }
+}
+
+@media (min-width: 48.0625em) and (max-width: 64em) {
+  .cabinet-screen-layout { display: block; }
+  .cabinet-screen-layout .level-grid { margin-block-end: var(--space-6); }
+  .selected-project { block-size: calc(var(--screen-min) + var(--screen-min)); min-block-size: 0; overflow-y: auto; }
+}
 
 .calendar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); gap: var(--space-5); }
 .calendar-month { padding: var(--space-4); border: var(--pixel-border) solid var(--nes-black); background: var(--nes-white); box-shadow: var(--space-1) var(--space-1) 0 var(--nes-blue); }
