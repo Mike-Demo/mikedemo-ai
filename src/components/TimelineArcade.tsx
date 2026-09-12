@@ -1,11 +1,11 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useNavigate } from "@tanstack/react-router";
 import type { KeyboardEvent, ReactElement } from "react";
 import { useRef, useState } from "react";
 
 import { ProjectCredits } from "@/components/ProjectCredits";
 import { ProjectIcon } from "@/components/ProjectIcon";
 import { TechTagList } from "@/components/TechTagList";
-import { NesContainer, NesIcon } from "@/design-system/nes-229931";
+import { NesButton, NesContainer, NesIcon } from "@/design-system/nes-229931";
 import type { Project } from "@/data/projects";
 import { formatMonthYear } from "@/lib/format-date";
 
@@ -24,6 +24,7 @@ export function TimelineArcade({
   currentSlug,
   compact = false,
 }: TimelineArcadeProps): ReactElement {
+  const navigate = useNavigate();
   const currentIndex = Math.max(0, projects.findIndex((project) => project.slug === currentSlug));
   const [selectedIndex, setSelectedIndex] = useState(currentIndex);
   const itemRefs = useRef<Array<HTMLAnchorElement | null>>([]);
@@ -74,7 +75,7 @@ export function TimelineArcade({
       </div>
 
       <div className="cabinet-bezel">
-        <div className="cabinet-screen">
+        <div className={`cabinet-screen${compact ? "" : " cabinet-screen-layout wa-flank:end wa-gap-l"}`}>
           <ol className="level-grid" aria-label="Project levels, newest first" ref={gridRef}>
             {projects.map((project, index) => {
               const isSelected = selectedIndex === index;
@@ -116,21 +117,28 @@ export function TimelineArcade({
 
           {!compact ? (
             <NesContainer className="selected-project" dark aria-live="polite">
-              <div className="selected-project-topline">
-                <span className="pixel-display">PLAYER 1</span>
-                <span className="pixel-display">READY!</span>
+              <div className="selected-project-content wa-stack wa-gap-m">
+                <div className="selected-project-topline">
+                  <span className="pixel-display">PLAYER 1</span>
+                  <span className="pixel-display">READY!</span>
+                </div>
+                <h3 className="pixel-display selected-project-title">{selectedProject.name}</h3>
+                <p>{selectedProject.summary}</p>
+                <TechTagList items={selectedProject.tech.slice(0, 4)} size="small" />
+                <ProjectCredits project={selectedProject} />
+                <NesButton
+                  variant="primary"
+                  className="cabinet-start"
+                  onClick={() => {
+                    void navigate({
+                      to: selectedProject.detailPath ?? "/projects/$slug",
+                      params: selectedProject.detailPath ? undefined : { slug: selectedProject.slug },
+                    });
+                  }}
+                >
+                  START LEVEL
+                </NesButton>
               </div>
-              <h3 className="pixel-display selected-project-title">{selectedProject.name}</h3>
-              <p>{selectedProject.summary}</p>
-              <TechTagList items={selectedProject.tech.slice(0, 4)} size="small" />
-              <ProjectCredits project={selectedProject} />
-              <Link
-                to={selectedProject.detailPath ?? "/projects/$slug"}
-                params={selectedProject.detailPath ? undefined : { slug: selectedProject.slug }}
-                className="nes-btn is-primary cabinet-start"
-              >
-                START LEVEL
-              </Link>
             </NesContainer>
           ) : null}
         </div>
