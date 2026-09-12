@@ -27,6 +27,7 @@ export function TimelineArcade({
   const currentIndex = Math.max(0, projects.findIndex((project) => project.slug === currentSlug));
   const [selectedIndex, setSelectedIndex] = useState(currentIndex);
   const itemRefs = useRef<Array<HTMLAnchorElement | null>>([]);
+  const gridRef = useRef<HTMLOListElement | null>(null);
   const selectedProject = projects[selectedIndex] ?? projects[0];
 
   function focusProject(index: number): void {
@@ -35,19 +36,27 @@ export function TimelineArcade({
     itemRefs.current[next]?.focus();
   }
 
+  /** Visual column count, so Arrow Up/Down move exactly one rendered row. */
+  function columnCount(): number {
+    const grid = gridRef.current;
+    if (!grid) return 1;
+    const columns = getComputedStyle(grid).gridTemplateColumns.split(" ").filter(Boolean).length;
+    return Math.max(1, columns);
+  }
+
   function handleKeyDown(event: KeyboardEvent<HTMLAnchorElement>, index: number): void {
+    const columns = columnCount();
     const offsets: Readonly<Record<string, number>> = {
       ArrowRight: 1,
-      ArrowDown: 3,
+      ArrowDown: columns,
       ArrowLeft: -1,
-      ArrowUp: -3,
+      ArrowUp: -columns,
     };
     let nextIndex: number | undefined;
 
     if (event.key in offsets) nextIndex = index + (offsets[event.key] ?? 0);
     if (event.key === "Home") nextIndex = 0;
     if (event.key === "End") nextIndex = projects.length - 1;
-    if (event.key === "Escape") nextIndex = currentIndex;
     if (nextIndex === undefined) return;
 
     event.preventDefault();
@@ -66,7 +75,7 @@ export function TimelineArcade({
 
       <div className="cabinet-bezel">
         <div className="cabinet-screen">
-          <ol className="level-grid" aria-label="Project levels, newest first">
+          <ol className="level-grid" aria-label="Project levels, newest first" ref={gridRef}>
             {projects.map((project, index) => {
               const isSelected = selectedIndex === index;
               const isCurrent = project.slug === currentSlug;
@@ -106,7 +115,7 @@ export function TimelineArcade({
           </ol>
 
           {!compact ? (
-            <NesContainer className="selected-project" dark>
+            <NesContainer className="selected-project" dark aria-live="polite">
               <div className="selected-project-topline">
                 <span className="pixel-display">PLAYER 1</span>
                 <span className="pixel-display">READY!</span>

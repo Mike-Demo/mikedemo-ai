@@ -45,7 +45,7 @@ function Index(): ReactElement {
       <section className="hero-section">
         <img
           src={headshotSrc}
-          alt="MikeDemo"
+          alt="Pixel-art portrait of MikeDemo wearing glasses, a cap, and a patterned jacket"
           className="hero-headshot"
           width="160"
           height="160"

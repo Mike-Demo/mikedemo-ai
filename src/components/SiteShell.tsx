@@ -16,6 +16,10 @@ export function SiteShell({ children }: { children: ReactNode }): ReactElement {
     <div className="site-shell">
       <WebAwesomeLoader />
 
+      <a href="#main-content" className="skip-link pixel-display">
+        Skip to content
+      </a>
+
       <header className="site-header">
         <Link to="/" className="site-brand pixel-display" aria-label="MikeDemo portfolio home">
           <NesIcon name="coin" size="small" />
