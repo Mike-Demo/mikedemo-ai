@@ -7,3 +7,4 @@
 - [x] Move the full Level Select to `/projects`
 - [x] Replace project-page selector grids with Previous/Next navigation
 - [x] Verify the new project flow on desktop and mobile
+- [x] Combine NES and Font Awsome & Web Awesome into one portfolio card and project page

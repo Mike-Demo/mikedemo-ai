@@ -31,14 +31,30 @@ export function ProjectSummaryCard({ project }: { project: Project }): ReactElem
 
         <ProjectCredits project={project} />
 
-        <a
-          href={project.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="site-nav-link"
-        >
-          OPEN {project.domain}
-        </a>
+        {project.sites?.length ? (
+          <div className="cluster cluster-m" aria-label={`${project.name} live sites`}>
+            {project.sites.map((site) => (
+              <a
+                key={site.url}
+                href={site.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="site-nav-link"
+              >
+                OPEN {site.name}
+              </a>
+            ))}
+          </div>
+        ) : (
+          <a
+            href={project.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="site-nav-link"
+          >
+            OPEN {project.domain}
+          </a>
+        )}
       </div>
     </NesContainer>
   );
