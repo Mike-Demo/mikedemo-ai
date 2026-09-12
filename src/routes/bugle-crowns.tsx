@@ -1,14 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import type { ReactElement } from "react";
 
-import {
-  WaAccordion,
-  WaAccordionItem,
-  WaButton,
-  WaCard,
-  WaIcon,
-  WaTag,
-} from "@/design-system/font-awsome-web-awesome-171158";
+import { NesContainer, NesTable, NesText } from "@/design-system/nes-229931";
 
 import { ProjectIcon } from "@/components/ProjectIcon";
 import { ProjectSummaryCard } from "@/components/ProjectSummaryCard";
@@ -71,10 +64,10 @@ function BugleCrownsPage(): ReactElement {
 
   return (
     <SiteShell>
-      <section className="hero-section wa-stack wa-gap-m wa-align-items-center">
+      <section className="hero-section">
         <nav aria-label="Breadcrumb">
           <Link to="/" className="site-nav-link">
-            <WaIcon name="arrow-left" aria-hidden="true" /> All projects
+            ← All projects
           </Link>
         </nav>
 
@@ -94,12 +87,12 @@ function BugleCrownsPage(): ReactElement {
         </p>
       </section>
 
-      <section className="section wa-stack wa-gap-l">
+      <section className="section stack stack-l">
         {project ? <ProjectSummaryCard project={project} /> : null}
 
-        <div className="wa-stack wa-gap-xs">
+        <div className="stack stack-xs">
           <h2 className="pixel-display tech-heading">Level Select</h2>
-          <p className="wa-color-text-quiet">
+          <p className="text-quiet">
             Where this project sits in the timeline — pick another level to jump across.
           </p>
           <TimelineArcade
@@ -111,7 +104,7 @@ function BugleCrownsPage(): ReactElement {
 
 
 
-        <div className="wa-stack wa-gap-2xs">
+        <div className="stack stack-xs">
           <h2 className="pixel-display tech-heading">Squad stack</h2>
           <TechTagList
             items={squadStack}
@@ -121,31 +114,12 @@ function BugleCrownsPage(): ReactElement {
           />
         </div>
 
-        <div className="wa-cluster wa-gap-m">
-          <WaButton
-            variant="brand"
-            size="large"
-            href={scheduleUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <WaIcon slot="start" name="calendar-days" aria-hidden="true" />
-            Cup schedule
-          </WaButton>
-          <WaButton
-            variant="neutral"
-            appearance="outlined"
-            size="large"
-            href={leaderboardUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <WaIcon slot="start" name="ranking-star" aria-hidden="true" />
-            Leaderboard
-          </WaButton>
+        <div className="cluster cluster-m">
+          <a className="nes-btn is-primary" href={scheduleUrl} target="_blank" rel="noopener noreferrer">CUP SCHEDULE</a>
+          <a className="nes-btn" href={leaderboardUrl} target="_blank" rel="noopener noreferrer">LEADERBOARD</a>
         </div>
 
-        <div className="wa-stack wa-gap-s">
+        <div className="stack stack-s">
           <h2 className="pixel-display tech-heading">Week 1 at a glance</h2>
           <div className="stat-grid">
             <Stat label="Record" value={`${weekRecord.wins}W ${weekRecord.losses}L`} />
@@ -154,18 +128,18 @@ function BugleCrownsPage(): ReactElement {
             <Stat label="Clean sheets" value={String(weekRecord.cleanSheets)} />
             <Stat label="Points" value={String(weekRecord.points)} />
           </div>
-          <p className="wa-color-text-quiet">
+          <p className="text-quiet">
             {weekRecord.played} of a possible {weekRecord.possible} matches played.
           </p>
         </div>
 
-        <WaAccordion className="wa-stack wa-gap-s">
-          <WaAccordionItem label="Week 1 · Full debrief">
-            <div className="wa-stack wa-gap-l">
+        <div className="stack stack-s">
+          <details className="nes-details" open><summary className="pixel-display">WEEK 1 · FULL DEBRIEF</summary>
+            <div className="stack stack-l">
               <h3 className="pixel-display tech-heading">Standings</h3>
               <div className="match-table-scroll">
-                <table className="match-table">
-                  <caption className="wa-color-text-quiet">
+                <NesTable className="match-table" bordered responsive>
+                  <caption className="text-quiet">
                     All ten Round 1 Week 1 matches, in the order they were played.
                   </caption>
                   <thead>
@@ -186,13 +160,7 @@ function BugleCrownsPage(): ReactElement {
                           <td>{match.match}</td>
                           <th scope="row">{match.opponent}</th>
                           <td>
-                            <WaTag
-                              variant={match.result === "win" ? "success" : "danger"}
-                              appearance="filled"
-                              size="small"
-                            >
-                              {match.result === "win" ? "W" : "L"}
-                            </WaTag>
+                            <NesText variant={match.result === "win" ? "success" : "error"}>{match.result === "win" ? "W" : "L"}</NesText>
                           </td>
                           <td>
                             {match.scoreFor}–{match.scoreAgainst}
@@ -220,14 +188,14 @@ function BugleCrownsPage(): ReactElement {
                       </td>
                     </tr>
                   </tfoot>
-                </table>
+                </NesTable>
               </div>
               <h3 className="pixel-display tech-heading">Every match</h3>
-              <div className="wa-stack wa-gap-s">
+              <div className="stack stack-s">
               {matchLog.map((match) => (
-                <WaCard key={match.match} className="pixel-card" appearance="outlined">
-                  <div className="wa-stack wa-gap-2xs">
-                    <div className="wa-cluster wa-gap-xs wa-align-items-center">
+                <NesContainer key={match.match} className="match-card">
+                  <div className="stack stack-xs">
+                    <div className="cluster cluster-xs">
                       <h3 className="pixel-card-title">
                         Match {match.match} · {match.result === "win" ? "W" : "L"} {match.scoreFor}-
                         {match.scoreAgainst} vs {match.opponent}
@@ -262,29 +230,29 @@ function BugleCrownsPage(): ReactElement {
                       </ol>
                     ) : null}
                   </div>
-                </WaCard>
+                </NesContainer>
               ))}
               </div>
               <h3 className="pixel-display tech-heading">What we learned</h3>
-              <div className="wa-stack wa-gap-s">
+              <div className="stack stack-s">
                 {performanceDiagnosis.map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>
                 ))}
               </div>
             </div>
-          </WaAccordionItem>
+          </details>
 
-          <WaAccordionItem label="Proposed for Round 2">
-            <div className="wa-stack wa-gap-s">
+          <details className="nes-details"><summary className="pixel-display">PROPOSED FOR ROUND 2</summary>
+            <div className="stack stack-s">
               {recommendations.map((rec) => (
                 <WaCard key={rec.id} className="pixel-card" appearance="outlined">
-                  <div className="wa-stack wa-gap-2xs">
+                  <div className="stack stack-xs">
                     <h3 className="pixel-card-title">{rec.field}</h3>
                     <p>{rec.change}</p>
-                    <p className="wa-color-text-quiet">
+                    <p className="text-quiet">
                       <strong>Evidence:</strong> {rec.evidence}
                     </p>
-                    <p className="wa-color-text-quiet">
+                    <p className="text-quiet">
                       <strong>Ranking impact:</strong> {rec.rankingImpact}
                     </p>
                     <div>
@@ -293,31 +261,31 @@ function BugleCrownsPage(): ReactElement {
                       </WaTag>
                     </div>
                   </div>
-                </WaCard>
+                </NesContainer>
               ))}
             </div>
-          </WaAccordionItem>
+          </details>
 
-          <WaAccordionItem label="Practice plan">
-            <div className="wa-stack wa-gap-s">
-              <p className="wa-color-text-quiet">{practiceFocus}</p>
+          <details className="nes-details"><summary className="pixel-display">PRACTICE PLAN</summary>
+            <div className="stack stack-s">
+              <p className="text-quiet">{practiceFocus}</p>
               <ul className="wa-stack wa-gap-xs goal-timeline">
                 {drills.map((drill) => (
                   <li key={drill.drill}>
                     {drill.drill}
                     <br />
-                    <span className="wa-color-text-quiet">{drill.rationale}</span>
+                    <span className="text-quiet">{drill.rationale}</span>
                   </li>
                 ))}
               </ul>
             </div>
-          </WaAccordionItem>
-        </WaAccordion>
+          </details>
+        </div>
 
-        <div className="wa-stack wa-gap-s">
+        <div className="stack stack-s">
           <h2 className="pixel-display tech-heading">Season calendar</h2>
           <SeasonCalendar />
-          <p className="wa-color-text-quiet">
+          <p className="text-quiet">
             Times per{" "}
             <a href={scheduleUrl} target="_blank" rel="noopener noreferrer">
               agenticfootballcup.ai/schedule
