@@ -13,6 +13,13 @@ const SEASON_MONTHS = [
   { year: 2026, month: 11 }, // December
 ] as const;
 
+/** Text equivalent for the colour used on each event chip. */
+const STATUS_TEXT: Readonly<Record<ScheduleEntry["status"], string>> = {
+  done: "Played",
+  upcoming: "Upcoming week",
+  milestone: "Milestone",
+};
+
 function toIso(year: number, month: number, day: number): string {
   const m = String(month + 1).padStart(2, "0");
   const d = String(day).padStart(2, "0");
@@ -37,41 +44,48 @@ function MonthGrid({ year, month }: { year: number; month: number }): ReactEleme
       <h3 className="pixel-display calendar-month-name">
         {monthName} {year}
       </h3>
-      <div className="calendar-weekdays" role="row">
+      <div className="calendar-weekdays" aria-hidden="true">
         {WEEKDAYS.map((day) => (
           <span key={day} className="calendar-weekday">
             {day}
           </span>
         ))}
       </div>
-      <div className="calendar-days">
+      <ul className="calendar-days">
         {cells.map((day, index) => {
           if (day === null) {
-            return <span key={`blank-${index}`} className="calendar-cell calendar-cell-blank" />;
+            return (
+              <li
+                key={`blank-${index}`}
+                className="calendar-cell calendar-cell-blank"
+                aria-hidden="true"
+              />
+            );
           }
           const iso = toIso(year, month, day);
           const events = entriesOn(iso);
-          const label = events.map((event) => event.label).join(", ");
           return (
-            <span
+            <li
               key={iso}
               className={`calendar-cell${events.length > 0 ? " calendar-cell-event" : ""}`}
-              aria-label={events.length > 0 ? `${monthName} ${day}: ${label}` : undefined}
-              title={events.length > 0 ? label : undefined}
             >
-              <span className="calendar-day-number">{day}</span>
+              <span className="calendar-day-number">
+                <span className="visually-hidden">{`${monthName} `}</span>
+                {day}
+              </span>
               {events.map((event) => (
                 <span
                   key={event.label}
                   className={`calendar-event calendar-event-${event.status}`}
                 >
+                  <span className="visually-hidden">{`${STATUS_TEXT[event.status]}: `}</span>
                   {event.label}
                 </span>
               ))}
-            </span>
+            </li>
           );
         })}
-      </div>
+      </ul>
     </section>
   );
 }
