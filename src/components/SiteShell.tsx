@@ -39,7 +39,7 @@ export function SiteShell({ children }: { children: ReactNode }): ReactElement {
       <main id="main-content" className="page-enter">{children}</main>
 
       <div className="site-footer-wrap">
-        <SiteFooter />
+        <PixelSiteFooter />
       </div>
     </div>
   );
