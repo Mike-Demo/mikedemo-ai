@@ -1,9 +1,10 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import type { ReactElement } from "react";
 
 import { CredentialsSection } from "@/components/CredentialsSection";
 import { SiteShell } from "@/components/SiteShell";
 import headshotSrc from "@/assets/headshot.png";
+import { NesButton } from "@/design-system/nes-229931";
 
 
 export const Route = createFileRoute("/")({
@@ -34,6 +35,11 @@ export const Route = createFileRoute("/")({
 });
 
 function Index(): ReactElement {
+  const navigate = useNavigate();
+  const openProjects = (): void => {
+    void navigate({ to: "/projects" });
+  };
+
   return (
     <SiteShell>
       <section className="hero-section">
@@ -51,9 +57,9 @@ function Index(): ReactElement {
           and one extremely productive-looking parody office suite.
         </p>
         <p className="pixel-display hero-quote">“Tools are tools, just don’t be one”</p>
-        <Link to="/projects" className="nes-btn is-primary">
+        <NesButton variant="primary" onClick={openProjects}>
           SELECT A PROJECT
-        </Link>
+        </NesButton>
       </section>
 
       <CredentialsSection />
@@ -63,7 +69,7 @@ function Index(): ReactElement {
           <h2 id="projects-heading" className="pixel-display section-title">Ready Player One?</h2>
           <p>Explore every AI experiment from the dedicated arcade cabinet.</p>
           <div>
-            <Link to="/projects" className="nes-btn is-primary">OPEN LEVEL SELECT</Link>
+            <NesButton variant="primary" onClick={openProjects}>OPEN LEVEL SELECT</NesButton>
           </div>
         </div>
       </section>

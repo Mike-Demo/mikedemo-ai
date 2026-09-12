@@ -1,6 +1,7 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useNavigate } from "@tanstack/react-router";
 import type { ReactElement } from "react";
 
+import { NesButton } from "@/design-system/nes-229931";
 import type { Project } from "@/data/projects";
 
 interface ProjectPagerProps {
@@ -14,37 +15,34 @@ interface ProjectPagerLinkProps {
 }
 
 function ProjectPagerLink({ direction, project }: ProjectPagerLinkProps): ReactElement {
+  const navigate = useNavigate();
   const isPrevious = direction === "previous";
   const label = isPrevious ? "PREVIOUS" : "NEXT";
   const content = isPrevious ? `← ${label}` : `${label} →`;
 
   if (!project) {
     return (
-      <span className="nes-btn is-disabled" aria-disabled="true">
+      <NesButton disabled>
         {content}
-      </span>
+      </NesButton>
     );
   }
 
   const accessibleLabel = `${label.toLowerCase()} project: ${project.name}`;
 
-  if (project.detailPath) {
-    return (
-      <Link to={project.detailPath} className="nes-btn" aria-label={accessibleLabel}>
-        {content}
-      </Link>
-    );
-  }
-
   return (
-    <Link
-      to="/projects/$slug"
-      params={{ slug: project.slug }}
-      className="nes-btn"
+    <NesButton
       aria-label={accessibleLabel}
+      onClick={() => {
+        if (project.detailPath) {
+          void navigate({ to: project.detailPath });
+          return;
+        }
+        void navigate({ to: "/projects/$slug", params: { slug: project.slug } });
+      }}
     >
       {content}
-    </Link>
+    </NesButton>
   );
 }
 
