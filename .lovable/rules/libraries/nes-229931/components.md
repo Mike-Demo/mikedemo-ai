@@ -149,6 +149,7 @@ import { NesList } from "@/design-system/nes-229931"
 | Prop | Type | Default |
 |---|---|---|
 | `variant` | disc · circle | `disc` |
+| `dark` | boolean | `false` |
 
 ### NesPixelArt
 
