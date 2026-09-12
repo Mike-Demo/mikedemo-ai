@@ -260,7 +260,7 @@ a:focus-visible, summary:focus-visible { outline: var(--pixel-border) solid var(
 @media (min-width: 48.0625em) and (max-width: 64em) {
   .cabinet-screen-layout { display: block; }
   .cabinet-screen-layout .level-grid { margin-block-end: var(--space-6); }
-  .selected-project { block-size: auto; min-block-size: var(--screen-min); overflow: visible; }
+  .selected-project { block-size: calc(var(--screen-min) + var(--screen-min)); min-block-size: 0; overflow-y: auto; }
 }
 
 .calendar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); gap: var(--space-5); }
