@@ -3,6 +3,7 @@ import type { ReactElement } from "react";
 
 import { SiteShell } from "@/components/SiteShell";
 import { TimelineArcade } from "@/components/TimelineArcade";
+import { breadcrumbJsonLd, projectCollectionJsonLd, SITE_URL } from "@/lib/jsonld";
 import { projectsNewestFirst } from "@/data/timeline";
 
 const description =
@@ -23,6 +24,16 @@ export const Route = createFileRoute("/projects/")({
       { name: "twitter:image", content: "https://mikedemo.dev/og-cover.jpg" },
     ],
     links: [{ rel: "canonical", href: "https://mikedemo.dev/projects" }],
+    scripts: [
+      { type: "application/ld+json", children: projectCollectionJsonLd(projectsNewestFirst) },
+      {
+        type: "application/ld+json",
+        children: breadcrumbJsonLd([
+          { name: "Home", url: `${SITE_URL}/` },
+          { name: "Projects", url: `${SITE_URL}/projects` },
+        ]),
+      },
+    ],
   }),
   component: ProjectsIndex,
 });
