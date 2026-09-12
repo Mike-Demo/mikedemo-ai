@@ -3,7 +3,7 @@ import type { ReactElement } from "react";
 
 import { CredentialsSection } from "@/components/CredentialsSection";
 import { SiteShell } from "@/components/SiteShell";
-import headshotAsset from "@/assets/mike-pixel-portrait.png.asset.json";
+import headshotSrc from "@/assets/headshot.png";
 import { NesButton } from "@/design-system/nes-229931";
 
 
@@ -44,7 +44,7 @@ function Index(): ReactElement {
     <SiteShell>
       <section className="hero-section">
         <img
-          src={headshotAsset.url}
+          src={headshotSrc}
           alt="MikeDemo"
           className="hero-headshot"
           width="160"
