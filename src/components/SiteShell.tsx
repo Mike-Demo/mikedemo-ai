@@ -1,11 +1,9 @@
 import type { ReactElement, ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 
-import {
-  SiteFooter,
-  WebAwesomeLoader,
-} from "@/design-system/font-awsome-web-awesome-171158";
+import { WebAwesomeLoader } from "@/design-system/font-awsome-web-awesome-171158";
 
+import { PixelSiteFooter } from "@/components/PixelSiteFooter";
 import { PixelWipe } from "@/components/PixelWipe";
 import { NesIcon } from "@/design-system/nes-229931";
 
