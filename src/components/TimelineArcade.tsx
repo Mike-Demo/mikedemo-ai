@@ -74,7 +74,7 @@ export function TimelineArcade({
       </div>
 
       <div className="cabinet-bezel">
-        <div className="cabinet-screen">
+        <div className={`cabinet-screen${compact ? "" : " cabinet-screen-layout wa-flank:end wa-gap-l"}`}>
           <ol className="level-grid" aria-label="Project levels, newest first" ref={gridRef}>
             {projects.map((project, index) => {
               const isSelected = selectedIndex === index;
@@ -116,21 +116,23 @@ export function TimelineArcade({
 
           {!compact ? (
             <NesContainer className="selected-project" dark aria-live="polite">
-              <div className="selected-project-topline">
-                <span className="pixel-display">PLAYER 1</span>
-                <span className="pixel-display">READY!</span>
+              <div className="selected-project-content wa-stack wa-gap-m">
+                <div className="selected-project-topline">
+                  <span className="pixel-display">PLAYER 1</span>
+                  <span className="pixel-display">READY!</span>
+                </div>
+                <h3 className="pixel-display selected-project-title">{selectedProject.name}</h3>
+                <p>{selectedProject.summary}</p>
+                <TechTagList items={selectedProject.tech.slice(0, 4)} size="small" />
+                <ProjectCredits project={selectedProject} />
+                <Link
+                  to={selectedProject.detailPath ?? "/projects/$slug"}
+                  params={selectedProject.detailPath ? undefined : { slug: selectedProject.slug }}
+                  className="nes-btn is-primary cabinet-start"
+                >
+                  START LEVEL
+                </Link>
               </div>
-              <h3 className="pixel-display selected-project-title">{selectedProject.name}</h3>
-              <p>{selectedProject.summary}</p>
-              <TechTagList items={selectedProject.tech.slice(0, 4)} size="small" />
-              <ProjectCredits project={selectedProject} />
-              <Link
-                to={selectedProject.detailPath ?? "/projects/$slug"}
-                params={selectedProject.detailPath ? undefined : { slug: selectedProject.slug }}
-                className="nes-btn is-primary cabinet-start"
-              >
-                START LEVEL
-              </Link>
             </NesContainer>
           ) : null}
         </div>
