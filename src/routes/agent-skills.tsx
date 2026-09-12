@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import type { ReactElement } from "react";
 
-import { WaButton, WaCard, WaIcon } from "@/design-system/font-awsome-web-awesome-171158";
+import { NesContainer, NesIcon, NesList } from "@/design-system/nes-229931";
 
 import { SiteShell } from "@/components/SiteShell";
 import { TechTagList } from "@/components/TechTagList";
@@ -92,7 +92,7 @@ function AgentSkillsPage(): ReactElement {
 
   return (
     <SiteShell>
-      <section className="section section-narrow wa-stack wa-gap-l">
+      <section className="section section-narrow stack stack-l">
         <h1 className="pixel-display section-title">AI agent skills</h1>
 
         <p className="project-lede">
@@ -101,51 +101,50 @@ function AgentSkillsPage(): ReactElement {
           retyping the same prompt, you save it once and the assistant loads it when the work calls for it.
         </p>
 
-        <div className="wa-stack wa-gap-xs">
+        <div className="stack stack-xs">
           <h2 className="pixel-display tech-heading">How each platform packages a skill</h2>
-          <p className="wa-color-text-quiet">
+          <p className="text-quiet">
             The idea is the same everywhere; the file format and the place you put it are not.
           </p>
-          <div className="wa-stack wa-gap-s">
+          <div className="manual-grid">
             {platforms.map((entry) => (
-              <WaCard key={entry.platform} className="pixel-card" appearance="outlined">
-                <div className="wa-stack wa-gap-s">
-                  <div className="wa-cluster wa-align-items-center wa-gap-s">
+              <NesContainer key={entry.platform} className="manual-card">
+                <div className="stack stack-s">
+                  <div className="cluster cluster-s">
                     <span className="pixel-icon-badge" aria-hidden="true">
-                      <WaIcon family="solid" name={entry.icon} />
+                      <NesIcon name="star" size="small" />
                     </span>
                     <h3 className="pixel-card-title">{entry.platform}</h3>
                   </div>
-                  <p className="wa-color-text-quiet">{entry.packaged}</p>
+                  <p className="text-quiet">{entry.packaged}</p>
                 </div>
-              </WaCard>
+              </NesContainer>
             ))}
           </div>
         </div>
 
-        <div className="wa-stack wa-gap-xs">
+        <div className="stack stack-xs">
           <h2 className="pixel-display tech-heading">What makes a skill worth saving</h2>
-          <ul className="checklist">
+          <NesList className="checklist">
             <li>It describes a repeatable job, not a one-off question.</li>
             <li>It states the steps and the output shape, so results stay consistent.</li>
             <li>It names the edge cases you keep having to correct by hand.</li>
             <li>It stays short enough to read; long skills get ignored by people and models alike.</li>
-          </ul>
+          </NesList>
         </div>
 
         {skillFinder ? (
-          <div className="wa-stack wa-gap-s">
+          <div className="stack stack-s">
             <h2 className="pixel-display tech-heading">Browse ready-made skills</h2>
             <p>
               I built {skillFinder.name} for exactly this: a browsable library of agent skills across the
               platforms above, so you can start from something that already works.
             </p>
             <TechTagList items={skillFinder.tech} size="small" label={`${skillFinder.name} tech stack`} />
-            <div className="wa-cluster wa-gap-m">
-              <WaButton variant="brand" size="large" href={skillFinder.url} target="_blank" rel="noopener noreferrer">
-                <WaIcon slot="start" name="arrow-up-right-from-square" aria-hidden="true" />
-                Open {skillFinder.domain}
-              </WaButton>
+            <div className="cluster cluster-m">
+              <a className="nes-btn is-primary" href={skillFinder.url} target="_blank" rel="noopener noreferrer">
+                OPEN {skillFinder.domain}
+              </a>
               <Link to="/projects/$slug" params={{ slug: skillFinder.slug }} className="site-nav-link">
                 How it was built
               </Link>
@@ -155,7 +154,7 @@ function AgentSkillsPage(): ReactElement {
 
         <nav aria-label="Back to portfolio">
           <Link to="/" className="site-nav-link">
-            <WaIcon name="arrow-left" aria-hidden="true" /> Back to all projects
+            ← Back to all projects
           </Link>
         </nav>
       </section>

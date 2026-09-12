@@ -1,11 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import type { ReactElement } from "react";
 
-import {
-  WaButton,
-  WaCallout,
-  WaIcon,
-} from "@/design-system/font-awsome-web-awesome-171158";
+import { NesContainer } from "@/design-system/nes-229931";
 
 import { ProjectSummaryCard } from "@/components/ProjectSummaryCard";
 import { ProjectIcon } from "@/components/ProjectIcon";
@@ -55,13 +51,13 @@ export const Route = createFileRoute("/projects/$slug")({
 function ProjectNotFound(): ReactElement {
   return (
     <SiteShell>
-      <section className="section wa-stack wa-gap-m">
+      <section className="section stack stack-m">
         <h1 className="pixel-display section-title">Project not found</h1>
-        <WaCallout variant="warning">
+        <NesContainer title="CARTRIDGE ERROR">
           That cartridge isn't in the collection. Try one of the projects on the home page.
-        </WaCallout>
+        </NesContainer>
         <Link to="/" className="site-nav-link">
-          <WaIcon name="arrow-left" aria-hidden="true" /> Back to all projects
+          ← Back to all projects
         </Link>
       </section>
     </SiteShell>
@@ -73,10 +69,10 @@ function ProjectPage(): ReactElement {
 
   return (
     <SiteShell>
-      <section className="hero-section wa-stack wa-gap-m wa-align-items-center">
+      <section className="hero-section">
         <nav aria-label="Breadcrumb">
           <Link to="/" className="site-nav-link">
-            <WaIcon name="arrow-left" aria-hidden="true" /> All projects
+            ← All projects
           </Link>
         </nav>
 
@@ -88,22 +84,21 @@ function ProjectPage(): ReactElement {
         <p className="hero-subtitle">{project.description}</p>
       </section>
 
-      <section className="section wa-stack wa-gap-l">
+      <section className="section stack stack-l">
         <ProjectSummaryCard project={project} />
 
 
 
 
-        <div className="wa-cluster wa-gap-m">
-          <WaButton variant="brand" size="large" href={project.url} target="_blank" rel="noopener noreferrer">
-            <WaIcon slot="start" name="arrow-up-right-from-square" aria-hidden="true" />
-            Visit live site
-          </WaButton>
+        <div className="cluster cluster-m">
+          <a className="nes-btn is-primary" href={project.url} target="_blank" rel="noopener noreferrer">
+            VISIT LIVE SITE
+          </a>
         </div>
 
-        <div className="wa-stack wa-gap-xs">
+        <div className="stack stack-xs">
           <h2 className="pixel-display tech-heading">Level Select</h2>
-          <p className="wa-color-text-quiet">
+          <p className="text-quiet">
             Where this project sits in the timeline — pick another level to jump across.
           </p>
           <TimelineArcade
