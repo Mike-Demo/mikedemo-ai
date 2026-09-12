@@ -1,11 +1,9 @@
 import type { ReactElement, ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 
-import {
-  SiteFooter,
-  WebAwesomeLoader,
-} from "@/design-system/font-awsome-web-awesome-171158";
+import { WebAwesomeLoader } from "@/design-system/font-awsome-web-awesome-171158";
 
+import { PixelSiteFooter } from "@/components/PixelSiteFooter";
 import { PixelWipe } from "@/components/PixelWipe";
 import { NesIcon } from "@/design-system/nes-229931";
 
@@ -41,7 +39,7 @@ export function SiteShell({ children }: { children: ReactNode }): ReactElement {
       <main id="main-content" className="page-enter">{children}</main>
 
       <div className="site-footer-wrap">
-        <SiteFooter />
+        <PixelSiteFooter />
       </div>
     </div>
   );
