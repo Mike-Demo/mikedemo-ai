@@ -254,7 +254,7 @@ a:focus-visible, summary:focus-visible { outline: var(--pixel-border) solid var(
 @media (min-width: 64.0625em) {
   .cabinet-screen-layout { position: relative; }
   .cabinet-screen-layout .level-grid { margin-inline-end: calc(var(--flank-size) + var(--wa-space-l)); }
-  .selected-project { position: absolute; inset-block: 0; inset-inline-end: 0; inline-size: var(--flank-size); min-block-size: 0; }
+  .cabinet-screen-layout > .selected-project { position: absolute; inset-block: 0; inset-inline-end: 0; inline-size: var(--flank-size); min-block-size: 0; }
 }
 
 @media (min-width: 48.0625em) and (max-width: 64em) {
