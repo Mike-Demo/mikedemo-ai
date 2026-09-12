@@ -166,13 +166,13 @@ a:focus-visible, summary:focus-visible { outline: var(--pixel-border) solid var(
 .project-summary-card.is-dark a { color: var(--nes-yellow); }
 
 .project-stage { padding: var(--space-7) var(--space-5); background: var(--nes-gray-light); }
-.project-cabinet { max-width: var(--cabinet-width); margin-inline: auto; color: var(--nes-white); background: var(--nes-black); border: var(--space-3) solid var(--nes-red); box-shadow: var(--space-3) var(--space-3) 0 var(--nes-black); }
+.project-cabinet { width: 100%; max-width: var(--cabinet-width); min-width: 0; margin-inline: auto; color: var(--nes-white); background: var(--nes-black); border: var(--space-3) solid var(--nes-red); box-shadow: var(--space-3) var(--space-3) 0 var(--nes-black); }
 .project-cabinet-marquee { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: var(--space-4); padding: var(--space-5); color: var(--nes-white); background: var(--nes-blue); border-block-end: var(--pixel-border) solid var(--nes-white); }
 .project-cabinet-player, .project-cabinet-status { font-size: var(--text-xs); }
 .project-cabinet-status { display: inline-flex; justify-content: flex-end; align-items: center; gap: var(--space-2); }
 .project-cabinet-mark { display: inline-flex; width: var(--icon-size); height: var(--icon-size); align-items: center; justify-content: center; background: var(--nes-white); border: var(--pixel-border) solid var(--nes-black); }
 .project-cabinet-bezel { padding: var(--space-5); background: var(--nes-black); }
-.project-cabinet-screen { position: relative; padding: var(--space-6); color: var(--nes-white); background: var(--nes-black); border: var(--pixel-border) solid var(--nes-gray); }
+.project-cabinet-screen { position: relative; min-width: 0; padding: var(--space-6); color: var(--nes-white); background: var(--nes-black); border: var(--pixel-border) solid var(--nes-gray); }
 .project-cabinet-screen::after { position: absolute; inset: 0; pointer-events: none; content: ""; border: var(--space-2) solid var(--nes-gray); opacity: 0.15; }
 .project-cabinet-screen > * { position: relative; z-index: 1; }
 .project-cabinet-back { margin-block-end: var(--space-6); }
@@ -182,7 +182,8 @@ a:focus-visible, summary:focus-visible { outline: var(--pixel-border) solid var(
 .project-cabinet-eyebrow { margin: 0; color: var(--nes-red); font-size: var(--text-xs); overflow-wrap: anywhere; }
 .project-cabinet-title { margin: 0; color: var(--nes-yellow); font-size: var(--text-xl); overflow-wrap: anywhere; }
 .project-cabinet-subtitle { max-width: 60ch; color: var(--nes-white); font-size: var(--text-lg); }
-.project-cabinet-content { padding-block-start: var(--space-7); }
+.project-cabinet-content { min-width: 0; padding-block-start: var(--space-7); }
+.project-cabinet-content > *, .project-cabinet-content .stack, .project-cabinet-content .nes-details { min-width: 0; max-width: 100%; }
 .project-cabinet-content > .stack > .tech-heading, .project-cabinet-content > section > .tech-heading { color: var(--nes-yellow); }
 .project-cabinet-content .text-quiet, .project-cabinet-content .quiet-small, .project-cabinet-content .project-credits { color: inherit; }
 .project-cabinet-content .tag-list-outlined .tech-chip { color: var(--nes-white); border-color: var(--nes-blue); }
@@ -199,7 +200,7 @@ a:focus-visible, summary:focus-visible { outline: var(--pixel-border) solid var(
 .nes-details { border: var(--pixel-border) solid var(--nes-black); background: var(--nes-white); }
 .nes-details > summary { padding: var(--space-4); color: var(--nes-white); background: var(--nes-black); font-size: var(--text-xs); cursor: pointer; }
 .nes-details > div { padding: var(--space-5); }
-.match-table-scroll, .nes-table-responsive { overflow-x: auto; }
+.match-table-scroll, .nes-table-responsive { width: 100%; max-width: 100%; min-width: 0; overflow-x: auto; }
 .match-table { width: 100%; min-width: var(--content-narrow); font-family: var(--body-font); }
 .match-table caption { caption-side: bottom; padding-block-start: var(--space-3); text-align: start; }
 .match-card, .recommendation-card, .manual-card, .license-card { height: 100%; }
