@@ -1,12 +1,10 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import type { ReactElement } from "react";
 
 import { NesButton } from "@/design-system/nes-229931";
 import { CredentialsSection } from "@/components/CredentialsSection";
 import { SiteShell } from "@/components/SiteShell";
-import { TimelineArcade } from "@/components/TimelineArcade";
 import headshotSrc from "@/assets/headshot.png";
-import { projectsNewestFirst } from "@/data/timeline";
 
 
 export const Route = createFileRoute("/")({
@@ -54,25 +52,21 @@ function Index(): ReactElement {
           and one extremely productive-looking parody office suite.
         </p>
         <p className="pixel-display hero-quote">“Tools are tools, just don’t be one”</p>
-        <NesButton
-          variant="primary"
-          onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
-        >
-          SELECT A LEVEL
-        </NesButton>
+        <Link to="/projects" className="nes-btn is-primary">
+          SELECT A PROJECT
+        </Link>
       </section>
 
       <CredentialsSection />
 
-      <section id="projects" className="section stack stack-l" aria-labelledby="projects-heading">
-        <h2 id="projects-heading" className="pixel-display section-title">
-          Level Select
-        </h2>
-        <p className="text-quiet">
-          Choose a cartridge. Arrow keys move the cursor; Enter launches the selected project.
-        </p>
-
-        <TimelineArcade projects={projectsNewestFirst} />
+      <section className="section home-project-callout" aria-labelledby="projects-heading">
+        <div className="stack stack-m">
+          <h2 id="projects-heading" className="pixel-display section-title">Ready Player One?</h2>
+          <p>Explore every AI experiment from the dedicated arcade cabinet.</p>
+          <div>
+            <Link to="/projects" className="nes-btn is-primary">OPEN LEVEL SELECT</Link>
+          </div>
+        </div>
       </section>
     </SiteShell>
   );

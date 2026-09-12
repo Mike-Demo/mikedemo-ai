@@ -4,11 +4,11 @@ import type { ReactElement } from "react";
 import { NesContainer, NesTable, NesText } from "@/design-system/nes-229931";
 
 import { ProjectCabinet } from "@/components/ProjectCabinet";
+import { ProjectPager } from "@/components/ProjectPager";
 import { ProjectSummaryCard } from "@/components/ProjectSummaryCard";
 import { SeasonCalendar } from "@/components/SeasonCalendar";
 import { SiteShell } from "@/components/SiteShell";
 import { TechTagList } from "@/components/TechTagList";
-import { TimelineArcade } from "@/components/TimelineArcade";
 import { getProject } from "@/data/projects";
 import { projectsNewestFirst } from "@/data/timeline";
 
@@ -82,17 +82,7 @@ function BugleCrownsPage(): ReactElement {
           >
             <ProjectSummaryCard project={project} />
 
-            <div className="stack stack-xs">
-          <h2 className="pixel-display tech-heading">Project Timeline</h2>
-          <p className="text-quiet">
-            Where this project sits in the timeline — pick another level to jump across.
-          </p>
-          <TimelineArcade
-            projects={projectsNewestFirst}
-            currentSlug="bugle-crowns"
-            compact
-          />
-            </div>
+            <ProjectPager projects={projectsNewestFirst} currentSlug="bugle-crowns" />
 
 
 
