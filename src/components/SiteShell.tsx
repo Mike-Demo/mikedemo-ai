@@ -5,14 +5,13 @@ import {
   SiteFooter,
   WebAwesomeLoader,
 } from "@/design-system/font-awsome-web-awesome-171158";
-import { DEFAULT_SOCIAL_LINKS } from "@/design-system/font-awsome-web-awesome-171158/webawesome/patterns/site-footer";
 
 import { PixelWipe } from "@/components/PixelWipe";
 import { NesIcon } from "@/design-system/nes-229931";
 
 /**
- * Shared page shell: Web Awesome loader, sticky header with icon navigation
- * and social links, main content, and the standard site footer.
+ * Shared page shell: NES game HUD, route transition, main content, and the
+ * design-system footer that owns the social and open-source links.
  */
 export function SiteShell({ children }: { children: ReactNode }): ReactElement {
   return (
@@ -24,42 +23,17 @@ export function SiteShell({ children }: { children: ReactNode }): ReactElement {
           <NesIcon name="coin" size="small" />
           MikeDemo
         </Link>
-        <div className="site-navs">
-          <nav aria-label="Main navigation" className="site-nav">
-            <Link to="/" className="site-nav-link" activeProps={{ className: "is-active" }}>
-              Projects
-            </Link>
-            <Link to="/agent-skills" className="site-nav-link" activeProps={{ className: "is-active" }}>
-              Skills Guide
-            </Link>
-            <Link to="/licenses" className="site-nav-link" activeProps={{ className: "is-active" }}>
-              Credits
-            </Link>
-          </nav>
-          <nav aria-label="Social links" className="site-socials">
-            {DEFAULT_SOCIAL_LINKS.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="social-link"
-                aria-label={link.label}
-              >
-                {link.text}
-              </a>
-            ))}
-            <a
-              href="https://councils.forbes.com/profile/Mike-Demopoulos-Partnerships-Lead-North-America-hosting-com/ad134482-08d5-4acc-810f-16e790de5b2b"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-link"
-              aria-label="Forbes profile"
-            >
-              Forbes
-            </a>
-          </nav>
-        </div>
+        <nav aria-label="Main navigation" className="site-nav">
+          <Link to="/" className="site-nav-link" activeProps={{ className: "is-active" }}>
+            Projects
+          </Link>
+          <Link to="/agent-skills" className="site-nav-link" activeProps={{ className: "is-active" }}>
+            Skills Guide
+          </Link>
+          <Link to="/licenses" className="site-nav-link" activeProps={{ className: "is-active" }}>
+            Credits
+          </Link>
+        </nav>
       </header>
 
       <PixelWipe />
