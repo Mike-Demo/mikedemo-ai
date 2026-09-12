@@ -75,7 +75,7 @@ export function TimelineArcade({
 
       <div className="cabinet-bezel">
         <div className="cabinet-screen">
-          <ol className="level-grid" aria-label="Project levels, newest first">
+          <ol className="level-grid" aria-label="Project levels, newest first" ref={gridRef}>
             {projects.map((project, index) => {
               const isSelected = selectedIndex === index;
               const isCurrent = project.slug === currentSlug;
@@ -115,7 +115,7 @@ export function TimelineArcade({
           </ol>
 
           {!compact ? (
-            <NesContainer className="selected-project" dark>
+            <NesContainer className="selected-project" dark aria-live="polite">
               <div className="selected-project-topline">
                 <span className="pixel-display">PLAYER 1</span>
                 <span className="pixel-display">READY!</span>
