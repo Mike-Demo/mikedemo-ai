@@ -186,7 +186,7 @@ a:focus-visible, summary:focus-visible { outline: var(--pixel-border) solid var(
 .level-icon { grid-area: icon; width: var(--icon-size); height: var(--icon-size); }
 .level-name { grid-area: name; align-self: end; min-width: 0; overflow-wrap: anywhere; font-size: var(--text-xs); }
 .level-date { grid-area: date; align-self: start; color: var(--nes-gray-light); font-size: var(--text-sm); }
-.selected-project { position: relative; z-index: 1; block-size: 0; min-block-size: 100%; align-self: stretch; overflow-y: auto; }
+.selected-project { position: relative; z-index: 1; min-block-size: 100%; align-self: stretch; overflow-y: auto; }
 .selected-project-content { min-height: 100%; }
 .selected-project-topline { display: flex; justify-content: space-between; gap: var(--space-3); color: var(--nes-green); font-size: var(--text-xs); }
 .selected-project-title { margin-block: var(--space-3); color: var(--nes-yellow); font-size: var(--text-md); }
