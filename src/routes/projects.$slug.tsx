@@ -27,18 +27,26 @@ export const Route = createFileRoute("/projects/$slug")({
       return { meta: [{ title: "Project not found — MikeDemo" }] };
     }
     const url = `https://mikedemo.dev/projects/${loaderData.slug}`;
+    const descriptor = loaderData.tech.slice(0, 2).join(" · ");
+    const title = descriptor
+      ? `${loaderData.name}: ${descriptor} — MikeDemo`
+      : `${loaderData.name} — MikeDemo`;
+    const cover = "https://mikedemo.dev/og-cover.jpg";
     return {
       meta: [
-        { title: `${loaderData.name} — MikeDemo` },
+        { title },
         { name: "description", content: loaderData.summary },
-        { property: "og:title", content: `${loaderData.name} — MikeDemo` },
+        { property: "og:title", content: title },
         { property: "og:description", content: loaderData.summary },
         { property: "og:type", content: "article" },
         { property: "og:url", content: url },
-        { name: "twitter:card", content: "summary" },
+        { property: "og:image", content: cover },
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:image", content: cover },
       ],
       links: [{ rel: "canonical", href: url }],
     };
+
   },
   notFoundComponent: ProjectNotFound,
   component: ProjectPage,
