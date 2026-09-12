@@ -260,6 +260,8 @@ a:focus-visible, summary:focus-visible { outline: var(--pixel-border) solid var(
   .project-pager { flex-wrap: wrap; }
   .project-pager-levels { order: -1; flex-basis: 100%; }
   .level-grid { grid-template-columns: 1fr; }
+  .selected-project { display: none; }
+
   .level-cartridge { grid-template-columns: auto var(--icon-size) 1fr; grid-template-areas: "cursor icon number" "cursor icon name" "cursor icon date"; }
   .cabinet-bezel { padding: var(--space-3); }
   .cabinet-screen { padding: var(--space-3); }
