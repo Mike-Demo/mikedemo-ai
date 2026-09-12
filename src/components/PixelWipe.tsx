@@ -26,7 +26,8 @@ export function PixelWipe(): ReactElement | null {
         <span
           key={index}
           className="pixel-wipe-block"
-          style={{ animationDelay: `${(index % 8) * 40 + Math.floor(index / 8) * 60}ms` }}
+          data-column={index % 8}
+          data-row={Math.floor(index / 8)}
         />
       ))}
     </div>

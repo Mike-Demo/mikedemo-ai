@@ -1,6 +1,6 @@
 import type { ReactElement } from "react";
 
-import { WaIcon } from "@/design-system/font-awsome-web-awesome-171158";
+import { NesIcon } from "@/design-system/nes-229931";
 import type { Project } from "@/data/projects";
 
 interface ProjectIconProps {
@@ -25,5 +25,5 @@ export function ProjectIcon({ project, className }: ProjectIconProps): ReactElem
     );
   }
 
-  return <WaIcon name={project.icon} className={className} />;
+  return <NesIcon name="star" className={className} />;
 }

@@ -1,6 +1,6 @@
 import type { ReactElement } from "react";
 
-import { WaIcon } from "@/design-system/font-awsome-web-awesome-171158";
+import { NesIcon } from "@/design-system/nes-229931";
 
 import type { Project } from "@/data/projects";
 
@@ -12,7 +12,7 @@ export function ProjectCredits({ project }: { project: Project }): ReactElement 
   if (!project.credits?.length) return null;
   return (
     <p className="project-credits">
-      <WaIcon name="heart" aria-hidden="true" /> Built on{" "}
+      <NesIcon name="heart" size="small" /> Built on{" "}
       {project.credits.map((credit, index) => (
         <span key={credit.url}>
           {index > 0 && ", "}

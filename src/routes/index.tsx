@@ -1,11 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type { ReactElement } from "react";
 
-import {
-  WaButton,
-  WaIcon,
-} from "@/design-system/font-awsome-web-awesome-171158";
-
+import { NesButton } from "@/design-system/nes-229931";
 import { CredentialsSection } from "@/components/CredentialsSection";
 import { SiteShell } from "@/components/SiteShell";
 import { TimelineArcade } from "@/components/TimelineArcade";
@@ -43,7 +39,7 @@ export const Route = createFileRoute("/")({
 function Index(): ReactElement {
   return (
     <SiteShell>
-      <section className="hero-section wa-stack wa-gap-m wa-align-items-center">
+      <section className="hero-section">
         <img
           src={headshotSrc}
           alt="MikeDemo"
@@ -58,20 +54,22 @@ function Index(): ReactElement {
           and one extremely productive-looking parody office suite.
         </p>
         <p className="pixel-display hero-quote">“Tools are tools, just don’t be one”</p>
-        <WaButton variant="brand" size="large" href="#projects">
-          <WaIcon slot="start" name="rocket" aria-hidden="true" />
-          Select a level
-        </WaButton>
+        <NesButton
+          variant="primary"
+          onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
+        >
+          SELECT A LEVEL
+        </NesButton>
       </section>
 
       <CredentialsSection />
 
-      <section id="projects" className="section wa-stack wa-gap-l" aria-labelledby="projects-heading">
+      <section id="projects" className="section stack stack-l" aria-labelledby="projects-heading">
         <h2 id="projects-heading" className="pixel-display section-title">
           Level Select
         </h2>
-        <p className="wa-color-text-quiet">
-          Newest first. Pick a level to open the project — arrow keys move along the rail.
+        <p className="text-quiet">
+          Choose a cartridge. Arrow keys move the cursor; Enter launches the selected project.
         </p>
 
         <TimelineArcade projects={projectsNewestFirst} />

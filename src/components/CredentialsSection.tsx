@@ -1,6 +1,6 @@
 import type { ReactElement } from "react";
 
-import { WaCard, WaIcon } from "@/design-system/font-awsome-web-awesome-171158";
+import { NesContainer, NesIcon } from "@/design-system/nes-229931";
 
 import { credentials } from "@/data/timeline";
 
@@ -12,7 +12,7 @@ export function CredentialsSection(): ReactElement {
   return (
     <section
       id="credentials"
-      className="section wa-stack wa-gap-m"
+      className="section stack stack-m"
       aria-labelledby="credentials-heading"
     >
       <h2 id="credentials-heading" className="pixel-display section-title">
@@ -20,16 +20,16 @@ export function CredentialsSection(): ReactElement {
       </h2>
       <div className="credential-grid">
         {credentials.map((credential) => (
-          <WaCard key={credential.id} className="pixel-card credential-card" appearance="outlined">
-            <div className="wa-stack wa-gap-s">
-              <div className="wa-cluster wa-align-items-center wa-gap-s">
+          <NesContainer key={credential.id} className="credential-card" title="ACHIEVEMENT UNLOCKED">
+            <div className="stack stack-s">
+              <div className="cluster cluster-s">
                 <span className="pixel-icon-badge" aria-hidden="true">
-                  <WaIcon name={credential.icon} />
+                  <NesIcon name="trophy" />
                 </span>
-                <span className="wa-color-text-quiet credential-issuer">{credential.issuer}</span>
+                <span className="text-quiet credential-issuer">{credential.issuer}</span>
               </div>
               <h3 className="pixel-card-title">{credential.title}</h3>
-              <p className="wa-color-text-quiet">
+              <p className="text-quiet">
                 {credential.summary} · {credential.period}
               </p>
               <a
@@ -38,10 +38,10 @@ export function CredentialsSection(): ReactElement {
                 rel="noopener noreferrer"
                 className="site-nav-link"
               >
-                <WaIcon name="arrow-up-right-from-square" aria-hidden="true" /> View credential
+                VIEW CREDENTIAL
               </a>
             </div>
-          </WaCard>
+          </NesContainer>
         ))}
       </div>
     </section>

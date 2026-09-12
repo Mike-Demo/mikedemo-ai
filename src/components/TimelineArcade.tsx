@@ -1,230 +1,139 @@
 import { Link } from "@tanstack/react-router";
-import type { KeyboardEvent, ReactElement, ReactNode } from "react";
+import type { KeyboardEvent, ReactElement } from "react";
 import { useRef, useState } from "react";
 
+import { ProjectCredits } from "@/components/ProjectCredits";
 import { ProjectIcon } from "@/components/ProjectIcon";
-import { TimelinePreviewCard } from "@/components/TimelinePreviewCard";
-import { WaIcon } from "@/design-system/font-awsome-web-awesome-171158";
+import { TechTagList } from "@/components/TechTagList";
+import { NesContainer, NesIcon } from "@/design-system/nes-229931";
 import type { Project } from "@/data/projects";
 import { formatMonthYear } from "@/lib/format-date";
 
 interface TimelineArcadeProps {
-  /** Projects in the order they should appear along the rail (newest first). */
   readonly projects: readonly Project[];
-  /** Slug of the project currently being viewed, if any. */
   readonly currentSlug?: string;
-  /** Compact variant used on project pages. */
   readonly compact?: boolean;
 }
 
-interface PreviewState {
-  readonly index: number;
-  readonly left: number;
-}
-
-const PREVIEW_WIDTH_REM = 17;
-
 /**
- * Horizontal "level select" rail: one pixel node per project, each linking to
- * that project's own page. Arrow keys or the flanking arrow buttons move along
- * the rail, the active node shows a preview card floating below the rail, and
- * Enter opens the project. The preview lives outside the scroll container so
- * it overlays the page instead of growing it.
+ * Cabinet-style project selector. Focus, hover, or tap moves the player cursor;
+ * Enter follows the focused cartridge and Arrow/Home/End keys traverse the grid.
  */
 export function TimelineArcade({
   projects,
   currentSlug,
   compact = false,
 }: TimelineArcadeProps): ReactElement {
-  const wrapRef = useRef<HTMLDivElement | null>(null);
-  const scrollRef = useRef<HTMLDivElement | null>(null);
-  const nodeRefs = useRef<Array<HTMLAnchorElement | null>>([]);
-  const [preview, setPreview] = useState<PreviewState | null>(null);
-  // Persists across blurs so the arrow buttons keep stepping from the last
-  // active node even after clicking a button steals focus.
-  const [selected, setSelected] = useState<number | null>(null);
+  const currentIndex = Math.max(0, projects.findIndex((project) => project.slug === currentSlug));
+  const [selectedIndex, setSelectedIndex] = useState(currentIndex);
+  const itemRefs = useRef<Array<HTMLAnchorElement | null>>([]);
+  const selectedProject = projects[selectedIndex] ?? projects[0];
 
-  function computeLeft(index: number): number {
-    const node = nodeRefs.current[index];
-    const scroller = scrollRef.current;
-    const wrap = wrapRef.current;
-    if (!node || !scroller || !wrap) {
-      return 0;
-    }
-    const rootFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
-    const previewWidth = Math.min(PREVIEW_WIDTH_REM * rootFontSize, wrap.clientWidth * 0.8);
-    const center = node.offsetLeft - scroller.scrollLeft + node.offsetWidth / 2;
-    const max = Math.max(0, wrap.clientWidth - previewWidth);
-    return Math.min(Math.max(center - previewWidth / 2, 0), max);
-  }
-
-  function showPreview(index: number): void {
-    setSelected(index);
-    setPreview({ index, left: computeLeft(index) });
-  }
-
-  function hidePreview(index: number): void {
-    setPreview((current) => (current?.index === index ? null : current));
-  }
-
-  function handleScroll(): void {
-    setPreview((current) =>
-      current === null ? null : { index: current.index, left: computeLeft(current.index) },
-    );
-  }
-
-  function step(delta: number): void {
-    const focusedIndex = nodeRefs.current.findIndex(
-      (element) => element !== null && element === document.activeElement,
-    );
-    const base =
-      preview?.index ??
-      selected ??
-      (focusedIndex >= 0 ? focusedIndex : delta > 0 ? -1 : projects.length);
-    const next = Math.min(Math.max(base + delta, 0), projects.length - 1);
-    const node = nodeRefs.current[next];
-    node?.focus();
-    node?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
-    showPreview(next);
+  function focusProject(index: number): void {
+    const next = Math.min(Math.max(index, 0), projects.length - 1);
+    setSelectedIndex(next);
+    itemRefs.current[next]?.focus();
   }
 
   function handleKeyDown(event: KeyboardEvent<HTMLAnchorElement>, index: number): void {
-    if (event.key === "Escape") {
-      setPreview(null);
-      return;
-    }
-
-    const offsets: Record<string, number> = {
+    const offsets: Readonly<Record<string, number>> = {
       ArrowRight: 1,
-      ArrowDown: 1,
+      ArrowDown: 3,
       ArrowLeft: -1,
-      ArrowUp: -1,
+      ArrowUp: -3,
     };
+    let nextIndex: number | undefined;
 
-    let nextIndex: number | null = null;
-    if (event.key in offsets) {
-      nextIndex = index + (offsets[event.key] ?? 0);
-    } else if (event.key === "Home") {
-      nextIndex = 0;
-    } else if (event.key === "End") {
-      nextIndex = projects.length - 1;
-    }
-
-    if (nextIndex === null || nextIndex < 0 || nextIndex >= projects.length) {
-      return;
-    }
+    if (event.key in offsets) nextIndex = index + (offsets[event.key] ?? 0);
+    if (event.key === "Home") nextIndex = 0;
+    if (event.key === "End") nextIndex = projects.length - 1;
+    if (event.key === "Escape") nextIndex = currentIndex;
+    if (nextIndex === undefined) return;
 
     event.preventDefault();
-    const next = nodeRefs.current[nextIndex];
-    next?.focus();
-    next?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+    focusProject(nextIndex);
   }
 
-  const activeProject = preview === null ? undefined : projects[preview.index];
-  const showCard =
-    preview !== null && activeProject !== undefined && activeProject.slug !== currentSlug;
+  if (!selectedProject) {
+    return <p className="text-quiet">No project cartridges loaded.</p>;
+  }
 
   return (
-    <div className="arcade-rail-wrap" ref={wrapRef}>
-      <button
-        type="button"
-        className="arcade-arrow"
-        aria-label="Previous project"
-        disabled={selected === 0}
-        onClick={() => step(-1)}
-      >
-        <WaIcon name="chevron-left" aria-hidden="true" />
-      </button>
-
-      <div className="arcade-rail-scroll" ref={scrollRef} onScroll={handleScroll}>
-        <ol
-          className={`arcade-rail${compact ? " arcade-rail-compact" : ""}`}
-          aria-label="Project timeline, newest first"
-        >
-          {projects.map((project, index) => {
-            const isCurrent = project.slug === currentSlug;
-            const previewId = `arcade-preview-${project.slug}${compact ? "-compact" : ""}`;
-
-            const body = (
-              <>
-                <span className="arcade-node-icon" aria-hidden="true">
-                  <ProjectIcon project={project} />
-                </span>
-                <time className="pixel-display arcade-node-date" dateTime={project.started}>
-                  {formatMonthYear(project.started)}
-                </time>
-                <span className="pixel-display arcade-node-name">{project.name}</span>
-              </>
-            );
-
-            const interactionProps = {
-              className: "arcade-node-link",
-              "aria-describedby": previewId,
-              ref: (element: HTMLAnchorElement | null) => {
-                nodeRefs.current[index] = element;
-              },
-              onKeyDown: (event: KeyboardEvent<HTMLAnchorElement>) => handleKeyDown(event, index),
-              onFocus: () => showPreview(index),
-              onBlur: () => hidePreview(index),
-              onMouseEnter: () => showPreview(index),
-              onMouseLeave: () => hidePreview(index),
-            } as const;
-
-            let node: ReactNode;
-            if (isCurrent) {
-              node = (
-                <span className="arcade-node-link" aria-current="page">
-                  {body}
-                </span>
-              );
-            } else if (project.detailPath) {
-              node = (
-                <Link to={project.detailPath} {...interactionProps}>
-                  {body}
-                </Link>
-              );
-            } else {
-              node = (
-                <Link to="/projects/$slug" params={{ slug: project.slug }} {...interactionProps}>
-                  {body}
-                </Link>
-              );
-            }
-
-            return (
-              <li
-                key={project.slug}
-                className="arcade-node"
-                data-current={isCurrent ? "true" : undefined}
-              >
-                <span className="pixel-display arcade-level" aria-hidden="true">
-                  {String(projects.length - index).padStart(2, "0")}
-                </span>
-
-                {node}
-              </li>
-            );
-          })}
-        </ol>
+    <div className={`arcade-cabinet${compact ? " arcade-cabinet-compact" : ""}`}>
+      <div className="cabinet-marquee pixel-display">
+        <NesIcon name="star" size="small" /> SELECT PROJECT <NesIcon name="star" size="small" />
       </div>
 
-      <button
-        type="button"
-        className="arcade-arrow"
-        aria-label="Next project"
-        disabled={selected === projects.length - 1}
-        onClick={() => step(1)}
-      >
-        <WaIcon name="chevron-right" aria-hidden="true" />
-      </button>
+      <div className="cabinet-bezel">
+        <div className="cabinet-screen">
+          <ol className="level-grid" aria-label="Project levels, newest first">
+            {projects.map((project, index) => {
+              const isSelected = selectedIndex === index;
+              const isCurrent = project.slug === currentSlug;
+              const destination = project.detailPath ?? "/projects/$slug";
 
-      {showCard && activeProject ? (
-        <TimelinePreviewCard
-          project={activeProject}
-          id={`arcade-preview-${activeProject.slug}${compact ? "-compact" : ""}`}
-          style={{ insetInlineStart: `${preview.left}px` }}
-        />
-      ) : null}
+              return (
+                <li key={project.slug} className="level-slot">
+                  <Link
+                    to={destination}
+                    params={project.detailPath ? undefined : { slug: project.slug }}
+                    ref={(element) => {
+                      itemRefs.current[index] = element;
+                    }}
+                    className={`level-cartridge${isSelected ? " is-selected" : ""}`}
+                    aria-current={isCurrent ? "page" : undefined}
+                    aria-label={`Level ${String(projects.length - index).padStart(2, "0")}: ${project.name}, ${formatMonthYear(project.started)}`}
+                    onFocus={() => setSelectedIndex(index)}
+                    onMouseEnter={() => setSelectedIndex(index)}
+                    onClick={() => setSelectedIndex(index)}
+                    onKeyDown={(event) => handleKeyDown(event, index)}
+                  >
+                    <span className="level-cursor pixel-display" aria-hidden="true">▶</span>
+                    <span className="level-number pixel-display">
+                      LV {String(projects.length - index).padStart(2, "0")}
+                    </span>
+                    <span className="level-icon" aria-hidden="true">
+                      <ProjectIcon project={project} />
+                    </span>
+                    <span className="level-name pixel-display">{project.name}</span>
+                    <time className="level-date" dateTime={project.started}>
+                      {formatMonthYear(project.started)}
+                    </time>
+                  </Link>
+                </li>
+              );
+            })}
+          </ol>
+
+          {!compact ? (
+            <NesContainer className="selected-project" dark>
+              <div className="selected-project-topline">
+                <span className="pixel-display">PLAYER 1</span>
+                <span className="pixel-display">READY!</span>
+              </div>
+              <h3 className="pixel-display selected-project-title">{selectedProject.name}</h3>
+              <p>{selectedProject.summary}</p>
+              <TechTagList items={selectedProject.tech.slice(0, 4)} size="small" />
+              <ProjectCredits project={selectedProject} />
+              <Link
+                to={selectedProject.detailPath ?? "/projects/$slug"}
+                params={selectedProject.detailPath ? undefined : { slug: selectedProject.slug }}
+                className="nes-btn is-primary cabinet-start"
+              >
+                START LEVEL
+              </Link>
+            </NesContainer>
+          ) : null}
+        </div>
+      </div>
+
+      <div className="cabinet-controls" aria-hidden="true">
+        <span className="pixel-joystick" />
+        <span className="control-label pixel-display">MOVE</span>
+        <span className="pixel-button pixel-button-red" />
+        <span className="control-label pixel-display">START</span>
+        <span className="pixel-button pixel-button-blue" />
+      </div>
     </div>
   );
 }

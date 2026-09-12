@@ -7,10 +7,8 @@ import {
 } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 
-import { WEB_AWESOME_HTML_CLASSES } from "@/design-system/font-awsome-web-awesome-171158";
-
 import appCss from "../styles.css?url";
-import themeCss from "@/design-system/font-awsome-web-awesome-171158/webawesome/theme.css?url";
+import nesCss from "@/design-system/nes-229931/styles/nes.css?url";
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   staticData: { sitemap: false },
@@ -44,12 +42,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.3.1/css/all.min.css",
       },
-      { rel: "stylesheet", href: themeCss },
+      { rel: "stylesheet", href: nesCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Work+Sans:wght@400;500;600;700&display=swap",
       },
       { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.png", type: "image/png" },
@@ -61,7 +59,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={WEB_AWESOME_HTML_CLASSES}>
+    <html lang="en">
       <head>
         <HeadContent />
       </head>

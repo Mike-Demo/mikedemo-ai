@@ -78,13 +78,13 @@ function MonthGrid({ year, month }: { year: number; month: number }): ReactEleme
 
 export function SeasonCalendar(): ReactElement {
   return (
-    <div className="wa-stack wa-gap-m">
+    <div className="stack stack-m">
       <div className="calendar-grid">
         {SEASON_MONTHS.map(({ year, month }) => (
           <MonthGrid key={`${year}-${month}`} year={year} month={month} />
         ))}
       </div>
-      <ul className="wa-cluster wa-gap-m calendar-legend">
+      <ul className="cluster cluster-m calendar-legend">
         <li>
           <span className="calendar-event calendar-event-done" aria-hidden="true" /> Played
         </li>
