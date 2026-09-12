@@ -63,16 +63,6 @@ function Index(): ReactElement {
       </section>
 
       <CredentialsSection />
-
-      <section className="section home-project-callout" aria-labelledby="projects-heading">
-        <div className="stack stack-m">
-          <h2 id="projects-heading" className="pixel-display section-title">Ready Player One?</h2>
-          <p>Explore every AI experiment from the dedicated arcade cabinet.</p>
-          <div>
-            <NesButton variant="primary" onClick={openProjects}>OPEN LEVEL SELECT</NesButton>
-          </div>
-        </div>
-      </section>
     </SiteShell>
   );
 }
