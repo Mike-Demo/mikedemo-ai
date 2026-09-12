@@ -78,7 +78,7 @@ export function PixelSiteFooter({
 
       <nav aria-label="Legal links" className="pixel-site-footer-legal">
         <a href={licensesHref} className="pixel-site-footer-link">
-          <NesIcon name="coin" size="small" aria-label="" />
+          <NesIcon name="coin" size="small" />
           Open Source
         </a>
       </nav>
@@ -93,7 +93,7 @@ export function PixelSiteFooter({
             aria-label={`${link.label} (opens in new tab)`}
             className="pixel-site-footer-link"
           >
-            <NesIcon name={link.icon} size="small" aria-label="" />
+            <NesIcon name={link.icon} size="small" />
             {link.text}
           </a>
         ))}
