@@ -3,7 +3,7 @@ import type { ReactElement } from "react";
 
 import { NesContainer, NesTable, NesText } from "@/design-system/nes-229931";
 
-import { ProjectIcon } from "@/components/ProjectIcon";
+import { ProjectCabinet } from "@/components/ProjectCabinet";
 import { ProjectSummaryCard } from "@/components/ProjectSummaryCard";
 import { SeasonCalendar } from "@/components/SeasonCalendar";
 import { SiteShell } from "@/components/SiteShell";
@@ -64,34 +64,27 @@ function BugleCrownsPage(): ReactElement {
 
   return (
     <SiteShell>
-      <section className="hero-section">
-        <nav aria-label="Breadcrumb">
-          <Link to="/" className="site-nav-link">
-            ← All projects
-          </Link>
-        </nav>
-
+      <section className="project-stage">
         {project ? (
-          <span className="pixel-icon-badge pixel-icon-badge-large" aria-hidden="true">
-            <ProjectIcon project={project} />
-          </span>
-        ) : null}
-        <h1 className="pixel-display hero-title">Bugle Crowns</h1>
-        <p className="pixel-display hero-eyebrow">AWS Agentic Football Cup · {weekId}</p>
-        <p className="hero-subtitle">
-          Five AI agents, 120-second matches, one very opinionated coach. Bugle Crowns is my team in
-          the AWS Agentic Football Cup — here is how Week 1 went and what changes next.
-        </p>
-        <p className="quiet-small">
-          Run by AWSOfficial Alpha Season, supported by Minds from Animoca Brands
-        </p>
-      </section>
-
-      <section className="section stack stack-l">
-        {project ? <ProjectSummaryCard project={project} /> : null}
+          <ProjectCabinet
+            project={project}
+            eyebrow={`AWS Agentic Football Cup · ${weekId}`}
+            subtitle={
+              <div className="stack stack-xs">
+                <p>
+                  Five AI agents, 120-second matches, one very opinionated coach. Bugle Crowns is my team in
+                  the AWS Agentic Football Cup — here is how Week 1 went and what changes next.
+                </p>
+                <p className="quiet-small">
+                  Run by AWSOfficial Alpha Season, supported by Minds from Animoca Brands
+                </p>
+              </div>
+            }
+          >
+        <ProjectSummaryCard project={project} />
 
         <div className="stack stack-xs">
-          <h2 className="pixel-display tech-heading">Level Select</h2>
+          <h2 className="pixel-display tech-heading">Project Timeline</h2>
           <p className="text-quiet">
             Where this project sits in the timeline — pick another level to jump across.
           </p>
@@ -293,6 +286,8 @@ function BugleCrownsPage(): ReactElement {
             .
           </p>
         </div>
+          </ProjectCabinet>
+        ) : null}
       </section>
     </SiteShell>
   );

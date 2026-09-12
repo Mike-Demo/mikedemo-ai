@@ -3,8 +3,8 @@ import type { ReactElement } from "react";
 
 import { NesContainer } from "@/design-system/nes-229931";
 
+import { ProjectCabinet } from "@/components/ProjectCabinet";
 import { ProjectSummaryCard } from "@/components/ProjectSummaryCard";
-import { ProjectIcon } from "@/components/ProjectIcon";
 import { SiteShell } from "@/components/SiteShell";
 import { TimelineArcade } from "@/components/TimelineArcade";
 import { getProject } from "@/data/projects";
@@ -69,46 +69,29 @@ function ProjectPage(): ReactElement {
 
   return (
     <SiteShell>
-      <section className="hero-section">
-        <nav aria-label="Breadcrumb">
-          <Link to="/" className="site-nav-link">
-            ← All projects
-          </Link>
-        </nav>
+      <section className="project-stage">
+        <ProjectCabinet project={project} subtitle={<p>{project.description}</p>}>
+          <ProjectSummaryCard project={project} />
 
-        <span className="pixel-icon-badge pixel-icon-badge-large" aria-hidden="true">
-          <ProjectIcon project={project} />
-        </span>
-        <h1 className="pixel-display hero-title">{project.name}</h1>
-        <p className="pixel-display hero-eyebrow">{project.domain}</p>
-        <p className="hero-subtitle">{project.description}</p>
+          <div className="cluster cluster-m">
+            <a className="nes-btn is-primary" href={project.url} target="_blank" rel="noopener noreferrer">
+              VISIT LIVE SITE
+            </a>
+          </div>
+
+          <section className="stack stack-xs" aria-labelledby="project-level-select">
+            <h2 id="project-level-select" className="pixel-display tech-heading">Project Timeline</h2>
+            <p className="text-quiet">
+              Where this project sits in the timeline — pick another level to jump across.
+            </p>
+            <TimelineArcade
+              projects={projectsNewestFirst}
+              currentSlug={project.slug}
+              compact
+            />
+          </section>
+        </ProjectCabinet>
       </section>
-
-      <section className="section stack stack-l">
-        <ProjectSummaryCard project={project} />
-
-
-
-
-        <div className="cluster cluster-m">
-          <a className="nes-btn is-primary" href={project.url} target="_blank" rel="noopener noreferrer">
-            VISIT LIVE SITE
-          </a>
-        </div>
-
-        <div className="stack stack-xs">
-          <h2 className="pixel-display tech-heading">Level Select</h2>
-          <p className="text-quiet">
-            Where this project sits in the timeline — pick another level to jump across.
-          </p>
-          <TimelineArcade
-            projects={projectsNewestFirst}
-            currentSlug={project.slug}
-            compact
-          />
-        </div>
-      </section>
-
     </SiteShell>
   );
 }
