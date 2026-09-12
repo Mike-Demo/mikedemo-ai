@@ -3,6 +3,7 @@ import type { ReactElement } from "react";
 
 import { NesContainer } from "@/design-system/nes-229931";
 
+import { DesignSystemsShowcase } from "@/components/DesignSystemsShowcase";
 import { ProjectCabinet } from "@/components/ProjectCabinet";
 import { ProjectPager } from "@/components/ProjectPager";
 import { ProjectSummaryCard } from "@/components/ProjectSummaryCard";
@@ -73,11 +74,15 @@ function ProjectPage(): ReactElement {
         <ProjectCabinet project={project} subtitle={<p>{project.description}</p>}>
           <ProjectSummaryCard project={project} />
 
-          <div className="cluster cluster-m">
-            <a className="nes-btn is-primary" href={project.url} target="_blank" rel="noopener noreferrer">
-              VISIT LIVE SITE
-            </a>
-          </div>
+          {project.slug === "awesome-design-system" ? (
+            <DesignSystemsShowcase project={project} />
+          ) : (
+            <div className="cluster cluster-m">
+              <a className="nes-btn is-primary" href={project.url} target="_blank" rel="noopener noreferrer">
+                VISIT LIVE SITE
+              </a>
+            </div>
+          )}
 
           <ProjectPager projects={projectsNewestFirst} currentSlug={project.slug} />
         </ProjectCabinet>

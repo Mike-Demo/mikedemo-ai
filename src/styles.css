@@ -197,6 +197,9 @@ a:focus-visible, summary:focus-visible { outline: var(--pixel-border) solid var(
 
 .project-summary-card { max-width: 100%; }
 .project-summary-card.is-dark a { color: var(--nes-yellow); }
+.design-systems-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-5); align-items: stretch; }
+.design-system-panel { min-width: 0; height: 100%; }
+.design-system-awesome-title { margin: 0; font-size: var(--text-md); }
 
 .project-stage { width: 100%; min-width: 0; padding: var(--space-7) var(--space-5); background: var(--nes-gray-light); overflow-x: hidden; }
 .project-cabinet { width: 100%; max-width: var(--cabinet-width); min-width: 0; margin-inline: auto; color: var(--nes-white); background: var(--nes-black); border: var(--space-3) solid var(--nes-red); box-shadow: var(--space-3) var(--space-3) 0 var(--nes-black); }
@@ -292,6 +295,7 @@ a:focus-visible, summary:focus-visible { outline: var(--pixel-border) solid var(
   .project-pager { flex-wrap: wrap; }
   .project-pager-levels { order: -1; flex-basis: 100%; }
   .level-grid { grid-template-columns: 1fr; }
+  .design-systems-grid { grid-template-columns: 1fr; }
   .selected-project { display: none; }
 
   .level-cartridge { grid-template-columns: auto var(--icon-size) 1fr; grid-template-areas: "cursor icon number" "cursor icon name" "cursor icon date"; }

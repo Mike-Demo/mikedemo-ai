@@ -15,6 +15,11 @@ export interface ProjectCredit {
   readonly url: string;
 }
 
+export interface ProjectSite {
+  readonly name: string;
+  readonly url: string;
+}
+
 export interface Project {
   readonly slug: string;
   readonly name: string;
@@ -32,6 +37,8 @@ export interface Project {
   readonly detailPath?: "/bugle-crowns";
   /** Upstream projects and source material worth crediting. */
   readonly credits?: readonly ProjectCredit[];
+  /** Multiple live destinations when one portfolio entry represents a related project family. */
+  readonly sites?: readonly ProjectSite[];
 }
 
 export const projects: readonly Project[] = [
@@ -117,18 +124,23 @@ export const projects: readonly Project[] = [
   },
   {
     slug: "awesome-design-system",
-    name: "Font Awsome & Web Awesome",
-    domain: "Lovable",
-    summary: "The open-source design system powering this very portfolio.",
+    name: "Design Systems",
+    domain: "NES + AWESOME",
+    summary: "Two complementary design systems powering this portfolio: retro NES pixels and accessible Web Awesome components.",
     description:
-      "Font Awsome & Web Awesome (\"Awesome DS\") is a complete design system built on Web Awesome components and Font Awesome Free icons — design tokens, themes, layout utilities, and patterns. This portfolio is built with it.",
-    tech: ["TypeScript", "React", "Web Awesome", "Font Awesome Free"],
+      "Design Systems combines a retro NES component library with Font Awsome & Web Awesome (\"Awesome DS\"), pairing expressive pixel styling with accessible components, icons, design tokens, layout utilities, and reusable patterns.",
+    tech: ["TypeScript", "React", "NES.css", "Web Awesome", "Font Awesome Free"],
     url: "https://project--9fea97bb-e317-446f-b683-1274350846c6.lovable.app",
     icon: "swatchbook",
     started: "2026-09-03",
     credits: [
+      { name: "NES.css", url: "https://nostalgic-css.github.io/NES.css/" },
       { name: "Web Awesome", url: "https://webawesome.com" },
       { name: "Font Awesome Free", url: "https://fontawesome.com" },
+    ],
+    sites: [
+      { name: "NES Design System", url: "https://project--2d41e7ac-ac8d-4713-844e-300c9d4181e6.lovable.app" },
+      { name: "Font Awsome & Web Awesome", url: "https://project--9fea97bb-e317-446f-b683-1274350846c6.lovable.app" },
     ],
   },
   {
