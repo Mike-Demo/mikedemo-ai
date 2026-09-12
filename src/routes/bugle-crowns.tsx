@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import type { ReactElement } from "react";
 
 import { NesContainer, NesTable, NesText } from "@/design-system/nes-229931";
@@ -22,7 +22,6 @@ import {
   
   recommendations,
   scheduleUrl,
-  seasonSchedule,
   squadStack,
   weekId,
   weekRecord,
@@ -81,9 +80,9 @@ function BugleCrownsPage(): ReactElement {
               </div>
             }
           >
-        <ProjectSummaryCard project={project} />
+            <ProjectSummaryCard project={project} />
 
-        <div className="stack stack-xs">
+            <div className="stack stack-xs">
           <h2 className="pixel-display tech-heading">Project Timeline</h2>
           <p className="text-quiet">
             Where this project sits in the timeline — pick another level to jump across.
@@ -93,11 +92,11 @@ function BugleCrownsPage(): ReactElement {
             currentSlug="bugle-crowns"
             compact
           />
-        </div>
+            </div>
 
 
 
-        <div className="stack stack-xs">
+            <div className="stack stack-xs">
           <h2 className="pixel-display tech-heading">Squad stack</h2>
           <TechTagList
             items={squadStack}
@@ -105,14 +104,14 @@ function BugleCrownsPage(): ReactElement {
             size="small"
             label="Squad stack technologies"
           />
-        </div>
+            </div>
 
-        <div className="cluster cluster-m">
+            <div className="cluster cluster-m">
           <a className="nes-btn is-primary" href={scheduleUrl} target="_blank" rel="noopener noreferrer">CUP SCHEDULE</a>
           <a className="nes-btn" href={leaderboardUrl} target="_blank" rel="noopener noreferrer">LEADERBOARD</a>
-        </div>
+            </div>
 
-        <div className="stack stack-s">
+            <div className="stack stack-s">
           <h2 className="pixel-display tech-heading">Week 1 at a glance</h2>
           <div className="stat-grid">
             <Stat label="Record" value={`${weekRecord.wins}W ${weekRecord.losses}L`} />
@@ -124,9 +123,9 @@ function BugleCrownsPage(): ReactElement {
           <p className="text-quiet">
             {weekRecord.played} of a possible {weekRecord.possible} matches played.
           </p>
-        </div>
+            </div>
 
-        <div className="stack stack-s">
+            <div className="stack stack-s">
           <details className="nes-details" open><summary className="pixel-display">WEEK 1 · FULL DEBRIEF</summary>
             <div className="stack stack-l">
               <h3 className="pixel-display tech-heading">Standings</h3>
@@ -269,9 +268,9 @@ function BugleCrownsPage(): ReactElement {
               </ul>
             </div>
           </details>
-        </div>
+            </div>
 
-        <div className="stack stack-s">
+            <div className="stack stack-s">
           <h2 className="pixel-display tech-heading">Season calendar</h2>
           <SeasonCalendar />
           <p className="text-quiet">
@@ -285,7 +284,7 @@ function BugleCrownsPage(): ReactElement {
             </a>
             .
           </p>
-        </div>
+            </div>
           </ProjectCabinet>
         ) : null}
       </section>
