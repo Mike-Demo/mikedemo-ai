@@ -274,6 +274,7 @@ a:focus-visible, summary:focus-visible { outline: var(--pixel-border) solid var(
 @media (max-width: 48em) {
   .site-header { align-items: flex-start; flex-direction: column; }
   .site-nav { gap: var(--space-3); }
+  .site-header .site-nav-link, .site-brand, .pixel-site-footer-link { min-height: var(--touch-target); }
   .hero-title { font-size: var(--text-xl); }
   .hero-subtitle, .project-lede { font-size: var(--text-md); }
   .section, .hero-section { padding-inline: var(--space-4); }
