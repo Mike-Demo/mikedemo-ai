@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type { ReactElement } from "react";
 
+import { NesButton } from "@/design-system/nes-229931";
 import { CredentialsSection } from "@/components/CredentialsSection";
 import { SiteShell } from "@/components/SiteShell";
 import { TimelineArcade } from "@/components/TimelineArcade";
@@ -53,7 +54,12 @@ function Index(): ReactElement {
           and one extremely productive-looking parody office suite.
         </p>
         <p className="pixel-display hero-quote">“Tools are tools, just don’t be one”</p>
-        <a className="nes-btn is-primary" href="#projects">SELECT A LEVEL</a>
+        <NesButton
+          variant="primary"
+          onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
+        >
+          SELECT A LEVEL
+        </NesButton>
       </section>
 
       <CredentialsSection />
