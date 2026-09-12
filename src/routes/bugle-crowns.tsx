@@ -1,9 +1,9 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import type { ReactElement } from "react";
 
 import { NesContainer, NesTable, NesText } from "@/design-system/nes-229931";
 
-import { ProjectIcon } from "@/components/ProjectIcon";
+import { ProjectCabinet } from "@/components/ProjectCabinet";
 import { ProjectSummaryCard } from "@/components/ProjectSummaryCard";
 import { SeasonCalendar } from "@/components/SeasonCalendar";
 import { SiteShell } from "@/components/SiteShell";
@@ -22,7 +22,6 @@ import {
   
   recommendations,
   scheduleUrl,
-  seasonSchedule,
   squadStack,
   weekId,
   weekRecord,
@@ -64,34 +63,27 @@ function BugleCrownsPage(): ReactElement {
 
   return (
     <SiteShell>
-      <section className="hero-section">
-        <nav aria-label="Breadcrumb">
-          <Link to="/" className="site-nav-link">
-            ← All projects
-          </Link>
-        </nav>
-
+      <section className="project-stage">
         {project ? (
-          <span className="pixel-icon-badge pixel-icon-badge-large" aria-hidden="true">
-            <ProjectIcon project={project} />
-          </span>
-        ) : null}
-        <h1 className="pixel-display hero-title">Bugle Crowns</h1>
-        <p className="pixel-display hero-eyebrow">AWS Agentic Football Cup · {weekId}</p>
-        <p className="hero-subtitle">
-          Five AI agents, 120-second matches, one very opinionated coach. Bugle Crowns is my team in
-          the AWS Agentic Football Cup — here is how Week 1 went and what changes next.
-        </p>
-        <p className="quiet-small">
-          Run by AWSOfficial Alpha Season, supported by Minds from Animoca Brands
-        </p>
-      </section>
+          <ProjectCabinet
+            project={project}
+            eyebrow={`AWS Agentic Football Cup · ${weekId}`}
+            subtitle={
+              <div className="stack stack-xs">
+                <p>
+                  Five AI agents, 120-second matches, one very opinionated coach. Bugle Crowns is my team in
+                  the AWS Agentic Football Cup — here is how Week 1 went and what changes next.
+                </p>
+                <p className="quiet-small">
+                  Run by AWSOfficial Alpha Season, supported by Minds from Animoca Brands
+                </p>
+              </div>
+            }
+          >
+            <ProjectSummaryCard project={project} />
 
-      <section className="section stack stack-l">
-        {project ? <ProjectSummaryCard project={project} /> : null}
-
-        <div className="stack stack-xs">
-          <h2 className="pixel-display tech-heading">Level Select</h2>
+            <div className="stack stack-xs">
+          <h2 className="pixel-display tech-heading">Project Timeline</h2>
           <p className="text-quiet">
             Where this project sits in the timeline — pick another level to jump across.
           </p>
@@ -100,11 +92,11 @@ function BugleCrownsPage(): ReactElement {
             currentSlug="bugle-crowns"
             compact
           />
-        </div>
+            </div>
 
 
 
-        <div className="stack stack-xs">
+            <div className="stack stack-xs">
           <h2 className="pixel-display tech-heading">Squad stack</h2>
           <TechTagList
             items={squadStack}
@@ -112,14 +104,14 @@ function BugleCrownsPage(): ReactElement {
             size="small"
             label="Squad stack technologies"
           />
-        </div>
+            </div>
 
-        <div className="cluster cluster-m">
+            <div className="cluster cluster-m">
           <a className="nes-btn is-primary" href={scheduleUrl} target="_blank" rel="noopener noreferrer">CUP SCHEDULE</a>
           <a className="nes-btn" href={leaderboardUrl} target="_blank" rel="noopener noreferrer">LEADERBOARD</a>
-        </div>
+            </div>
 
-        <div className="stack stack-s">
+            <div className="stack stack-s">
           <h2 className="pixel-display tech-heading">Week 1 at a glance</h2>
           <div className="stat-grid">
             <Stat label="Record" value={`${weekRecord.wins}W ${weekRecord.losses}L`} />
@@ -131,9 +123,9 @@ function BugleCrownsPage(): ReactElement {
           <p className="text-quiet">
             {weekRecord.played} of a possible {weekRecord.possible} matches played.
           </p>
-        </div>
+            </div>
 
-        <div className="stack stack-s">
+            <div className="stack stack-s">
           <details className="nes-details" open><summary className="pixel-display">WEEK 1 · FULL DEBRIEF</summary>
             <div className="stack stack-l">
               <h3 className="pixel-display tech-heading">Standings</h3>
@@ -276,9 +268,9 @@ function BugleCrownsPage(): ReactElement {
               </ul>
             </div>
           </details>
-        </div>
+            </div>
 
-        <div className="stack stack-s">
+            <div className="stack stack-s">
           <h2 className="pixel-display tech-heading">Season calendar</h2>
           <SeasonCalendar />
           <p className="text-quiet">
@@ -292,7 +284,9 @@ function BugleCrownsPage(): ReactElement {
             </a>
             .
           </p>
-        </div>
+            </div>
+          </ProjectCabinet>
+        ) : null}
       </section>
     </SiteShell>
   );
