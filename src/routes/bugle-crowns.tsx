@@ -54,7 +54,7 @@ function Stat({ label, value }: { label: string; value: string }): ReactElement 
   return (
     <div className="stat-block">
       <span className="pixel-display stat-value">{value}</span>
-      <span className="wa-color-text-quiet stat-label">{label}</span>
+      <span className="text-quiet stat-label">{label}</span>
     </div>
   );
 }
@@ -201,9 +201,7 @@ function BugleCrownsPage(): ReactElement {
                         {match.scoreAgainst} vs {match.opponent}
                       </h3>
                       {match.possession ? (
-                        <WaTag variant="neutral" appearance="outlined" size="small">
-                          {match.possession}% possession
-                        </WaTag>
+                        <span className="status-chip">{match.possession}% possession</span>
                       ) : null}
                     </div>
                     {match.playedAt ? (
@@ -223,7 +221,7 @@ function BugleCrownsPage(): ReactElement {
                     ) : null}
                     <p>{match.summary}</p>
                     {match.match === 10 ? (
-                      <ol className="wa-stack wa-gap-2xs goal-timeline">
+                      <ol className="stack stack-xs goal-timeline">
                         {latestMatch.goalTimeline.map((goal) => (
                           <li key={goal.event}>{goal.event}</li>
                         ))}
@@ -245,7 +243,7 @@ function BugleCrownsPage(): ReactElement {
           <details className="nes-details"><summary className="pixel-display">PROPOSED FOR ROUND 2</summary>
             <div className="stack stack-s">
               {recommendations.map((rec) => (
-                <WaCard key={rec.id} className="pixel-card" appearance="outlined">
+                <NesContainer key={rec.id} className="recommendation-card">
                   <div className="stack stack-xs">
                     <h3 className="pixel-card-title">{rec.field}</h3>
                     <p>{rec.change}</p>
@@ -256,9 +254,7 @@ function BugleCrownsPage(): ReactElement {
                       <strong>Ranking impact:</strong> {rec.rankingImpact}
                     </p>
                     <div>
-                      <WaTag variant="neutral" appearance="outlined" size="small">
-                        {rec.status}
-                      </WaTag>
+                      <span className="status-chip">{rec.status}</span>
                     </div>
                   </div>
                 </NesContainer>
@@ -269,7 +265,7 @@ function BugleCrownsPage(): ReactElement {
           <details className="nes-details"><summary className="pixel-display">PRACTICE PLAN</summary>
             <div className="stack stack-s">
               <p className="text-quiet">{practiceFocus}</p>
-              <ul className="wa-stack wa-gap-xs goal-timeline">
+              <ul className="stack stack-xs goal-timeline">
                 {drills.map((drill) => (
                   <li key={drill.drill}>
                     {drill.drill}
