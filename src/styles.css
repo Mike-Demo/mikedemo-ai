@@ -117,8 +117,6 @@ a:focus-visible, summary:focus-visible { outline: var(--pixel-border) solid var(
 .section-narrow { max-width: var(--content-narrow); }
 .section-title { font-size: var(--text-xl); }
 .level-select-heading { text-align: center; align-items: center; }
-.home-project-callout { border-block-start: var(--pixel-border) solid var(--nes-black); text-align: center; }
-.home-project-callout > * { align-items: center; }
 .tech-heading, .pixel-card-title { font-size: var(--text-sm); }
 .manual-grid, .license-grid, .credential-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); gap: var(--space-5); }
 .credential-card { border-color: var(--nes-yellow); }
