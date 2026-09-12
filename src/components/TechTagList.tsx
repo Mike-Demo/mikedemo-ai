@@ -1,9 +1,5 @@
 import type { ReactElement } from "react";
 
-import { WaIcon, WaTag } from "@/design-system/font-awsome-web-awesome-171158";
-
-import { getTechIcon } from "@/lib/tech-icons";
-
 export type TechTagListProps = {
   readonly items: readonly string[];
   readonly appearance?: "filled" | "outlined";
@@ -19,23 +15,12 @@ export function TechTagList({
   label,
 }: TechTagListProps): ReactElement {
   return (
-    <ul className="tag-list wa-cluster wa-gap-2xs" aria-label={label}>
-      {items.map((item) => {
-        const icon = getTechIcon(item);
-        return (
-          <li key={item}>
-            <WaTag variant="brand" appearance={appearance} size={size}>
-              <WaIcon
-                name={icon.name}
-                family={icon.family ?? "classic"}
-                aria-hidden="true"
-                className="tag-icon"
-              />
-              {item}
-            </WaTag>
-          </li>
-        );
-      })}
+    <ul className={`tag-list tag-list-${appearance} tag-list-${size}`} aria-label={label}>
+      {items.map((item) => (
+        <li key={item} className="tech-chip">
+          <span aria-hidden="true">+</span> {item}
+        </li>
+      ))}
     </ul>
   );
 }

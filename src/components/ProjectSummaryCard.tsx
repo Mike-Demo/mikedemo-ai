@@ -1,6 +1,6 @@
 import type { ReactElement } from "react";
 
-import { WaCard, WaIcon } from "@/design-system/font-awsome-web-awesome-171158";
+import { NesContainer } from "@/design-system/nes-229931";
 
 import { ProjectCredits } from "@/components/ProjectCredits";
 import { ProjectIcon } from "@/components/ProjectIcon";
@@ -14,9 +14,9 @@ import { formatMonthYear } from "@/lib/format-date";
  */
 export function ProjectSummaryCard({ project }: { project: Project }): ReactElement {
   return (
-    <WaCard className="pixel-card project-summary-card">
-      <div className="wa-stack wa-gap-m">
-        <div className="wa-cluster wa-align-items-center wa-gap-s">
+    <NesContainer className="project-summary-card" title="PROJECT DATA" dark>
+      <div className="stack stack-m">
+        <div className="cluster cluster-s">
           <span className="pixel-icon-badge" aria-hidden="true">
             <ProjectIcon project={project} />
           </span>
@@ -25,7 +25,7 @@ export function ProjectSummaryCard({ project }: { project: Project }): ReactElem
           </time>
         </div>
 
-        <p className="wa-color-text-quiet">{project.summary}</p>
+        <p className="text-quiet">{project.summary}</p>
 
         <TechTagList items={project.tech} size="small" label={`${project.name} tech stack`} />
 
@@ -37,9 +37,9 @@ export function ProjectSummaryCard({ project }: { project: Project }): ReactElem
           rel="noopener noreferrer"
           className="site-nav-link"
         >
-          <WaIcon name="arrow-up-right-from-square" aria-hidden="true" /> {project.domain}
+          OPEN {project.domain}
         </a>
       </div>
-    </WaCard>
+    </NesContainer>
   );
 }

@@ -3,13 +3,12 @@ import { Link } from "@tanstack/react-router";
 
 import {
   SiteFooter,
-  WaIcon,
-  WaPage,
   WebAwesomeLoader,
 } from "@/design-system/font-awsome-web-awesome-171158";
 import { DEFAULT_SOCIAL_LINKS } from "@/design-system/font-awsome-web-awesome-171158/webawesome/patterns/site-footer";
 
 import { PixelWipe } from "@/components/PixelWipe";
+import { NesIcon } from "@/design-system/nes-229931";
 
 /**
  * Shared page shell: Web Awesome loader, sticky header with icon navigation
@@ -17,47 +16,47 @@ import { PixelWipe } from "@/components/PixelWipe";
  */
 export function SiteShell({ children }: { children: ReactNode }): ReactElement {
   return (
-    <WaPage>
+    <div className="site-shell">
       <WebAwesomeLoader />
 
-      <header slot="header" className="site-header wa-cluster wa-justify-content-space-between wa-align-items-center">
+      <header className="site-header">
         <Link to="/" className="site-brand pixel-display" aria-label="MikeDemo portfolio home">
-          <WaIcon name="gamepad" aria-hidden="true" />
+          <NesIcon name="coin" size="small" />
           MikeDemo
         </Link>
-        <div className="wa-cluster wa-gap-l wa-align-items-center">
-          <nav aria-label="Main navigation" className="wa-cluster wa-gap-m">
-            <Link to="/" className="site-nav-link site-nav-icon" aria-label="Projects">
-              <WaIcon name="rocket" aria-hidden="true" />
+        <div className="site-navs">
+          <nav aria-label="Main navigation" className="site-nav">
+            <Link to="/" className="site-nav-link" activeProps={{ className: "is-active" }}>
+              Projects
             </Link>
-            <Link to="/agent-skills" className="site-nav-link site-nav-icon" aria-label="AI agent skills guide">
-              <WaIcon name="wand-magic-sparkles" aria-hidden="true" />
+            <Link to="/agent-skills" className="site-nav-link" activeProps={{ className: "is-active" }}>
+              Skills Guide
             </Link>
-            <Link to="/licenses" className="site-nav-link site-nav-icon" aria-label="Licenses and credits">
-              <WaIcon name="scale-balanced" aria-hidden="true" />
+            <Link to="/licenses" className="site-nav-link" activeProps={{ className: "is-active" }}>
+              Credits
             </Link>
           </nav>
-          <nav aria-label="Social links" className="wa-cluster wa-gap-m">
+          <nav aria-label="Social links" className="site-socials">
             {DEFAULT_SOCIAL_LINKS.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="site-nav-link site-nav-icon"
+                className="social-link"
                 aria-label={link.label}
               >
-                <WaIcon family="brands" name={link.icon} aria-hidden="true" />
+                {link.text}
               </a>
             ))}
             <a
               href="https://councils.forbes.com/profile/Mike-Demopoulos-Partnerships-Lead-North-America-hosting-com/ad134482-08d5-4acc-810f-16e790de5b2b"
               target="_blank"
               rel="noopener noreferrer"
-              className="site-nav-link site-nav-icon"
+              className="social-link"
               aria-label="Forbes profile"
             >
-              <WaIcon family="solid" name="user-tie" aria-hidden="true" />
+              Forbes
             </a>
           </nav>
         </div>
@@ -65,11 +64,11 @@ export function SiteShell({ children }: { children: ReactNode }): ReactElement {
 
       <PixelWipe />
 
-      <main className="page-enter">{children}</main>
+      <main id="main-content" className="page-enter">{children}</main>
 
-      <div slot="footer">
+      <div className="site-footer-wrap">
         <SiteFooter />
       </div>
-    </WaPage>
+    </div>
   );
 }
