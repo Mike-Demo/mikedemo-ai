@@ -153,6 +153,106 @@ a:focus-visible, summary:focus-visible { outline: var(--pixel-border) solid var(
 .hero-subtitle, .project-lede { max-width: 60ch; font-size: var(--text-lg); }
 .hero-quote { max-width: 56ch; margin: 0; color: var(--nes-blue); font-size: var(--text-sm); }
 
+.arcade-start-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--touch-target);
+  padding: var(--space-4) var(--space-6);
+  font-family: var(--pixel-font);
+  font-size: var(--text-md);
+  line-height: 1.6;
+  color: var(--nes-white);
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: var(--nes-error);
+  border-style: solid;
+  border-width: var(--pixel-border);
+  border-top-color: color-mix(in srgb, var(--nes-error) 75%, white 25%);
+  border-left-color: color-mix(in srgb, var(--nes-error) 75%, white 25%);
+  border-bottom-color: color-mix(in srgb, var(--nes-error) 60%, black 40%);
+  border-right-color: color-mix(in srgb, var(--nes-error) 60%, black 40%);
+  box-shadow: var(--pixel-shadow) var(--pixel-shadow) 0 var(--nes-black);
+  transition: transform 75ms steps(2), box-shadow 75ms steps(2);
+  appearance: none;
+}
+
+.arcade-start-button:hover,
+.arcade-start-button:focus-visible {
+  transform: translateY(calc(var(--space-1) * -1));
+  box-shadow: var(--pixel-shadow) calc(var(--pixel-shadow) + var(--space-1)) 0 var(--nes-black);
+}
+
+.arcade-start-button:active {
+  transform: translateY(var(--space-1));
+  box-shadow: calc(var(--pixel-shadow) - var(--space-1)) calc(var(--pixel-shadow) - var(--space-1)) 0 var(--nes-black);
+}
+
+.arcade-start-button:focus-visible {
+  outline: var(--pixel-border) solid var(--nes-yellow);
+  outline-offset: var(--space-2);
+}
+
+.arcade-start-button-face {
+  position: relative;
+  z-index: 1;
+}
+
+.arcade-start-button-glint {
+  position: absolute;
+  inset: var(--space-2);
+  border-style: solid;
+  border-width: var(--space-1);
+  border-color: color-mix(in srgb, var(--nes-error) 75%, white 25%);
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.arcade-start-button-corner {
+  position: absolute;
+  width: var(--space-2);
+  height: var(--space-2);
+  background-color: var(--nes-ink);
+  pointer-events: none;
+}
+
+.arcade-start-button-corner.top-left { inset-block-start: 0; inset-inline-start: 0; }
+.arcade-start-button-corner.top-right { inset-block-start: 0; inset-inline-end: 0; }
+.arcade-start-button-corner.bottom-left { inset-block-end: 0; inset-inline-start: 0; }
+.arcade-start-button-corner.bottom-right { inset-block-end: 0; inset-inline-end: 0; }
+
+.insert-coin-hint {
+  position: absolute;
+  inset-block-end: calc(100% + var(--space-2));
+  inset-inline-start: 50%;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-2);
+  color: var(--nes-black);
+  background-color: var(--nes-success);
+  border-style: solid;
+  border-width: var(--space-1);
+  border-color: var(--nes-black);
+  font-family: var(--pixel-font);
+  font-size: var(--text-xs);
+  line-height: 1.6;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(-50%) translateY(var(--space-1));
+  transition: opacity 75ms steps(2), transform 75ms steps(2);
+  pointer-events: none;
+}
+
+.arcade-start-button:hover .insert-coin-hint,
+.arcade-start-button:focus-visible .insert-coin-hint {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+
 .section { max-width: var(--content-wide); margin-inline: auto; padding: var(--space-7) var(--space-5); }
 .section-narrow { max-width: var(--content-narrow); }
 .section-title { font-size: var(--text-xl); }
