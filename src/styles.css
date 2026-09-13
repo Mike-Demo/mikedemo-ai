@@ -206,12 +206,12 @@ a:focus-visible, summary:focus-visible { outline: var(--pixel-border) solid var(
 .overworld-stage:nth-child(4) { grid-column: 3; }
 .overworld-stage:nth-child(5) { grid-column: 2; grid-row: 2; }
 .overworld-stage:nth-child(6) { grid-column: 1; grid-row: 2; }
-.overworld-node { display: grid; grid-template-columns: var(--icon-size) minmax(0, 1fr); grid-template-areas: "icon copy"; align-content: center; min-height: 100%; color: var(--nes-black); background: var(--nes-white); border-color: var(--nes-black); box-shadow: var(--space-1) var(--space-1) 0 var(--nes-black); }
+.overworld-node { display: grid; grid-template-columns: 1fr; grid-template-areas: "icon" "copy"; align-content: center; justify-items: center; min-height: 100%; color: var(--nes-black); background: var(--nes-white); border-color: var(--nes-black); box-shadow: var(--space-1) var(--space-1) 0 var(--nes-black); text-align: center; }
 .overworld-node:hover, .overworld-node:focus-visible, .overworld-node.is-selected { color: var(--nes-black); background: var(--nes-yellow); border-color: var(--nes-black); outline: none; }
 .overworld-node .level-icon { grid-area: icon; width: var(--icon-size); height: var(--icon-size); border-color: var(--nes-black); }
-.overworld-node-copy { grid-area: copy; display: flex; min-width: 0; flex-direction: column; gap: var(--space-1); }
+.overworld-node-copy { grid-area: copy; display: flex; min-width: 0; max-width: 100%; flex-direction: column; gap: var(--space-1); }
 .overworld-node .level-number, .overworld-node .level-name, .overworld-node .level-date { color: inherit; }
-.overworld-node .level-name { align-self: auto; overflow-wrap: anywhere; }
+.overworld-node .level-name { align-self: auto; overflow-wrap: normal; }
 .overworld-node .level-date { align-self: auto; font-size: var(--text-xs); }
 .overworld-node .level-cursor { position: absolute; inset-inline-start: calc(var(--space-5) * -1); inset-block-start: var(--space-2); color: var(--nes-yellow); visibility: hidden; }
 .overworld-node.is-selected .level-cursor { visibility: visible; animation: map-cursor-step 700ms steps(2, end) infinite; }
@@ -271,6 +271,7 @@ a:focus-visible, summary:focus-visible { outline: var(--pixel-border) solid var(
 @media (min-width: 48.0625em) and (max-width: 64em) {
   .overworld-layout { grid-template-columns: 1fr; }
   .overworld-levels { grid-template-rows: repeat(3, minmax(var(--portrait-size), 1fr)); }
+  .overworld-node { grid-template-columns: var(--icon-size) minmax(0, 1fr); grid-template-areas: "icon copy"; justify-items: stretch; text-align: start; }
   .selected-project { block-size: calc(var(--screen-min) + var(--screen-min)); min-block-size: 0; overflow-y: auto; }
 }
 
@@ -331,7 +332,7 @@ a:focus-visible, summary:focus-visible { outline: var(--pixel-border) solid var(
   .overworld-stage:nth-child(4), .overworld-stage:nth-child(5), .overworld-stage:nth-child(6) { grid-column: auto; grid-row: auto; }
   .overworld-stage { position: relative; }
   .overworld-stage:not(:last-child)::after { position: absolute; z-index: 0; inset-block-start: 100%; inset-inline-start: calc(var(--space-6) + var(--space-4)); width: var(--pixel-border); height: var(--space-4); content: ""; background: var(--nes-white); }
-  .overworld-node { min-height: var(--portrait-size); }
+  .overworld-node { grid-template-columns: var(--icon-size) minmax(0, 1fr); grid-template-areas: "icon copy"; justify-items: stretch; min-height: var(--portrait-size); text-align: start; }
   .design-systems-grid { grid-template-columns: 1fr; }
   .overworld-layout > .selected-project { display: block; block-size: auto; max-block-size: none; }
   .cabinet-bezel { padding: var(--space-3); }
