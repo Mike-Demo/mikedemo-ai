@@ -5,7 +5,8 @@ import { NesContainer, NesIcon, NesList } from "@/design-system/nes-229931";
 
 import { SiteShell } from "@/components/SiteShell";
 import { TechTagList } from "@/components/TechTagList";
-import { getProject } from "@/data/projects";
+import { findProject } from "@/data/projects";
+import { listProjects } from "@/lib/projects.functions";
 import { breadcrumbJsonLd, SITE_URL } from "@/lib/jsonld";
 
 const title = "AI Agent Skills: What They Are and Where to Find Them";
@@ -14,6 +15,7 @@ const description =
 
 export const Route = createFileRoute("/agent-skills")({
   staticData: { sitemap: true },
+  loader: () => listProjects(),
   head: () => ({
     meta: [
       { title: `${title} | MikeDemo` },
@@ -96,7 +98,8 @@ const platforms: readonly PlatformEntry[] = [
 ];
 
 function AgentSkillsPage(): ReactElement {
-  const skillFinder = getProject("skill-finder-plus");
+  const projects = Route.useLoaderData();
+  const skillFinder = findProject(projects, "skill-finder-plus");
 
   return (
     <SiteShell>

@@ -8,34 +8,35 @@ import { ProjectCabinet } from "@/components/ProjectCabinet";
 import { ProjectPager } from "@/components/ProjectPager";
 import { ProjectSummaryCard } from "@/components/ProjectSummaryCard";
 import { SiteShell } from "@/components/SiteShell";
-import { getProject } from "@/data/projects";
-import { projectsNewestFirst } from "@/data/timeline";
+import { findProject } from "@/data/projects";
+import { listProjects } from "@/lib/projects.functions";
 import { breadcrumbJsonLd, projectJsonLd, SITE_URL } from "@/lib/jsonld";
 
 
 export const Route = createFileRoute("/projects/$slug")({
   staticData: { sitemap: true },
-  loader: ({ params }) => {
-    const project = getProject(params.slug);
+  loader: async ({ params }) => {
+    const projects = await listProjects();
+    const project = findProject(projects, params.slug);
     if (!project) throw notFound();
-    return project;
+    return { project, projects };
   },
   head: ({ loaderData }) => {
     if (!loaderData) {
       return { meta: [{ title: "Project not found — MikeDemo" }] };
     }
-    const url = `https://mikedemo.dev/projects/${loaderData.slug}`;
-    const descriptor = loaderData.tech.slice(0, 2).join(" · ");
+    const url = `https://mikedemo.dev/projects/${loaderData.project.slug}`;
+    const descriptor = loaderData.project.tech.slice(0, 2).join(" · ");
     const title = descriptor
-      ? `${loaderData.name}: ${descriptor} — MikeDemo`
-      : `${loaderData.name} — MikeDemo`;
+      ? `${loaderData.project.name}: ${descriptor} — MikeDemo`
+      : `${loaderData.project.name} — MikeDemo`;
     const cover = "https://mikedemo.dev/og-cover.jpg";
     return {
       meta: [
         { title },
-        { name: "description", content: loaderData.summary },
+        { name: "description", content: loaderData.project.summary },
         { property: "og:title", content: title },
-        { property: "og:description", content: loaderData.summary },
+        { property: "og:description", content: loaderData.project.summary },
         { property: "og:type", content: "article" },
         { property: "og:url", content: url },
         { property: "og:image", content: cover },
@@ -44,13 +45,13 @@ export const Route = createFileRoute("/projects/$slug")({
       ],
       links: [{ rel: "canonical", href: url }],
       scripts: [
-        { type: "application/ld+json", children: projectJsonLd(loaderData) },
+        { type: "application/ld+json", children: projectJsonLd(loaderData.project) },
         {
           type: "application/ld+json",
           children: breadcrumbJsonLd([
             { name: "Home", url: `${SITE_URL}/` },
             { name: "Projects", url: `${SITE_URL}/projects` },
-            { name: loaderData.name, url },
+            { name: loaderData.project.name, url },
           ]),
         },
       ],
@@ -58,6 +59,7 @@ export const Route = createFileRoute("/projects/$slug")({
 
   },
   notFoundComponent: ProjectNotFound,
+  errorComponent: ProjectNotFound,
   component: ProjectPage,
 });
 
@@ -78,7 +80,7 @@ function ProjectNotFound(): ReactElement {
 }
 
 function ProjectPage(): ReactElement {
-  const project = Route.useLoaderData();
+  const { project, projects } = Route.useLoaderData();
 
   return (
     <SiteShell>
@@ -96,7 +98,7 @@ function ProjectPage(): ReactElement {
             </div>
           )}
 
-          <ProjectPager projects={projectsNewestFirst} currentSlug={project.slug} />
+          <ProjectPager projects={projects} currentSlug={project.slug} />
         </ProjectCabinet>
       </section>
     </SiteShell>
