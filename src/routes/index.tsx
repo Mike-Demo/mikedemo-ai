@@ -4,7 +4,7 @@ import type { ReactElement } from "react";
 import { CredentialsSection } from "@/components/CredentialsSection";
 import { SiteShell } from "@/components/SiteShell";
 import headshotSrc from "@/assets/headshot.png";
-import { NesButton } from "@/design-system/nes-229931";
+import { ArcadeStartButton } from "@/components/ArcadeStartButton";
 
 
 export const Route = createFileRoute("/")({
@@ -57,9 +57,9 @@ function Index(): ReactElement {
           and one extremely productive-looking parody office suite.
         </p>
         <p className="pixel-display hero-quote">“Tools are tools, just don’t be one”</p>
-        <NesButton variant="primary" onClick={openProjects}>
+        <ArcadeStartButton onClick={openProjects}>
           SELECT A PROJECT
-        </NesButton>
+        </ArcadeStartButton>
       </section>
 
       <CredentialsSection />
