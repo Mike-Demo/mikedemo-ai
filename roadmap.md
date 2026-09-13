@@ -11,3 +11,5 @@
 - [x] Stabilize the Level Select cabinet and preview with Web Awesome Flank
 - [x] Reflow the Level Select preview below the grid at tablet widths
 - [x] Replace the Level Select grid with the selected NES Overworld project map
+
+- [x] Store projects in the Cloud database (public.projects) and read them via listProjects server fn
