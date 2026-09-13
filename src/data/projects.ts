@@ -2,6 +2,7 @@
  * Portfolio content. Edit this single file to add or update projects.
  */
 import aiDeployerLogo from "@/assets/project-icons/ai-deployer.svg";
+import awesomeAdventureCvLogo from "@/assets/project-icons/awesome-adventure-cv.png";
 import bugleCrownsLogo from "@/assets/project-icons/bugle-crowns.png";
 import crosspostLogo from "@/assets/project-icons/crosspost.png";
 import onDeviceAiLogo from "@/assets/project-icons/on-device-ai.svg";
