@@ -10,3 +10,4 @@
 - [x] Combine NES and Font Awsome & Web Awesome into one portfolio card and project page
 - [x] Stabilize the Level Select cabinet and preview with Web Awesome Flank
 - [x] Reflow the Level Select preview below the grid at tablet widths
+- [ ] Replace the Level Select grid with the selected NES Overworld project map
