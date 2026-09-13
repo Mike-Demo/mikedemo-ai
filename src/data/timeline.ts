@@ -2,7 +2,6 @@
  * Unified homepage timeline: projects and credentials/milestones.
  */
 import type { Project } from "./projects";
-import { projects } from "./projects";
 
 export interface Credential {
   readonly kind: "credential";
@@ -36,7 +35,7 @@ export const credentials: readonly Credential[] = [
 ];
 
 /** Projects along the arcade rail, newest first. */
-export const projectsNewestFirst: readonly Project[] = [...projects].sort((a, b) =>
-  b.started.localeCompare(a.started)
-);
+export function sortProjectsNewestFirst(projects: readonly Project[]): readonly Project[] {
+  return [...projects].sort((a, b) => b.started.localeCompare(a.started));
+}
 
