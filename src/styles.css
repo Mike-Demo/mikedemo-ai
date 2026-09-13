@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "Press Start 2P";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/press-start-2p.ttf") format("truetype");
+}
+
 :root {
   --nes-black: #111111;
   --nes-ink: var(--nes-dark, #212529);
