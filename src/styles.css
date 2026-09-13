@@ -213,7 +213,7 @@ a:focus-visible, summary:focus-visible { outline: var(--pixel-border) solid var(
 .overworld-node .level-number, .overworld-node .level-name, .overworld-node .level-date { color: inherit; }
 .overworld-node .level-name { align-self: auto; overflow-wrap: anywhere; }
 .overworld-node .level-date { align-self: auto; font-size: var(--text-xs); }
-.overworld-node .level-cursor { position: absolute; inset-inline-start: calc(0px - var(--space-5)); inset-block-start: var(--space-2); color: var(--nes-yellow); visibility: hidden; }
+.overworld-node .level-cursor { position: absolute; inset-inline-start: calc(var(--space-5) * -1); inset-block-start: var(--space-2); color: var(--nes-yellow); visibility: hidden; }
 .overworld-node.is-selected .level-cursor { visibility: visible; animation: map-cursor-step 700ms steps(2, end) infinite; }
 .overworld-layout > .selected-project { block-size: 100%; min-block-size: 0; overflow-y: auto; }
 @keyframes map-cursor-step { 50% { transform: translateX(var(--space-1)); } }
