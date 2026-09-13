@@ -163,6 +163,20 @@ import { NesPixelArt } from "@/design-system/nes-229931"
 |---|---|---|
 | `name` | mario · kirby · ash · pokeball · bulbasaur · charmander · squirtle · octocat · bcrikko · phone · smartphone · logo · jp-logo | `—` |
 
+### NesPixelIcon
+
+```ts
+import { NesPixelIcon } from "@/design-system/nes-229931"
+```
+
+**Props:**
+
+| Prop | Type | Default |
+|---|---|---|
+| `icon` | any | `—` |
+| `size` | small · medium · large | `medium` |
+| `monochrome` | boolean | `false` |
+
 ### NesProgress
 
 ```ts
