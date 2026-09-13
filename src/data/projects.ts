@@ -158,6 +158,19 @@ export const projects: readonly Project[] = [
     started: "2026-08-30",
   },
   {
+    slug: "awesome-adventure-cv",
+    name: "Awesome Adventure CV",
+    domain: "mikedemo.work",
+    summary: "A playable résumé as a retro text adventure — type commands to explore a career.",
+    description:
+      "Awesome Adventure CV turns a professional résumé into an interactive, retro-style text adventure. Navigate rooms that represent real career milestones, collect artifacts, and uncover contact details by typing classic adventure commands.",
+    tech: ["TypeScript", "React", "TanStack Start", "Tailwind CSS"],
+    url: "https://mikedemo.work/",
+    icon: "terminal",
+    logo: awesomeAdventureCvLogo,
+    started: "2026-08-25",
+  },
+  {
     slug: "pride-blobs",
     name: "Pride Blobs",
     domain: "blobs.gay",
