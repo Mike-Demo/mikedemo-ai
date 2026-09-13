@@ -1,5 +1,6 @@
 /**
- * Portfolio content. Edit this single file to add or update projects.
+ * Portfolio content types. Project records live in the Cloud database
+ * (public.projects); only the bundled logo images stay in code.
  */
 import aiDeployerLogo from "@/assets/project-icons/ai-deployer.svg";
 import awesomeAdventureCvLogo from "@/assets/project-icons/awesome-adventure-cv.png";
@@ -42,169 +43,19 @@ export interface Project {
   readonly sites?: readonly ProjectSite[];
 }
 
-export const projects: readonly Project[] = [
-  {
-    slug: "bugle-crowns",
-    name: "Bugle Crowns",
-    domain: "agenticfootballcup.com",
-    summary: "My AI agent team in the AWS Agentic Football Cup — five agents, 120-second matches.",
-    description:
-      "Bugle Crowns is my team in the AWS Agentic Football Cup, where AI agents play 120-second football matches against each other. Each of the five positions runs its own agent with its own instructions, and every week's results feed back into the next round of tactical tuning.",
-    tech: ["AI Agents", "AWS", "Prompt Engineering"],
-    url: "https://agenticfootballcup.com",
-    icon: "futbol",
-    logo: bugleCrownsLogo,
-    started: "2026-09-10",
-    detailPath: "/bugle-crowns",
-    credits: [{ name: "AWS Agentic Football Cup", url: "https://agenticfootballcup.com" }],
-  },
-  {
-    slug: "on-device-ai",
-    name: "On-Device AI",
-    domain: "ai.mikedemo.dev",
-    summary: "An AI model running inside the page — on-device inference with no server round-trips.",
-    description:
-      "On-Device AI runs a real language model entirely inside the browser. Inference happens on your own hardware via WebLLM and WebGPU — no server round-trips, and no data ever leaves your machine. It includes on-device inference demos, model comparisons, and diagnostics.",
-    tech: ["TypeScript", "React", "WebLLM", "WebGPU"],
-    url: "https://ai.mikedemo.dev",
-    icon: "microchip",
-    logo: onDeviceAiLogo,
-    started: "2026-09-11",
-    credits: [
-      { name: "WebLLM by MLC AI", url: "https://github.com/mlc-ai/web-llm" },
-      { name: "WebGPU", url: "https://www.w3.org/TR/webgpu/" },
-    ],
-  },
-  {
-    slug: "ai-deployer",
-    name: "AI Deployer",
-    domain: "local.mikedemo.dev",
-    summary: "Copy-and-paste install guides for self-hosted AI agents — no live SSH, no accounts.",
-    description:
-      "AI Deployer generates personalized, copy-and-paste install guides for self-hosted AI agents like OpenClaw, Ollama, and n8n. Pick your stack, get a tailored VPS install guide — no live SSH sessions and no account required.",
-    tech: ["TypeScript", "React", "TanStack Start", "Tailwind CSS", "Zod"],
-    url: "https://local.mikedemo.dev",
-    icon: "server",
-    logo: aiDeployerLogo,
-    started: "2026-09-09",
-    credits: [
-      { name: "OpenClaw", url: "https://github.com/openclaw" },
-      { name: "Ollama", url: "https://github.com/ollama/ollama" },
-      { name: "n8n", url: "https://github.com/n8n-io/n8n" },
-    ],
-  },
-  {
-    slug: "crosspost",
-    name: "Crosspost",
-    domain: "tweet.mikedemo.dev",
-    summary: "Crossposting from tweet.app to X, automatically.",
-    description:
-      "Crosspost keeps your posts in sync: write once on tweet.app and it republishes to X automatically. One composer, two timelines, zero copy-pasting.",
-    tech: ["TypeScript", "React", "TanStack Start", "Supabase"],
-    url: "https://tweet.mikedemo.dev",
-    icon: "retweet",
-    logo: crosspostLogo,
-    started: "2026-09-06",
-    credits: [
-      { name: "tweet.app", url: "https://tweet.app" },
-      { name: "X", url: "https://x.com" },
-    ],
-  },
-  {
-    slug: "skill-finder-plus",
-    name: "Skill Finder Plus",
-    domain: "skills.mikedemo.dev",
-    summary: "A directory of agent skills for Claude, ChatGPT, Cursor, Copilot, Grok, MCP, and Perplexity.",
-    description:
-      "Skill Finder Plus is a browsable library of agent skills across every major AI platform — Claude, ChatGPT, Cursor, GitHub Copilot, Grok, MCP servers, and Perplexity. Find the right skill for your assistant of choice without digging through repos.",
-    tech: ["TypeScript", "React", "AI SDK", "Supabase", "hCaptcha"],
-    url: "https://skills.mikedemo.dev",
-    icon: "wand-magic-sparkles",
-    logo: skillFinderLogo,
-    started: "2026-09-02",
-  },
-  {
-    slug: "awesome-design-system",
-    name: "Design Systems",
-    domain: "NES + AWESOME",
-    summary: "Two complementary design systems powering this portfolio: retro NES pixels and accessible Web Awesome components.",
-    description:
-      "Design Systems combines a retro NES component library with Font Awsome & Web Awesome (\"Awesome DS\"), pairing expressive pixel styling with accessible components, icons, design tokens, layout utilities, and reusable patterns.",
-    tech: ["TypeScript", "React", "NES.css", "Web Awesome", "Font Awesome Free"],
-    url: "https://project--9fea97bb-e317-446f-b683-1274350846c6.lovable.app",
-    icon: "swatchbook",
-    started: "2026-09-03",
-    credits: [
-      { name: "NES.css", url: "https://nostalgic-css.github.io/NES.css/" },
-      { name: "Web Awesome", url: "https://webawesome.com" },
-      { name: "Font Awesome Free", url: "https://fontawesome.com" },
-    ],
-    sites: [
-      { name: "NES Design System", url: "https://project--2d41e7ac-ac8d-4713-844e-300c9d4181e6.lovable.app" },
-      { name: "Font Awsome & Web Awesome", url: "https://project--9fea97bb-e317-446f-b683-1274350846c6.lovable.app" },
-    ],
-  },
-  {
-    slug: "pretendpro",
-    name: "PretendPro Office Suite",
-    domain: "pretend.pro",
-    summary: "A fake productivity suite — set up your fake workday.",
-    description:
-      "PretendPro Office Suite is a parody productivity platform built purely for entertainment. Set up your fake workday with mock applications that simulate a convincingly busy environment — spreadsheets that type themselves, meetings that attend themselves, and more.",
-    tech: ["TypeScript", "React", "Tailwind CSS", "shadcn/ui", "Supabase"],
-    url: "https://pretend.pro",
-    icon: "user-tie",
-    logo: pretendProLogo,
-    started: "2026-08-30",
-  },
-  {
-    slug: "awesome-adventure-cv",
-    name: "Awesome Adventure CV",
-    domain: "mikedemo.work",
-    summary: "A playable résumé as a retro text adventure — type commands to explore a career.",
-    description:
-      "Awesome Adventure CV turns a professional résumé into an interactive, retro-style text adventure. Navigate rooms that represent real career milestones, collect artifacts, and uncover contact details by typing classic adventure commands.",
-    tech: ["TypeScript", "React", "TanStack Start", "Tailwind CSS"],
-    url: "https://mikedemo.work/",
-    icon: "terminal",
-    logo: awesomeAdventureCvLogo,
-    started: "2026-08-25",
-  },
-  {
-    slug: "pride-blobs",
-    name: "Pride Blobs",
-    domain: "blobs.gay",
-    summary: "Deterministic pride-flag blobatars from any name — same string, same avatar, every time.",
-    description:
-      "Pride Blobs (Pridatar) is a pride-focused fork of blobatar. Type any name and get a striped pride blobatar rendered as SVG. Fifteen flags, a live playground, and downloadable PNGs, all generated in the browser with no backend.",
-    tech: ["TypeScript", "React", "SVG", "Canvas API"],
-    url: "https://blobs.gay",
-    icon: "palette",
-    logo: prideBlobsLogo,
-    started: "2026-08-24",
-    credits: [
-      { name: "blobatar by Alain00 (MIT)", url: "https://github.com/Alain00/blobatar" },
-    ],
-  },
-  {
-    slug: "sta-2e-d20-roller",
-    name: "STA 2e D20 Roller — LCARS",
-    domain: "2d20.space",
-    summary: "A Star Trek Adventures 2d20 dice roller with an LCARS interface.",
-    description:
-      "STA 2e D20 Roller brings the Star Trek Adventures 2d20 system to the table with a full LCARS-styled interface — challenge dice, momentum, threat, and a dice guide, all wrapped in Starfleet's favorite operating system.",
-    tech: ["TypeScript", "React", "Tailwind CSS"],
-    url: "https://2d20.space",
-    icon: "dice-d20",
-    logo: staLogo,
-    started: "2026-02-23",
-    credits: [
-      { name: "Star Trek Adventures (Modiphius Entertainment)", url: "https://www.modiphius.net" },
-      { name: "LCARS design by Jim Robertus", url: "https://thelcars.com" },
-    ],
-  },
-];
+/** Bundled site icons, matched to a project by slug. */
+export const projectLogos: Readonly<Record<string, string>> = {
+  "ai-deployer": aiDeployerLogo,
+  "awesome-adventure-cv": awesomeAdventureCvLogo,
+  "bugle-crowns": bugleCrownsLogo,
+  crosspost: crosspostLogo,
+  "on-device-ai": onDeviceAiLogo,
+  pretendpro: pretendProLogo,
+  "pride-blobs": prideBlobsLogo,
+  "skill-finder-plus": skillFinderLogo,
+  "sta-2e-d20-roller": staLogo,
+};
 
-export function getProject(slug: string): Project | undefined {
+export function findProject(projects: readonly Project[], slug: string): Project | undefined {
   return projects.find((project) => project.slug === slug);
 }
