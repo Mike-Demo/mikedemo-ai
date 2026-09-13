@@ -13,7 +13,7 @@ const description =
 
 export const Route = createFileRoute("/projects/")({
   staticData: { sitemap: true },
-  loader: async () => { const r = await listProjects(); console.log("LOADER len", Array.isArray(r), r.length); return r; },
+  loader: () => listProjects(),
   head: ({ loaderData }) => ({
     meta: [
       { title: "AI Projects Level Select — MikeDemo" },
