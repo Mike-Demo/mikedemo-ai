@@ -28,7 +28,6 @@ export function TimelineArcade({
   const currentIndex = Math.max(0, projects.findIndex((project) => project.slug === currentSlug));
   const [selectedIndex, setSelectedIndex] = useState(currentIndex);
   const itemRefs = useRef<Array<HTMLAnchorElement | null>>([]);
-  const gridRef = useRef<HTMLOListElement | null>(null);
   const selectedProject = projects[selectedIndex] ?? projects[0];
 
   function focusProject(index: number): void {
@@ -37,21 +36,12 @@ export function TimelineArcade({
     itemRefs.current[next]?.focus();
   }
 
-  /** Visual column count, so Arrow Up/Down move exactly one rendered row. */
-  function columnCount(): number {
-    const grid = gridRef.current;
-    if (!grid) return 1;
-    const columns = getComputedStyle(grid).gridTemplateColumns.split(" ").filter(Boolean).length;
-    return Math.max(1, columns);
-  }
-
   function handleKeyDown(event: KeyboardEvent<HTMLAnchorElement>, index: number): void {
-    const columns = columnCount();
     const offsets: Readonly<Record<string, number>> = {
       ArrowRight: 1,
-      ArrowDown: columns,
+      ArrowDown: 1,
       ArrowLeft: -1,
-      ArrowUp: -columns,
+      ArrowUp: -1,
     };
     let nextIndex: number | undefined;
 
@@ -69,51 +59,62 @@ export function TimelineArcade({
   }
 
   return (
-    <div className={`arcade-cabinet${compact ? " arcade-cabinet-compact" : ""}`}>
+    <div className={`arcade-cabinet overworld-cabinet${compact ? " arcade-cabinet-compact" : ""}`}>
       <div className="cabinet-marquee pixel-display">
-        <NesIcon name="star" size="small" /> SELECT PROJECT <NesIcon name="star" size="small" />
+        <NesIcon name="star" size="small" /> PROJECT WORLD <NesIcon name="star" size="small" />
       </div>
 
       <div className="cabinet-bezel">
-        <div className={`cabinet-screen${compact ? "" : " cabinet-screen-layout wa-flank:end wa-gap-l"}`}>
-          <ol className="level-grid" aria-label="Project levels, newest first" ref={gridRef}>
+        <div className={`cabinet-screen${compact ? "" : " overworld-layout"}`}>
+          <div className="overworld-map">
+            <div className="overworld-hud pixel-display" aria-hidden="true">
+              <span>WORLD 01</span>
+              <span>{String(projects.length).padStart(2, "0")} STAGES</span>
+            </div>
+            <svg className="overworld-route" viewBox="0 0 600 500" preserveAspectRatio="none" aria-hidden="true">
+              <polyline points="100,85 300,85 500,85 500,250 300,250 100,250 100,415 300,415 500,415" />
+            </svg>
+            <ol className="level-grid overworld-levels" aria-label="Project world, newest first">
             {projects.map((project, index) => {
               const isSelected = selectedIndex === index;
               const isCurrent = project.slug === currentSlug;
               const destination = project.detailPath ?? "/projects/$slug";
 
               return (
-                <li key={project.slug} className="level-slot">
+                <li key={project.slug} className="level-slot overworld-stage">
                   <Link
                     to={destination}
                     params={project.detailPath ? undefined : { slug: project.slug }}
                     ref={(element) => {
                       itemRefs.current[index] = element;
                     }}
-                    className={`level-cartridge${isSelected ? " is-selected" : ""}`}
+                    className={`level-cartridge overworld-node${isSelected ? " is-selected" : ""}`}
                     aria-current={isCurrent ? "page" : undefined}
-                    aria-label={`Level ${String(projects.length - index).padStart(2, "0")}: ${project.name}, ${formatMonthYear(project.started)}`}
+                    aria-label={`Stage ${String(projects.length - index).padStart(2, "0")}: ${project.name}, ${formatMonthYear(project.started)}`}
                     onFocus={() => setSelectedIndex(index)}
                     onMouseEnter={() => setSelectedIndex(index)}
                     onClick={() => setSelectedIndex(index)}
                     onKeyDown={(event) => handleKeyDown(event, index)}
                   >
-                    <span className="level-cursor pixel-display" aria-hidden="true">▶</span>
-                    <span className="level-number pixel-display">
-                      LV {String(projects.length - index).padStart(2, "0")}
-                    </span>
                     <span className="level-icon" aria-hidden="true">
                       <ProjectIcon project={project} />
                     </span>
-                    <span className="level-name pixel-display">{project.name}</span>
-                    <time className="level-date" dateTime={project.started}>
-                      {formatMonthYear(project.started)}
-                    </time>
+                    <span className="overworld-node-copy">
+                      <span className="level-number pixel-display">
+                        STAGE {String(projects.length - index).padStart(2, "0")}
+                      </span>
+                      <span className="level-name pixel-display">{project.name}</span>
+                      <time className="level-date" dateTime={project.started}>
+                        {formatMonthYear(project.started)}
+                      </time>
+                    </span>
+                    <span className="level-cursor pixel-display" aria-hidden="true">▶</span>
                   </Link>
                 </li>
               );
             })}
-          </ol>
+            </ol>
+          </div>
 
           {!compact ? (
             <NesContainer className="selected-project" dark aria-live="polite">

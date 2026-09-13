@@ -171,12 +171,7 @@ a:focus-visible, summary:focus-visible { outline: var(--pixel-border) solid var(
 .cabinet-bezel { padding: var(--space-5); background: var(--nes-black); }
 .cabinet-screen { position: relative; min-height: var(--screen-min); padding: var(--space-5); color: var(--nes-white); background: var(--nes-black); border: var(--pixel-border) solid var(--nes-gray); overflow: hidden; }
 .cabinet-screen::after { position: absolute; inset: 0; pointer-events: none; content: ""; border: var(--space-2) solid var(--nes-gray); opacity: 0.15; }
-.level-grid { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-5); list-style: none; padding: 0; margin: 0 0 var(--space-6); }
-.cabinet-screen-layout {
-  --flank-size: calc(var(--wa-space-5xl) + var(--wa-space-5xl) + var(--wa-space-5xl) + var(--wa-space-5xl));
-  align-items: stretch;
-}
-.cabinet-screen-layout .level-grid { margin: 0; }
+.level-grid { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-5); list-style: none; padding: 0; margin: 0; }
 .level-slot { min-width: 0; }
 .level-cartridge { position: relative; display: grid; grid-template-columns: auto 1fr; grid-template-areas: "cursor number" "icon name" "icon date"; align-items: center; gap: var(--space-2) var(--space-3); min-height: 100%; padding: var(--space-3); color: var(--nes-white); text-decoration: none; border: var(--pixel-border) solid var(--nes-gray); }
 .level-cartridge:hover, .level-cartridge:focus-visible, .level-cartridge.is-selected { color: var(--nes-yellow); border-color: var(--nes-yellow); background: var(--nes-black); outline: none; }
@@ -200,6 +195,27 @@ a:focus-visible, summary:focus-visible { outline: var(--pixel-border) solid var(
 .arcade-cabinet-compact .cabinet-marquee, .arcade-cabinet-compact .cabinet-controls { padding: var(--space-3); }
 .arcade-cabinet-compact .cabinet-screen { padding: var(--space-3); }
 .arcade-cabinet-compact .level-grid { margin: 0; }
+
+.overworld-layout { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: var(--space-5); align-items: stretch; }
+.overworld-map { position: relative; min-width: 0; padding: var(--space-6); color: var(--nes-black); background: var(--nes-green); border: var(--pixel-border) solid var(--nes-white); overflow: hidden; }
+.overworld-map::before { position: absolute; inset: 0; content: ""; pointer-events: none; background-image: radial-gradient(var(--nes-success-hover) var(--space-1), transparent var(--space-1)); background-size: var(--space-6) var(--space-6); }
+.overworld-hud { position: relative; z-index: 2; display: flex; justify-content: space-between; gap: var(--space-3); margin-block-end: var(--space-5); padding: var(--space-3); color: var(--nes-white); background: var(--nes-black); border: var(--pixel-border) solid var(--nes-white); font-size: var(--text-xs); }
+.overworld-route { position: absolute; z-index: 0; inset-inline: var(--space-6); inset-block-start: var(--space-8); width: calc(100% - var(--space-8) - var(--space-4)); height: calc(100% - var(--space-8)); overflow: visible; }
+.overworld-route polyline { fill: none; stroke: var(--nes-white); stroke-width: var(--space-2); stroke-dasharray: var(--space-3) var(--space-3); vector-effect: non-scaling-stroke; }
+.overworld-levels { grid-template-rows: repeat(3, minmax(var(--screen-min), 1fr)); }
+.overworld-stage:nth-child(4) { grid-column: 3; }
+.overworld-stage:nth-child(5) { grid-column: 2; grid-row: 2; }
+.overworld-stage:nth-child(6) { grid-column: 1; grid-row: 2; }
+.overworld-node { display: grid; grid-template-columns: 1fr; grid-template-areas: "icon" "copy"; align-content: center; justify-items: center; min-height: 100%; color: var(--nes-black); background: var(--nes-white); border-color: var(--nes-black); box-shadow: var(--space-1) var(--space-1) 0 var(--nes-black); text-align: center; }
+.overworld-node:hover, .overworld-node:focus-visible, .overworld-node.is-selected { color: var(--nes-black); background: var(--nes-yellow); border-color: var(--nes-black); outline: none; }
+.overworld-node .level-icon { grid-area: icon; width: var(--icon-size); height: var(--icon-size); border-color: var(--nes-black); }
+.overworld-node-copy { grid-area: copy; display: flex; min-width: 0; max-width: 100%; flex-direction: column; gap: var(--space-1); }
+.overworld-node .level-number, .overworld-node .level-name, .overworld-node .level-date { color: inherit; }
+.overworld-node .level-name { align-self: auto; overflow-wrap: normal; }
+.overworld-node .level-date { align-self: auto; font-size: var(--text-xs); }
+.overworld-node .level-cursor { position: absolute; inset-inline-start: calc(var(--space-5) * -1); inset-block-start: var(--space-2); color: var(--nes-yellow); visibility: hidden; }
+.overworld-node.is-selected .level-cursor { visibility: visible; }
+.overworld-layout > .selected-project { block-size: 100%; min-block-size: 0; overflow-y: auto; }
 
 .project-summary-card { max-width: 100%; }
 .project-summary-card.is-dark a { color: var(--nes-yellow); }
@@ -251,15 +267,10 @@ a:focus-visible, summary:focus-visible { outline: var(--pixel-border) solid var(
 .goal-timeline { margin: 0; padding-inline-start: var(--space-6); }
 .checklist { margin-inline-start: var(--space-6); }
 
-@media (min-width: 64.0625em) {
-  .cabinet-screen-layout { position: relative; }
-  .cabinet-screen-layout .level-grid { margin-inline-end: calc(var(--flank-size) + var(--wa-space-l)); }
-  .cabinet-screen-layout > .selected-project { position: absolute; inset-block: 0; inset-inline-end: 0; inline-size: var(--flank-size); min-block-size: 0; }
-}
-
 @media (min-width: 48.0625em) and (max-width: 64em) {
-  .cabinet-screen-layout { display: block; }
-  .cabinet-screen-layout .level-grid { margin-block-end: var(--space-6); }
+  .overworld-layout { grid-template-columns: 1fr; }
+  .overworld-levels { grid-template-rows: repeat(3, minmax(var(--portrait-size), 1fr)); }
+  .overworld-node { grid-template-columns: var(--icon-size) minmax(0, 1fr); grid-template-areas: "icon copy"; justify-items: stretch; text-align: start; }
   .selected-project { block-size: calc(var(--screen-min) + var(--screen-min)); min-block-size: 0; overflow-y: auto; }
 }
 
@@ -313,11 +324,16 @@ a:focus-visible, summary:focus-visible { outline: var(--pixel-border) solid var(
   .project-pager { flex-wrap: wrap; }
   .project-pager-levels { order: -1; flex-basis: 100%; }
   .level-grid { grid-template-columns: 1fr; }
-  .cabinet-screen-layout { display: block; }
+  .overworld-layout { grid-template-columns: 1fr; }
+  .overworld-map { padding: var(--space-4); }
+  .overworld-route { display: none; }
+  .overworld-levels { grid-template-rows: none; gap: var(--space-4); }
+  .overworld-stage:nth-child(4), .overworld-stage:nth-child(5), .overworld-stage:nth-child(6) { grid-column: auto; grid-row: auto; }
+  .overworld-stage { position: relative; }
+  .overworld-stage:not(:last-child)::after { position: absolute; z-index: 0; inset-block-start: 100%; inset-inline-start: calc(var(--space-6) + var(--space-4)); width: var(--pixel-border); height: var(--space-4); content: ""; background: var(--nes-white); }
+  .overworld-node { grid-template-columns: var(--icon-size) minmax(0, 1fr); grid-template-areas: "icon copy"; justify-items: stretch; min-height: var(--portrait-size); text-align: start; }
   .design-systems-grid { grid-template-columns: 1fr; }
-  .selected-project { display: none; }
-
-  .level-cartridge { grid-template-columns: auto var(--icon-size) 1fr; grid-template-areas: "cursor icon number" "cursor icon name" "cursor icon date"; }
+  .overworld-layout > .selected-project { display: block; block-size: auto; max-block-size: none; }
   .cabinet-bezel { padding: var(--space-3); }
   .cabinet-screen { padding: var(--space-3); }
   .cabinet-controls { flex-wrap: wrap; }
@@ -325,6 +341,6 @@ a:focus-visible, summary:focus-visible { outline: var(--pixel-border) solid var(
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .level-cartridge.is-selected .level-cursor, .pixel-wipe, .page-enter { animation: none; }
+  .level-cartridge.is-selected .level-cursor, .overworld-node.is-selected .level-cursor, .pixel-wipe, .page-enter { animation: none; }
   .pixel-wipe { display: none; }
 }
