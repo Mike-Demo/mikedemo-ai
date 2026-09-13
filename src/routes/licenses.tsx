@@ -47,7 +47,7 @@ const groups: readonly LicenseGroup[] = [
         url: "https://github.com/nostalgic-css/NES.css/blob/develop/LICENSE",
         note: "The pixel-art component system used across the portfolio.",
       },
-      ...baseCredits,
+      ...baseCredits.filter((entry) => entry.name === "Web Awesome" || entry.name === "Font Awesome Free"),
       {
         name: "Web Awesome stylesheets (CDN)",
         author: "Font Awesome / Fonticons, Inc.",
@@ -60,12 +60,17 @@ const groups: readonly LicenseGroup[] = [
   {
     title: "Framework & build tooling",
     entries: [
+      ...baseCredits.filter((entry) => entry.name === "React" || entry.name === "TanStack Start & Router"),
       { name: "TanStack Query", author: "Tanner Linsley and contributors", license: "MIT", url: "https://github.com/TanStack/query/blob/main/LICENSE", note: "Client cache wired into the router context." },
       { name: "Vite", author: "Evan You and Vite contributors", license: "MIT", url: "https://github.com/vitejs/vite/blob/main/LICENSE", note: "Dev server and production bundler." },
       { name: "TypeScript", author: "Microsoft Corporation", license: "Apache-2.0", url: "https://github.com/microsoft/TypeScript/blob/main/LICENSE.txt", note: "Every source file on this site is typed." },
       { name: "Zod", author: "Colin McDonnell and contributors", license: "MIT", url: "https://github.com/colinhacks/zod/blob/main/LICENSE", note: "Schema validation for typed data." },
       { name: "Cloudflare Vite plugin", author: "Cloudflare, Inc.", license: "MIT", url: "https://github.com/cloudflare/workers-sdk/blob/main/LICENSE-MIT", note: "Builds the site for its production runtime." },
     ],
+  },
+  {
+    title: "Services",
+    entries: baseCredits.filter((entry) => entry.name === "hCaptcha"),
   },
   {
     title: "Artwork",
