@@ -45,7 +45,7 @@ function ProjectsIndex(): ReactElement {
         <div className="stack stack-s level-select-heading">
           <p className="pixel-display hero-eyebrow">CHOOSE YOUR PLAYER</p>
           <h1 id="projects-heading" className="pixel-display section-title">
-            Level Select
+            AI Project Level Select
           </h1>
           <p className="text-quiet">
             Choose a cartridge. Arrow keys move the cursor; Enter launches the selected project.
