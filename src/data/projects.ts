@@ -2,6 +2,7 @@
  * Portfolio content. Edit this single file to add or update projects.
  */
 import aiDeployerLogo from "@/assets/project-icons/ai-deployer.svg";
+import awesomeAdventureCvLogo from "@/assets/project-icons/awesome-adventure-cv.png";
 import bugleCrownsLogo from "@/assets/project-icons/bugle-crowns.png";
 import crosspostLogo from "@/assets/project-icons/crosspost.png";
 import onDeviceAiLogo from "@/assets/project-icons/on-device-ai.svg";
@@ -155,6 +156,19 @@ export const projects: readonly Project[] = [
     icon: "user-tie",
     logo: pretendProLogo,
     started: "2026-08-30",
+  },
+  {
+    slug: "awesome-adventure-cv",
+    name: "Awesome Adventure CV",
+    domain: "mikedemo.work",
+    summary: "A playable résumé as a retro text adventure — type commands to explore a career.",
+    description:
+      "Awesome Adventure CV turns a professional résumé into an interactive, retro-style text adventure. Navigate rooms that represent real career milestones, collect artifacts, and uncover contact details by typing classic adventure commands.",
+    tech: ["TypeScript", "React", "TanStack Start", "Tailwind CSS"],
+    url: "https://mikedemo.work/",
+    icon: "terminal",
+    logo: awesomeAdventureCvLogo,
+    started: "2026-08-25",
   },
   {
     slug: "pride-blobs",
