@@ -17,7 +17,7 @@ export function ProjectIcon({ project, className }: ProjectIconProps): ReactElem
     return (
       <img
         src={project.logo}
-        alt=""
+        alt={`${project.name} logo`}
         className={className ? `project-logo ${className}` : "project-logo"}
         loading="lazy"
         decoding="async"

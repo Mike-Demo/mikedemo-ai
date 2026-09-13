@@ -1,13 +1,13 @@
 :root {
   --nes-black: #111111;
-  --nes-ink: #212529;
-  --nes-white: #f7f7f7;
-  --nes-red: #e76e55;
-  --nes-blue: #209cee;
-  --nes-green: #92cc41;
-  --nes-yellow: #f7d51d;
-  --nes-gray: #adafbc;
-  --nes-gray-light: #e7e7e7;
+  --nes-ink: var(--nes-dark, #212529);
+  --nes-white: var(--nes-bg, #f7f7f7);
+  --nes-red: var(--nes-error, #e76e55);
+  --nes-blue: var(--nes-primary, #209cee);
+  --nes-green: var(--nes-success, #92cc41);
+  --nes-yellow: var(--nes-warning, #f7d51d);
+  --nes-gray: var(--nes-shadow, #adafbc);
+  --nes-gray-light: var(--nes-hover, #e7e7e7);
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 0.75rem;
