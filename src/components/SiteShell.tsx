@@ -4,11 +4,10 @@ import { Link } from "@tanstack/react-router";
 import { WebAwesomeLoader } from "@/design-system/font-awsome-web-awesome-171158";
 
 import { PixelSiteFooter } from "@/components/PixelSiteFooter";
-import { PixelWipe } from "@/components/PixelWipe";
 import { NesIcon } from "@/design-system/nes-229931";
 
 /**
- * Shared page shell: NES game HUD, route transition, main content, and the
+ * Shared page shell: NES game HUD, main content, and the
  * design-system footer that owns the social and open-source links.
  */
 export function SiteShell({ children }: { children: ReactNode }): ReactElement {
@@ -38,9 +37,7 @@ export function SiteShell({ children }: { children: ReactNode }): ReactElement {
         </nav>
       </header>
 
-      <PixelWipe />
-
-      <main id="main-content" className="page-enter">{children}</main>
+      <main id="main-content">{children}</main>
 
       <div className="site-footer-wrap">
         <PixelSiteFooter />

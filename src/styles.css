@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "Press Start Local";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/press-start-2p.ttf") format("truetype");
+}
+
 :root {
   --nes-black: #111111;
   --nes-ink: var(--nes-dark, #212529);
@@ -32,13 +40,14 @@
   --text-xl: 1.55rem;
   --text-2xl: 2rem;
   --body-font: "Work Sans", system-ui, sans-serif;
-  --pixel-font: "Press Start 2P", monospace;
+  --pixel-font: "Press Start Local", monospace;
 }
 
 html {
   min-height: 100%;
   scroll-behavior: smooth;
   background: var(--nes-black);
+  font-family: var(--body-font);
 }
 
 html body {
@@ -288,21 +297,6 @@ a:focus-visible, summary:focus-visible { outline: var(--pixel-border) solid var(
 .calendar-event-milestone { color: var(--nes-black); background: var(--nes-yellow); }
 .calendar-legend { list-style: none; padding: 0; }
 
-.pixel-wipe { position: fixed; inset: 0; z-index: 100; display: grid; grid-template-columns: repeat(8, 1fr); grid-template-rows: repeat(3, 1fr); pointer-events: none; }
-.pixel-wipe-block { background: var(--nes-black); animation: pixel-wipe-clear 300ms steps(2, end) both; }
-.pixel-wipe-block[data-column="1"] { animation-delay: 40ms; }
-.pixel-wipe-block[data-column="2"] { animation-delay: 80ms; }
-.pixel-wipe-block[data-column="3"] { animation-delay: 120ms; }
-.pixel-wipe-block[data-column="4"] { animation-delay: 160ms; }
-.pixel-wipe-block[data-column="5"] { animation-delay: 200ms; }
-.pixel-wipe-block[data-column="6"] { animation-delay: 240ms; }
-.pixel-wipe-block[data-column="7"] { animation-delay: 280ms; }
-.pixel-wipe-block[data-row="1"] { animation-duration: 360ms; }
-.pixel-wipe-block[data-row="2"] { animation-duration: 420ms; }
-.page-enter { animation: page-enter-rise 320ms steps(4, end) both; }
-@keyframes pixel-wipe-clear { from { opacity: 1; } to { opacity: 0; } }
-@keyframes page-enter-rise { from { opacity: 0; transform: translateY(var(--space-3)); } }
-
 @media (max-width: 48em) {
   .site-header { align-items: flex-start; flex-direction: column; }
   .site-nav { gap: var(--space-3); }
@@ -341,6 +335,5 @@ a:focus-visible, summary:focus-visible { outline: var(--pixel-border) solid var(
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .level-cartridge.is-selected .level-cursor, .overworld-node.is-selected .level-cursor, .pixel-wipe, .page-enter { animation: none; }
-  .pixel-wipe { display: none; }
+  .level-cartridge.is-selected .level-cursor, .overworld-node.is-selected .level-cursor { animation: none; }
 }
