@@ -8,7 +8,6 @@ import {
 import type { ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import nesCss from "@/design-system/nes-229931/styles/nes.css?url";
 import { identityJsonLd } from "@/lib/jsonld";
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
@@ -43,7 +42,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.3.1/css/all.min.css",
       },
-      { rel: "stylesheet", href: nesCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
