@@ -163,18 +163,18 @@ a:focus-visible, summary:focus-visible { outline: var(--pixel-border) solid var(
   font-family: var(--pixel-font);
   font-size: var(--text-md);
   line-height: 1.6;
-  color: var(--nes-white);
+  color: var(--nes-bg);
   text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
   background-color: var(--nes-error);
   border-style: solid;
   border-width: var(--pixel-border);
-  border-top-color: color-mix(in srgb, var(--nes-error) 75%, white 25%);
-  border-left-color: color-mix(in srgb, var(--nes-error) 75%, white 25%);
-  border-bottom-color: color-mix(in srgb, var(--nes-error) 60%, black 40%);
-  border-right-color: color-mix(in srgb, var(--nes-error) 60%, black 40%);
-  box-shadow: var(--pixel-shadow) var(--pixel-shadow) 0 var(--nes-black);
+  border-top-color: color-mix(in srgb, var(--nes-error) 75%, var(--nes-bg) 25%);
+  border-left-color: color-mix(in srgb, var(--nes-error) 75%, var(--nes-bg) 25%);
+  border-bottom-color: color-mix(in srgb, var(--nes-error) 60%, var(--nes-dark) 40%);
+  border-right-color: color-mix(in srgb, var(--nes-error) 60%, var(--nes-dark) 40%);
+  box-shadow: var(--pixel-shadow) var(--pixel-shadow) 0 var(--nes-dark);
   transition: transform 75ms steps(2), box-shadow 75ms steps(2);
   appearance: none;
 }
@@ -182,16 +182,16 @@ a:focus-visible, summary:focus-visible { outline: var(--pixel-border) solid var(
 .arcade-start-button:hover,
 .arcade-start-button:focus-visible {
   transform: translateY(calc(var(--space-1) * -1));
-  box-shadow: var(--pixel-shadow) calc(var(--pixel-shadow) + var(--space-1)) 0 var(--nes-black);
+  box-shadow: var(--pixel-shadow) calc(var(--pixel-shadow) + var(--space-1)) 0 var(--nes-dark);
 }
 
 .arcade-start-button:active {
   transform: translateY(var(--space-1));
-  box-shadow: calc(var(--pixel-shadow) - var(--space-1)) calc(var(--pixel-shadow) - var(--space-1)) 0 var(--nes-black);
+  box-shadow: calc(var(--pixel-shadow) - var(--space-1)) calc(var(--pixel-shadow) - var(--space-1)) 0 var(--nes-dark);
 }
 
 .arcade-start-button:focus-visible {
-  outline: var(--pixel-border) solid var(--nes-yellow);
+  outline: var(--pixel-border) solid var(--nes-warning);
   outline-offset: var(--space-2);
 }
 
@@ -205,7 +205,7 @@ a:focus-visible, summary:focus-visible { outline: var(--pixel-border) solid var(
   inset: var(--space-2);
   border-style: solid;
   border-width: var(--space-1);
-  border-color: color-mix(in srgb, var(--nes-error) 75%, white 25%);
+  border-color: color-mix(in srgb, var(--nes-error) 75%, var(--nes-bg) 25%);
   opacity: 0.2;
   pointer-events: none;
 }
@@ -214,7 +214,7 @@ a:focus-visible, summary:focus-visible { outline: var(--pixel-border) solid var(
   position: absolute;
   width: var(--space-2);
   height: var(--space-2);
-  background-color: var(--nes-ink);
+  background-color: var(--nes-dark);
   pointer-events: none;
 }
 
@@ -231,11 +231,11 @@ a:focus-visible, summary:focus-visible { outline: var(--pixel-border) solid var(
   align-items: center;
   gap: var(--space-2);
   padding: var(--space-1) var(--space-2);
-  color: var(--nes-black);
+  color: var(--nes-dark);
   background-color: var(--nes-success);
   border-style: solid;
   border-width: var(--space-1);
-  border-color: var(--nes-black);
+  border-color: var(--nes-dark);
   font-family: var(--pixel-font);
   font-size: var(--text-xs);
   line-height: 1.6;
