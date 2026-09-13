@@ -1,17 +1,20 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type { ReactElement } from "react";
 
+import { NesContainer } from "@/design-system/nes-229931";
+
 import { SiteShell } from "@/components/SiteShell";
 import { TimelineArcade } from "@/components/TimelineArcade";
 import { breadcrumbJsonLd, projectCollectionJsonLd, SITE_URL } from "@/lib/jsonld";
-import { projectsNewestFirst } from "@/data/timeline";
+import { listProjects } from "@/lib/projects.functions";
 
 const description =
   "Choose from MikeDemo's AI projects in a keyboard-accessible retro NES Level Select.";
 
 export const Route = createFileRoute("/projects/")({
   staticData: { sitemap: true },
-  head: () => ({
+  loader: () => listProjects(),
+  head: ({ loaderData }) => ({
     meta: [
       { title: "AI Projects Level Select — MikeDemo" },
       { name: "description", content: description },
@@ -25,7 +28,7 @@ export const Route = createFileRoute("/projects/")({
     ],
     links: [{ rel: "canonical", href: "https://mikedemo.dev/projects" }],
     scripts: [
-      { type: "application/ld+json", children: projectCollectionJsonLd(projectsNewestFirst) },
+      { type: "application/ld+json", children: projectCollectionJsonLd(loaderData ?? []) },
       {
         type: "application/ld+json",
         children: breadcrumbJsonLd([
@@ -35,10 +38,27 @@ export const Route = createFileRoute("/projects/")({
       },
     ],
   }),
+  errorComponent: ProjectsUnavailable,
+  notFoundComponent: ProjectsUnavailable,
   component: ProjectsIndex,
 });
 
+function ProjectsUnavailable(): ReactElement {
+  return (
+    <SiteShell>
+      <section className="section stack stack-m">
+        <h1 className="pixel-display section-title">Level Select unavailable</h1>
+        <NesContainer title="CARTRIDGE ERROR">
+          The project list could not be loaded right now. Please try again in a moment.
+        </NesContainer>
+      </section>
+    </SiteShell>
+  );
+}
+
 function ProjectsIndex(): ReactElement {
+  const projects = Route.useLoaderData();
+
   return (
     <SiteShell>
       <section className="section stack stack-l" aria-labelledby="projects-heading">
@@ -52,7 +72,7 @@ function ProjectsIndex(): ReactElement {
           </p>
         </div>
 
-        <TimelineArcade projects={projectsNewestFirst} />
+        <TimelineArcade projects={projects} />
       </section>
     </SiteShell>
   );

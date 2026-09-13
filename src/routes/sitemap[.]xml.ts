@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { getRouterInstance } from "@tanstack/react-start";
 
-import { projects } from "@/data/projects";
+import { listProjects } from "@/lib/projects.functions";
 import {
   isSitemapRouteIncluded,
   sitemapPathForLocation,
@@ -22,6 +22,7 @@ export const Route = createFileRoute("/sitemap.xml")({
 
         const detailRouteId = "/projects/$slug";
         if (isSitemapRouteIncluded(router.routesById[detailRouteId])) {
+          const projects = await listProjects();
           for (const project of projects) {
             // Projects with their own page are listed by that route instead.
             if (project.detailPath) continue;

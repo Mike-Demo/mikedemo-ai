@@ -9,8 +9,8 @@ import { ProjectSummaryCard } from "@/components/ProjectSummaryCard";
 import { SeasonCalendar } from "@/components/SeasonCalendar";
 import { SiteShell } from "@/components/SiteShell";
 import { TechTagList } from "@/components/TechTagList";
-import { getProject } from "@/data/projects";
-import { projectsNewestFirst } from "@/data/timeline";
+import { findProject } from "@/data/projects";
+import { listProjects } from "@/lib/projects.functions";
 import { breadcrumbJsonLd, SITE_URL } from "@/lib/jsonld";
 
 import {
@@ -33,6 +33,7 @@ const description =
 
 export const Route = createFileRoute("/bugle-crowns")({
   staticData: { sitemap: true },
+  loader: () => listProjects(),
   head: () => ({
     meta: [
       { title: "Bugle Crowns — AWS Agentic Football Cup | MikeDemo" },
@@ -87,7 +88,8 @@ function Stat({ label, value }: { label: string; value: string }): ReactElement 
 }
 
 function BugleCrownsPage(): ReactElement {
-  const project = getProject("bugle-crowns");
+  const projects = Route.useLoaderData();
+  const project = findProject(projects, "bugle-crowns");
 
   return (
     <SiteShell>
@@ -110,7 +112,7 @@ function BugleCrownsPage(): ReactElement {
           >
             <ProjectSummaryCard project={project} />
 
-            <ProjectPager projects={projectsNewestFirst} currentSlug="bugle-crowns" />
+            <ProjectPager projects={projects} currentSlug="bugle-crowns" />
 
 
 
