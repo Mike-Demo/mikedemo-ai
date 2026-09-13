@@ -198,7 +198,7 @@ a:focus-visible, summary:focus-visible { outline: var(--pixel-border) solid var(
 
 .overworld-layout { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: var(--space-5); align-items: stretch; }
 .overworld-map { position: relative; min-width: 0; padding: var(--space-6); color: var(--nes-black); background: var(--nes-green); border: var(--pixel-border) solid var(--nes-white); overflow: hidden; }
-.overworld-map::before { position: absolute; inset: 0; content: ""; pointer-events: none; background-image: radial-gradient(var(--nes-black) var(--space-1), transparent var(--space-1)); background-size: var(--space-6) var(--space-6); opacity: 0.12; }
+.overworld-map::before { position: absolute; inset: 0; content: ""; pointer-events: none; background-image: radial-gradient(var(--nes-black) var(--space-1), transparent var(--space-1)); background-size: var(--space-6) var(--space-6); opacity: 0.15; }
 .overworld-hud { position: relative; z-index: 2; display: flex; justify-content: space-between; gap: var(--space-3); margin-block-end: var(--space-5); padding: var(--space-3); color: var(--nes-white); background: var(--nes-black); border: var(--pixel-border) solid var(--nes-white); font-size: var(--text-xs); }
 .overworld-route { position: absolute; z-index: 0; inset-inline: var(--space-6); inset-block-start: var(--space-8); width: calc(100% - var(--space-8) - var(--space-4)); height: calc(100% - var(--space-8)); overflow: visible; }
 .overworld-route polyline { fill: none; stroke: var(--nes-white); stroke-width: var(--space-2); stroke-dasharray: var(--space-3) var(--space-3); vector-effect: non-scaling-stroke; }
@@ -214,7 +214,7 @@ a:focus-visible, summary:focus-visible { outline: var(--pixel-border) solid var(
 .overworld-node .level-name { align-self: auto; overflow-wrap: normal; }
 .overworld-node .level-date { align-self: auto; font-size: var(--text-xs); }
 .overworld-node .level-cursor { position: absolute; inset-inline-start: calc(var(--space-5) * -1); inset-block-start: var(--space-2); color: var(--nes-yellow); visibility: hidden; }
-.overworld-node.is-selected .level-cursor { visibility: visible; animation: map-cursor-step 700ms steps(2, end) infinite; }
+.overworld-node.is-selected .level-cursor { visibility: visible; animation: map-cursor-step 1s steps(2, end) infinite; }
 .overworld-layout > .selected-project { block-size: 100%; min-block-size: 0; overflow-y: auto; }
 @keyframes map-cursor-step { 50% { transform: translateX(var(--space-1)); } }
 
