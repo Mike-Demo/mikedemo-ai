@@ -90,7 +90,7 @@ export function TimelineArcade({
                     }}
                     className={`level-cartridge overworld-node${isSelected ? " is-selected" : ""}`}
                     aria-current={isCurrent ? "page" : undefined}
-                    aria-label={`Level ${String(projects.length - index).padStart(2, "0")}: ${project.name}, ${formatMonthYear(project.started)}`}
+                    aria-label={`Stage ${String(projects.length - index).padStart(2, "0")}: ${project.name}, ${formatMonthYear(project.started)}`}
                     onFocus={() => setSelectedIndex(index)}
                     onMouseEnter={() => setSelectedIndex(index)}
                     onClick={() => setSelectedIndex(index)}
