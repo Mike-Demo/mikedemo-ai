@@ -41,7 +41,7 @@ html {
   background: var(--nes-black);
 }
 
-body {
+html body {
   min-height: 100%;
   margin: 0;
   color: var(--nes-ink);
