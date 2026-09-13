@@ -69,7 +69,7 @@ export function TimelineArcade({
           <div className="overworld-map">
             <div className="overworld-hud pixel-display" aria-hidden="true">
               <span>WORLD 01</span>
-              <span>09 STAGES</span>
+              <span>{String(projects.length).padStart(2, "0")} STAGES</span>
             </div>
             <svg className="overworld-route" viewBox="0 0 600 500" preserveAspectRatio="none" aria-hidden="true">
               <polyline points="100,85 300,85 500,85 500,250 300,250 100,250 100,415 300,415 500,415" />
