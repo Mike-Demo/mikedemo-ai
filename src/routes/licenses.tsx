@@ -1,13 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import type { ReactElement } from "react";
 
+// Deep imports on purpose: the design-system barrel pulls in every <wa-*>
+// wrapper and its theme stylesheet, and this page only needs credit data and
+// version constants.
 import type { LicenseEntry } from "@/design-system/font-awsome-web-awesome-171158/webawesome/patterns/licenses";
+import { baseCredits } from "@/design-system/font-awsome-web-awesome-171158/webawesome/patterns/licenses";
 import {
-  baseCredits,
   FONT_AWESOME_VERSION,
   WEB_AWESOME_CDN,
   WEB_AWESOME_VERSION,
-} from "@/design-system/font-awsome-web-awesome-171158";
+} from "@/design-system/font-awsome-web-awesome-171158/webawesome/setup";
 import { NesContainer } from "@/design-system/nes-229931";
 import { SiteShell } from "@/components/SiteShell";
 import { breadcrumbJsonLd, SITE_URL } from "@/lib/jsonld";

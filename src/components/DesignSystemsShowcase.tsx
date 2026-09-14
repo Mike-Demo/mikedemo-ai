@@ -27,6 +27,7 @@ export function DesignSystemsShowcase({ project }: DesignSystemsShowcaseProps): 
 
   return (
     <section className="stack stack-m" aria-labelledby="systems-heading">
+      <WebAwesomeLoader />
       <div className="stack stack-xs">
         <p className="pixel-display hero-eyebrow">TWO SYSTEMS · ONE EXPERIENCE</p>
         <h2 id="systems-heading" className="pixel-display section-title">
