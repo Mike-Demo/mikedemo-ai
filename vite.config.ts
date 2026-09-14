@@ -89,6 +89,7 @@ export default defineConfig(async ({ command, mode }) => {
         },
       }),
       viteReact(),
+      prerenderServerShim(),
       ...(mode === "development" ? [componentTagger()] : []),
     ],
   };
