@@ -7,6 +7,7 @@ import {
 } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 
+import nesCss from "@/design-system/nes-229931/styles/nes.css?url";
 import appCss from "../styles.css?url";
 import { identityJsonLd } from "@/lib/jsonld";
 
