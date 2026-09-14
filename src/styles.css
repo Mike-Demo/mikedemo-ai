@@ -293,7 +293,7 @@ a:focus-visible, summary:focus-visible { outline: var(--pixel-border) solid var(
 .stage-status .nes-rune-icon { width: var(--space-4); height: var(--space-4); }
 .stage-status-locked { background: var(--nes-gray); color: var(--nes-black); }
 .overworld-node .level-cursor { position: absolute; inset-inline-start: var(--space-1); inset-block-start: 50%; transform: translateY(-50%); color: var(--nes-red); visibility: hidden; }
-.overworld-node.is-selected .level-cursor { visibility: visible; animation: cursor-step 0.6s steps(2) infinite; }
+.overworld-node.is-selected .level-cursor { visibility: visible; animation: cursor-step 1s steps(2) infinite; }
 @keyframes cursor-step { 0%, 100% { transform: translate(0, -50%); } 50% { transform: translate(var(--space-2), -50%); } }
 .overworld-layout > .selected-project { block-size: 100%; min-block-size: 0; overflow-y: auto; }
 .selected-project-badge { position: absolute; z-index: 2; inset-block-start: calc(var(--space-3) * -1); inset-inline-end: var(--space-4); padding: var(--space-1) var(--space-2); color: var(--nes-white); background: var(--nes-red); border: var(--pixel-border) solid var(--nes-black); font-size: var(--text-xs); }
