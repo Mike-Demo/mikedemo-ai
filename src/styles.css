@@ -351,8 +351,6 @@ a:focus-visible, summary:focus-visible { outline: var(--pixel-border) solid var(
 
 @media (min-width: 48.0625em) and (max-width: 64em) {
   .overworld-layout { grid-template-columns: 1fr; }
-  .overworld-levels { grid-template-rows: repeat(3, minmax(var(--portrait-size), 1fr)); }
-  .overworld-node { grid-template-columns: var(--icon-size) minmax(0, 1fr); grid-template-areas: "icon copy"; justify-items: stretch; text-align: start; }
   .selected-project { block-size: calc(var(--screen-min) + var(--screen-min)); min-block-size: 0; overflow-y: auto; }
 }
 
@@ -393,12 +391,9 @@ a:focus-visible, summary:focus-visible { outline: var(--pixel-border) solid var(
   .level-grid { grid-template-columns: 1fr; }
   .overworld-layout { grid-template-columns: 1fr; }
   .overworld-map { padding: var(--space-4); }
-  .overworld-route { display: none; }
-  .overworld-levels { grid-template-rows: none; gap: var(--space-4); }
-  .overworld-stage:nth-child(4), .overworld-stage:nth-child(5), .overworld-stage:nth-child(6) { grid-column: auto; grid-row: auto; }
-  .overworld-stage { position: relative; }
-  .overworld-stage:not(:last-child)::after { position: absolute; z-index: 0; inset-block-start: 100%; inset-inline-start: calc(var(--space-6) + var(--space-4)); width: var(--pixel-border); height: var(--space-4); content: ""; background: var(--nes-white); }
-  .overworld-node { grid-template-columns: var(--icon-size) minmax(0, 1fr); grid-template-areas: "icon copy"; justify-items: stretch; min-height: var(--portrait-size); text-align: start; }
+  .overworld-route { inset-inline-start: calc(var(--space-4) + var(--space-5) + var(--space-4) + var(--space-2)); }
+  .overworld-node { grid-template-columns: var(--icon-size) minmax(0, 1fr); grid-template-areas: "icon copy" "icon meta"; padding-inline-start: var(--space-5); }
+  .overworld-node-meta { align-items: flex-start; }
   .design-systems-grid { grid-template-columns: 1fr; }
   .overworld-layout > .selected-project { display: block; block-size: auto; max-block-size: none; }
   .cabinet-bezel { padding: var(--space-3); }
