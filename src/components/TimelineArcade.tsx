@@ -5,7 +5,7 @@ import { useRef, useState } from "react";
 import { ProjectCredits } from "@/components/ProjectCredits";
 import { ProjectIcon } from "@/components/ProjectIcon";
 import { TechTagList } from "@/components/TechTagList";
-import { NesButton, NesContainer, NesIcon, NesText } from "@/design-system/nes-229931";
+import { NesButton, NesContainer, NesIcon, NesRuneIcon, NesText } from "@/design-system/nes-229931";
 import type { Project } from "@/data/projects";
 import { formatMonthYear } from "@/lib/format-date";
 
@@ -79,6 +79,8 @@ export function TimelineArcade({
               const isSelected = selectedIndex === index;
               const isCurrent = project.slug === currentSlug;
               const destination = project.detailPath ?? "/projects/$slug";
+              const isCleared = Boolean(project.url || project.sites?.length);
+              const statusLabel = isCleared ? "Cleared" : "Locked";
 
               return (
                 <li key={project.slug} className="level-slot overworld-stage">
@@ -90,12 +92,13 @@ export function TimelineArcade({
                     }}
                     className={`level-cartridge overworld-node${isSelected ? " is-selected" : ""}`}
                     aria-current={isCurrent ? "page" : undefined}
-                    aria-label={`Stage ${String(projects.length - index).padStart(2, "0")}: ${project.name}, ${formatMonthYear(project.started)}`}
+                    aria-label={`Stage ${String(projects.length - index).padStart(2, "0")}: ${project.name}, ${formatMonthYear(project.started)}, ${statusLabel}`}
                     onFocus={() => setSelectedIndex(index)}
                     onMouseEnter={() => setSelectedIndex(index)}
                     onClick={() => setSelectedIndex(index)}
                     onKeyDown={(event) => handleKeyDown(event, index)}
                   >
+                    <span className="level-cursor pixel-display" aria-hidden="true">▶</span>
                     <span className="level-icon" aria-hidden="true">
                       <ProjectIcon project={project} />
                     </span>
@@ -104,11 +107,16 @@ export function TimelineArcade({
                         STAGE {String(projects.length - index).padStart(2, "0")}
                       </span>
                       <span className="level-name pixel-display">{project.name}</span>
+                    </span>
+                    <span className="overworld-node-meta">
                       <time className="level-date" dateTime={project.started}>
                         {formatMonthYear(project.started)}
                       </time>
+                      <span className={`stage-status pixel-display ${isCleared ? "stage-status-cleared" : "stage-status-locked"}`}>
+                        <NesRuneIcon name={isCleared ? "star" : "lock"} aria-hidden="true" />
+                        {isCleared ? "CLEARED" : "LOCKED"}
+                      </span>
                     </span>
-                    <span className="level-cursor pixel-display" aria-hidden="true">▶</span>
                   </Link>
                 </li>
               );
