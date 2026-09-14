@@ -101,8 +101,10 @@ function ProjectPage(): ReactElement {
         <ProjectCabinet project={project} subtitle={<p>{project.description}</p>}>
           <ProjectSummaryCard project={project} />
 
-          {project.slug === "awesome-design-system" ? (
-            <DesignSystemsShowcase project={project} />
+          {project.slug === DESIGN_SYSTEMS_SLUG ? (
+            <Suspense fallback={<NesContainer title="DESIGN SYSTEMS">Loading…</NesContainer>}>
+              <DesignSystemsShowcase project={project} />
+            </Suspense>
           ) : (
             <div className="cluster cluster-m">
               <a className="nes-btn is-primary" href={project.url} target="_blank" rel="noopener noreferrer">
