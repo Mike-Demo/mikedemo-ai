@@ -9,16 +9,11 @@ import { componentTagger } from "lovable-tagger";
 import { mockupPreviewPlugin } from "./mockupPreviewPlugin";
 
 /**
- * Vite's preview server (used while prerendering) removes an stdin listener on
- * shutdown. In this build sandbox stdin has no `off`, which crashes the build
- * after every page is already written, so provide a no-op fallback.
+ * Vite's preview server (used while prerendering) attaches an stdin listener it
+ * later removes; this sandbox's stdin has no `off`, which crashed the build
+ * after every page was written. Vite skips that listener entirely under `CI`.
  */
-const stdin = process.stdin as unknown as Record<string, unknown>;
-if (stdin && typeof stdin["off"] !== "function") {
-  stdin["off"] = () => stdin;
-  if (typeof stdin["on"] !== "function") stdin["on"] = () => stdin;
-}
-
+process.env["CI"] = process.env["CI"] ?? "true";
 
 /**
  * Concrete paths to prerender. Project detail routes are parameterized, so the
