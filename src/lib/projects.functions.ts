@@ -41,8 +41,18 @@ function toProject(row: ProjectRow): Project {
   };
 }
 
+/**
+ * Short-lived per-instance cache. The project list changes rarely, so this
+ * keeps a burst of navigations (list page, detail page, pager) from hitting
+ * the database once per render. The database stays the source of truth.
+ */
+const CACHE_TTL_MS = 60_000;
+let cache: { at: number; projects: readonly Project[] } | undefined;
+
 /** Every project, newest first. Public read — safe during SSR and prerender. */
 export const listProjects = createServerFn({ method: "GET" }).handler(async (): Promise<readonly Project[]> => {
+  if (cache && Date.now() - cache.at < CACHE_TTL_MS) return cache.projects;
+
   const key = process.env["SUPABASE_PUBLISHABLE_KEY"]!;
   const supabasePublic = createClient<Database>(process.env["SUPABASE_URL"]!, key, {
     auth: { persistSession: false, autoRefreshToken: false },
