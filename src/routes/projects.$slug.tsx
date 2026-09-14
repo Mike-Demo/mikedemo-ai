@@ -1,16 +1,25 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import type { ReactElement } from "react";
+import { lazy, Suspense, type ReactElement } from "react";
 
 import { NesContainer } from "@/design-system/nes-229931";
 
-import { DesignSystemsShowcase } from "@/components/DesignSystemsShowcase";
 import { ProjectCabinet } from "@/components/ProjectCabinet";
 import { ProjectPager } from "@/components/ProjectPager";
 import { ProjectSummaryCard } from "@/components/ProjectSummaryCard";
 import { SiteShell } from "@/components/SiteShell";
 import { findProject } from "@/data/projects";
 import { listProjects } from "@/lib/projects.functions";
+import { fontAwesomeLinks, webAwesomeLinks } from "@/lib/head-assets";
 import { breadcrumbJsonLd, projectJsonLd, SITE_URL } from "@/lib/jsonld";
+
+/** Design Systems slug is the only page that renders <wa-*> markup. */
+const DESIGN_SYSTEMS_SLUG = "awesome-design-system";
+
+// Loaded on demand: pulls the Web Awesome element bundle, which no other
+// project page needs.
+const DesignSystemsShowcase = lazy(async () => ({
+  default: (await import("@/components/DesignSystemsShowcase")).DesignSystemsShowcase,
+}));
 
 
 export const Route = createFileRoute("/projects/$slug")({
@@ -43,7 +52,11 @@ export const Route = createFileRoute("/projects/$slug")({
         { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:image", content: cover },
       ],
-      links: [{ rel: "canonical", href: url }],
+      links: [
+        { rel: "canonical", href: url },
+        ...fontAwesomeLinks,
+        ...(loaderData.project.slug === DESIGN_SYSTEMS_SLUG ? webAwesomeLinks : []),
+      ],
       scripts: [
         { type: "application/ld+json", children: projectJsonLd(loaderData.project) },
         {
@@ -88,8 +101,10 @@ function ProjectPage(): ReactElement {
         <ProjectCabinet project={project} subtitle={<p>{project.description}</p>}>
           <ProjectSummaryCard project={project} />
 
-          {project.slug === "awesome-design-system" ? (
-            <DesignSystemsShowcase project={project} />
+          {project.slug === DESIGN_SYSTEMS_SLUG ? (
+            <Suspense fallback={<NesContainer title="DESIGN SYSTEMS">Loading…</NesContainer>}>
+              <DesignSystemsShowcase project={project} />
+            </Suspense>
           ) : (
             <div className="cluster cluster-m">
               <a className="nes-btn is-primary" href={project.url} target="_blank" rel="noopener noreferrer">

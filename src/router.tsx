@@ -9,7 +9,10 @@ export const getRouter = () => {
     routeTree,
     context: { queryClient },
     scrollRestoration: true,
-    defaultPreloadStaleTime: 0,
+    // Warm route code and loader data on hover/focus, and keep the warmed
+    // data for 30s so the click that follows does not refetch it.
+    defaultPreload: "intent",
+    defaultPreloadStaleTime: 30_000,
   });
 
   return router;

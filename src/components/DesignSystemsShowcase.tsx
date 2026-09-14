@@ -6,6 +6,7 @@ import {
   WaButton,
   WaCard,
   WaIcon,
+  WebAwesomeLoader,
 } from "@/design-system/font-awsome-web-awesome-171158";
 
 import type { Project } from "@/data/projects";
@@ -14,13 +15,19 @@ interface DesignSystemsShowcaseProps {
   readonly project: Project;
 }
 
-/** Equal showcase of the two libraries represented by the unified portfolio entry. */
+/**
+ * Equal showcase of the two libraries represented by the unified portfolio
+ * entry. This is the only place on the site that renders <wa-*> markup, so it
+ * owns the Web Awesome element bundle: the loader is mounted here instead of
+ * in the shared shell, and this module is imported lazily by its route.
+ */
 export function DesignSystemsShowcase({ project }: DesignSystemsShowcaseProps): ReactElement {
   const nesSite = project.sites?.[0];
   const awesomeSite = project.sites?.[1];
 
   return (
     <section className="stack stack-m" aria-labelledby="systems-heading">
+      <WebAwesomeLoader />
       <div className="stack stack-xs">
         <p className="pixel-display hero-eyebrow">TWO SYSTEMS · ONE EXPERIENCE</p>
         <h2 id="systems-heading" className="pixel-display section-title">

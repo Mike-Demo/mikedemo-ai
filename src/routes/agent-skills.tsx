@@ -6,6 +6,7 @@ import { NesContainer, NesIcon, NesList } from "@/design-system/nes-229931";
 import { SiteShell } from "@/components/SiteShell";
 import { TechTagList } from "@/components/TechTagList";
 import { findProject } from "@/data/projects";
+import { fontAwesomeLinks } from "@/lib/head-assets";
 import { listProjects } from "@/lib/projects.functions";
 import { breadcrumbJsonLd, SITE_URL } from "@/lib/jsonld";
 
@@ -28,7 +29,10 @@ export const Route = createFileRoute("/agent-skills")({
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: "https://mikedemo.dev/og-cover.jpg" },
     ],
-    links: [{ rel: "canonical", href: "https://mikedemo.dev/agent-skills" }],
+    links: [
+      { rel: "canonical", href: "https://mikedemo.dev/agent-skills" },
+      ...fontAwesomeLinks,
+    ],
     scripts: [
       {
         type: "application/ld+json",

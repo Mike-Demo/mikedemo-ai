@@ -3,8 +3,12 @@ import type { ReactElement } from "react";
 
 import { CredentialsSection } from "@/components/CredentialsSection";
 import { SiteShell } from "@/components/SiteShell";
-import headshotSrc from "@/assets/headshot.png";
+// 320px source for a 160px display box: the LCP element, so it is kept small,
+// preloaded below, and offered as WebP with a PNG fallback.
+import headshotWebp from "@/assets/headshot-320.webp";
+import headshotPng from "@/assets/headshot-320.png";
 import { ArcadeStartButton } from "@/components/ArcadeStartButton";
+
 
 
 export const Route = createFileRoute("/")({
@@ -29,7 +33,10 @@ export const Route = createFileRoute("/")({
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: "https://mikedemo.dev/og-cover.jpg" },
     ],
-    links: [{ rel: "canonical", href: "https://mikedemo.dev/" }],
+    links: [
+      { rel: "canonical", href: "https://mikedemo.dev/" },
+      { rel: "preload", as: "image", href: headshotWebp, type: "image/webp" },
+    ],
   }),
   component: Index,
 });
@@ -43,13 +50,18 @@ function Index(): ReactElement {
   return (
     <SiteShell>
       <section className="hero-section">
-        <img
-          src={headshotSrc}
-          alt="Pixel-art portrait of MikeDemo wearing glasses, a cap, and a patterned jacket"
-          className="hero-headshot"
-          width="160"
-          height="160"
-        />
+        <picture>
+          <source srcSet={headshotWebp} type="image/webp" />
+          <img
+            src={headshotPng}
+            alt="Pixel-art portrait of MikeDemo wearing glasses, a cap, and a patterned jacket"
+            className="hero-headshot"
+            width="160"
+            height="160"
+            decoding="async"
+            fetchPriority="high"
+          />
+        </picture>
         <p className="pixel-display hero-eyebrow">PRESS START</p>
         <h1 className="pixel-display hero-title">AI Projects by MikeDemo</h1>
         <p className="hero-subtitle">

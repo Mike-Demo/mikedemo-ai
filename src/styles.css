@@ -3,7 +3,15 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("/fonts/press-start-2p.ttf") format("truetype");
+  src: url("/fonts/press-start-2p.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("/fonts/work-sans.woff2") format("woff2");
 }
 
 :root {

@@ -6,6 +6,7 @@ import { NesContainer } from "@/design-system/nes-229931";
 import { SiteShell } from "@/components/SiteShell";
 import { TimelineArcade } from "@/components/TimelineArcade";
 import { breadcrumbJsonLd, projectCollectionJsonLd, SITE_URL } from "@/lib/jsonld";
+import { fontAwesomeLinks } from "@/lib/head-assets";
 import { listProjects } from "@/lib/projects.functions";
 
 const description =
@@ -26,7 +27,10 @@ export const Route = createFileRoute("/projects/")({
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: "https://mikedemo.dev/og-cover.jpg" },
     ],
-    links: [{ rel: "canonical", href: "https://mikedemo.dev/projects" }],
+    links: [
+      { rel: "canonical", href: "https://mikedemo.dev/projects" },
+      ...fontAwesomeLinks,
+    ],
     scripts: [
       { type: "application/ld+json", children: projectCollectionJsonLd(loaderData ?? []) },
       {
