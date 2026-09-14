@@ -282,7 +282,7 @@ a:focus-visible, summary:focus-visible { outline: var(--pixel-border) solid var(
 .overworld-route { position: absolute; z-index: 0; inset-block: var(--space-8); inset-inline-start: calc(var(--space-6) + var(--space-5) + var(--space-6) + var(--space-2)); width: var(--space-2); background-image: linear-gradient(var(--nes-white) 50%, transparent 50%); background-size: 100% var(--space-4); }
 .overworld-levels { display: flex; flex-direction: column; gap: var(--space-4); }
 .overworld-node { display: grid; grid-template-columns: var(--icon-size) minmax(0, 1fr) auto; grid-template-areas: "icon copy meta"; align-items: center; gap: var(--space-4); padding-inline-start: var(--space-6); color: var(--nes-black); background: var(--nes-white); border-color: var(--nes-black); box-shadow: var(--space-1) var(--space-1) 0 var(--nes-black); text-align: start; }
-.overworld-node:hover, .overworld-node:focus-visible, .overworld-node.is-selected { color: var(--nes-black); background: var(--nes-yellow); border-color: var(--nes-black); outline: none; }
+.overworld-node:hover, .overworld-node:focus-visible, .overworld-node.is-selected { color: var(--nes-black); background: var(--nes-yellow); border-color: var(--nes-black); box-shadow: var(--space-1) var(--space-1) 0 var(--nes-black); outline: none; }
 .overworld-node .level-icon { grid-area: icon; width: var(--icon-size); height: var(--icon-size); border-color: var(--nes-black); }
 .overworld-node-copy { grid-area: copy; display: flex; min-width: 0; max-width: 100%; flex-direction: column; gap: var(--space-1); }
 .overworld-node .level-number, .overworld-node .level-name, .overworld-node .level-date { color: inherit; }
