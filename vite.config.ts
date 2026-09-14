@@ -105,6 +105,9 @@ export default defineConfig(async ({ command, mode }) => {
           enabled: command === "build",
           crawlLinks: false,
           autoStaticPathsDiscovery: false,
+          onSuccess: ({ page, html }: { page: { path: string }; html: string }) => {
+            prerenderedHtml.set(page.path, html);
+          },
         },
       }),
       viteReact(),
@@ -112,13 +115,4 @@ export default defineConfig(async ({ command, mode }) => {
       ...(mode === "development" ? [componentTagger()] : []),
     ],
   };
-});
-
-// temp diagnostic
-process.on("exit", () => {
-  try {
-    console.log("[diag] out=", process.env["TSS_CLIENT_OUTPUT_DIR"], fs.readdirSync("dist/client").join(","));
-  } catch (e) {
-    console.log("[diag] no dist/client");
-  }
 });
