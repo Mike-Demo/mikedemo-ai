@@ -27,28 +27,24 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
+      // Fonts are self-hosted (see src/styles.css) so first paint does not
+      // wait on a third-party origin. Both faces are used above the fold.
       {
-        rel: "stylesheet",
-        href: "https://cdn.jsdelivr.net/npm/@awesome.me/webawesome@3.12.0/dist/styles/webawesome.css",
+        rel: "preload",
+        href: "/fonts/press-start-2p.woff2",
+        as: "font",
+        type: "font/woff2",
+        crossOrigin: "anonymous",
       },
       {
-        rel: "stylesheet",
-        href: "https://cdn.jsdelivr.net/npm/@awesome.me/webawesome@3.12.0/dist/styles/themes/default.css",
+        rel: "preload",
+        href: "/fonts/work-sans.woff2",
+        as: "font",
+        type: "font/woff2",
+        crossOrigin: "anonymous",
       },
-      {
-        rel: "stylesheet",
-        href: "https://cdn.jsdelivr.net/npm/@awesome.me/webawesome@3.12.0/dist/styles/utilities.css",
-      },
-      {
-        rel: "stylesheet",
-        href: "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.3.1/css/all.min.css",
-      },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap",
-      },
+      // Order is load-bearing: the NES sheet must come before the app sheet,
+      // or body copy renders in the pixel font.
       { rel: "stylesheet", href: nesCss },
       { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.png", type: "image/png" },
