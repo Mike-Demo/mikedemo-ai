@@ -51,7 +51,10 @@ function prerenderServerShim(): Plugin {
       const dir = options.dir;
       if (!dir || path.basename(dir) !== "server") return;
       if (!fs.existsSync(path.join(dir, "index.js"))) return;
-      fs.writeFileSync(path.join(dir, "server.js"), 'export * from "./index.js";\n');
+      fs.writeFileSync(
+        path.join(dir, "server.js"),
+        'export * from "./index.js";\nexport { default } from "./index.js";\n',
+      );
     },
   };
 }
