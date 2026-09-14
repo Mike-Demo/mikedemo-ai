@@ -71,9 +71,7 @@ export function TimelineArcade({
               <span>WORLD 01</span>
               <span>{String(projects.length).padStart(2, "0")} STAGES</span>
             </div>
-            <svg className="overworld-route" viewBox="0 0 600 500" preserveAspectRatio="none" aria-hidden="true">
-              <polyline points="100,85 300,85 500,85 500,250 300,250 100,250 100,415 300,415 500,415" />
-            </svg>
+            <span className="overworld-route" aria-hidden="true" />
             <ol className="level-grid overworld-levels" aria-label="Project world, newest first">
             {projects.map((project, index) => {
               const isSelected = selectedIndex === index;
@@ -126,11 +124,13 @@ export function TimelineArcade({
 
           {!compact ? (
             <NesContainer className="selected-project" dark aria-live="polite">
+              <span className="selected-project-badge pixel-display">ACTIVE</span>
               <div className="selected-project-content stack stack-m">
                 <div className="selected-project-topline">
                   <NesText variant="success" className="pixel-display">PLAYER 1</NesText>
                   <NesText variant="success" className="pixel-display">READY!</NesText>
                 </div>
+                <span className="crt-strip" aria-hidden="true" />
                 <h3 className="pixel-display selected-project-title">
                   <NesText variant="warning">{selectedProject.name}</NesText>
                 </h3>
