@@ -223,36 +223,6 @@ a:focus-visible, summary:focus-visible { outline: var(--pixel-border) solid var(
 .arcade-start-button-corner.bottom-left { inset-block-end: 0; inset-inline-start: 0; }
 .arcade-start-button-corner.bottom-right { inset-block-end: 0; inset-inline-end: 0; }
 
-.insert-coin-hint {
-  position: absolute;
-  inset-block-end: calc(100% + var(--space-2));
-  inset-inline-start: 50%;
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  padding: var(--space-1) var(--space-2);
-  color: var(--nes-dark);
-  background-color: var(--nes-success);
-  border-style: solid;
-  border-width: var(--space-1);
-  border-color: var(--nes-dark);
-  font-family: var(--pixel-font);
-  font-size: var(--text-xs);
-  line-height: 1.6;
-  white-space: nowrap;
-  opacity: 0;
-  transform: translateX(-50%) translateY(var(--space-1));
-  transition: opacity 75ms steps(2), transform 75ms steps(2);
-  pointer-events: none;
-}
-
-.arcade-start-button:hover .insert-coin-hint,
-.arcade-start-button:focus-visible .insert-coin-hint {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
-}
-
-
 .section { max-width: var(--content-wide); margin-inline: auto; padding: var(--space-7) var(--space-5); }
 .section-narrow { max-width: var(--content-narrow); }
 .section-title { font-size: var(--text-xl); }

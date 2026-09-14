@@ -17,9 +17,6 @@ export function ArcadeStartButton({
       <span className="arcade-start-button-corner top-right" aria-hidden="true" />
       <span className="arcade-start-button-corner bottom-left" aria-hidden="true" />
       <span className="arcade-start-button-corner bottom-right" aria-hidden="true" />
-      <span className="insert-coin-hint" aria-hidden="true">
-        INSERT COIN
-      </span>
     </button>
   );
 }
