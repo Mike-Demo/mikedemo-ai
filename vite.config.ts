@@ -98,7 +98,7 @@ export default defineConfig(async ({ command, mode }) => {
 // temp diagnostic
 process.on("exit", () => {
   try {
-    console.log("[diag] dist/client:", fs.readdirSync("dist/client").join(","));
+    console.log("[diag] out=", process.env["TSS_CLIENT_OUTPUT_DIR"], fs.readdirSync("dist/client").join(","));
   } catch (e) {
     console.log("[diag] no dist/client");
   }
