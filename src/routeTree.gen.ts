@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AgentSkillsRouteImport } from './routes/agent-skills'
 import { Route as BugleCrownsRouteImport } from './routes/bugle-crowns'
+import { Route as ClaudeCodeSkillsRouteImport } from './routes/claude-code-skills'
 import { Route as LicensesRouteImport } from './routes/licenses'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ProjectsIndexRouteImport } from './routes/projects.index'
@@ -32,6 +33,11 @@ const AgentSkillsRoute = AgentSkillsRouteImport.update({
 const BugleCrownsRoute = BugleCrownsRouteImport.update({
   id: '/bugle-crowns',
   path: '/bugle-crowns',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ClaudeCodeSkillsRoute = ClaudeCodeSkillsRouteImport.update({
+  id: '/claude-code-skills',
+  path: '/claude-code-skills',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LicensesRoute = LicensesRouteImport.update({
@@ -71,6 +77,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/agent-skills': typeof AgentSkillsRoute
   '/bugle-crowns': typeof BugleCrownsRoute
+  '/claude-code-skills': typeof ClaudeCodeSkillsRoute
   '/licenses': typeof LicensesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/projects/$slug': typeof ProjectsSlugRoute
@@ -82,6 +89,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/agent-skills': typeof AgentSkillsRoute
   '/bugle-crowns': typeof BugleCrownsRoute
+  '/claude-code-skills': typeof ClaudeCodeSkillsRoute
   '/licenses': typeof LicensesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/projects/$slug': typeof ProjectsSlugRoute
@@ -94,6 +102,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/agent-skills': typeof AgentSkillsRoute
   '/bugle-crowns': typeof BugleCrownsRoute
+  '/claude-code-skills': typeof ClaudeCodeSkillsRoute
   '/licenses': typeof LicensesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/projects/$slug': typeof ProjectsSlugRoute
@@ -107,6 +116,7 @@ export interface FileRouteTypes {
     | '/'
     | '/agent-skills'
     | '/bugle-crowns'
+    | '/claude-code-skills'
     | '/licenses'
     | '/sitemap.xml'
     | '/projects/$slug'
@@ -118,6 +128,7 @@ export interface FileRouteTypes {
     | '/'
     | '/agent-skills'
     | '/bugle-crowns'
+    | '/claude-code-skills'
     | '/licenses'
     | '/sitemap.xml'
     | '/projects/$slug'
@@ -129,6 +140,7 @@ export interface FileRouteTypes {
     | '/'
     | '/agent-skills'
     | '/bugle-crowns'
+    | '/claude-code-skills'
     | '/licenses'
     | '/sitemap.xml'
     | '/projects/$slug'
@@ -141,6 +153,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AgentSkillsRoute: typeof AgentSkillsRoute
   BugleCrownsRoute: typeof BugleCrownsRoute
+  ClaudeCodeSkillsRoute: typeof ClaudeCodeSkillsRoute
   LicensesRoute: typeof LicensesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   ProjectsSlugRoute: typeof ProjectsSlugRoute
@@ -170,6 +183,13 @@ declare module '@tanstack/react-router' {
       path: '/bugle-crowns'
       fullPath: '/bugle-crowns'
       preLoaderRoute: typeof BugleCrownsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/claude-code-skills': {
+      id: '/claude-code-skills'
+      path: '/claude-code-skills'
+      fullPath: '/claude-code-skills'
+      preLoaderRoute: typeof ClaudeCodeSkillsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/licenses': {
@@ -221,6 +241,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AgentSkillsRoute: AgentSkillsRoute,
   BugleCrownsRoute: BugleCrownsRoute,
+  ClaudeCodeSkillsRoute: ClaudeCodeSkillsRoute,
   LicensesRoute: LicensesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   ProjectsSlugRoute: ProjectsSlugRoute,
