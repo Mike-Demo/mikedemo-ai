@@ -94,3 +94,12 @@ export default defineConfig(async ({ command, mode }) => {
     ],
   };
 });
+
+// temp diagnostic
+process.on("exit", () => {
+  try {
+    console.log("[diag] dist/client:", fs.readdirSync("dist/client").join(","));
+  } catch (e) {
+    console.log("[diag] no dist/client");
+  }
+});
