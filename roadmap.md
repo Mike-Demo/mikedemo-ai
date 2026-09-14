@@ -13,3 +13,4 @@
 - [x] Replace the Level Select grid with the selected NES Overworld project map
 
 - [x] Store projects in the Cloud database (public.projects) and read them via listProjects server fn
+- [x] Performance pass: small self-hosted fonts, 320px WebP portrait with preload, page-scoped icon/Web Awesome stylesheets, lazy design-system showcase, intent route prefetch, cached project reads, dropped unused recharts
