@@ -10,6 +10,7 @@ import { SeasonCalendar } from "@/components/SeasonCalendar";
 import { SiteShell } from "@/components/SiteShell";
 import { TechTagList } from "@/components/TechTagList";
 import { findProject } from "@/data/projects";
+import { fontAwesomeLinks } from "@/lib/head-assets";
 import { listProjects } from "@/lib/projects.functions";
 import { breadcrumbJsonLd, SITE_URL } from "@/lib/jsonld";
 

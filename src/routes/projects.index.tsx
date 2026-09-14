@@ -6,6 +6,7 @@ import { NesContainer } from "@/design-system/nes-229931";
 import { SiteShell } from "@/components/SiteShell";
 import { TimelineArcade } from "@/components/TimelineArcade";
 import { breadcrumbJsonLd, projectCollectionJsonLd, SITE_URL } from "@/lib/jsonld";
+import { fontAwesomeLinks } from "@/lib/head-assets";
 import { listProjects } from "@/lib/projects.functions";
 
 const description =
