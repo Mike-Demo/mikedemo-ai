@@ -50,13 +50,18 @@ function Index(): ReactElement {
   return (
     <SiteShell>
       <section className="hero-section">
-        <img
-          src={headshotSrc}
-          alt="Pixel-art portrait of MikeDemo wearing glasses, a cap, and a patterned jacket"
-          className="hero-headshot"
-          width="160"
-          height="160"
-        />
+        <picture>
+          <source srcSet={headshotWebp} type="image/webp" />
+          <img
+            src={headshotPng}
+            alt="Pixel-art portrait of MikeDemo wearing glasses, a cap, and a patterned jacket"
+            className="hero-headshot"
+            width="160"
+            height="160"
+            decoding="async"
+            fetchPriority="high"
+          />
+        </picture>
         <p className="pixel-display hero-eyebrow">PRESS START</p>
         <h1 className="pixel-display hero-title">AI Projects by MikeDemo</h1>
         <p className="hero-subtitle">
