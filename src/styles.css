@@ -1,5 +1,5 @@
 @font-face {
-  font-family: "Press Start Local";
+  font-family: "Press Start 2P";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -48,7 +48,7 @@
   --text-xl: 1.55rem;
   --text-2xl: 2rem;
   --body-font: "Work Sans", system-ui, sans-serif;
-  --pixel-font: "Press Start Local", monospace;
+  --pixel-font: "Press Start 2P", monospace;
 }
 
 html {
