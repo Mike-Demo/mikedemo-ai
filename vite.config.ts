@@ -59,6 +59,25 @@ function prerenderServerShim(): Plugin {
   };
 }
 
+/**
+ * Prerendered HTML is written into the client output directory, which the
+ * Cloudflare build step rewrites afterwards. Keep each page in memory and flush
+ * it back once the whole build has finished.
+ */
+const prerenderedHtml = new Map<string, string>();
+
+function flushPrerenderedHtml(): void {
+  if (prerenderedHtml.size === 0) return;
+  const outDir = process.env["TSS_CLIENT_OUTPUT_DIR"] ?? "dist/client";
+  for (const [pagePath, html] of prerenderedHtml) {
+    const file = path.resolve(outDir, `${pagePath.replace(/^\/+/, "")}/index.html`);
+    fs.mkdirSync(path.dirname(file), { recursive: true });
+    fs.writeFileSync(file, html);
+  }
+  prerenderedHtml.clear();
+}
+
+process.on("exit", flushPrerenderedHtml);
 
 export default defineConfig(async ({ command, mode }) => {
   // Cloudflare Workers plugin only on build (produces the worker output);
