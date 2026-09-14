@@ -33,7 +33,10 @@ export const Route = createFileRoute("/")({
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: "https://mikedemo.dev/og-cover.jpg" },
     ],
-    links: [{ rel: "canonical", href: "https://mikedemo.dev/" }],
+    links: [
+      { rel: "canonical", href: "https://mikedemo.dev/" },
+      { rel: "preload", as: "image", href: headshotWebp, type: "image/webp" },
+    ],
   }),
   component: Index,
 });
