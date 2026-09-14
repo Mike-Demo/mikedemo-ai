@@ -38,6 +38,25 @@ async function prerenderPages(): Promise<{ path: string }[]> {
   return [...paths].map((value) => ({ path: value }));
 }
 
+/**
+ * The prerender step boots the built server from `dist/server/server.js`, while
+ * the Cloudflare output is emitted as `dist/server/index.js`. This writes a
+ * tiny re-export so both names resolve.
+ */
+function prerenderServerShim(): Plugin {
+  return {
+    name: "prerender-server-shim",
+    enforce: "post",
+    writeBundle(options) {
+      const dir = options.dir;
+      if (!dir || path.basename(dir) !== "server") return;
+      if (!fs.existsSync(path.join(dir, "index.js"))) return;
+      fs.writeFileSync(path.join(dir, "server.js"), 'export * from "./index.js";\n');
+    },
+  };
+}
+
+
 export default defineConfig(async ({ command, mode }) => {
   // Cloudflare Workers plugin only on build (produces the worker output);
   // the workerd runtime isn't available for the dev server.
