@@ -52,7 +52,11 @@ export const Route = createFileRoute("/projects/$slug")({
         { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:image", content: cover },
       ],
-      links: [{ rel: "canonical", href: url }],
+      links: [
+        { rel: "canonical", href: url },
+        ...fontAwesomeLinks,
+        ...(loaderData.project.slug === DESIGN_SYSTEMS_SLUG ? webAwesomeLinks : []),
+      ],
       scripts: [
         { type: "application/ld+json", children: projectJsonLd(loaderData.project) },
         {
