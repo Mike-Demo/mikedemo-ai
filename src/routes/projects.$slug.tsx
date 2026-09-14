@@ -1,16 +1,25 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import type { ReactElement } from "react";
+import { lazy, Suspense, type ReactElement } from "react";
 
 import { NesContainer } from "@/design-system/nes-229931";
 
-import { DesignSystemsShowcase } from "@/components/DesignSystemsShowcase";
 import { ProjectCabinet } from "@/components/ProjectCabinet";
 import { ProjectPager } from "@/components/ProjectPager";
 import { ProjectSummaryCard } from "@/components/ProjectSummaryCard";
 import { SiteShell } from "@/components/SiteShell";
 import { findProject } from "@/data/projects";
 import { listProjects } from "@/lib/projects.functions";
+import { fontAwesomeLinks, webAwesomeLinks } from "@/lib/head-assets";
 import { breadcrumbJsonLd, projectJsonLd, SITE_URL } from "@/lib/jsonld";
+
+/** Design Systems slug is the only page that renders <wa-*> markup. */
+const DESIGN_SYSTEMS_SLUG = "awesome-design-system";
+
+// Loaded on demand: pulls the Web Awesome element bundle, which no other
+// project page needs.
+const DesignSystemsShowcase = lazy(async () => ({
+  default: (await import("@/components/DesignSystemsShowcase")).DesignSystemsShowcase,
+}));
 
 
 export const Route = createFileRoute("/projects/$slug")({
