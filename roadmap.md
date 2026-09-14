@@ -14,3 +14,4 @@
 
 - [x] Store projects in the Cloud database (public.projects) and read them via listProjects server fn
 - [x] Performance pass: small self-hosted fonts, 320px WebP portrait with preload, page-scoped icon/Web Awesome stylesheets, lazy design-system showcase, intent route prefetch, cached project reads, dropped unused recharts
+- [x] Pre-build Level Select, every project page, and the Bugle Crowns page to static HTML at build time
