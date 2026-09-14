@@ -74,5 +74,7 @@ export const listProjects = createServerFn({ method: "GET" }).handler(async (): 
     .order("started", { ascending: false });
 
   if (error) throw new Error(error.message);
-  return (data ?? []).map((row) => toProject(row as ProjectRow));
+  const projects = (data ?? []).map((row) => toProject(row as ProjectRow));
+  cache = { at: Date.now(), projects };
+  return projects;
 });
