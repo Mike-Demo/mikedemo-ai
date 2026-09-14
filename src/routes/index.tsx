@@ -3,8 +3,12 @@ import type { ReactElement } from "react";
 
 import { CredentialsSection } from "@/components/CredentialsSection";
 import { SiteShell } from "@/components/SiteShell";
-import headshotSrc from "@/assets/headshot.png";
+// 320px source for a 160px display box: the LCP element, so it is kept small,
+// preloaded below, and offered as WebP with a PNG fallback.
+import headshotWebp from "@/assets/headshot-320.webp";
+import headshotPng from "@/assets/headshot-320.png";
 import { ArcadeStartButton } from "@/components/ArcadeStartButton";
+
 
 
 export const Route = createFileRoute("/")({
