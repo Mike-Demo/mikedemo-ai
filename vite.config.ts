@@ -7,10 +7,41 @@ import viteReact from "@vitejs/plugin-react";
 import { componentTagger } from "lovable-tagger";
 import { mockupPreviewPlugin } from "./mockupPreviewPlugin";
 
-export default defineConfig(({ command, mode }) => {
+/**
+ * Concrete paths to prerender. Project detail routes are parameterized, so the
+ * slugs are read from the database at build time; a failed read simply falls
+ * back to server rendering those pages.
+ */
+async function prerenderPages(): Promise<{ path: string }[]> {
+  const paths = new Set<string>(["/projects"]);
+  const url = process.env["SUPABASE_URL"];
+  const key = process.env["SUPABASE_PUBLISHABLE_KEY"];
+
+  if (url && key) {
+    try {
+      const response = await fetch(`${url}/rest/v1/projects?select=slug,detail_path`, {
+        headers: { apikey: key },
+      });
+      if (response.ok) {
+        const rows = (await response.json()) as { slug: string; detail_path: string | null }[];
+        for (const row of rows) {
+          paths.add(`/projects/${row.slug}`);
+          if (row.detail_path) paths.add(row.detail_path);
+        }
+      }
+    } catch {
+      // Keep the build going: unlisted routes are still server rendered.
+    }
+  }
+
+  return [...paths].map((value) => ({ path: value }));
+}
+
+export default defineConfig(async ({ command, mode }) => {
   // Cloudflare Workers plugin only on build (produces the worker output);
   // the workerd runtime isn't available for the dev server.
   const useCloudflare = command === "build";
+  const pages = command === "build" ? await prerenderPages() : [];
 
   return {
     server: {
@@ -26,7 +57,14 @@ export default defineConfig(({ command, mode }) => {
       mockupPreviewPlugin(),
       tsConfigPaths({ projects: ["./tsconfig.json"] }),
       ...(useCloudflare ? [cloudflare({ viteEnvironment: { name: "ssr" } })] : []),
-      tanstackStart(),
+      tanstackStart({
+        pages,
+        prerender: {
+          enabled: command === "build",
+          crawlLinks: false,
+          autoStaticPathsDiscovery: false,
+        },
+      }),
       viteReact(),
       ...(mode === "development" ? [componentTagger()] : []),
     ],
