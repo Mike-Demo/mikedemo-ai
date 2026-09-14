@@ -28,7 +28,10 @@ export const Route = createFileRoute("/agent-skills")({
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: "https://mikedemo.dev/og-cover.jpg" },
     ],
-    links: [{ rel: "canonical", href: "https://mikedemo.dev/agent-skills" }],
+    links: [
+      { rel: "canonical", href: "https://mikedemo.dev/agent-skills" },
+      ...fontAwesomeLinks,
+    ],
     scripts: [
       {
         type: "application/ld+json",

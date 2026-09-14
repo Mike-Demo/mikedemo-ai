@@ -26,7 +26,10 @@ export const Route = createFileRoute("/projects/")({
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: "https://mikedemo.dev/og-cover.jpg" },
     ],
-    links: [{ rel: "canonical", href: "https://mikedemo.dev/projects" }],
+    links: [
+      { rel: "canonical", href: "https://mikedemo.dev/projects" },
+      ...fontAwesomeLinks,
+    ],
     scripts: [
       { type: "application/ld+json", children: projectCollectionJsonLd(loaderData ?? []) },
       {
