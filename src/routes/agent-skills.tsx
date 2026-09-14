@@ -160,6 +160,9 @@ function AgentSkillsPage(): ReactElement {
               <a className="nes-btn is-primary" href={skillFinder.url} target="_blank" rel="noopener noreferrer">
                 OPEN {skillFinder.domain}
               </a>
+              <Link to="/claude-code-skills" className="site-nav-link">
+                Claude Code &amp; Copilot guide
+              </Link>
               <Link to="/projects/$slug" params={{ slug: skillFinder.slug }} className="site-nav-link">
                 How it was built
               </Link>
