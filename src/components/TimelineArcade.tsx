@@ -111,7 +111,7 @@ export function TimelineArcade({
                         {formatMonthYear(project.started)}
                       </time>
                       <span className={`stage-status pixel-display ${isCleared ? "stage-status-cleared" : "stage-status-locked"}`}>
-                        <NesRuneIcon name={isCleared ? "star" : "lock"} aria-hidden="true" />
+                        <NesRuneIcon name={isCleared ? "star" : "lock"} size="small" aria-hidden="true" />
                         {isCleared ? "CLEARED" : "LOCKED"}
                       </span>
                     </span>
