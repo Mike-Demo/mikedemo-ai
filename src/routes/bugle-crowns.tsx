@@ -163,12 +163,6 @@ function BugleCrownsPage(): ReactElement {
                 </NesContainer>
               ))}
               </div>
-              <h3 className="pixel-display tech-heading">What we learned</h3>
-              <div className="stack stack-s">
-                {performanceDiagnosis.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
-                ))}
-              </div>
             </div>
           </details>
 
