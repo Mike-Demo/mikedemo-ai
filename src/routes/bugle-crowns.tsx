@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type { ReactElement } from "react";
 
-import { NesContainer, NesTable, NesText } from "@/design-system/nes-229931";
+import { NesContainer } from "@/design-system/nes-229931";
 
 import { ProjectCabinet } from "@/components/ProjectCabinet";
 import { ProjectPager } from "@/components/ProjectPager";
@@ -17,11 +17,9 @@ import {
   latestMatch,
   leaderboardUrl,
   matchLog,
-  performanceDiagnosis,
   scheduleUrl,
   squadStack,
   weekId,
-  weekRecord,
 } from "@/data/bugle-crowns";
 
 const description =
