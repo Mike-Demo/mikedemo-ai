@@ -122,60 +122,6 @@ function BugleCrownsPage(): ReactElement {
             <div className="stack stack-s">
           <details className="nes-details" open><summary className="pixel-display">WEEK 1 · FULL DEBRIEF</summary>
             <div className="stack stack-l">
-              <h3 className="pixel-display tech-heading">Standings</h3>
-              <div className="match-table-scroll">
-                <NesTable className="match-table" bordered responsive>
-                  <caption className="text-quiet">
-                    All ten Round 1 Week 1 matches, in the order they were played.
-                  </caption>
-                  <thead>
-                    <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">Opponent</th>
-                      <th scope="col">Result</th>
-                      <th scope="col">Score</th>
-                      <th scope="col">Poss.</th>
-                      <th scope="col">GD</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {matchLog.map((match) => {
-                      const diff = match.scoreFor - match.scoreAgainst;
-                      return (
-                        <tr key={match.match}>
-                          <td>{match.match}</td>
-                          <th scope="row">{match.opponent}</th>
-                          <td>
-                            <NesText variant={match.result === "win" ? "success" : "error"}>{match.result === "win" ? "W" : "L"}</NesText>
-                          </td>
-                          <td>
-                            {match.scoreFor}–{match.scoreAgainst}
-                          </td>
-                          <td>{match.possession ? `${match.possession}%` : "—"}</td>
-                          <td>{diff > 0 ? `+${diff}` : String(diff)}</td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                  <tfoot>
-                    <tr>
-                      <td />
-                      <th scope="row">Total</th>
-                      <td>
-                        {weekRecord.wins}W {weekRecord.losses}L
-                      </td>
-                      <td>
-                        {weekRecord.goalsFor}–{weekRecord.goalsAgainst}
-                      </td>
-                      <td>—</td>
-                      <td>
-                        {weekRecord.goalsFor - weekRecord.goalsAgainst > 0 ? "+" : ""}
-                        {weekRecord.goalsFor - weekRecord.goalsAgainst}
-                      </td>
-                    </tr>
-                  </tfoot>
-                </NesTable>
-              </div>
               <h3 className="pixel-display tech-heading">Every match</h3>
               <div className="stack stack-s">
               {matchLog.map((match) => (
