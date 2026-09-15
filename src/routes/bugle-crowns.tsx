@@ -6,7 +6,6 @@ import { NesContainer, NesTable, NesText } from "@/design-system/nes-229931";
 import { ProjectCabinet } from "@/components/ProjectCabinet";
 import { ProjectPager } from "@/components/ProjectPager";
 import { ProjectSummaryCard } from "@/components/ProjectSummaryCard";
-import { SeasonCalendar } from "@/components/SeasonCalendar";
 import { SiteShell } from "@/components/SiteShell";
 import { TechTagList } from "@/components/TechTagList";
 import { findProject } from "@/data/projects";
@@ -15,14 +14,10 @@ import { listProjects } from "@/lib/projects.functions";
 import { breadcrumbJsonLd, SITE_URL } from "@/lib/jsonld";
 
 import {
-  drills,
   latestMatch,
   leaderboardUrl,
   matchLog,
   performanceDiagnosis,
-  practiceFocus,
-  
-  recommendations,
   scheduleUrl,
   squadStack,
   weekId,
@@ -30,7 +25,7 @@ import {
 } from "@/data/bugle-crowns";
 
 const description =
-  "Bugle Crowns, my AI agent team in the AWS Agentic Football Cup: Week 1 record, match results, season schedule, and the tactical changes proposed for Round 2.";
+  "Bugle Crowns, my AI agent team in the AWS Agentic Football Cup: Week 1 record, match results, and lessons learned.";
 
 export const Route = createFileRoute("/bugle-crowns")({
   staticData: { sitemap: true },
@@ -82,15 +77,6 @@ export const Route = createFileRoute("/bugle-crowns")({
   component: BugleCrownsPage,
 });
 
-function Stat({ label, value }: { label: string; value: string }): ReactElement {
-  return (
-    <div className="stat-block">
-      <span className="pixel-display stat-value">{value}</span>
-      <span className="text-quiet stat-label">{label}</span>
-    </div>
-  );
-}
-
 function BugleCrownsPage(): ReactElement {
   const projects = Route.useLoaderData();
   const project = findProject(projects, "bugle-crowns");
@@ -133,20 +119,6 @@ function BugleCrownsPage(): ReactElement {
             <div className="cluster cluster-m">
           <a className="nes-btn is-primary" href={scheduleUrl} target="_blank" rel="noopener noreferrer">CUP SCHEDULE</a>
           <a className="nes-btn" href={leaderboardUrl} target="_blank" rel="noopener noreferrer">LEADERBOARD</a>
-            </div>
-
-            <div className="stack stack-s">
-          <h2 className="pixel-display tech-heading">Week 1 at a glance</h2>
-          <div className="stat-grid">
-            <Stat label="Record" value={`${weekRecord.wins}W ${weekRecord.losses}L`} />
-            <Stat label="Goals for" value={String(weekRecord.goalsFor)} />
-            <Stat label="Goals against" value={String(weekRecord.goalsAgainst)} />
-            <Stat label="Clean sheets" value={String(weekRecord.cleanSheets)} />
-            <Stat label="Points" value={String(weekRecord.points)} />
-          </div>
-          <p className="text-quiet">
-            {weekRecord.played} of a possible {weekRecord.possible} matches played.
-          </p>
             </div>
 
             <div className="stack stack-s">
@@ -256,58 +228,6 @@ function BugleCrownsPage(): ReactElement {
             </div>
           </details>
 
-          <details className="nes-details"><summary className="pixel-display">PROPOSED FOR ROUND 2</summary>
-            <div className="stack stack-s">
-              {recommendations.map((rec) => (
-                <NesContainer key={rec.id} className="recommendation-card">
-                  <div className="stack stack-xs">
-                    <h3 className="pixel-card-title">{rec.field}</h3>
-                    <p>{rec.change}</p>
-                    <p className="text-quiet">
-                      <strong>Evidence:</strong> {rec.evidence}
-                    </p>
-                    <p className="text-quiet">
-                      <strong>Ranking impact:</strong> {rec.rankingImpact}
-                    </p>
-                    <div>
-                      <span className="status-chip">{rec.status}</span>
-                    </div>
-                  </div>
-                </NesContainer>
-              ))}
-            </div>
-          </details>
-
-          <details className="nes-details"><summary className="pixel-display">PRACTICE PLAN</summary>
-            <div className="stack stack-s">
-              <p className="text-quiet">{practiceFocus}</p>
-              <ul className="stack stack-xs goal-timeline">
-                {drills.map((drill) => (
-                  <li key={drill.drill}>
-                    {drill.drill}
-                    <br />
-                    <span className="text-quiet">{drill.rationale}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </details>
-            </div>
-
-            <div className="stack stack-s">
-          <h2 className="pixel-display tech-heading">Season calendar</h2>
-          <SeasonCalendar />
-          <p className="text-quiet">
-            Times per{" "}
-            <a href={scheduleUrl} target="_blank" rel="noopener noreferrer">
-              agenticfootballcup.ai/schedule
-            </a>
-            . League A standings on the{" "}
-            <a href={leaderboardUrl} target="_blank" rel="noopener noreferrer">
-              live leaderboard
-            </a>
-            .
-          </p>
             </div>
           </ProjectCabinet>
         ) : null}
