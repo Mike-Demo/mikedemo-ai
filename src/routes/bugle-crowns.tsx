@@ -23,7 +23,7 @@ import {
 } from "@/data/bugle-crowns";
 
 const description =
-  "Bugle Crowns, my AI agent team in the AWS Agentic Football Cup: Week 1 record, match results, and lessons learned.";
+  "Bugle Crowns, my AI agent team in the AWS Agentic Football Cup: team details and a match-by-match Week 1 recap.";
 
 export const Route = createFileRoute("/bugle-crowns")({
   staticData: { sitemap: true },
@@ -90,7 +90,7 @@ function BugleCrownsPage(): ReactElement {
               <div className="stack stack-xs">
                 <p>
                   Five AI agents, 120-second matches, one very opinionated coach. Bugle Crowns is my team in
-                  the AWS Agentic Football Cup — here is how Week 1 went and what changes next.
+                  the AWS Agentic Football Cup — here is how Week 1 went, match by match.
                 </p>
                 <p className="quiet-small">
                   Run by AWSOfficial Alpha Season, supported by Minds from Animoca Brands
@@ -101,8 +101,6 @@ function BugleCrownsPage(): ReactElement {
             <ProjectSummaryCard project={project} />
 
             <ProjectPager projects={projects} currentSlug="bugle-crowns" />
-
-
 
             <div className="stack stack-xs">
           <h2 className="pixel-display tech-heading">Squad stack</h2>
