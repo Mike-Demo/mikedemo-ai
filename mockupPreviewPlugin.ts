@@ -1223,8 +1223,22 @@ export function mockupPreviewPlugin(): Plugin {
       }));
     }
 
+    function isTrustedPreviewOrigin(origin) {
+      if (origin === window.location.origin) return true;
+      try {
+        const url = new URL(origin);
+        if (url.protocol !== "https:" && url.protocol !== "http:") return false;
+        const host = url.hostname;
+        return host === "lovable.dev" || host.endsWith(".lovable.dev")
+          || host.endsWith(".lovable.app") || host === "localhost" || host === "127.0.0.1";
+      } catch (error) {
+        return false;
+      }
+    }
+
     window.addEventListener("message", (event) => {
       if (event.source !== parent) return;
+      if (!isTrustedPreviewOrigin(event.origin)) return;
       const next = specimenPropsFromMessage(event.data);
       if (!next) return;
       specimenProps = next;
