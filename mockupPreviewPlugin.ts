@@ -305,6 +305,7 @@ function PreviewDocument({ previewPath }: { previewPath: string }): ReactElement
   useEffect(() => {
     const onMessage = (event: MessageEvent) => {
       if (event.source !== parent) return;
+      if (!isTrustedPreviewOrigin(event.origin)) return;
       const schemaProps = (entryRef.current as { schemaProps?: SchemaProp[] } | null)?.schemaProps ?? [];
       const props = specimenPropsFromMessage(event.data, schemaProps);
       if (!props) return;
@@ -364,6 +365,23 @@ function isLovablePreviewHost(hostname: string): boolean {
   if (hostname.endsWith(".sandbox.lovable.dev")) return true;
   if (!PREVIEW_DOMAINS.some((domain) => hostname.endsWith(domain))) return false;
   return /^(id-)?preview(-[0-9a-f]+)?--/.test(hostname.split(".")[0]);
+}
+
+function isTrustedPreviewOrigin(origin: string): boolean {
+  if (typeof window !== "undefined" && origin === window.location.origin) return true;
+  try {
+    const { hostname, protocol } = new URL(origin);
+    if (protocol !== "https:" && protocol !== "http:") return false;
+    return (
+      hostname === "lovable.dev" ||
+      hostname.endsWith(".lovable.dev") ||
+      hostname.endsWith(".lovable.app") ||
+      hostname === "localhost" ||
+      hostname === "127.0.0.1"
+    );
+  } catch {
+    return false;
+  }
 }
 
 function specimenPropsFromMessage(message: unknown, schemaProps: readonly SchemaProp[]): SpecimenProps | null {
@@ -1205,8 +1223,22 @@ export function mockupPreviewPlugin(): Plugin {
       }));
     }
 
+    function isTrustedPreviewOrigin(origin) {
+      if (origin === window.location.origin) return true;
+      try {
+        const url = new URL(origin);
+        if (url.protocol !== "https:" && url.protocol !== "http:") return false;
+        const host = url.hostname;
+        return host === "lovable.dev" || host.endsWith(".lovable.dev")
+          || host.endsWith(".lovable.app") || host === "localhost" || host === "127.0.0.1";
+      } catch (error) {
+        return false;
+      }
+    }
+
     window.addEventListener("message", (event) => {
       if (event.source !== parent) return;
+      if (!isTrustedPreviewOrigin(event.origin)) return;
       const next = specimenPropsFromMessage(event.data);
       if (!next) return;
       specimenProps = next;
