@@ -9,6 +9,7 @@ import crosspostLogo from "@/assets/project-icons/crosspost.png";
 import onDeviceAiLogo from "@/assets/project-icons/on-device-ai.svg";
 import pretendProLogo from "@/assets/project-icons/pretendpro.png";
 import prideBlobsLogo from "@/assets/project-icons/pride-blobs.png";
+import queerCadeConnectLogo from "@/assets/project-icons/queercade-connect.png";
 import skillFinderLogo from "@/assets/project-icons/skill-finder-plus.svg";
 import staLogo from "@/assets/project-icons/sta-2e-d20-roller.jpg";
 
@@ -52,6 +53,7 @@ export const projectLogos: Readonly<Record<string, string>> = {
   "on-device-ai": onDeviceAiLogo,
   pretendpro: pretendProLogo,
   "pride-blobs": prideBlobsLogo,
+  "queercade-connect": queerCadeConnectLogo,
   "skill-finder-plus": skillFinderLogo,
   "sta-2e-d20-roller": staLogo,
 };
