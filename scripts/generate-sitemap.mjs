@@ -25,7 +25,7 @@ const STATIC_PATHS = [
  */
 function readProjectRows() {
   const source = fs.readFileSync(GENERATED, "utf8");
-  const start = source.indexOf("[");
+  const start = source.indexOf("= [") + 2;
   const end = source.lastIndexOf("]");
   if (start === -1 || end === -1) throw new Error("Could not read generated project rows");
   return JSON.parse(source.slice(start, end + 1));
