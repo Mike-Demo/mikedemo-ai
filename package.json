@@ -40,6 +40,7 @@
     "typecheck": "tsc --noEmit",
     "generate:projects": "node scripts/generate-projects.mjs",
     "build:static": "STATIC_BUILD=1 npm run build",
+    "build:lovable": "LOVABLE_BUILD=1 npm run build",
     "generate:sitemap": "node scripts/generate-sitemap.mjs"
   },
   "sideEffects": false,
