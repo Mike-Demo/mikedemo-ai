@@ -72,7 +72,10 @@ function flushPrerenderedHtml(): void {
   if (prerenderedHtml.size === 0) return;
   const outDir = process.env["TSS_CLIENT_OUTPUT_DIR"] ?? "dist/client";
   for (const [pagePath, html] of prerenderedHtml) {
-    const file = path.resolve(outDir, `${pagePath.replace(/^\/+/, "")}/index.html`);
+    // "/" must land on <outDir>/index.html: a leading slash would otherwise
+    // resolve to the filesystem root and the home page would go missing.
+    const relative = pagePath.replace(/^\/+|\/+$/g, "");
+    const file = path.join(path.resolve(outDir), relative, "index.html");
     fs.mkdirSync(path.dirname(file), { recursive: true });
     fs.writeFileSync(file, html);
   }
