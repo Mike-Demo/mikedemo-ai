@@ -106,11 +106,23 @@ function flushPrerenderedHtml(): void {
 
 process.on("exit", flushPrerenderedHtml);
 
-export default defineConfig(({ command, mode }) => {
+export default defineConfig(async ({ command, mode }) => {
   const pages = command === "build" ? prerenderPages() : [];
   // The workerd runtime isn't available for the dev server, so the Cloudflare
   // plugin is build-only — and only for the Lovable-hosting target.
   const useCloudflare = command === "build" && wantsWorkerOutput;
+  const cloudflarePlugins = useCloudflare
+    ? (await import("@cloudflare/vite-plugin")).cloudflare({
+        viteEnvironment: { name: "ssr" },
+        // Inline replacement for the deleted wrangler.jsonc (see note above).
+        config: {
+          name: "tanstack-start-app",
+          compatibility_date: "2025-09-24",
+          compatibility_flags: ["nodejs_compat"],
+          main: "@tanstack/react-start/server-entry",
+        },
+      })
+    : [];
 
   return {
     server: {
