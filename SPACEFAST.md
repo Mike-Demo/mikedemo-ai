@@ -8,19 +8,21 @@ no login, no request-time data fetching, no webhooks or scheduled jobs.
 | Setting                  | Value                                              |
 | ------------------------ | -------------------------------------------------- |
 | Install command          | `bun install` (or `npm ci`)                        |
-| Build command            | `vite build && node scripts/copy-static-output.mjs` |
+| Build command            | `npm run build:static`                             |
 | Static output directory  | `dist/client`                                      |
 | Raw Nitro output         | `.output/public` (copied into `dist/client`)        |
 
-The `build` script in `package.json` also runs `node scripts/generate-projects.mjs`
-first, which is what makes the site static — see below. The full command it runs is:
+`build:static` sets `STATIC_BUILD=1` and then runs the normal build:
 
 ```
-node scripts/generate-projects.mjs && vite build && node scripts/copy-static-output.mjs
+STATIC_BUILD=1 node scripts/generate-projects.mjs && node scripts/generate-sitemap.mjs && vite build && node scripts/copy-static-output.mjs
 ```
 
-If the host's build command field is set manually, use the full command above so the
-project data is refreshed before the build.
+`STATIC_BUILD=1` is what keeps the output static: it switches off the Cloudflare
+Worker output in `vite.config.ts`, which Spacefast refuses to convert. The default
+`npm run build` keeps the Worker output because Lovable's own hosting (preview and
+`mikedemo-ai.lovable.app`) needs it to serve requests. Always use `build:static`
+on Spacefast; never the plain `build`.
 
 ## What gets published
 
@@ -73,8 +75,10 @@ in `.env`.
 
 ## Notes for future changes
 
-- Adding a public route means three edits: the route file, the `prerenderPages()` list
-  in `vite.config.ts`, and `public/sitemap.xml`.
+- Adding a public route means two edits: the route file and the path lists in
+  `vite.config.ts` (`prerenderPages()`) and `scripts/generate-sitemap.mjs`
+  (`STATIC_PATHS`). Project pages need neither: both are derived from the project
+  data, and `public/sitemap.xml` is regenerated on every build.
 - Do not set `nitro: { preset: "static" }` — it breaks the SSR build.
 - Prerendering is configured directly through `@tanstack/react-start/plugin/vite`
   (`prerender: { enabled: true, autoStaticPathsDiscovery: false }`); this project does

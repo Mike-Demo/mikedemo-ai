@@ -13,6 +13,7 @@
     "zod": "^3.25.76"
   },
   "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.56.0",
     "@eslint/js": "^9.32.0",
     "@types/node": "^22.16.5",
     "@types/react": "^19.2.0",
@@ -31,13 +32,15 @@
   "name": "custom_design_system_tanstack",
   "private": true,
   "scripts": {
-    "build": "node scripts/generate-projects.mjs && vite build && node scripts/copy-static-output.mjs",
-    "build:dev": "node scripts/generate-projects.mjs && vite build --mode development && node scripts/copy-static-output.mjs",
+    "build": "node scripts/generate-projects.mjs && node scripts/generate-sitemap.mjs && vite build && node scripts/copy-static-output.mjs",
+    "build:dev": "node scripts/generate-projects.mjs && node scripts/generate-sitemap.mjs && vite build --mode development && node scripts/copy-static-output.mjs",
     "dev": "vite dev",
     "lint": "eslint .",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
-    "generate:projects": "node scripts/generate-projects.mjs"
+    "generate:projects": "node scripts/generate-projects.mjs",
+    "build:static": "STATIC_BUILD=1 npm run build",
+    "generate:sitemap": "node scripts/generate-sitemap.mjs"
   },
   "sideEffects": false,
   "type": "module"

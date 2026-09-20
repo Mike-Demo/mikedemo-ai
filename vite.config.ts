@@ -1,7 +1,8 @@
 import fs from "node:fs";
 import path from "path";
-import { defineConfig } from "vite";
+import { defineConfig, type Plugin } from "vite";
 import tsConfigPaths from "vite-tsconfig-paths";
+import { cloudflare } from "@cloudflare/vite-plugin";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import viteReact from "@vitejs/plugin-react";
 import { componentTagger } from "lovable-tagger";
@@ -14,6 +15,15 @@ import { generatedProjectRows } from "./src/data/projects.generated";
  * after every page was written. Vite skips that listener entirely under `CI`.
  */
 process.env["CI"] = process.env["CI"] ?? "true";
+
+/**
+ * Two build targets:
+ * - default (Lovable hosting): Cloudflare Worker output, so the published site
+ *   and preview can serve requests.
+ * - `STATIC_BUILD=1` (Spacefast and any other plain static host): no Worker
+ *   entrypoint, just the prerendered HTML in `dist/client`.
+ */
+const isStaticBuild = process.env["STATIC_BUILD"] === "1";
 
 /**
  * Every public, non-parameterized path to prerender. Project detail routes are
@@ -40,16 +50,36 @@ function prerenderPages(): { path: string }[] {
 }
 
 /**
- * The build emits Nitro's static output at `.output/public`; prerendered HTML
- * also lands in `dist/client`. Keep each page in memory and flush it into both
- * the Nitro public output and `dist/client` once the whole build has finished,
- * so static hosts can serve either directory.
+ * The prerender step boots the built server from `dist/server/server.js`, while
+ * the Cloudflare output is emitted as `dist/server/index.js`. This writes a
+ * tiny re-export so both names resolve.
+ */
+function prerenderServerShim(): Plugin {
+  return {
+    name: "prerender-server-shim",
+    enforce: "post",
+    writeBundle(options) {
+      const dir = options.dir;
+      if (!dir || path.basename(dir) !== "server") return;
+      if (!fs.existsSync(path.join(dir, "index.js"))) return;
+      fs.writeFileSync(
+        path.join(dir, "server.js"),
+        'export * from "./index.js";\nexport { default } from "./index.js";\n',
+      );
+    },
+  };
+}
+
+/**
+ * Prerendered HTML also has to survive the Cloudflare build step, which
+ * rewrites the client output directory. Keep each page in memory and flush it
+ * into both the Nitro public output and `dist/client` once the build finished.
  */
 const prerenderedHtml = new Map<string, string>();
 
 function flushPrerenderedHtml(): void {
   if (prerenderedHtml.size === 0) return;
-  const outDirs = [".output/public", "dist/client"];
+  const outDirs = [".output/public", process.env["TSS_CLIENT_OUTPUT_DIR"] ?? "dist/client"];
   for (const outDir of outDirs) {
     if (!fs.existsSync(path.resolve(outDir))) continue;
     for (const [pagePath, html] of prerenderedHtml) {
@@ -68,6 +98,9 @@ process.on("exit", flushPrerenderedHtml);
 
 export default defineConfig(({ command, mode }) => {
   const pages = command === "build" ? prerenderPages() : [];
+  // The workerd runtime isn't available for the dev server, so the Cloudflare
+  // plugin is build-only — and skipped entirely for static builds.
+  const useCloudflare = command === "build" && !isStaticBuild;
 
   return {
     server: {
@@ -82,6 +115,7 @@ export default defineConfig(({ command, mode }) => {
     plugins: [
       mockupPreviewPlugin(),
       tsConfigPaths({ projects: ["./tsconfig.json"] }),
+      ...(useCloudflare ? [cloudflare({ viteEnvironment: { name: "ssr" } })] : []),
       tanstackStart({
         pages,
         prerender: {
@@ -94,6 +128,7 @@ export default defineConfig(({ command, mode }) => {
         },
       }),
       viteReact(),
+      ...(useCloudflare ? [prerenderServerShim()] : []),
       ...(mode === "development" ? [componentTagger()] : []),
     ],
   };
