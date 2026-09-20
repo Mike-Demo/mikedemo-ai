@@ -75,8 +75,10 @@ in `.env`.
 
 ## Notes for future changes
 
-- Adding a public route means three edits: the route file, the `prerenderPages()` list
-  in `vite.config.ts`, and `public/sitemap.xml`.
+- Adding a public route means two edits: the route file and the path lists in
+  `vite.config.ts` (`prerenderPages()`) and `scripts/generate-sitemap.mjs`
+  (`STATIC_PATHS`). Project pages need neither: both are derived from the project
+  data, and `public/sitemap.xml` is regenerated on every build.
 - Do not set `nitro: { preset: "static" }` — it breaks the SSR build.
 - Prerendering is configured directly through `@tanstack/react-start/plugin/vite`
   (`prerender: { enabled: true, autoStaticPathsDiscovery: false }`); this project does
