@@ -19,10 +19,20 @@ build. `npm run build` runs
 node scripts/generate-projects.mjs && node scripts/generate-sitemap.mjs && vite build && node scripts/copy-static-output.mjs
 ```
 
-and `vite.config.ts` only emits the Cloudflare Worker entrypoint — the thing
+and `vite.config.ts` only loads the Cloudflare Worker tooling — the thing
 Spacefast refuses to convert — when `LOVABLE` or `LOVABLE_BUILD=1` is set in the
 environment. Spacefast's runner sets neither, so its auto-detected build produces
 plain static files.
+
+Two hard rules follow from Spacefast scanning the **repository** (not the build
+output) for Cloudflare features:
+
+- **Never commit a `wrangler.jsonc` / `wrangler.toml` / `wrangler.json` file.**
+  The Worker's settings live inline in the Cloudflare plugin call in
+  `vite.config.ts`. The `.wrangler/` cache directory is git-ignored.
+- **The `@cloudflare/vite-plugin` import in `vite.config.ts` must stay lazy**
+  (a dynamic `await import()` that only runs for the Lovable-hosting build).
+  A top-level static import would load Cloudflare tooling in every build.
 
 Other commands:
 
