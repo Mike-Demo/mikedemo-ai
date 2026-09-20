@@ -54,6 +54,23 @@ The script needs `SUPABASE_URL` and `SUPABASE_PUBLISHABLE_KEY` (it also accepts 
 `VITE_`-prefixed equivalents). Both are publishable, read-only values and are present
 in `.env`.
 
+## Staging and production
+
+- **Staging = Lovable.** The Lovable preview and the published
+  `mikedemo-ai.lovable.app` address stay live for testing changes before they
+  ship.
+- **Production = Spacefast.** `mikedemo.dev`'s DNS points at Spacefast, not
+  Lovable. The domain is never connected inside Lovable, so Lovable's
+  primary-domain redirect never applies.
+- **SEO and security checks run against the Lovable project** (code, database,
+  preview). The static output bakes in the titles, descriptions, structured
+  data, sitemap, and robots file, so a passing check here carries over to the
+  Spacefast copy. Anything configured on Spacefast itself (server headers,
+  caching, HTTPS) is outside those checks and needs an external tool.
+- **Workflow:** re-run the SEO and security checks here after content changes,
+  before rebuilding and uploading — Spacefast serves a snapshot of the last
+  build.
+
 ## Notes for future changes
 
 - Adding a public route means three edits: the route file, the `prerenderPages()` list
