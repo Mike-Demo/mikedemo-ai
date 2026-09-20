@@ -16,30 +16,24 @@ import { mockupPreviewPlugin } from "./mockupPreviewPlugin";
 process.env["CI"] = process.env["CI"] ?? "true";
 
 /**
- * Concrete paths to prerender. Project detail routes are parameterized, so the
- * slugs are read from the database at build time; a failed read simply falls
- * back to server rendering those pages.
+ * Every public, non-parameterized path to prerender. Project detail routes are
+ * parameterized, so their slugs come from the generated project data that
+ * `scripts/generate-projects.mjs` writes from the database before the build.
+ * The internal Lovable canvas preview routes are deliberately excluded.
  */
-async function prerenderPages(): Promise<{ path: string }[]> {
-  const paths = new Set<string>(["/projects"]);
-  const url = process.env["SUPABASE_URL"];
-  const key = process.env["SUPABASE_PUBLISHABLE_KEY"];
+function prerenderPages(): { path: string }[] {
+  const paths = new Set<string>([
+    "/",
+    "/projects",
+    "/bugle-crowns",
+    "/agent-skills",
+    "/claude-code-skills",
+    "/licenses",
+  ]);
 
-  if (url && key) {
-    try {
-      const response = await fetch(`${url}/rest/v1/projects?select=slug,detail_path`, {
-        headers: { apikey: key },
-      });
-      if (response.ok) {
-        const rows = (await response.json()) as { slug: string; detail_path: string | null }[];
-        for (const row of rows) {
-          paths.add(`/projects/${row.slug}`);
-          if (row.detail_path) paths.add(row.detail_path);
-        }
-      }
-    } catch {
-      // Keep the build going: unlisted routes are still server rendered.
-    }
+  for (const row of generatedProjectRows) {
+    // Projects with a bespoke page are listed by that page's own path.
+    if (!row.detail_path) paths.add(`/projects/${row.slug}`);
   }
 
   return [...paths].map((value) => ({ path: value }));
