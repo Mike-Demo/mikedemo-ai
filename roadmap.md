@@ -17,3 +17,4 @@
 - [x] Pre-build Level Select, every project page, and the Bugle Crowns page to static HTML at build time
 - [x] Add QueerCade Connect to the Cloud-backed portfolio with its real site details and artwork
 - [x] Add Rainbow Jot to the Cloud-backed portfolio with its verified features, live link, credits, and artwork
+- [x] Prepare the site for static hosting on Spacefast: build-time project data, all public pages prerendered into dist/client, static sitemap/robots/_redirects, SPACEFAST.md build spec

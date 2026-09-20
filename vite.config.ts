@@ -7,6 +7,7 @@ import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import viteReact from "@vitejs/plugin-react";
 import { componentTagger } from "lovable-tagger";
 import { mockupPreviewPlugin } from "./mockupPreviewPlugin";
+import { generatedProjectRows } from "./src/data/projects.generated";
 
 /**
  * Vite's preview server (used while prerendering) attaches an stdin listener it
@@ -16,30 +17,24 @@ import { mockupPreviewPlugin } from "./mockupPreviewPlugin";
 process.env["CI"] = process.env["CI"] ?? "true";
 
 /**
- * Concrete paths to prerender. Project detail routes are parameterized, so the
- * slugs are read from the database at build time; a failed read simply falls
- * back to server rendering those pages.
+ * Every public, non-parameterized path to prerender. Project detail routes are
+ * parameterized, so their slugs come from the generated project data that
+ * `scripts/generate-projects.mjs` writes from the database before the build.
+ * The internal Lovable canvas preview routes are deliberately excluded.
  */
-async function prerenderPages(): Promise<{ path: string }[]> {
-  const paths = new Set<string>(["/projects"]);
-  const url = process.env["SUPABASE_URL"];
-  const key = process.env["SUPABASE_PUBLISHABLE_KEY"];
+function prerenderPages(): { path: string }[] {
+  const paths = new Set<string>([
+    "/",
+    "/projects",
+    "/bugle-crowns",
+    "/agent-skills",
+    "/claude-code-skills",
+    "/licenses",
+  ]);
 
-  if (url && key) {
-    try {
-      const response = await fetch(`${url}/rest/v1/projects?select=slug,detail_path`, {
-        headers: { apikey: key },
-      });
-      if (response.ok) {
-        const rows = (await response.json()) as { slug: string; detail_path: string | null }[];
-        for (const row of rows) {
-          paths.add(`/projects/${row.slug}`);
-          if (row.detail_path) paths.add(row.detail_path);
-        }
-      }
-    } catch {
-      // Keep the build going: unlisted routes are still server rendered.
-    }
+  for (const row of generatedProjectRows) {
+    // Projects with a bespoke page are listed by that page's own path.
+    if (!row.detail_path) paths.add(`/projects/${row.slug}`);
   }
 
   return [...paths].map((value) => ({ path: value }));
@@ -77,7 +72,10 @@ function flushPrerenderedHtml(): void {
   if (prerenderedHtml.size === 0) return;
   const outDir = process.env["TSS_CLIENT_OUTPUT_DIR"] ?? "dist/client";
   for (const [pagePath, html] of prerenderedHtml) {
-    const file = path.resolve(outDir, `${pagePath.replace(/^\/+/, "")}/index.html`);
+    // "/" must land on <outDir>/index.html: a leading slash would otherwise
+    // resolve to the filesystem root and the home page would go missing.
+    const relative = pagePath.replace(/^\/+|\/+$/g, "");
+    const file = path.join(path.resolve(outDir), relative, "index.html");
     fs.mkdirSync(path.dirname(file), { recursive: true });
     fs.writeFileSync(file, html);
   }
@@ -86,11 +84,11 @@ function flushPrerenderedHtml(): void {
 
 process.on("exit", flushPrerenderedHtml);
 
-export default defineConfig(async ({ command, mode }) => {
+export default defineConfig(({ command, mode }) => {
   // Cloudflare Workers plugin only on build (produces the worker output);
   // the workerd runtime isn't available for the dev server.
   const useCloudflare = command === "build";
-  const pages = command === "build" ? await prerenderPages() : [];
+  const pages = command === "build" ? prerenderPages() : [];
 
   return {
     server: {
