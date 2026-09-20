@@ -5,24 +5,32 @@ no login, no request-time data fetching, no webhooks or scheduled jobs.
 
 ## Build settings
 
-| Setting                  | Value                                              |
-| ------------------------ | -------------------------------------------------- |
-| Install command          | `bun install` (or `npm ci`)                        |
-| Build command            | `npm run build:static`                             |
-| Static output directory  | `dist/client`                                      |
-| Raw Nitro output         | `.output/public` (copied into `dist/client`)        |
+| Setting                  | Value                                               |
+| ------------------------ | --------------------------------------------------- |
+| Install command          | auto-detected (`bun install` / `npm ci`)             |
+| Build command            | auto-detected (`npm run build` / `vite build`)       |
+| Static output directory  | `dist/client`                                       |
+| Raw Nitro output         | `.output/public` (copied into `dist/client`)         |
 
-`build:static` sets `STATIC_BUILD=1` and then runs the normal build:
+Nothing needs configuring on Spacefast: the repo's default build is the static
+build. `npm run build` runs
 
 ```
-STATIC_BUILD=1 node scripts/generate-projects.mjs && node scripts/generate-sitemap.mjs && vite build && node scripts/copy-static-output.mjs
+node scripts/generate-projects.mjs && node scripts/generate-sitemap.mjs && vite build && node scripts/copy-static-output.mjs
 ```
 
-`STATIC_BUILD=1` is what keeps the output static: it switches off the Cloudflare
-Worker output in `vite.config.ts`, which Spacefast refuses to convert. The default
-`npm run build` keeps the Worker output because Lovable's own hosting (preview and
-`mikedemo-ai.lovable.app`) needs it to serve requests. Always use `build:static`
-on Spacefast; never the plain `build`.
+and `vite.config.ts` only emits the Cloudflare Worker entrypoint — the thing
+Spacefast refuses to convert — when `LOVABLE` or `LOVABLE_BUILD=1` is set in the
+environment. Spacefast's runner sets neither, so its auto-detected build produces
+plain static files.
+
+Other commands:
+
+- `npm run build:lovable` — forces the Worker output (Lovable hosting: the
+  preview and `mikedemo-ai.lovable.app`). Use this if the Lovable-hosted copy
+  ever returns a 502 after a build.
+- `npm run build:static` — forces the static output even inside Lovable
+  (`STATIC_BUILD=1` always wins).
 
 ## What gets published
 
