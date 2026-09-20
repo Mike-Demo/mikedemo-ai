@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "@cloudflare/vite-plugin": "^1.54.8",
     "@supabase/supabase-js": "^2.116.0",
     "@tanstack/react-query": "^5.101.1",
     "@tanstack/react-router": "^1.170.16",

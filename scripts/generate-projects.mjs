@@ -71,6 +71,22 @@ export const generatedProjectRows: readonly GeneratedProjectRow[] = ${JSON.strin
 }
 
 loadEnv();
+
+const hasCredentials = Boolean(
+  (process.env["SUPABASE_URL"] ?? process.env["VITE_SUPABASE_URL"]) &&
+    (process.env["SUPABASE_PUBLISHABLE_KEY"] ?? process.env["VITE_SUPABASE_PUBLISHABLE_KEY"]),
+);
+
+// Without database credentials (e.g. a static host's CI), keep the committed
+// generated file: it holds the data as of the last credentialed build.
+if (!hasCredentials) {
+  if (!fs.existsSync(OUTPUT)) {
+    throw new Error("No database credentials and no committed projects.generated.ts to reuse");
+  }
+  console.log("No database credentials; keeping existing src/data/projects.generated.ts");
+  process.exit(0);
+}
+
 const rows = await fetchProjects();
 const contents = render(rows);
 const current = fs.existsSync(OUTPUT) ? fs.readFileSync(OUTPUT, "utf8") : "";

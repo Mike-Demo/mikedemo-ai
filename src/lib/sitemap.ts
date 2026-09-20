@@ -10,9 +10,10 @@
 
 declare module "@tanstack/react-router" {
   interface StaticDataRouteOption {
-    // Required so every new route makes an explicit sitemap decision.
-    // Fix missing staticData on the route; don't make this optional.
-    sitemap: boolean | "exclude-subtree";
+    // Optional: the auto-generated internal preview routes are rewritten by
+    // mockupPreviewPlugin on every build and cannot carry route options.
+    // Public routes should still declare `staticData: { sitemap: ... }`.
+    sitemap?: boolean | "exclude-subtree";
   }
 }
 
