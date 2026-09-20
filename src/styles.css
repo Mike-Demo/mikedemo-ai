@@ -300,7 +300,7 @@ a:focus-visible, summary:focus-visible { outline: var(--pixel-border) solid var(
 .stage-status { display: inline-flex; align-items: center; gap: var(--space-1); padding: var(--space-1) var(--space-2); color: var(--nes-white); background: var(--nes-green); border: var(--space-1) solid var(--nes-black); font-size: var(--text-xs); }
 .stage-status .nes-rune-icon { width: var(--space-4); height: var(--space-4); }
 .stage-status-locked { background: var(--nes-gray); color: var(--nes-black); }
-.host-tag { display: inline-flex; align-items: center; padding: var(--space-1) var(--space-2); color: var(--nes-white); background: var(--nes-blue); border: var(--space-1) solid var(--nes-black); font-size: var(--text-xs); }
+.host-tag { display: inline-flex; align-items: center; padding-block: var(--space-1); padding-inline: var(--space-2); color: var(--nes-white); background: var(--nes-blue); border-width: var(--space-1); border-style: solid; border-color: var(--nes-black); font-size: var(--text-xs); }
 .host-tag-lovable-cloud { background: var(--nes-red); }
 .host-tag-aws { background: var(--nes-black); }
 .overworld-node .level-cursor { position: absolute; inset-inline-start: var(--space-1); inset-block-start: 50%; transform: translateY(-50%); color: var(--nes-red); visibility: hidden; }
