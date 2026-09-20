@@ -2,6 +2,7 @@ import type { ReactElement } from "react";
 
 import { NesContainer } from "@/design-system/nes-229931";
 
+import { HostTag } from "@/components/HostTag";
 import { ProjectCredits } from "@/components/ProjectCredits";
 import { ProjectIcon } from "@/components/ProjectIcon";
 import { TechTagList } from "@/components/TechTagList";
