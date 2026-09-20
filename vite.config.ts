@@ -7,6 +7,7 @@ import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import viteReact from "@vitejs/plugin-react";
 import { componentTagger } from "lovable-tagger";
 import { mockupPreviewPlugin } from "./mockupPreviewPlugin";
+import { generatedProjectRows } from "./src/data/projects.generated";
 
 /**
  * Vite's preview server (used while prerendering) attaches an stdin listener it
@@ -80,11 +81,11 @@ function flushPrerenderedHtml(): void {
 
 process.on("exit", flushPrerenderedHtml);
 
-export default defineConfig(async ({ command, mode }) => {
+export default defineConfig(({ command, mode }) => {
   // Cloudflare Workers plugin only on build (produces the worker output);
   // the workerd runtime isn't available for the dev server.
   const useCloudflare = command === "build";
-  const pages = command === "build" ? await prerenderPages() : [];
+  const pages = command === "build" ? prerenderPages() : [];
 
   return {
     server: {
