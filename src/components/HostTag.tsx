@@ -8,7 +8,7 @@ export function HostTag({ slug }: { slug: string }): ReactElement {
 
   return (
     <span className={`host-tag pixel-display host-tag-${projectHost(slug)}`}>
-      <span className="sr-only">Hosted on {label}</span>
+      <span className="visually-hidden">Hosted on {label}</span>
       <span aria-hidden="true">{label.toUpperCase()}</span>
     </span>
   );

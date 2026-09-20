@@ -114,6 +114,7 @@ export function TimelineArcade({
                         <NesRuneIcon name={isCleared ? "star" : "lock"} size="small" aria-hidden="true" />
                         {isCleared ? "CLEARED" : "LOCKED"}
                       </span>
+                      <HostTag slug={project.slug} />
                     </span>
                   </Link>
                 </li>
