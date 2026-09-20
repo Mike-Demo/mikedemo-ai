@@ -24,6 +24,12 @@ process.env["CI"] = process.env["CI"] ?? "true";
  *   preview can serve requests. Enabled automatically inside Lovable's own
  *   environment (`LOVABLE` is set there) or explicitly via `LOVABLE_BUILD=1`
  *   (`npm run build:lovable`). `STATIC_BUILD=1` always forces it off.
+ *
+ * The Cloudflare plugin is imported lazily and only for the Lovable target:
+ * static hosts like Spacefast scan the repository and reject anything that
+ * loads Cloudflare Worker tooling, so the plain build must not touch it.
+ * For the same reason there is deliberately no `wrangler.jsonc` in the repo —
+ * the Worker settings live inline in the plugin call below.
  */
 const wantsWorkerOutput =
   process.env["STATIC_BUILD"] !== "1" &&
