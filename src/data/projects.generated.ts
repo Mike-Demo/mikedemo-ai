@@ -8,7 +8,7 @@ export const generatedProjectRows: readonly GeneratedProjectRow[] = [
   {
     "slug": "queercade-connect",
     "name": "QueerCade Connect",
-    "domain": "queer-game-vault.lovable.app",
+    "domain": "queercade.mikedemo.dev",
     "summary": "A curated arcade of games with LGBTQ+ characters and stories, built for discovery and personal play tracking.",
     "description": "QueerCade Connect is a curated arcade for discovering games with LGBTQ+ characters and stories. Players can browse featured picks, search and filter the full library, explore human-curated collections, and track games they are playing, completed, wishlisting, or dropping. Its editorial workflow combines IGDB source data with content curated in Sanity.",
     "tech": [
@@ -20,7 +20,7 @@ export const generatedProjectRows: readonly GeneratedProjectRow[] = [
       "Sanity",
       "NES.css"
     ],
-    "url": "https://queer-game-vault.lovable.app",
+    "url": "https://queercade.mikedemo.dev/",
     "icon": "gamepad",
     "started": "2026-09-19",
     "detail_path": null,
@@ -49,7 +49,7 @@ export const generatedProjectRows: readonly GeneratedProjectRow[] = [
       "Web Awesome",
       "Font Awesome"
     ],
-    "url": "https://pridejot.lovable.app",
+    "url": "https://mikedemo.one/",
     "icon": "note-sticky",
     "started": "2026-09-19",
     "detail_path": null,
@@ -65,7 +65,7 @@ export const generatedProjectRows: readonly GeneratedProjectRow[] = [
     ],
     "sites": [
       {
-        "url": "https://pridejot.lovable.app",
+        "url": "https://mikedemo.one/",
         "name": "Rainbow Jot"
       }
     ]
@@ -195,7 +195,7 @@ export const generatedProjectRows: readonly GeneratedProjectRow[] = [
       "Web Awesome",
       "Font Awesome Free"
     ],
-    "url": "https://project--9fea97bb-e317-446f-b683-1274350846c6.lovable.app",
+    "url": "https://design.1.MikeDemo.dev",
     "icon": "swatchbook",
     "started": "2026-09-03",
     "detail_path": null,
@@ -215,11 +215,11 @@ export const generatedProjectRows: readonly GeneratedProjectRow[] = [
     ],
     "sites": [
       {
-        "url": "https://project--2d41e7ac-ac8d-4713-844e-300c9d4181e6.lovable.app",
+        "url": "https://design.2.mikedemo.dev",
         "name": "NES Design System"
       },
       {
-        "url": "https://project--9fea97bb-e317-446f-b683-1274350846c6.lovable.app",
+        "url": "https://design.1.MikeDemo.dev",
         "name": "Font Awsome & Web Awesome"
       }
     ]
