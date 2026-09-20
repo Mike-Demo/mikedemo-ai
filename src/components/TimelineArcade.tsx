@@ -2,6 +2,7 @@ import { Link, useNavigate } from "@tanstack/react-router";
 import type { KeyboardEvent, ReactElement } from "react";
 import { useRef, useState } from "react";
 
+import { HostTag } from "@/components/HostTag";
 import { ProjectCredits } from "@/components/ProjectCredits";
 import { ProjectIcon } from "@/components/ProjectIcon";
 import { TechTagList } from "@/components/TechTagList";
@@ -136,6 +137,7 @@ export function TimelineArcade({
                   <NesText variant="warning">{selectedProject.name}</NesText>
                 </h3>
                 <p>{selectedProject.summary}</p>
+                <HostTag slug={selectedProject.slug} />
                 <TechTagList items={selectedProject.tech.slice(0, 4)} size="small" />
                 <ProjectCredits project={selectedProject} />
                 <NesButton

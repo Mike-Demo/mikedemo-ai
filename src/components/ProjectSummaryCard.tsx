@@ -23,6 +23,7 @@ export function ProjectSummaryCard({ project }: { project: Project }): ReactElem
           <time className="pixel-display arcade-node-date" dateTime={project.started}>
             {formatMonthYear(project.started)}
           </time>
+          <HostTag slug={project.slug} />
         </div>
 
         <p className="text-quiet">{project.summary}</p>
