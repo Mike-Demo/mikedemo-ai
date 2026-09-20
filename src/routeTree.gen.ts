@@ -14,7 +14,6 @@ import { Route as AgentSkillsRouteImport } from './routes/agent-skills'
 import { Route as BugleCrownsRouteImport } from './routes/bugle-crowns'
 import { Route as ClaudeCodeSkillsRouteImport } from './routes/claude-code-skills'
 import { Route as LicensesRouteImport } from './routes/licenses'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ProjectsIndexRouteImport } from './routes/projects.index'
 import { Route as ProjectsSlugRouteImport } from './routes/projects.$slug'
 import { Route as Char91__componentChar93PreviewSplatRouteImport } from './routes/[__component].preview.$'
@@ -43,11 +42,6 @@ const ClaudeCodeSkillsRoute = ClaudeCodeSkillsRouteImport.update({
 const LicensesRoute = LicensesRouteImport.update({
   id: '/licenses',
   path: '/licenses',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
-  id: '/sitemap.xml',
-  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProjectsIndexRoute = ProjectsIndexRouteImport.update({
@@ -79,7 +73,6 @@ export interface FileRoutesByFullPath {
   '/bugle-crowns': typeof BugleCrownsRoute
   '/claude-code-skills': typeof ClaudeCodeSkillsRoute
   '/licenses': typeof LicensesRoute
-  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/projects/': typeof ProjectsIndexRoute
   '/__component/preview/$': typeof Char91__componentChar93PreviewSplatRoute
@@ -91,7 +84,6 @@ export interface FileRoutesByTo {
   '/bugle-crowns': typeof BugleCrownsRoute
   '/claude-code-skills': typeof ClaudeCodeSkillsRoute
   '/licenses': typeof LicensesRoute
-  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/projects': typeof ProjectsIndexRoute
   '/__component/preview/$': typeof Char91__componentChar93PreviewSplatRoute
@@ -104,7 +96,6 @@ export interface FileRoutesById {
   '/bugle-crowns': typeof BugleCrownsRoute
   '/claude-code-skills': typeof ClaudeCodeSkillsRoute
   '/licenses': typeof LicensesRoute
-  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/projects/': typeof ProjectsIndexRoute
   '/__component/preview/$': typeof Char91__componentChar93PreviewSplatRoute
@@ -118,7 +109,6 @@ export interface FileRouteTypes {
     | '/bugle-crowns'
     | '/claude-code-skills'
     | '/licenses'
-    | '/sitemap.xml'
     | '/projects/$slug'
     | '/projects/'
     | '/__component/preview/$'
@@ -130,7 +120,6 @@ export interface FileRouteTypes {
     | '/bugle-crowns'
     | '/claude-code-skills'
     | '/licenses'
-    | '/sitemap.xml'
     | '/projects/$slug'
     | '/projects'
     | '/__component/preview/$'
@@ -142,7 +131,6 @@ export interface FileRouteTypes {
     | '/bugle-crowns'
     | '/claude-code-skills'
     | '/licenses'
-    | '/sitemap.xml'
     | '/projects/$slug'
     | '/projects/'
     | '/__component/preview/$'
@@ -155,7 +143,6 @@ export interface RootRouteChildren {
   BugleCrownsRoute: typeof BugleCrownsRoute
   ClaudeCodeSkillsRoute: typeof ClaudeCodeSkillsRoute
   LicensesRoute: typeof LicensesRoute
-  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   ProjectsSlugRoute: typeof ProjectsSlugRoute
   ProjectsIndexRoute: typeof ProjectsIndexRoute
   Char91__componentChar93PreviewSplatRoute: typeof Char91__componentChar93PreviewSplatRoute
@@ -199,13 +186,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LicensesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/sitemap.xml': {
-      id: '/sitemap.xml'
-      path: '/sitemap.xml'
-      fullPath: '/sitemap.xml'
-      preLoaderRoute: typeof SitemapDotxmlRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/projects/': {
       id: '/projects/'
       path: '/projects'
@@ -243,7 +223,6 @@ const rootRouteChildren: RootRouteChildren = {
   BugleCrownsRoute: BugleCrownsRoute,
   ClaudeCodeSkillsRoute: ClaudeCodeSkillsRoute,
   LicensesRoute: LicensesRoute,
-  SitemapDotxmlRoute: SitemapDotxmlRoute,
   ProjectsSlugRoute: ProjectsSlugRoute,
   ProjectsIndexRoute: ProjectsIndexRoute,
   Char91__componentChar93PreviewSplatRoute:
