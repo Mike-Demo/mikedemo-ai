@@ -137,7 +137,7 @@ export default defineConfig(async ({ command, mode }) => {
     plugins: [
       mockupPreviewPlugin(),
       tsConfigPaths({ projects: ["./tsconfig.json"] }),
-      ...(useCloudflare ? [cloudflare({ viteEnvironment: { name: "ssr" } })] : []),
+      ...cloudflarePlugins,
       tanstackStart({
         pages,
         prerender: {
