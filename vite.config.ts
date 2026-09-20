@@ -104,8 +104,8 @@ process.on("exit", flushPrerenderedHtml);
 export default defineConfig(({ command, mode }) => {
   const pages = command === "build" ? prerenderPages() : [];
   // The workerd runtime isn't available for the dev server, so the Cloudflare
-  // plugin is build-only — and skipped entirely for static builds.
-  const useCloudflare = command === "build" && !isStaticBuild;
+  // plugin is build-only — and only for the Lovable-hosting target.
+  const useCloudflare = command === "build" && wantsWorkerOutput;
 
   return {
     server: {
