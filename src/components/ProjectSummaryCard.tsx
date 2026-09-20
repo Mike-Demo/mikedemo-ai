@@ -2,6 +2,7 @@ import type { ReactElement } from "react";
 
 import { NesContainer } from "@/design-system/nes-229931";
 
+import { HostTag } from "@/components/HostTag";
 import { ProjectCredits } from "@/components/ProjectCredits";
 import { ProjectIcon } from "@/components/ProjectIcon";
 import { TechTagList } from "@/components/TechTagList";
@@ -23,6 +24,7 @@ export function ProjectSummaryCard({ project }: { project: Project }): ReactElem
           <time className="pixel-display arcade-node-date" dateTime={project.started}>
             {formatMonthYear(project.started)}
           </time>
+          <HostTag slug={project.slug} />
         </div>
 
         <p className="text-quiet">{project.summary}</p>
