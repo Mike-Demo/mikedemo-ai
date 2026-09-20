@@ -18,3 +18,4 @@
 - [x] Add QueerCade Connect to the Cloud-backed portfolio with its real site details and artwork
 - [x] Add Rainbow Jot to the Cloud-backed portfolio with its verified features, live link, credits, and artwork
 - [x] Prepare the site for static hosting on Spacefast: build-time project data, all public pages prerendered into dist/client, static sitemap/robots/_redirects, SPACEFAST.md build spec
+- [x] Update live URLs on project pages and LinkedIn export: QueerCade Connect, Rainbow Jot, and the two Design Systems demo sites
