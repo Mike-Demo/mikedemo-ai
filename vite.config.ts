@@ -18,12 +18,17 @@ process.env["CI"] = process.env["CI"] ?? "true";
 
 /**
  * Two build targets:
- * - default (Lovable hosting): Cloudflare Worker output, so the published site
- *   and preview can serve requests.
- * - `STATIC_BUILD=1` (Spacefast and any other plain static host): no Worker
- *   entrypoint, just the prerendered HTML in `dist/client`.
+ * - default (Spacefast and any other plain static host, including a bare
+ *   `vite build` auto-detected from GitHub): no Cloudflare Worker entrypoint,
+ *   just the prerendered HTML in `dist/client`.
+ * - Lovable hosting: Cloudflare Worker output, so the published site and
+ *   preview can serve requests. Enabled automatically inside Lovable's own
+ *   environment (`LOVABLE` is set there) or explicitly via `LOVABLE_BUILD=1`
+ *   (`npm run build:lovable`). `STATIC_BUILD=1` always forces it off.
  */
-const isStaticBuild = process.env["STATIC_BUILD"] === "1";
+const wantsWorkerOutput =
+  process.env["STATIC_BUILD"] !== "1" &&
+  (process.env["LOVABLE_BUILD"] === "1" || Boolean(process.env["LOVABLE"]));
 
 /**
  * Every public, non-parameterized path to prerender. Project detail routes are
