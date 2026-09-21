@@ -237,6 +237,146 @@ export const matchLog: readonly MatchLogEntry[] = [
   },
 ];
 
+/**
+ * All ten Week 2 matches (Sep 17–20, 2026), in the order they were played.
+ * The AFC League API feed only carries summary stats for these — goals,
+ * shots, shots on target, possession — so there are no narrative summaries.
+ * Kickoff times are UTC as pulled from the feed on 2026-09-20.
+ */
+export const matchLogWeek2: readonly MatchLogEntry[] = [
+  {
+    match: 1,
+    opponent: "Bugle Flares",
+    result: "loss",
+    scoreFor: 1,
+    scoreAgainst: 3,
+    possession: 70,
+    playedAt: "2026-09-17T17:10:47Z",
+    shots: { for: 5, forOnTarget: 1, against: 9, againstOnTarget: 3 },
+  },
+  {
+    match: 2,
+    opponent: "Chalk Wasps",
+    result: "win",
+    scoreFor: 4,
+    scoreAgainst: 1,
+    possession: 48,
+    playedAt: "2026-09-19T05:37:51Z",
+    shots: { for: 6, forOnTarget: 4, against: 2, againstOnTarget: 1 },
+  },
+  {
+    match: 3,
+    opponent: "Chalk Leopards",
+    result: "win",
+    scoreFor: 4,
+    scoreAgainst: 2,
+    possession: 73,
+    playedAt: "2026-09-19T09:31:48Z",
+    shots: { for: 7, forOnTarget: 4, against: 7, againstOnTarget: 2 },
+  },
+  {
+    match: 4,
+    opponent: "Glacier Thorns",
+    result: "loss",
+    scoreFor: 0,
+    scoreAgainst: 5,
+    possession: 66,
+    playedAt: "2026-09-20T03:25:42Z",
+    shots: { for: 5, forOnTarget: 0, against: 6, againstOnTarget: 5 },
+  },
+  {
+    match: 5,
+    opponent: "Keen Menhirs",
+    result: "loss",
+    scoreFor: 2,
+    scoreAgainst: 6,
+    possession: 71,
+    playedAt: "2026-09-20T04:45:05Z",
+    shots: { for: 4, forOnTarget: 2, against: 9, againstOnTarget: 6 },
+  },
+  {
+    match: 6,
+    opponent: "Copper Pioneers",
+    result: "win",
+    scoreFor: 6,
+    scoreAgainst: 0,
+    possession: 39,
+    playedAt: "2026-09-20T05:21:09Z",
+    shots: { for: 8, forOnTarget: 6, against: 3, againstOnTarget: 0 },
+  },
+  {
+    match: 7,
+    opponent: "Chalk Riptides",
+    result: "win",
+    scoreFor: 5,
+    scoreAgainst: 2,
+    possession: 43,
+    playedAt: "2026-09-20T10:14:07Z",
+    shots: { for: 5, forOnTarget: 5, against: 8, againstOnTarget: 2 },
+  },
+  {
+    match: 8,
+    opponent: "Keen Ironsides",
+    result: "loss",
+    scoreFor: 1,
+    scoreAgainst: 2,
+    possession: 46,
+    playedAt: "2026-09-20T10:55:36Z",
+    shots: { for: 5, forOnTarget: 1, against: 7, againstOnTarget: 2 },
+  },
+  {
+    match: 9,
+    opponent: "Chalk Hunters",
+    result: "win",
+    scoreFor: 4,
+    scoreAgainst: 0,
+    possession: 51,
+    playedAt: "2026-09-20T13:58:43Z",
+    shots: { for: 4, forOnTarget: 4, against: 5, againstOnTarget: 0 },
+  },
+  {
+    match: 10,
+    opponent: "Bugle Navigators",
+    result: "win",
+    scoreFor: 7,
+    scoreAgainst: 0,
+    possession: 48,
+    playedAt: "2026-09-20T14:52:32Z",
+    shots: { for: 14, forOnTarget: 7, against: 3, againstOnTarget: 0 },
+  },
+];
+
+export const week2Record: WeekRecord = {
+  wins: 6,
+  losses: 4,
+  goalsFor: 34,
+  goalsAgainst: 21,
+  cleanSheets: 3,
+  played: 10,
+  possible: 70,
+  points: 237,
+};
+
+/** Season standing in League A, as of the feed pull on 2026-09-20 15:03 UTC. */
+export const seasonStanding = {
+  league: "League A",
+  rank: 24,
+  of: 422,
+  points: 458,
+  played: 20,
+  wins: 12,
+  draws: 0,
+  losses: 8,
+  goalsFor: 62,
+  goalsAgainst: 44,
+  goalDifference: 18,
+  cleanSheets: 4,
+} as const;
+
+/** Fastest goal logged so far — wildcard attempt with ticket pending. */
+export const fastestGoal =
+  "Fastest goal logged: 4.98s vs Chalk Hunters (Sep 20) — wildcard attempt, ticket PYEYLZ-14JP1 pending.";
+
 export const performanceDiagnosis: readonly string[] = [
   "Match 10: L 1-2 vs Bugle Hornets — our first league loss to a non-pressing opponent in 10 matches, played with zero audibles on pure v2.4.1.",
   "The Hornets ran a FOLLOW_PLAYER-heavy organized shape (129 commands, 32% of their 405 — the highest opponent tracking volume we have faced) plus 15 INTERCEPT, and zero PRESS_BALL. Under that shape our build-up collapsed into movement: 251 MOVE_TO (62%), our highest since the M1 Flotillas collapse.",
