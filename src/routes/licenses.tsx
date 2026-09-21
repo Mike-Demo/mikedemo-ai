@@ -76,6 +76,32 @@ const groups: readonly LicenseGroup[] = [
     entries: baseCredits.filter((entry) => entry.name === "hCaptcha"),
   },
   {
+    title: "Hosting",
+    entries: [
+      {
+        name: "Spacefast",
+        author: "Spacefast",
+        license: "Hosting provider",
+        url: "https://spacefast.io",
+        note: "Serves the production copy of this portfolio (mikedemo.dev) and most listed projects as plain static files.",
+      },
+      {
+        name: "Lovable Cloud",
+        author: "Lovable",
+        license: "Hosting provider",
+        url: "https://lovable.dev",
+        note: "Stores the project records behind this site and hosts the staging copy, Skill Finder Plus, and QueerCade Connect.",
+      },
+      {
+        name: "AWS",
+        author: "Amazon Web Services, Inc.",
+        license: "Hosting provider",
+        url: "https://aws.amazon.com",
+        note: "Hosts Bugle Crowns.",
+      },
+    ],
+  },
+  {
     title: "Artwork",
     entries: [
       { name: "Project logos & screenshots", author: "Mike Demopoulos", license: "All rights reserved", url: "/", note: "Each project icon shown in the level select comes from that project's own site." },
