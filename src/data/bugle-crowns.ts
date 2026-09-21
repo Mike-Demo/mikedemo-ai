@@ -43,7 +43,7 @@ export interface WeekRecord {
   readonly points: number;
 }
 
-export const weekId = "Round 1 · Week 1";
+export const weekId = "League A · Weeks 1–2";
 
 export const matchWindow = {
   startsAtUtc: "2026-09-10T16:00:00Z",
@@ -436,8 +436,8 @@ export const seasonSchedule: readonly ScheduleEntry[] = [
   {
     label: "Week 2",
     dates: "Sep 17 – 19",
-    detail: "Opens Sep 17. First test of the INTERCEPT patch against organized shapes.",
-    status: "upcoming",
+    detail: "Finished: 6W 4L, 34–21 goals, 3 clean sheets.",
+    status: "done",
     start: "2026-09-17",
     end: "2026-09-19",
   },
