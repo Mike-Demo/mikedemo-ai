@@ -123,6 +123,7 @@ export const matchLog: readonly MatchLogEntry[] = [
     scoreAgainst: 5,
     possession: 36,
     playedAt: "2026-09-11T09:08:00-05:00",
+    shots: { for: 8, forOnTarget: 2, against: 7, againstOnTarget: 5 },
     summary:
       "Flotillas controlled 64% possession and 147 MARK commands while our 333 MOVE_TO instructions left coverage gaps; three goals in minute 2 settled it.",
   },
@@ -134,6 +135,7 @@ export const matchLog: readonly MatchLogEntry[] = [
     scoreAgainst: 1,
     possession: 51,
     playedAt: "2026-09-11T09:47:00-05:00",
+    shots: { for: 9, forOnTarget: 4, against: 7, againstOnTarget: 1 },
     summary:
       "Two goals inside the opening minute and sustained pressing overwhelmed a movement-heavy Lancers setup. Sara opened the scoring from goal.",
   },
@@ -145,6 +147,7 @@ export const matchLog: readonly MatchLogEntry[] = [
     scoreAgainst: 2,
     possession: 53,
     playedAt: "2026-09-11T10:21:00-05:00",
+    shots: { for: 3, forOnTarget: 1, against: 5, againstOnTarget: 2 },
     summary:
       "We dominated territory but not the final third. Oars' direct play exploited our heavy PRESS_BALL reliance and won it with 42 SHOOT commands.",
   },
@@ -156,6 +159,7 @@ export const matchLog: readonly MatchLogEntry[] = [
     scoreAgainst: 3,
     possession: 56,
     playedAt: "2026-09-11T10:56:00-05:00",
+    shots: { for: 7, forOnTarget: 2, against: 7, againstOnTarget: 3 },
     summary:
       "56% possession, but Owls' FOLLOW_PLAYER tracking (90 commands) cut passing lanes and their sharper shooting punished 233 MOVE_TO versus 45 SHOOT.",
   },
@@ -167,6 +171,7 @@ export const matchLog: readonly MatchLogEntry[] = [
     scoreAgainst: 0,
     possession: 42,
     playedAt: "2026-09-11T11:32:00-05:00",
+    shots: { for: 5, forOnTarget: 4, against: 4, againstOnTarget: 0 },
     summary:
       "The week's only clean sheet. 162 PRESS_BALL commands strangled Eagles' buildup and four rapid goals arrived despite a possession deficit.",
   },
@@ -178,6 +183,7 @@ export const matchLog: readonly MatchLogEntry[] = [
     scoreAgainst: 2,
     possession: 51,
     playedAt: "2026-09-11T12:07:00-05:00",
+    shots: { for: 4, forOnTarget: 3, against: 5, againstOnTarget: 2 },
     summary:
       "A frenetic three minutes of traded goals; midfield incisiveness and on-target accuracy beat the Bastions' higher shot volume.",
   },
@@ -189,6 +195,7 @@ export const matchLog: readonly MatchLogEntry[] = [
     scoreAgainst: 3,
     possession: 49,
     playedAt: "2026-09-11T12:54:00-05:00",
+    shots: { for: 5, forOnTarget: 4, against: 4, againstOnTarget: 3 },
     summary:
       "A goal-heavy shootout settled by shot accuracy — 4 of 5 on target against 3 of 4 — with possession almost dead level.",
   },
@@ -200,6 +207,7 @@ export const matchLog: readonly MatchLogEntry[] = [
     scoreAgainst: 3,
     possession: 51,
     playedAt: "2026-09-11T14:10:00-05:00",
+    shots: { for: 7, forOnTarget: 4, against: 3, againstOnTarget: 3 },
     summary:
       "Another frenetic trade of goals; forward play stayed clinical while the Bandits kept pace until the closing exchanges.",
   },
@@ -211,6 +219,7 @@ export const matchLog: readonly MatchLogEntry[] = [
     scoreAgainst: 2,
     possession: 53,
     playedAt: "2026-09-11T18:59:00-05:00",
+    shots: { for: 9, forOnTarget: 3, against: 5, againstOnTarget: 2 },
     summary:
       "A fast-paced opener where both sides scored twice early; our finishing edge decided a tight finish despite sterile spells of possession.",
   },
@@ -222,6 +231,7 @@ export const matchLog: readonly MatchLogEntry[] = [
     scoreAgainst: 2,
     possession: 60,
     playedAt: "2026-09-11T20:41:00-05:00",
+    shots: { for: 3, forOnTarget: 1, against: 9, againstOnTarget: 2 },
     summary:
       "Played on pure v2.4.1 with zero audibles. The Hornets' 129 FOLLOW_PLAYER commands collapsed our buildup into 251 MOVE_TO and 60% possession produced one shot on target.",
   },
