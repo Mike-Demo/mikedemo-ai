@@ -103,7 +103,14 @@ export interface MatchLogEntry {
   readonly scoreAgainst: number;
   readonly possession?: number;
   readonly playedAt?: string;
-  readonly summary: string;
+  /** Shot counts from the AFC League API feed: us / on target, opponent / on target. */
+  readonly shots?: {
+    readonly for: number;
+    readonly forOnTarget: number;
+    readonly against: number;
+    readonly againstOnTarget: number;
+  };
+  readonly summary?: string;
 }
 
 /** All ten Round 1 Week 1 matches, in the order they were played. */
