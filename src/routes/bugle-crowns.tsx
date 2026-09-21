@@ -145,7 +145,7 @@ function BugleCrownsPage(): ReactElement {
               <div className="stack stack-xs">
                 <p>
                   Five AI agents, 120-second matches, one very opinionated coach. Bugle Crowns is my team in
-                  the AWS Agentic Football Cup — here is how Week 1 went, match by match.
+                  the AWS Agentic Football Cup — here is how Weeks 1 and 2 went.
                 </p>
                 <p className="quiet-small">
                   Run by AWSOfficial Alpha Season, supported by Minds from Animoca Brands
@@ -156,6 +156,15 @@ function BugleCrownsPage(): ReactElement {
             <ProjectSummaryCard project={project} />
 
             <ProjectPager projects={projects} currentSlug="bugle-crowns" />
+
+            <NesContainer title="SEASON STANDING" dark>
+              <p>
+                {seasonStanding.rank}th of {seasonStanding.of} in {seasonStanding.league} ·{" "}
+                {seasonStanding.points} points · {seasonStanding.played} played · {seasonStanding.wins}W–
+                {seasonStanding.losses}L · {seasonStanding.goalsFor} for / {seasonStanding.goalsAgainst}{" "}
+                against (+{seasonStanding.goalDifference}) · {seasonStanding.cleanSheets} clean sheets
+              </p>
+            </NesContainer>
 
             <div className="stack stack-xs">
           <h2 className="pixel-display tech-heading">Squad stack</h2>
@@ -172,48 +181,34 @@ function BugleCrownsPage(): ReactElement {
           <a className="nes-btn" href={leaderboardUrl} target="_blank" rel="noopener noreferrer">LEADERBOARD</a>
             </div>
 
+            <NesContainer title="SEASON CHARTS">
+              <BugleCharts
+                week1={matchLog}
+                week2={matchLogWeek2}
+                week1Record={weekRecord}
+                week2Record={week2Record}
+              />
+            </NesContainer>
+
             <div className="stack stack-s">
-          <details className="nes-details" open><summary className="pixel-display">WEEK 1 · FULL DEBRIEF</summary>
+          <details className="nes-details" open><summary className="pixel-display">WEEK 2 · ALL MATCHES</summary>
             <div className="stack stack-l">
-              <h3 className="pixel-display tech-heading">Every match</h3>
+              <h3 className="pixel-display tech-heading">Every match · 6W–4L, 34–21</h3>
+              <div className="stack stack-s">
+              {matchLogWeek2.map((match) => (
+                <MatchCard key={match.match} match={match} weekLabel="Week 2" />
+              ))}
+              </div>
+              <p className="quiet-small">{fastestGoal}</p>
+            </div>
+          </details>
+
+          <details className="nes-details"><summary className="pixel-display">WEEK 1 · FULL DEBRIEF</summary>
+            <div className="stack stack-l">
+              <h3 className="pixel-display tech-heading">Every match · 6W–4L, 28–23</h3>
               <div className="stack stack-s">
               {matchLog.map((match) => (
-                <NesContainer key={match.match} className="match-card">
-                  <div className="stack stack-xs">
-                    <div className="cluster cluster-xs">
-                      <h3 className="pixel-card-title">
-                        Match {match.match} · {match.result === "win" ? "W" : "L"} {match.scoreFor}-
-                        {match.scoreAgainst} vs {match.opponent}
-                      </h3>
-                      {match.possession ? (
-                        <span className="status-chip">{match.possession}% possession</span>
-                      ) : null}
-                    </div>
-                    {match.playedAt ? (
-                      <p className="quiet-small">
-                        <time dateTime={match.playedAt}>
-                          {new Date(match.playedAt).toLocaleString("en-US", {
-                            weekday: "short",
-                            month: "short",
-                            day: "numeric",
-                            hour: "numeric",
-                            minute: "2-digit",
-                            timeZone: "America/Chicago",
-                            timeZoneName: "short",
-                          })}
-                        </time>
-                      </p>
-                    ) : null}
-                    <p>{match.summary}</p>
-                    {match.match === 10 ? (
-                      <ol className="stack stack-xs goal-timeline">
-                        {latestMatch.goalTimeline.map((goal) => (
-                          <li key={goal.event}>{goal.event}</li>
-                        ))}
-                      </ol>
-                    ) : null}
-                  </div>
-                </NesContainer>
+                <MatchCard key={match.match} match={match} weekLabel="Week 1" />
               ))}
               </div>
             </div>
