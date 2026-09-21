@@ -99,6 +99,45 @@ export const generatedProjectRows: readonly GeneratedProjectRow[] = [
     "sites": []
   },
   {
+    "slug": "mikedemo-portfolio",
+    "name": "AI Project Portfolio",
+    "domain": "mikedemo.dev",
+    "summary": "This site — a retro level-select portfolio of my AI projects.",
+    "description": "A flat-file, fully static portfolio styled like a retro game console. Projects live in a Lovable Cloud database and are baked into plain HTML at build time; staging runs on Lovable, production on Spacefast.",
+    "tech": [
+      "TypeScript",
+      "React",
+      "TanStack Start",
+      "NES.css",
+      "Web Awesome",
+      "Font Awesome",
+      "Lovable Cloud"
+    ],
+    "url": "https://mikedemo.dev/",
+    "icon": "mikedemo-portfolio",
+    "started": "2026-09-11",
+    "detail_path": null,
+    "credits": [
+      {
+        "url": "https://nostalgic-css.github.io/NES.css/",
+        "name": "NES.css"
+      },
+      {
+        "url": "https://webawesome.com/",
+        "name": "Web Awesome"
+      },
+      {
+        "url": "https://fontawesome.com/",
+        "name": "Font Awesome"
+      },
+      {
+        "url": "https://fonts.google.com/specimen/Press+Start+2P",
+        "name": "Press Start 2P"
+      }
+    ],
+    "sites": []
+  },
+  {
     "slug": "bugle-crowns",
     "name": "Bugle Crowns",
     "domain": "agenticfootballcup.com",
