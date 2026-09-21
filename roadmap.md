@@ -21,3 +21,4 @@
 - [x] Update live URLs on project pages and LinkedIn export: QueerCade Connect, Rainbow Jot, and the two Design Systems demo sites
 - [x] Show hosting platform (Spacefast / Lovable Cloud / AWS) on Level Select and project pages
 - [x] Document the Lovable staging / Spacefast production split in SPACEFAST.md
+- [x] Bugle Crowns: Week 2 + season standing, pixel charts, matching reverse-chronological week sections

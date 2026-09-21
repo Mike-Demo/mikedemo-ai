@@ -43,7 +43,7 @@ export interface WeekRecord {
   readonly points: number;
 }
 
-export const weekId = "Round 1 · Week 1";
+export const weekId = "League A · Weeks 1–2";
 
 export const matchWindow = {
   startsAtUtc: "2026-09-10T16:00:00Z",
@@ -103,7 +103,14 @@ export interface MatchLogEntry {
   readonly scoreAgainst: number;
   readonly possession?: number;
   readonly playedAt?: string;
-  readonly summary: string;
+  /** Shot counts from the AFC League API feed: us / on target, opponent / on target. */
+  readonly shots?: {
+    readonly for: number;
+    readonly forOnTarget: number;
+    readonly against: number;
+    readonly againstOnTarget: number;
+  };
+  readonly summary?: string;
 }
 
 /** All ten Round 1 Week 1 matches, in the order they were played. */
@@ -116,6 +123,7 @@ export const matchLog: readonly MatchLogEntry[] = [
     scoreAgainst: 5,
     possession: 36,
     playedAt: "2026-09-11T09:08:00-05:00",
+    shots: { for: 8, forOnTarget: 2, against: 7, againstOnTarget: 5 },
     summary:
       "Flotillas controlled 64% possession and 147 MARK commands while our 333 MOVE_TO instructions left coverage gaps; three goals in minute 2 settled it.",
   },
@@ -127,6 +135,7 @@ export const matchLog: readonly MatchLogEntry[] = [
     scoreAgainst: 1,
     possession: 51,
     playedAt: "2026-09-11T09:47:00-05:00",
+    shots: { for: 9, forOnTarget: 4, against: 7, againstOnTarget: 1 },
     summary:
       "Two goals inside the opening minute and sustained pressing overwhelmed a movement-heavy Lancers setup. Sara opened the scoring from goal.",
   },
@@ -138,6 +147,7 @@ export const matchLog: readonly MatchLogEntry[] = [
     scoreAgainst: 2,
     possession: 53,
     playedAt: "2026-09-11T10:21:00-05:00",
+    shots: { for: 3, forOnTarget: 1, against: 5, againstOnTarget: 2 },
     summary:
       "We dominated territory but not the final third. Oars' direct play exploited our heavy PRESS_BALL reliance and won it with 42 SHOOT commands.",
   },
@@ -149,6 +159,7 @@ export const matchLog: readonly MatchLogEntry[] = [
     scoreAgainst: 3,
     possession: 56,
     playedAt: "2026-09-11T10:56:00-05:00",
+    shots: { for: 7, forOnTarget: 2, against: 7, againstOnTarget: 3 },
     summary:
       "56% possession, but Owls' FOLLOW_PLAYER tracking (90 commands) cut passing lanes and their sharper shooting punished 233 MOVE_TO versus 45 SHOOT.",
   },
@@ -160,6 +171,7 @@ export const matchLog: readonly MatchLogEntry[] = [
     scoreAgainst: 0,
     possession: 42,
     playedAt: "2026-09-11T11:32:00-05:00",
+    shots: { for: 5, forOnTarget: 4, against: 4, againstOnTarget: 0 },
     summary:
       "The week's only clean sheet. 162 PRESS_BALL commands strangled Eagles' buildup and four rapid goals arrived despite a possession deficit.",
   },
@@ -171,6 +183,7 @@ export const matchLog: readonly MatchLogEntry[] = [
     scoreAgainst: 2,
     possession: 51,
     playedAt: "2026-09-11T12:07:00-05:00",
+    shots: { for: 4, forOnTarget: 3, against: 5, againstOnTarget: 2 },
     summary:
       "A frenetic three minutes of traded goals; midfield incisiveness and on-target accuracy beat the Bastions' higher shot volume.",
   },
@@ -182,6 +195,7 @@ export const matchLog: readonly MatchLogEntry[] = [
     scoreAgainst: 3,
     possession: 49,
     playedAt: "2026-09-11T12:54:00-05:00",
+    shots: { for: 5, forOnTarget: 4, against: 4, againstOnTarget: 3 },
     summary:
       "A goal-heavy shootout settled by shot accuracy — 4 of 5 on target against 3 of 4 — with possession almost dead level.",
   },
@@ -193,6 +207,7 @@ export const matchLog: readonly MatchLogEntry[] = [
     scoreAgainst: 3,
     possession: 51,
     playedAt: "2026-09-11T14:10:00-05:00",
+    shots: { for: 7, forOnTarget: 4, against: 3, againstOnTarget: 3 },
     summary:
       "Another frenetic trade of goals; forward play stayed clinical while the Bandits kept pace until the closing exchanges.",
   },
@@ -204,6 +219,7 @@ export const matchLog: readonly MatchLogEntry[] = [
     scoreAgainst: 2,
     possession: 53,
     playedAt: "2026-09-11T18:59:00-05:00",
+    shots: { for: 9, forOnTarget: 3, against: 5, againstOnTarget: 2 },
     summary:
       "A fast-paced opener where both sides scored twice early; our finishing edge decided a tight finish despite sterile spells of possession.",
   },
@@ -215,10 +231,151 @@ export const matchLog: readonly MatchLogEntry[] = [
     scoreAgainst: 2,
     possession: 60,
     playedAt: "2026-09-11T20:41:00-05:00",
+    shots: { for: 3, forOnTarget: 1, against: 9, againstOnTarget: 2 },
     summary:
       "Played on pure v2.4.1 with zero audibles. The Hornets' 129 FOLLOW_PLAYER commands collapsed our buildup into 251 MOVE_TO and 60% possession produced one shot on target.",
   },
 ];
+
+/**
+ * All ten Week 2 matches (Sep 17–20, 2026), in the order they were played.
+ * The AFC League API feed only carries summary stats for these — goals,
+ * shots, shots on target, possession — so there are no narrative summaries.
+ * Kickoff times are UTC as pulled from the feed on 2026-09-20.
+ */
+export const matchLogWeek2: readonly MatchLogEntry[] = [
+  {
+    match: 1,
+    opponent: "Bugle Flares",
+    result: "loss",
+    scoreFor: 1,
+    scoreAgainst: 3,
+    possession: 70,
+    playedAt: "2026-09-17T17:10:47Z",
+    shots: { for: 5, forOnTarget: 1, against: 9, againstOnTarget: 3 },
+  },
+  {
+    match: 2,
+    opponent: "Chalk Wasps",
+    result: "win",
+    scoreFor: 4,
+    scoreAgainst: 1,
+    possession: 48,
+    playedAt: "2026-09-19T05:37:51Z",
+    shots: { for: 6, forOnTarget: 4, against: 2, againstOnTarget: 1 },
+  },
+  {
+    match: 3,
+    opponent: "Chalk Leopards",
+    result: "win",
+    scoreFor: 4,
+    scoreAgainst: 2,
+    possession: 73,
+    playedAt: "2026-09-19T09:31:48Z",
+    shots: { for: 7, forOnTarget: 4, against: 7, againstOnTarget: 2 },
+  },
+  {
+    match: 4,
+    opponent: "Glacier Thorns",
+    result: "loss",
+    scoreFor: 0,
+    scoreAgainst: 5,
+    possession: 66,
+    playedAt: "2026-09-20T03:25:42Z",
+    shots: { for: 5, forOnTarget: 0, against: 6, againstOnTarget: 5 },
+  },
+  {
+    match: 5,
+    opponent: "Keen Menhirs",
+    result: "loss",
+    scoreFor: 2,
+    scoreAgainst: 6,
+    possession: 71,
+    playedAt: "2026-09-20T04:45:05Z",
+    shots: { for: 4, forOnTarget: 2, against: 9, againstOnTarget: 6 },
+  },
+  {
+    match: 6,
+    opponent: "Copper Pioneers",
+    result: "win",
+    scoreFor: 6,
+    scoreAgainst: 0,
+    possession: 39,
+    playedAt: "2026-09-20T05:21:09Z",
+    shots: { for: 8, forOnTarget: 6, against: 3, againstOnTarget: 0 },
+  },
+  {
+    match: 7,
+    opponent: "Chalk Riptides",
+    result: "win",
+    scoreFor: 5,
+    scoreAgainst: 2,
+    possession: 43,
+    playedAt: "2026-09-20T10:14:07Z",
+    shots: { for: 5, forOnTarget: 5, against: 8, againstOnTarget: 2 },
+  },
+  {
+    match: 8,
+    opponent: "Keen Ironsides",
+    result: "loss",
+    scoreFor: 1,
+    scoreAgainst: 2,
+    possession: 46,
+    playedAt: "2026-09-20T10:55:36Z",
+    shots: { for: 5, forOnTarget: 1, against: 7, againstOnTarget: 2 },
+  },
+  {
+    match: 9,
+    opponent: "Chalk Hunters",
+    result: "win",
+    scoreFor: 4,
+    scoreAgainst: 0,
+    possession: 51,
+    playedAt: "2026-09-20T13:58:43Z",
+    shots: { for: 4, forOnTarget: 4, against: 5, againstOnTarget: 0 },
+  },
+  {
+    match: 10,
+    opponent: "Bugle Navigators",
+    result: "win",
+    scoreFor: 7,
+    scoreAgainst: 0,
+    possession: 48,
+    playedAt: "2026-09-20T14:52:32Z",
+    shots: { for: 14, forOnTarget: 7, against: 3, againstOnTarget: 0 },
+  },
+];
+
+export const week2Record: WeekRecord = {
+  wins: 6,
+  losses: 4,
+  goalsFor: 34,
+  goalsAgainst: 21,
+  cleanSheets: 3,
+  played: 10,
+  possible: 70,
+  points: 237,
+};
+
+/** Season standing in League A, as of the feed pull on 2026-09-20 15:03 UTC. */
+export const seasonStanding = {
+  league: "League A",
+  rank: 24,
+  of: 422,
+  points: 458,
+  played: 20,
+  wins: 12,
+  draws: 0,
+  losses: 8,
+  goalsFor: 62,
+  goalsAgainst: 44,
+  goalDifference: 18,
+  cleanSheets: 4,
+} as const;
+
+/** Fastest goal logged so far — wildcard attempt with ticket pending. */
+export const fastestGoal =
+  "Fastest goal logged: 4.98s vs Chalk Hunters (Sep 20) — wildcard attempt, ticket PYEYLZ-14JP1 pending.";
 
 export const performanceDiagnosis: readonly string[] = [
   "Match 10: L 1-2 vs Bugle Hornets — our first league loss to a non-pressing opponent in 10 matches, played with zero audibles on pure v2.4.1.",
@@ -279,8 +436,8 @@ export const seasonSchedule: readonly ScheduleEntry[] = [
   {
     label: "Week 2",
     dates: "Sep 17 – 19",
-    detail: "Opens Sep 17. First test of the INTERCEPT patch against organized shapes.",
-    status: "upcoming",
+    detail: "Finished: 6W 4L, 34–21 goals, 3 clean sheets.",
+    status: "done",
     start: "2026-09-17",
     end: "2026-09-19",
   },

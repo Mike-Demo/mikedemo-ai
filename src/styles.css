@@ -358,6 +358,20 @@ a:focus-visible, summary:focus-visible { outline: var(--pixel-border) solid var(
 .match-table caption { caption-side: bottom; padding-block-start: var(--space-3); text-align: start; }
 .match-card, .recommendation-card, .manual-card, .license-card { height: 100%; }
 .goal-timeline { margin: 0; padding-inline-start: var(--space-6); }
+
+/* Bugle Crowns season charts — pixel blocks and bars on NES color tokens. */
+.bc-chart-title { margin: 0; font-size: var(--text-xs); }
+.bc-strip { display: flex; flex-wrap: wrap; gap: var(--space-1); margin: 0; padding: 0; list-style: none; align-items: center; }
+.bc-strip-item { display: inline-flex; }
+.bc-strip-cell { display: inline-block; inline-size: var(--space-5); block-size: var(--space-5); border-width: var(--space-1); border-style: solid; border-color: var(--nes-dark); }
+.bc-strip-divider { inline-size: var(--space-1); block-size: var(--space-6); background: var(--nes-dark); }
+.bc-win { background: var(--nes-success); }
+.bc-loss { background: var(--nes-error); }
+.bc-bar-row { display: flex; align-items: center; gap: var(--space-2); }
+.bc-bar-label { flex-shrink: 0; inline-size: var(--space-8); font-size: var(--text-xs); text-align: end; }
+.bc-bar-track { flex-grow: 1; block-size: var(--space-4); background: var(--nes-surface); border-width: var(--space-1); border-style: solid; border-color: var(--nes-dark); }
+.bc-bar-fill { display: block; block-size: 100%; }
+.bc-bar-value { flex-shrink: 0; font-size: var(--text-xs); }
 .checklist { margin-inline-start: var(--space-6); }
 
 @media (min-width: 48.0625em) and (max-width: 64em) {
