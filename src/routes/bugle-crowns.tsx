@@ -58,7 +58,7 @@ function MatchCard({ match, weekLabel }: { readonly match: MatchLogEntry; readon
                 timeZone: "America/Chicago",
                 timeZoneName: "short",
               })}
-            </Time>
+            </time>
           </p>
         ) : null}
         {match.shots ? (
