@@ -105,3 +105,5 @@ requires a rebuild for the change to appear publicly.
 - [docs/spacefast-prompt.md](docs/spacefast-prompt.md) — reusable prompt for
   preparing other projects for static hosting
 - [roadmap.md](roadmap.md) — completed milestones and open work
+
+_Last doc update: 2026-09-23._
