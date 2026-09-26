@@ -145,6 +145,18 @@ function Licenses(): ReactElement {
           <p className="hero-eyebrow pixel-display">CREDITS SCREEN</p>
           <h1 className="pixel-display section-title">Open source & credits</h1>
           <p className="project-lede">This portfolio is a flat-file site built on freely licensed software and typefaces. Every dependency it ships is credited below.</p>
+          <a
+            href="https://app.aikido.dev/audit-report/external/smlvhLoPnScdRnVeF7TjudEr/request"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Aikido Security Audit Report (opens in new tab)"
+          >
+            <img
+              src="https://app.aikido.dev/assets/badges/full-light-theme.svg"
+              alt="Aikido Security Audit Report"
+              height={40}
+            />
+          </a>
         </header>
         {groups.map((group) => (
           <section key={group.title} className="stack stack-m" aria-labelledby={`license-${group.title.replaceAll(" ", "-").toLowerCase()}`}>
