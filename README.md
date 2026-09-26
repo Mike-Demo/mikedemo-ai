@@ -79,8 +79,7 @@ reuses the committed `src/data/projects.generated.ts`. See
 
 ```sh
 bun run build          # static build — the default, what Spacefast runs
-bun run build:lovable  # adds the Cloudflare Worker output for Lovable hosting
-bun run build:static   # forces static output even inside Lovable
+bun run build:static   # alias for the same static production build
 bun run typecheck      # tsc --noEmit
 bun run lint
 ```

@@ -54,7 +54,7 @@ Completed milestones and open work. Detailed records of each change live in
       are absent
 - [x] Static `sitemap.xml`, `robots.txt`, `_redirects`; sitemap regenerated each build
 - [x] Make the static build the default so Spacefast's auto-detect just works
-- [x] Keep the Lovable Worker build available behind `build:lovable`
+- [x] Retire the Lovable Worker build path and keep static-only deployment
 - [x] Document the staging (Lovable) / production (Spacefast) split
 - [x] Reusable Spacefast prompt for other projects (`docs/spacefast-prompt.md`)
 

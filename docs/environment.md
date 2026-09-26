@@ -17,16 +17,13 @@ Copy [`.env.example`](../.env.example) to `.env` and fill in the two values.
 
 The data step accepts either the plain or the `VITE_`-prefixed name.
 
-## Build-target flags
+## Build flags
 
 These are not secrets and are not stored in `.env` — they are set by whoever runs
 the build.
 
 | Variable | Effect |
 | --- | --- |
-| `LOVABLE` | Set automatically inside Lovable's own environment. Enables the Cloudflare Worker output so Lovable hosting can serve requests. |
-| `LOVABLE_BUILD=1` | Forces that same Worker output manually (`bun run build:lovable`). |
-| `STATIC_BUILD=1` | Forces plain static output even inside Lovable (`bun run build:static`). Always wins over the two above. |
 | `CI` | Forced to `"true"` in `vite.config.ts` when unset, to work around a Vite preview-server stdin listener that crashes the prerender step. |
 
 ## Missing values are safe
