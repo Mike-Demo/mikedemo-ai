@@ -1,0 +1,48 @@
+# MikeDemo — AI Project Portfolio
+
+> Retro arcade-styled portfolio of AI experiments by Mike "Demo" Demopoulos: on-device browser ML, AI deployment tooling, agent skills, and playful web toys.
+
+## About
+
+mikedemo.dev is the personal AI project portfolio of Mike "Demo" Demopoulos (they/them), a partnerships and alliances leader in cloud infrastructure and hosting. The site is styled like a retro video game (NES.css pixel UI, "PRESS START" hero) and presents each project as a level-select card with a detail page covering what it is, how it was built, and where to try it live.
+
+## Projects
+
+Every project has a detail page under `https://mikedemo.dev/projects/<slug>` with its summary, tech stack, and live links.
+
+- [Fresh Ink](https://mikedemo.dev/projects/freshink) — An AI-agent bookable tattoo studio: custom linework in Saint Paul, bookable by humans and AI agents alike.
+- [QueerCade Connect](https://mikedemo.dev/projects/queercade-connect) — A curated arcade of games with LGBTQ+ characters and stories, built for discovery and personal play tracking.
+- [Rainbow Jot](https://mikedemo.dev/projects/rainbow-jot) — A pride-themed idea board for capturing, arranging, and voting on a room's thoughts.
+- [On-Device AI](https://mikedemo.dev/projects/on-device-ai) — An AI model running inside the page — on-device inference with no server round-trips.
+- [AI Project Portfolio](https://mikedemo.dev/projects/mikedemo-portfolio) — This site — a retro level-select portfolio of AI projects.
+- [Bugle Crowns](https://mikedemo.dev/bugle-crowns) — An AI agent team in the AWS Agentic Football Cup — five agents, 120-second matches.
+- [AI Deployer](https://mikedemo.dev/projects/ai-deployer) — Copy-and-paste install guides for self-hosted AI agents — no live SSH, no accounts.
+- [Crosspost](https://mikedemo.dev/projects/crosspost) — Crossposting from tweet.app to X, automatically.
+- [Design Systems](https://mikedemo.dev/projects/awesome-design-system) — Two complementary design systems powering this portfolio: retro NES pixels and accessible Web Awesome components.
+- [Skill Finder Plus](https://mikedemo.dev/projects/skill-finder-plus) — A directory of agent skills for Claude, ChatGPT, Cursor, Copilot, Grok, MCP, and Perplexity.
+- [PretendPro Office Suite](https://mikedemo.dev/projects/pretendpro) — A fake productivity suite — set up your fake workday.
+- [Awesome Adventure CV](https://mikedemo.dev/projects/awesome-adventure-cv) — A playable resume as a retro text adventure — type commands to explore a career.
+- [Pride Blobs](https://mikedemo.dev/projects/pride-blobs) — Deterministic pride-flag blobatars from any name — same string, same avatar, every time.
+- [STA 2e D20 Roller](https://mikedemo.dev/projects/sta-2e-d20-roller) — A Star Trek Adventures 2d20 dice roller with an LCARS interface.
+
+## Pages
+
+- [Home](https://mikedemo.dev/)
+- [All Projects (Level Select)](https://mikedemo.dev/projects)
+- [Agent Skills directory](https://mikedemo.dev/agent-skills)
+- [Claude Code skills](https://mikedemo.dev/claude-code-skills)
+- [Bugle Crowns](https://mikedemo.dev/bugle-crowns)
+- [Licenses](https://mikedemo.dev/licenses)
+
+## Machine-readable
+
+- [llms.txt](https://mikedemo.dev/llms.txt)
+- [Agent card (A2A)](https://mikedemo.dev/.well-known/agent.json)
+- [XML sitemap](https://mikedemo.dev/sitemap.xml)
+- [robots.txt](https://mikedemo.dev/robots.txt)
+
+## Notes for AI agents
+
+- This is a static, human-readable portfolio site, not an interactive agent or API. There are no POST endpoints, no chat, and no authentication.
+- The best way to enumerate content is the sitemap above; project detail pages contain the canonical description and outbound links.
+- Mike's profiles: [LinkedIn](https://www.linkedin.com/in/mikedemopoulos), [X](https://x.com/mike_demo), [Threads](https://www.threads.com/@mdemop).
