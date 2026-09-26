@@ -15,7 +15,7 @@ time. Nothing runs at request time in production.
 | `src/integrations/supabase/` | Auto-generated Cloud client and types. Not used at request time. |
 | `scripts/` | Build steps: `generate-projects.mjs`, `generate-sitemap.mjs`, `copy-static-output.mjs`. |
 | `public/` | Static passthrough: fonts, favicon, OG cover, `sitemap.xml`, `robots.txt`, `_redirects`. |
-| `vite.config.ts` | Prerender page list, conditional Cloudflare plugin, prerendered-HTML flush. |
+| `vite.config.ts` | Prerender page list and prerendered-HTML flush. |
 
 ## Key design decisions
 
@@ -61,12 +61,9 @@ and Web Awesome stylesheets scoped to the routes that need them via
 - **`html body` beats the pixel font.** Body text uses Work Sans through an
   `html body` rule; a weaker selector loses to the design system's own font
   rule and the whole page renders in Press Start 2P.
-- **The Cloudflare plugin must stay a lazy `await import()`.** Spacefast scans
-  the *repository*, not the build output, and rejects anything that loads
-  Cloudflare Worker tooling. For the same reason **no `wrangler.jsonc` /
-  `wrangler.toml` / `wrangler.json` may be committed** — the Worker settings are
-  passed inline to the plugin inside `vite.config.ts`. The plugin loads only
-  when `LOVABLE` or `LOVABLE_BUILD=1` is set, and never when `STATIC_BUILD=1`.
+- **Build output is static-only.** `vite.config.ts` does not load Cloudflare
+  Worker tooling; Spacefast and Lovable both consume the same prerendered static
+  output.
 - **Never set `nitro: { preset: "static" }`.** It breaks the SSR build.
   Prerendering is configured directly through
   `@tanstack/react-start/plugin/vite`, with
@@ -80,9 +77,6 @@ and Web Awesome stylesheets scoped to the routes that need them via
   prerendered HTML, a leading slash resolves to the filesystem root and the home
   page silently goes missing — leading/trailing slashes are stripped before
   `path.join`.
-- **Two server bundle names.** The prerender step boots `dist/server/server.js`
-  while the Cloudflare output emits `dist/server/index.js`; a tiny re-export
-  shim (`prerenderServerShim`) bridges them for the Lovable build.
 - **`src/routes/[__component].preview.$.tsx` and `[__mockup].preview.$.tsx` are
   generated** by `mockupPreviewPlugin` on every build. Edits do not stick and
   both files are excluded from `tsconfig.json`.

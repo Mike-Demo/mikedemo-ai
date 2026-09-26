@@ -13,7 +13,6 @@
     "zod": "^3.25.76"
   },
   "devDependencies": {
-    "@cloudflare/vite-plugin": "^1.56.0",
     "@eslint/js": "^9.32.0",
     "@types/node": "^22.16.5",
     "@types/react": "^19.2.0",
@@ -39,8 +38,7 @@
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
     "generate:projects": "node scripts/generate-projects.mjs",
-    "build:static": "STATIC_BUILD=1 npm run build",
-    "build:lovable": "LOVABLE_BUILD=1 npm run build",
+    "build:static": "npm run build",
     "generate:sitemap": "node scripts/generate-sitemap.mjs"
   },
   "sideEffects": false,

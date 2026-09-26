@@ -68,7 +68,6 @@ const groups: readonly LicenseGroup[] = [
       { name: "Vite", author: "Evan You and Vite contributors", license: "MIT", url: "https://github.com/vitejs/vite/blob/main/LICENSE", note: "Dev server and production bundler." },
       { name: "TypeScript", author: "Microsoft Corporation", license: "Apache-2.0", url: "https://github.com/microsoft/TypeScript/blob/main/LICENSE.txt", note: "Every source file on this site is typed." },
       { name: "Zod", author: "Colin McDonnell and contributors", license: "MIT", url: "https://github.com/colinhacks/zod/blob/main/LICENSE", note: "Schema validation for typed data." },
-      { name: "Cloudflare Vite plugin", author: "Cloudflare, Inc.", license: "MIT", url: "https://github.com/cloudflare/workers-sdk/blob/main/LICENSE-MIT", note: "Builds the site for its production runtime." },
     ],
   },
   {

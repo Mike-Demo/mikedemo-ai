@@ -16,26 +16,15 @@ Nothing needs configuring: the repo's *default* build is the static build.
 Spacefast picks up the GitHub repository, auto-detects the commands, and the
 result is plain HTML.
 
-Two hard rules follow from Spacefast scanning the **repository** (not the build
-output) for Cloudflare features:
-
-1. Never commit a `wrangler.jsonc` / `wrangler.toml` / `wrangler.json`. The
-   Worker settings live inline in the Cloudflare plugin call in
-   `vite.config.ts`; `.wrangler/` is git-ignored.
-2. The `@cloudflare/vite-plugin` import must stay a dynamic `await import()`
-   that only runs for the Lovable build. A top-level static import loads
-   Cloudflare tooling in every build and the detector fails immediately.
+This repository intentionally avoids Cloudflare Worker tooling so Spacefast's
+repository scan accepts it as a static site project.
 
 ## Staging — Lovable
 
 The Lovable preview and https://mikedemo-ai.lovable.app stay live for testing
-before anything ships. That environment sets `LOVABLE`, which switches the build
-to the Cloudflare Worker output it needs; `bun run build:lovable` forces the same
-output manually. If the Lovable-hosted copy ever returns a 502 after a build,
-that command is the fix.
+before anything ships, but they now use the same static build path as production.
 
-`bun run build:static` forces static output even inside Lovable
-(`STATIC_BUILD=1` always wins).
+`bun run build:static` is an alias for the default static build.
 
 ## What gets published
 
