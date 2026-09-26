@@ -87,7 +87,21 @@ if (!hasCredentials) {
   process.exit(0);
 }
 
-const rows = await fetchProjects();
+let rows;
+try {
+  rows = await fetchProjects();
+} catch (err) {
+  // The database may be unreachable (wrong credentials, deleted project,
+  // offline CI). Fall back to the committed generated file instead of
+  // failing the whole build.
+  if (fs.existsSync(OUTPUT)) {
+    console.warn(
+      `Project fetch failed (${err.message}); keeping existing src/data/projects.generated.ts`,
+    );
+    process.exit(0);
+  }
+  throw err;
+}
 const contents = render(rows);
 const current = fs.existsSync(OUTPUT) ? fs.readFileSync(OUTPUT, "utf8") : "";
 if (current !== contents) fs.writeFileSync(OUTPUT, contents);
