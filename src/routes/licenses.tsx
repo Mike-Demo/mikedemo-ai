@@ -73,7 +73,15 @@ const groups: readonly LicenseGroup[] = [
   },
   {
     title: "Services",
-    entries: baseCredits.filter((entry) => entry.name === "hCaptcha"),
+    entries: [
+      ...baseCredits.filter((entry) => entry.name === "hCaptcha"),
+      {
+        name: "Supabase",
+        author: "Supabase, Inc.",
+        license: "MIT (client libraries)",
+        url: "https://github.com/supabase/supabase-js/blob/master/LICENSE",
+      },
+    ],
   },
   {
     title: "Hosting",
