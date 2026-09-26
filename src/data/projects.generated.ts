@@ -6,6 +6,20 @@ import type { GeneratedProjectRow } from "./projects.generated-types";
 
 export const generatedProjectRows: readonly GeneratedProjectRow[] = [
   {
+    "slug": "freshink",
+    "name": "Fresh Ink",
+    "domain": "freshink.art",
+    "summary": "Fresh Ink project site.",
+    "description": "Fresh Ink is a live project site available at freshink.art.",
+    "tech": [],
+    "url": "https://freshink.art/",
+    "icon": "star",
+    "started": "2026-09-26",
+    "detail_path": null,
+    "credits": [],
+    "sites": []
+  },
+  {
     "slug": "queercade-connect",
     "name": "QueerCade Connect",
     "domain": "queercade.mikedemo.dev",
