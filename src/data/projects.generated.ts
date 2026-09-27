@@ -6,6 +6,31 @@ import type { GeneratedProjectRow } from "./projects.generated-types";
 
 export const generatedProjectRows: readonly GeneratedProjectRow[] = [
   {
+    "slug": "ceo-owl",
+    "name": "CEO Owl",
+    "domain": "ceoowl.com",
+    "summary": "Privacy-first English grammar checking: an in-browser editor and a remote MCP server, both powered by Harper.",
+    "description": "CEO Owl is a privacy-first English grammar checker built on Harper. It has two ways in: a browser editor where Harper runs entirely on the reader's device, so text never leaves it, and a remote MCP server exposing one check_grammar tool so AI clients can check writing as the signed-in user. No language model is involved, English only, and nothing submitted is ever stored or used for training.",
+    "tech": [
+      "TypeScript",
+      "TanStack Start",
+      "Harper",
+      "Model Context Protocol",
+      "Gutenberg"
+    ],
+    "url": "https://ceoowl.com/",
+    "icon": "feather",
+    "started": "2026-09-27",
+    "detail_path": null,
+    "credits": [
+      {
+        "name": "Harper",
+        "url": "https://writewithharper.com/"
+      }
+    ],
+    "sites": []
+  },
+  {
     "slug": "freshink",
     "name": "Fresh Ink",
     "domain": "freshink.art",

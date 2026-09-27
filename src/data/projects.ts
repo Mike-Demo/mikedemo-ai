@@ -5,6 +5,7 @@
 import aiDeployerLogo from "@/assets/project-icons/ai-deployer.svg";
 import awesomeAdventureCvLogo from "@/assets/project-icons/awesome-adventure-cv.png";
 import bugleCrownsLogo from "@/assets/project-icons/bugle-crowns.png";
+import ceoOwlLogo from "@/assets/project-icons/ceo-owl.svg";
 import crosspostLogo from "@/assets/project-icons/crosspost.png";
 import mikedemoPortfolioLogo from "@/assets/project-icons/mikedemo-portfolio.png";
 import onDeviceAiLogo from "@/assets/project-icons/on-device-ai.svg";
@@ -51,6 +52,7 @@ export const projectLogos: Readonly<Record<string, string>> = {
   "ai-deployer": aiDeployerLogo,
   "awesome-adventure-cv": awesomeAdventureCvLogo,
   "bugle-crowns": bugleCrownsLogo,
+  "ceo-owl": ceoOwlLogo,
   crosspost: crosspostLogo,
   "mikedemo-portfolio": mikedemoPortfolioLogo,
   "on-device-ai": onDeviceAiLogo,

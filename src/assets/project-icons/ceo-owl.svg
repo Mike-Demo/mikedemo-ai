@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-label="CEO Owl logo">
+  <rect width="96" height="96" rx="20" fill="#1a2340"/>
+  <path d="M28 22 L36 32 L60 32 L68 22 L74 30 L70 62 Q68 78 48 78 Q28 78 26 62 L22 30 Z" fill="#f5f0e6"/>
+  <circle cx="39" cy="52" r="10" fill="#1a2340"/>
+  <circle cx="57" cy="52" r="10" fill="#1a2340"/>
+  <circle cx="41" cy="50" r="3.5" fill="#f5f0e6"/>
+  <circle cx="59" cy="50" r="3.5" fill="#f5f0e6"/>
+  <path d="M44 62 L52 62 L48 68 Z" fill="#e8a33d"/>
+  <path d="M30 72 Q38 70 44 74 M66 72 Q58 70 52 74" stroke="#1a2340" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg>
