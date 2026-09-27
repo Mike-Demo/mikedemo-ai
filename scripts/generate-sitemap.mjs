@@ -40,8 +40,10 @@ for (const row of rows) {
   if (!row.detail_path) paths.add(`/projects/${row.slug}/`);
 }
 
+const LASTMOD = "2026-09-27";
+
 const urls = [...paths]
-  .map((value) => `  <url><loc>${BASE_URL}${value}</loc></url>`)
+  .map((value) => `  <url><loc>${BASE_URL}${value}</loc><lastmod>${LASTMOD}</lastmod></url>`)
   .join("\n");
 const contents = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
