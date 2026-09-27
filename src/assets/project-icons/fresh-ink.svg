@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-label="Fresh Ink logo">
+  <rect width="96" height="96" rx="20" fill="#141a2e"/>
+  <path d="M12 68 Q32 56 48 64 T84 58" stroke="#e8a33d" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <g transform="translate(48 40) rotate(-28)">
+    <path d="M0 -24 C9 -11 9 9 0 24 C-9 9 -9 -11 0 -24 Z" fill="#f5f0e6"/>
+    <circle cx="0" cy="0" r="3.2" fill="#141a2e"/>
+    <path d="M0 4 L0 24" stroke="#141a2e" stroke-width="2.2" stroke-linecap="round"/>
+  </g>
+  <circle cx="24" cy="28" r="2.6" fill="#e8a33d"/>
+  <circle cx="72" cy="24" r="1.8" fill="#f5f0e6"/>
+</svg>
