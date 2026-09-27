@@ -11,6 +11,48 @@ import nesCss from "@/design-system/nes-229931/styles/nes.css?url";
 import appCss from "../styles.css?url";
 import { identityJsonLd } from "@/lib/jsonld";
 
+/**
+ * Content-Security-Policy delivered via <meta http-equiv> (see RootShell).
+ *
+ * Third-party inventory (verified 2026-09-26; tightest policy that allows them):
+ * - Stylesheets: Font Awesome + Web Awesome CSS from
+ *   https://cdn.jsdelivr.net/npm (route-scoped <link> tags, see lib/head-assets.ts)
+ * - Fonts: self-hosted /fonts/*.woff2, plus Font Awesome webfonts served from
+ *   the jsDelivr paths above (../webfonts relative to the FA stylesheet)
+ * - Icons: <wa-icon> fetches SVGs from the jsDelivr @fortawesome path
+ *   (connect-src; the vendored bundle pins setIconPath to jsDelivr)
+ * - Everything else (JS bundles, images, og cover, favicon) is same-origin.
+ *
+ * Notes:
+ * - script-src needs 'unsafe-inline': TanStack Start boots/hydrates through
+ *   inline <script> tags (scroll-restoration snippet, streaming hydration
+ *   parts with per-request serialized data). Nonces cannot be delivered via
+ *   a static meta tag, and hashes are unusable because stream content varies
+ *   per request. External script injection is still blocked: only 'self' and
+ *   inline are allowed, no third-party script hosts.
+ * - The <script type="application/ld+json"> blocks are not governed by
+ *   script-src (non-executable script types are exempt).
+ * - style-src intentionally omits 'unsafe-inline': SSR HTML contains no
+ *   <style> elements or style="" attributes, and React applies style props
+ *   through CSSOM, which style-src does not govern.
+ * - fonts.googleapis.com is deliberately NOT allowlisted: NesProvider can
+ *   inject a Google Fonts link, but nothing in the app mounts it (dead code).
+ * - frame-ancestors / report-uri are not valid in meta-delivered policies and
+ *   are omitted (frame-ancestors would need an HTTP header instead).
+ */
+const CONTENT_SECURITY_POLICY = [
+  "default-src 'self'",
+  "script-src 'self' 'unsafe-inline'",
+  "style-src 'self' https://cdn.jsdelivr.net",
+  "font-src 'self' https://cdn.jsdelivr.net",
+  "img-src 'self'",
+  "connect-src 'self' https://cdn.jsdelivr.net",
+  "object-src 'none'",
+  "base-uri 'self'",
+  "form-action 'self'",
+  "upgrade-insecure-requests",
+].join("; ");
+
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   staticData: { sitemap: false },
   head: () => ({
@@ -59,6 +101,10 @@ function RootShell({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <head>
+        <meta
+          httpEquiv="Content-Security-Policy"
+          content={CONTENT_SECURITY_POLICY}
+        />
         <HeadContent />
       </head>
       <body>
