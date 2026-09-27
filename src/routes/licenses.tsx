@@ -202,6 +202,10 @@ function Licenses(): ReactElement {
             </div>
           </section>
         ))}
+        <section className="stack stack-m" aria-labelledby="license-digital-carbon">
+          <h2 id="license-digital-carbon" className="pixel-display tech-heading">Digital carbon</h2>
+          <p>Homepage transfer is about 373.7 KB, roughly 0.057 g of CO2 per visit. Estimated with CO2.js using the Sustainable Web Design Model v4, measured 2026-09-27. Hosting: SpaceFast, which is not currently listed in the Green Web Foundation&apos;s green hosting dataset. Machine-readable disclosure: <a href="/carbon.txt">/carbon.txt</a>.</p>
+        </section>
       </section>
     </SiteShell>
   );
