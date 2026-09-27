@@ -3,7 +3,7 @@ last_updated = 2026-09-27
 
 [org]
 disclosures = [
-    { doc_type = "web-page", url = "https://mikedemo.dev/license", domain = "mikedemo.dev", title = "Carbon disclosure for MikeDemo Portfolio" },
+    { doc_type = "web-page", url = "https://mikedemo.dev/licenses", domain = "mikedemo.dev", title = "Carbon disclosure for MikeDemo Portfolio" },
 ]
 
 [upstream]
