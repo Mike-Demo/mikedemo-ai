@@ -8,6 +8,8 @@ const HOST_BY_SLUG: Readonly<Record<string, ProjectHost>> = {
   "skill-finder-plus": "lovable-cloud",
   "queercade-connect": "lovable-cloud",
   "bugle-crowns": "aws",
+  "ceo-owl": "lovable-cloud",
+  freshink: "lovable-cloud",
 };
 
 const HOST_LABELS: Readonly<Record<ProjectHost, string>> = {
