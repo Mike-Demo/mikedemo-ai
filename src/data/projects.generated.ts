@@ -6,6 +6,30 @@ import type { GeneratedProjectRow } from "./projects.generated-types";
 
 export const generatedProjectRows: readonly GeneratedProjectRow[] = [
   {
+    "slug": "lite-analytics",
+    "name": "Lite Analytics",
+    "domain": "umami-lite.view.fast",
+    "summary": "A tiny self-hosted web analytics service: cookieless tracking and a dashboard in one SpaceFast worker.",
+    "description": "Lite Analytics is a self-hosted, cookieless web analytics service that runs as a single SpaceFast Functions worker with zero runtime dependencies. It collects Umami-compatible tracker payloads, serves its own minimal tracker script, and renders a server-side dashboard with pageviews, visitors, bounce rate, live traffic, top pages, referrers, and custom events. One admin login, PBKDF2-hashed passwords, HMAC-signed sessions. It now powers stats across the whole portfolio.",
+    "tech": [
+      "TypeScript",
+      "SpaceFast Functions",
+      "SQLite",
+      "Umami-compatible tracker"
+    ],
+    "url": "https://github.com/Mike-Demo/umami-spacefast",
+    "icon": "chart-line",
+    "started": "2026-09-27",
+    "detail_path": null,
+    "credits": [
+      {
+        "name": "Umami",
+        "url": "https://umami.is/"
+      }
+    ],
+    "sites": []
+  },
+  {
     "slug": "ceo-owl",
     "name": "CEO Owl",
     "domain": "ceoowl.com",

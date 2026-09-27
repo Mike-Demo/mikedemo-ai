@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-label="Lite Analytics logo">
+  <rect width="96" height="96" rx="20" fill="#0f2a1d"/>
+  <rect x="22" y="52" width="12" height="22" rx="3" fill="#4ade80"/>
+  <rect x="42" y="40" width="12" height="34" rx="3" fill="#4ade80"/>
+  <rect x="62" y="26" width="12" height="48" rx="3" fill="#a7f3d0"/>
+  <path d="M20 22 L46 38 L60 30 L76 18" stroke="#f5f0e6" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="76" cy="18" r="4" fill="#f5f0e6"/>
+</svg>

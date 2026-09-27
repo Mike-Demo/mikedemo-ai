@@ -9,6 +9,7 @@ import ceoOwlLogo from "@/assets/project-icons/ceo-owl.jpg";
 import crosspostLogo from "@/assets/project-icons/crosspost.png";
 import designSystemsLogo from "@/assets/project-icons/design-systems.svg";
 import freshInkLogo from "@/assets/project-icons/fresh-ink.svg";
+import liteAnalyticsLogo from "@/assets/project-icons/lite-analytics.svg";
 import mikedemoPortfolioLogo from "@/assets/project-icons/mikedemo-portfolio.png";
 import onDeviceAiLogo from "@/assets/project-icons/on-device-ai.svg";
 import pretendProLogo from "@/assets/project-icons/pretendpro.png";
@@ -58,6 +59,7 @@ export const projectLogos: Readonly<Record<string, string>> = {
   crosspost: crosspostLogo,
   "awesome-design-system": designSystemsLogo,
   freshink: freshInkLogo,
+  "lite-analytics": liteAnalyticsLogo,
   "mikedemo-portfolio": mikedemoPortfolioLogo,
   "on-device-ai": onDeviceAiLogo,
   pretendpro: pretendProLogo,
