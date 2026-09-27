@@ -21,7 +21,10 @@ import { identityJsonLd } from "@/lib/jsonld";
  *   the jsDelivr paths above (../webfonts relative to the FA stylesheet)
  * - Icons: <wa-icon> fetches SVGs from the jsDelivr @fortawesome path
  *   (connect-src; the vendored bundle pins setIconPath to jsDelivr)
- * - Everything else (JS bundles, images, og cover, favicon) is same-origin.
+ * - Everything else (JS bundles, images, og cover, favicon) is same-origin,
+ *   except images: Vite inlines assets under its inline limit as data: URIs,
+ *   so img-src also allows data: (images never execute script, so this is
+ *   not an XSS vector).
  *
  * Notes:
  * - script-src needs 'unsafe-inline': TanStack Start boots/hydrates through
@@ -45,7 +48,7 @@ const CONTENT_SECURITY_POLICY = [
   "script-src 'self' 'unsafe-inline'",
   "style-src 'self' https://cdn.jsdelivr.net",
   "font-src 'self' https://cdn.jsdelivr.net",
-  "img-src 'self'",
+  "img-src 'self' data:",
   "connect-src 'self' https://cdn.jsdelivr.net",
   "object-src 'none'",
   "base-uri 'self'",
