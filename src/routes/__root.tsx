@@ -21,10 +21,12 @@ import { identityJsonLd } from "@/lib/jsonld";
  *   the jsDelivr paths above (../webfonts relative to the FA stylesheet)
  * - Icons: <wa-icon> fetches SVGs from the jsDelivr @fortawesome path
  *   (connect-src; the vendored bundle pins setIconPath to jsDelivr)
- * - Everything else (JS bundles, images, og cover, favicon) is same-origin,
- *   except images: Vite inlines assets under its inline limit as data: URIs,
+ * - Images: Vite inlines assets under its inline limit as data: URIs,
  *   so img-src also allows data: (images never execute script, so this is
  *   not an XSS vector).
+ * - Analytics: the private umami-lite tracker loads from
+ *   https://umami-lite.view.fast/tracker.js and POSTs to /api/send there
+ *   (script-src + connect-src allowlist it). No cookies, no IP storage.
  *
  * Notes:
  * - script-src needs 'unsafe-inline': TanStack Start boots/hydrates through
@@ -45,11 +47,11 @@ import { identityJsonLd } from "@/lib/jsonld";
  */
 const CONTENT_SECURITY_POLICY = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline'",
+  "script-src 'self' 'unsafe-inline' https://umami-lite.view.fast",
   "style-src 'self' https://cdn.jsdelivr.net",
   "font-src 'self' https://cdn.jsdelivr.net",
   "img-src 'self' data:",
-  "connect-src 'self' https://cdn.jsdelivr.net",
+  "connect-src 'self' https://cdn.jsdelivr.net https://umami-lite.view.fast",
   "object-src 'none'",
   "base-uri 'self'",
   "form-action 'self'",
@@ -109,6 +111,11 @@ function RootShell({ children }: { children: ReactNode }) {
           content={CONTENT_SECURITY_POLICY}
         />
         <HeadContent />
+        <script
+          defer
+          src="https://umami-lite.view.fast/tracker.js"
+          data-website-id="80498e4e-5b55-4f01-955f-0b4ea2757654"
+        />
       </head>
       <body>
         {children}
