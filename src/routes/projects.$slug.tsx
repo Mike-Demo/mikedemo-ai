@@ -84,7 +84,7 @@ function ProjectNotFound(): ReactElement {
         <NesContainer title="CARTRIDGE ERROR">
           That cartridge isn't in the collection. Try another project from Level Select.
         </NesContainer>
-        <Link to="/projects" className="site-nav-link">
+        <Link to="/projects/" className="site-nav-link">
           ← Back to Level Select
         </Link>
       </section>

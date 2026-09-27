@@ -127,10 +127,10 @@ export const Route = createFileRoute("/licenses")({
       { property: "og:title", content: "Open Source Licenses — MikeDemo" },
       { property: "og:description", content: "Licenses and credits for the open-source libraries and typefaces used on this site." },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://mikedemo.dev/licenses" },
+      { property: "og:url", content: "https://mikedemo.dev/licenses/" },
       { name: "twitter:card", content: "summary" },
     ],
-    links: [{ rel: "canonical", href: "https://mikedemo.dev/licenses" }],
+    links: [{ rel: "canonical", href: "https://mikedemo.dev/licenses/" }],
     scripts: [
       {
         type: "application/ld+json",

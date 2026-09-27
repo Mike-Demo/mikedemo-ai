@@ -9,14 +9,15 @@ const OUTPUT = path.join(ROOT, "public/sitemap.xml");
 const GENERATED = path.join(ROOT, "src/data/projects.generated.ts");
 const BASE_URL = "https://mikedemo.dev";
 
-/** Public pages that are not derived from project data. */
+/** Public pages that are not derived from project data. Trailing slashes:
+ * the host 308-redirects extensionless paths to these canonicals. */
 const STATIC_PATHS = [
   "/",
-  "/projects",
-  "/bugle-crowns",
-  "/agent-skills",
-  "/claude-code-skills",
-  "/licenses",
+  "/projects/",
+  "/bugle-crowns/",
+  "/agent-skills/",
+  "/claude-code-skills/",
+  "/licenses/",
 ];
 
 /**
@@ -35,7 +36,8 @@ const rows = readProjectRows();
 const paths = new Set(STATIC_PATHS);
 for (const row of rows) {
   // Projects with a bespoke page are already listed by that page's own path.
-  if (!row.detail_path) paths.add(`/projects/${row.slug}`);
+  // Trailing slash: the host 308-redirects extensionless paths to these.
+  if (!row.detail_path) paths.add(`/projects/${row.slug}/`);
 }
 
 const urls = [...paths]

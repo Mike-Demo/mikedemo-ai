@@ -64,7 +64,7 @@ export interface PixelSiteFooterProps {
  */
 export function PixelSiteFooter({
   madeBy = "Made by MikeDemo",
-  licensesHref = "/licenses",
+  licensesHref = "/licenses/",
   year,
 }: PixelSiteFooterProps): ReactElement {
   const [resolvedYear, setResolvedYear] = useState<number | undefined>(year);

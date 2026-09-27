@@ -20,13 +20,13 @@ export const Route = createFileRoute("/claude-code-skills")({
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "article" },
-      { property: "og:url", content: "https://mikedemo.dev/claude-code-skills" },
+      { property: "og:url", content: "https://mikedemo.dev/claude-code-skills/" },
       { property: "og:image", content: "https://mikedemo.dev/og-cover.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: "https://mikedemo.dev/og-cover.jpg" },
     ],
     links: [
-      { rel: "canonical", href: "https://mikedemo.dev/claude-code-skills" },
+      { rel: "canonical", href: "https://mikedemo.dev/claude-code-skills/" },
       ...fontAwesomeLinks,
     ],
     scripts: [
@@ -38,7 +38,7 @@ export const Route = createFileRoute("/claude-code-skills")({
           headline: title,
           description,
           author: { "@type": "Person", name: "Mike Demopoulos" },
-          mainEntityOfPage: "https://mikedemo.dev/claude-code-skills",
+          mainEntityOfPage: "https://mikedemo.dev/claude-code-skills/",
         }),
       },
       {
@@ -215,10 +215,10 @@ function ClaudeCodeSkillsPage(): ReactElement {
         <div className="stack stack-s">
           <h2 className="pixel-display tech-heading">Keep exploring</h2>
           <div className="cluster cluster-m">
-            <Link to="/agent-skills" className="site-nav-link">
+            <Link to="/agent-skills/" className="site-nav-link">
               AI agent skills across every platform
             </Link>
-            <Link to="/projects/$slug" params={{ slug: "skill-finder-plus" }} className="site-nav-link">
+            <Link to="/projects/$slug/" params={{ slug: "skill-finder-plus" }} className="site-nav-link">
               Skill Finder Plus project
             </Link>
           </div>

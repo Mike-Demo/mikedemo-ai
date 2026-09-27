@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://mikedemo.dev/</loc></url>
-  <url><loc>https://mikedemo.dev/projects</loc></url>
-  <url><loc>https://mikedemo.dev/bugle-crowns</loc></url>
-  <url><loc>https://mikedemo.dev/agent-skills</loc></url>
-  <url><loc>https://mikedemo.dev/claude-code-skills</loc></url>
-  <url><loc>https://mikedemo.dev/licenses</loc></url>
-  <url><loc>https://mikedemo.dev/projects/queercade-connect</loc></url>
-  <url><loc>https://mikedemo.dev/projects/rainbow-jot</loc></url>
-  <url><loc>https://mikedemo.dev/projects/on-device-ai</loc></url>
-  <url><loc>https://mikedemo.dev/projects/mikedemo-portfolio</loc></url>
-  <url><loc>https://mikedemo.dev/projects/ai-deployer</loc></url>
-  <url><loc>https://mikedemo.dev/projects/crosspost</loc></url>
-  <url><loc>https://mikedemo.dev/projects/awesome-design-system</loc></url>
-  <url><loc>https://mikedemo.dev/projects/skill-finder-plus</loc></url>
-  <url><loc>https://mikedemo.dev/projects/pretendpro</loc></url>
-  <url><loc>https://mikedemo.dev/projects/awesome-adventure-cv</loc></url>
-  <url><loc>https://mikedemo.dev/projects/pride-blobs</loc></url>
-  <url><loc>https://mikedemo.dev/projects/sta-2e-d20-roller</loc></url>
+  <url><loc>https://mikedemo.dev/projects/</loc></url>
+  <url><loc>https://mikedemo.dev/bugle-crowns/</loc></url>
+  <url><loc>https://mikedemo.dev/agent-skills/</loc></url>
+  <url><loc>https://mikedemo.dev/claude-code-skills/</loc></url>
+  <url><loc>https://mikedemo.dev/licenses/</loc></url>
+  <url><loc>https://mikedemo.dev/projects/freshink/</loc></url>
+  <url><loc>https://mikedemo.dev/projects/queercade-connect/</loc></url>
+  <url><loc>https://mikedemo.dev/projects/rainbow-jot/</loc></url>
+  <url><loc>https://mikedemo.dev/projects/on-device-ai/</loc></url>
+  <url><loc>https://mikedemo.dev/projects/mikedemo-portfolio/</loc></url>
+  <url><loc>https://mikedemo.dev/projects/ai-deployer/</loc></url>
+  <url><loc>https://mikedemo.dev/projects/crosspost/</loc></url>
+  <url><loc>https://mikedemo.dev/projects/awesome-design-system/</loc></url>
+  <url><loc>https://mikedemo.dev/projects/skill-finder-plus/</loc></url>
+  <url><loc>https://mikedemo.dev/projects/pretendpro/</loc></url>
+  <url><loc>https://mikedemo.dev/projects/awesome-adventure-cv/</loc></url>
+  <url><loc>https://mikedemo.dev/projects/pride-blobs/</loc></url>
+  <url><loc>https://mikedemo.dev/projects/sta-2e-d20-roller/</loc></url>
 </urlset>

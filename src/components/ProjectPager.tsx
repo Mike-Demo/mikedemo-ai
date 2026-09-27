@@ -55,7 +55,7 @@ export function ProjectPager({ projects, currentSlug }: ProjectPagerProps): Reac
   return (
     <nav className="project-pager" aria-label="Browse projects">
       <ProjectPagerLink direction="previous" project={previousProject} />
-      <Link to="/projects" className="site-nav-link project-pager-levels">
+      <Link to="/projects/" className="site-nav-link project-pager-levels">
         LEVEL SELECT
       </Link>
       <ProjectPagerLink direction="next" project={nextProject} />

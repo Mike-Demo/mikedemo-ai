@@ -24,13 +24,13 @@ export const Route = createFileRoute("/agent-skills")({
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "article" },
-      { property: "og:url", content: "https://mikedemo.dev/agent-skills" },
+      { property: "og:url", content: "https://mikedemo.dev/agent-skills/" },
       { property: "og:image", content: "https://mikedemo.dev/og-cover.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: "https://mikedemo.dev/og-cover.jpg" },
     ],
     links: [
-      { rel: "canonical", href: "https://mikedemo.dev/agent-skills" },
+      { rel: "canonical", href: "https://mikedemo.dev/agent-skills/" },
       ...fontAwesomeLinks,
     ],
     scripts: [
@@ -42,7 +42,7 @@ export const Route = createFileRoute("/agent-skills")({
           headline: title,
           description,
           author: { "@type": "Person", name: "Mike Demopoulos" },
-          mainEntityOfPage: "https://mikedemo.dev/agent-skills",
+          mainEntityOfPage: "https://mikedemo.dev/agent-skills/",
         }),
       },
       {
@@ -160,10 +160,10 @@ function AgentSkillsPage(): ReactElement {
               <a className="nes-btn is-primary" href={skillFinder.url} target="_blank" rel="noopener noreferrer">
                 OPEN {skillFinder.domain}
               </a>
-              <Link to="/claude-code-skills" className="site-nav-link">
+              <Link to="/claude-code-skills/" className="site-nav-link">
                 Claude Code &amp; Copilot guide
               </Link>
-              <Link to="/projects/$slug" params={{ slug: skillFinder.slug }} className="site-nav-link">
+              <Link to="/projects/$slug/" params={{ slug: skillFinder.slug }} className="site-nav-link">
                 How it was built
               </Link>
             </div>

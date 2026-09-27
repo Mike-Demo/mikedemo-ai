@@ -90,13 +90,13 @@ export const Route = createFileRoute("/bugle-crowns")({
       { property: "og:title", content: "Bugle Crowns — AWS Agentic Football Cup" },
       { property: "og:description", content: description },
       { property: "og:type", content: "article" },
-      { property: "og:url", content: "https://mikedemo.dev/bugle-crowns" },
+      { property: "og:url", content: "https://mikedemo.dev/bugle-crowns/" },
       { property: "og:image", content: "https://mikedemo.dev/og-cover.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: "https://mikedemo.dev/og-cover.jpg" },
     ],
     links: [
-      { rel: "canonical", href: "https://mikedemo.dev/bugle-crowns" },
+      { rel: "canonical", href: "https://mikedemo.dev/bugle-crowns/" },
       ...fontAwesomeLinks,
     ],
     scripts: [

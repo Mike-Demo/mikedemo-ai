@@ -22,13 +22,13 @@ export const Route = createFileRoute("/projects/")({
       { property: "og:title", content: "AI Projects Level Select — MikeDemo" },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://mikedemo.dev/projects" },
+      { property: "og:url", content: "https://mikedemo.dev/projects/" },
       { property: "og:image", content: "https://mikedemo.dev/og-cover.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: "https://mikedemo.dev/og-cover.jpg" },
     ],
     links: [
-      { rel: "canonical", href: "https://mikedemo.dev/projects" },
+      { rel: "canonical", href: "https://mikedemo.dev/projects/" },
       ...fontAwesomeLinks,
     ],
     scripts: [
