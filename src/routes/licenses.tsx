@@ -31,6 +31,13 @@ const groups: readonly LicenseGroup[] = [
         url: "https://github.com/Mike-Demo/mikedemo-ai",
         note: "This site's source code is on GitHub.",
       },
+      {
+        name: "christie",
+        author: "Mike Demopoulos",
+        license: "Public repository",
+        url: "https://github.com/Mike-Demo/christie",
+        note: "Source code for CEO Owl, the privacy-first grammar checker.",
+      },
     ],
   },
   {
