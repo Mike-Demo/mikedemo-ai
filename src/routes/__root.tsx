@@ -27,6 +27,11 @@ import { identityJsonLd } from "@/lib/jsonld";
  * - Analytics: the private umami-lite tracker loads from
  *   https://umami-lite.view.fast/tracker.js and POSTs to /api/send there
  *   (script-src + connect-src allowlist it). No cookies, no IP storage.
+ * - Appreciations: the rainbow pixel-heart on project pages reads and
+ *   increments shared counts via QueerCade's public API at
+ *   https://queercade.mikedemo.dev/api/public/v1/appreciations
+ *   (connect-src allowlists it; that API allows all origins and
+ *   rate-limits per client).
  *
  * Notes:
  * - script-src needs 'unsafe-inline': TanStack Start boots/hydrates through
@@ -51,7 +56,7 @@ const CONTENT_SECURITY_POLICY = [
   "style-src 'self' https://cdn.jsdelivr.net",
   "font-src 'self' https://cdn.jsdelivr.net",
   "img-src 'self' data:",
-  "connect-src 'self' https://cdn.jsdelivr.net https://umami-lite.view.fast",
+  "connect-src 'self' https://cdn.jsdelivr.net https://umami-lite.view.fast https://queercade.mikedemo.dev",
   "object-src 'none'",
   "base-uri 'self'",
   "form-action 'self'",
