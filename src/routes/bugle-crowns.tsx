@@ -5,6 +5,7 @@ import { NesContainer } from "@/design-system/nes-229931";
 
 import { BugleCharts } from "@/components/BugleCharts";
 import { ProjectCabinet } from "@/components/ProjectCabinet";
+import { PixelAppreciateButton } from "@/components/PixelAppreciateButton";
 import { ProjectPager } from "@/components/ProjectPager";
 import { ProjectSummaryCard } from "@/components/ProjectSummaryCard";
 import { SiteShell } from "@/components/SiteShell";
@@ -141,6 +142,9 @@ function BugleCrownsPage(): ReactElement {
           <ProjectCabinet
             project={project}
             eyebrow={`AWS Agentic Football Cup · ${weekId}`}
+            headerExtra={
+              <PixelAppreciateButton slug="portfolio-bugle-crowns" title={project.name} />
+            }
             subtitle={
               <div className="stack stack-xs">
                 <p>
