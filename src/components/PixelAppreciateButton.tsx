@@ -248,45 +248,6 @@ export function PixelAppreciateButton({
           {remaining > 0 ? "appreciations — tap the heart" : "thanks for the love!"}
         </span>
       </div>
-      <style>{`
-        .pixel-appreciate { display: flex; align-items: center; gap: 0.75rem; }
-        .pixel-appreciate-btn {
-          position: relative;
-          background: none;
-          border: none;
-          padding: 0.35rem;
-          cursor: pointer;
-          line-height: 0;
-          transition: transform 0.12s steps(2);
-        }
-        .pixel-appreciate-btn:hover:not(:disabled) { transform: scale(1.12); }
-        .pixel-appreciate-btn:active:not(:disabled) { transform: scale(0.94); }
-        .pixel-appreciate-btn:disabled { cursor: default; }
-        .pixel-appreciate-btn.is-popping { animation: pixel-pop 0.18s steps(2); }
-        @keyframes pixel-pop {
-          0% { transform: scale(1); }
-          50% { transform: scale(1.25); }
-          100% { transform: scale(1); }
-        }
-        .pixel-appreciate-particle {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          pointer-events: none;
-          animation: pixel-burst 0.6s steps(6) forwards;
-        }
-        @keyframes pixel-burst {
-          0% { transform: translate(-50%, -50%); opacity: 1; }
-          100% { transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))); opacity: 0; }
-        }
-        .pixel-appreciate-meta { display: flex; flex-direction: column; line-height: 1.3; }
-        .pixel-appreciate-count { font-size: 1.1rem; }
-        .pixel-appreciate-label { font-size: 0.7rem; opacity: 0.75; }
-        @media (prefers-reduced-motion: reduce) {
-          .pixel-appreciate-btn.is-popping { animation: none; }
-          .pixel-appreciate-particle { display: none; }
-        }
-      `}</style>
     </div>
   );
 }
