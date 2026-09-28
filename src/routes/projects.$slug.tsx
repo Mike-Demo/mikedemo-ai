@@ -4,6 +4,7 @@ import { lazy, Suspense, type ReactElement } from "react";
 import { NesContainer } from "@/design-system/nes-229931";
 
 import { ProjectCabinet } from "@/components/ProjectCabinet";
+import { PixelAppreciateButton } from "@/components/PixelAppreciateButton";
 import { ProjectPager } from "@/components/ProjectPager";
 import { ProjectSummaryCard } from "@/components/ProjectSummaryCard";
 import { SiteShell } from "@/components/SiteShell";
@@ -98,7 +99,13 @@ function ProjectPage(): ReactElement {
   return (
     <SiteShell>
       <section className="project-stage">
-        <ProjectCabinet project={project} subtitle={<p>{project.description}</p>}>
+        <ProjectCabinet
+          project={project}
+          subtitle={<p>{project.description}</p>}
+          headerExtra={
+            <PixelAppreciateButton slug={`portfolio-${project.slug}`} title={project.name} />
+          }
+        >
           <ProjectSummaryCard project={project} />
 
           {project.slug === DESIGN_SYSTEMS_SLUG ? (
