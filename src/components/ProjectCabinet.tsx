@@ -9,6 +9,7 @@ interface ProjectCabinetProps {
   readonly project: Project;
   readonly eyebrow?: ReactNode;
   readonly subtitle: ReactNode;
+  readonly headerExtra?: ReactNode;
   readonly children: ReactNode;
 }
 
@@ -17,6 +18,7 @@ export function ProjectCabinet({
   project,
   eyebrow = project.domain,
   subtitle,
+  headerExtra,
   children,
 }: ProjectCabinetProps): ReactElement {
   return (
@@ -47,6 +49,7 @@ export function ProjectCabinet({
               <p className="pixel-display project-cabinet-eyebrow">{eyebrow}</p>
               <h1 className="pixel-display project-cabinet-title">{project.name}</h1>
               <div className="project-cabinet-subtitle">{subtitle}</div>
+              {headerExtra}
             </div>
           </header>
 
