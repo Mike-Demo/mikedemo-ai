@@ -5,7 +5,7 @@
 #   the markdown content type here.
 
 /.well-known/api-catalog
-  Content-Type: application/linkset+json
+  Content-Type: application/linkset+json;profile="https://www.rfc-editor.org/info/rfc9727"
 
 /index.md
   Content-Type: text/markdown
