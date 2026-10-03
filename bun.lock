@@ -15,7 +15,7 @@
         "react": "^19.2.0",
         "react-dom": "^19.2.0",
         "vite-tsconfig-paths": "^6.0.2",
-        "zod": "https://npm.aikido.io/259bdd65156c8f75910de/zod@3.25.76-aikido.1",
+        "zod": "^3.25.76",
       },
       "devDependencies": {
         "@cloudflare/vite-plugin": "^1.56.0",
@@ -823,7 +823,7 @@
 
     "youch-core": ["youch-core@0.3.3", "", { "dependencies": { "@poppinss/exception": "^1.2.2", "error-stack-parser-es": "^1.0.5" } }, "sha512-ho7XuGjLaJ2hWHoK8yFnsUGy2Y5uDpqSTq1FkHLK4/oqKtyUU1AFbOOxY4IpC9f0fTLjwYbslUz0Po5BpD1wrA=="],
 
-    "zod": ["zod@https://npm.aikido.io/259bdd65156c8f75910de/zod@3.25.76-aikido.1", {}, "sha512-pLEgZq/PwkCTC8mvVvWP6rR9hpCILc4a1se/QXcUj3cGXf/vR89NvTz9MokoG5XGnK+vEzohjTm6KvAobOMOrg=="],
+    "zod": ["zod@3.25.76", "", {}, "sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ=="],
 
     "@babel/generator/@jridgewell/trace-mapping": ["@jridgewell/trace-mapping@0.3.31", "", { "dependencies": { "@jridgewell/resolve-uri": "^3.1.0", "@jridgewell/sourcemap-codec": "^1.4.14" } }, "sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw=="],
 
