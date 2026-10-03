@@ -10,7 +10,7 @@
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "vite-tsconfig-paths": "^6.0.2",
-    "zod": "https://npm.aikido.io/259bdd65156c8f75910de/zod@3.25.76-aikido.1"
+    "zod": "^3.25.76"
   },
   "devDependencies": {
     "@cloudflare/vite-plugin": "^1.56.0",
