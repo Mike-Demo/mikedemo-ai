@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://mikedemo.dev/sitemap.xml
+schemamap: https://mikedemo.dev/schemamap.xml

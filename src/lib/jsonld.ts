@@ -12,11 +12,14 @@ const person = {
   "@id": `${SITE_URL}/#person`,
   name: "Mike Demopoulos",
   alternateName: SITE_NAME,
+  description: "Mike 'Demo' Demopoulos (they/them) is a partnerships and alliances leader in cloud infrastructure, hosting, and SaaS, and the builder behind mikedemo.dev — a retro arcade-styled portfolio of AI experiments including on-device browser ML, AI deployment tooling, agent skills, and playful web toys.",
   url: SITE_URL,
   sameAs: [
     "https://www.linkedin.com/in/mikedemopoulos",
     "https://x.com/mike_demo",
     "https://www.threads.com/@mdemop",
+    "https://github.com/Mike-Demo",
+    "https://bsky.app/profile/mikedemo.bsky.social",
   ],
 };
 
