@@ -10,10 +10,14 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as AgentSkillsRouteImport } from './routes/agent-skills'
 import { Route as BugleCrownsRouteImport } from './routes/bugle-crowns'
 import { Route as ClaudeCodeSkillsRouteImport } from './routes/claude-code-skills'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as DevelopersRouteImport } from './routes/developers'
 import { Route as LicensesRouteImport } from './routes/licenses'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ProjectsIndexRouteImport } from './routes/projects.index'
 import { Route as ProjectsSlugRouteImport } from './routes/projects.$slug'
 import { Route as Char91__componentChar93PreviewSplatRouteImport } from './routes/[__component].preview.$'
@@ -22,6 +26,11 @@ import { Route as Char91__mockupChar93PreviewSplatRouteImport } from './routes/[
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AgentSkillsRoute = AgentSkillsRouteImport.update({
@@ -39,9 +48,24 @@ const ClaudeCodeSkillsRoute = ClaudeCodeSkillsRouteImport.update({
   path: '/claude-code-skills',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DevelopersRoute = DevelopersRouteImport.update({
+  id: '/developers',
+  path: '/developers',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LicensesRoute = LicensesRouteImport.update({
   id: '/licenses',
   path: '/licenses',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProjectsIndexRoute = ProjectsIndexRouteImport.update({
@@ -69,10 +93,14 @@ const Char91__mockupChar93PreviewSplatRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/agent-skills': typeof AgentSkillsRoute
   '/bugle-crowns': typeof BugleCrownsRoute
   '/claude-code-skills': typeof ClaudeCodeSkillsRoute
+  '/contact': typeof ContactRoute
+  '/developers': typeof DevelopersRoute
   '/licenses': typeof LicensesRoute
+  '/privacy': typeof PrivacyRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/projects/': typeof ProjectsIndexRoute
   '/__component/preview/$': typeof Char91__componentChar93PreviewSplatRoute
@@ -80,10 +108,14 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/agent-skills': typeof AgentSkillsRoute
   '/bugle-crowns': typeof BugleCrownsRoute
   '/claude-code-skills': typeof ClaudeCodeSkillsRoute
+  '/contact': typeof ContactRoute
+  '/developers': typeof DevelopersRoute
   '/licenses': typeof LicensesRoute
+  '/privacy': typeof PrivacyRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/projects': typeof ProjectsIndexRoute
   '/__component/preview/$': typeof Char91__componentChar93PreviewSplatRoute
@@ -92,10 +124,14 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/agent-skills': typeof AgentSkillsRoute
   '/bugle-crowns': typeof BugleCrownsRoute
   '/claude-code-skills': typeof ClaudeCodeSkillsRoute
+  '/contact': typeof ContactRoute
+  '/developers': typeof DevelopersRoute
   '/licenses': typeof LicensesRoute
+  '/privacy': typeof PrivacyRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/projects/': typeof ProjectsIndexRoute
   '/__component/preview/$': typeof Char91__componentChar93PreviewSplatRoute
@@ -105,10 +141,14 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/about'
     | '/agent-skills'
     | '/bugle-crowns'
     | '/claude-code-skills'
+    | '/contact'
+    | '/developers'
     | '/licenses'
+    | '/privacy'
     | '/projects/$slug'
     | '/projects/'
     | '/__component/preview/$'
@@ -116,10 +156,14 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/about'
     | '/agent-skills'
     | '/bugle-crowns'
     | '/claude-code-skills'
+    | '/contact'
+    | '/developers'
     | '/licenses'
+    | '/privacy'
     | '/projects/$slug'
     | '/projects'
     | '/__component/preview/$'
@@ -127,10 +171,14 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/about'
     | '/agent-skills'
     | '/bugle-crowns'
     | '/claude-code-skills'
+    | '/contact'
+    | '/developers'
     | '/licenses'
+    | '/privacy'
     | '/projects/$slug'
     | '/projects/'
     | '/__component/preview/$'
@@ -139,10 +187,14 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
   AgentSkillsRoute: typeof AgentSkillsRoute
   BugleCrownsRoute: typeof BugleCrownsRoute
   ClaudeCodeSkillsRoute: typeof ClaudeCodeSkillsRoute
+  ContactRoute: typeof ContactRoute
+  DevelopersRoute: typeof DevelopersRoute
   LicensesRoute: typeof LicensesRoute
+  PrivacyRoute: typeof PrivacyRoute
   ProjectsSlugRoute: typeof ProjectsSlugRoute
   ProjectsIndexRoute: typeof ProjectsIndexRoute
   Char91__componentChar93PreviewSplatRoute: typeof Char91__componentChar93PreviewSplatRoute
@@ -156,6 +208,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/agent-skills': {
@@ -179,11 +238,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ClaudeCodeSkillsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/developers': {
+      id: '/developers'
+      path: '/developers'
+      fullPath: '/developers'
+      preLoaderRoute: typeof DevelopersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/licenses': {
       id: '/licenses'
       path: '/licenses'
       fullPath: '/licenses'
       preLoaderRoute: typeof LicensesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/projects/': {
@@ -219,10 +299,14 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
   AgentSkillsRoute: AgentSkillsRoute,
   BugleCrownsRoute: BugleCrownsRoute,
   ClaudeCodeSkillsRoute: ClaudeCodeSkillsRoute,
+  ContactRoute: ContactRoute,
+  DevelopersRoute: DevelopersRoute,
   LicensesRoute: LicensesRoute,
+  PrivacyRoute: PrivacyRoute,
   ProjectsSlugRoute: ProjectsSlugRoute,
   ProjectsIndexRoute: ProjectsIndexRoute,
   Char91__componentChar93PreviewSplatRoute:

@@ -1,3 +1,10 @@
+---
+title: "Pricing — MikeDemo"
+description: "mikedemo.dev is a personal portfolio. Everything on it is free; there are no tiers, no trials, no paid plans."
+canonical: "https://mikedemo.dev/pricing.md"
+last-updated: "2026-10-03"
+---
+
 # Pricing
 
 mikedemo.dev is a personal portfolio site. Everything on it is free.

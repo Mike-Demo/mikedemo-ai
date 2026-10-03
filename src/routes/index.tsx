@@ -1,8 +1,9 @@
-import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, useNavigate, Link } from "@tanstack/react-router";
 import type { ReactElement } from "react";
 
 import { CredentialsSection } from "@/components/CredentialsSection";
 import { SiteShell } from "@/components/SiteShell";
+import { generatedProjectRows } from "@/data/projects.generated";
 // 320px source for a 160px display box: the LCP element, so it is kept small,
 // preloaded below, and offered as WebP with a PNG fallback.
 import headshotWebp from "@/assets/headshot-320.webp";
@@ -44,7 +45,7 @@ export const Route = createFileRoute("/")({
 function Index(): ReactElement {
   const navigate = useNavigate();
   const openProjects = (): void => {
-    void navigate({ to: "/projects" });
+    void navigate({ to: "/projects/" });
   };
 
   return (
@@ -75,6 +76,43 @@ function Index(): ReactElement {
       </section>
 
       <CredentialsSection />
+
+      <section className="section stack stack-m" aria-labelledby="home-projects">
+        <h2 id="home-projects" className="pixel-display section-title">Level select</h2>
+        <p className="project-lede">
+          Every project below ships as a static site or tool with its own detail page.
+          Agents and scripts should prefer the machine-readable records in the{" "}
+          <Link to="/developers/">developers section</Link> — but here is the human tour.
+        </p>
+        <ul className="stack stack-s" style={{ listStyle: "none", padding: 0 }}>
+          {generatedProjectRows.map((project) => {
+            const href =
+              project.detail_path === "/bugle-crowns"
+                ? "/bugle-crowns/"
+                : `/projects/${project.slug}/`;
+            return (
+              <li key={project.slug}>
+                <a href={href}>
+                  <strong>{project.name}</strong>
+                </a>
+                <p className="text-quiet">{project.summary}</p>
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+
+      <section className="section stack stack-m" aria-labelledby="home-machine">
+        <h2 id="home-machine" className="pixel-display section-title">Machine-readable</h2>
+        <p>
+          This portfolio publishes a read-only JSON API — no keys, no auth, no rate
+          limits. Start at <a href="/api/v1/projects.json"><code>/api/v1/projects.json</code></a> for
+          all {generatedProjectRows.length} projects, read the{" "}
+          <a href="/openapi.json"><code>OpenAPI spec</code></a> for the exact shape, or
+          visit the <Link to="/developers/">developers page</Link> for the full list of
+          agent resources (llms.txt, ARD catalog, agent card, schema feeds).
+        </p>
+      </section>
     </SiteShell>
   );
 }

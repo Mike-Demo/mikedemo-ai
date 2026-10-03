@@ -1,10 +1,21 @@
 # Markdown twins: the host does not serve .md files, so these rewrites serve the
 # byte-identical markdown content as text/plain from /md/*.txt (written by
 # scripts/generate-md-txt.mjs). Specific rules first; the SPA catch-all last.
+# (Response Content-Type is upgraded to text/markdown via the _headers file.)
 /index.md  /md/index.txt  200
 /auth.md  /md/auth.txt  200
 /pricing.md  /md/pricing.txt  200
 /llms.md  /md/llms-full.txt  200
+/about.md  /md/about.txt  200
+/contact.md  /md/contact.txt  200
+/privacy.md  /md/privacy.txt  200
+/developers.md  /md/developers.txt  200
+/licenses.md  /md/licenses.txt  200
+/projects.md  /md/projects.txt  200
+/agent-skills.md  /md/agent-skills.txt  200
+/claude-code-skills.md  /md/claude-code-skills.txt  200
+/bugle-crowns.md  /md/bugle-crowns.txt  200
+/projects/:slug.md  /md/projects-:slug.txt  200
 /skills/browse-projects/SKILL.md  /md/skills-browse-projects.txt  200
 /skills/read-project/SKILL.md  /md/skills-read-project.txt  200
 /skills/site-navigation/SKILL.md  /md/skills-site-navigation.txt  200

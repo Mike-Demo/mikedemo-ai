@@ -18,6 +18,10 @@ const STATIC_PATHS = [
   "/agent-skills/",
   "/claude-code-skills/",
   "/licenses/",
+  "/about/",
+  "/contact/",
+  "/privacy/",
+  "/developers/",
 ];
 
 /**

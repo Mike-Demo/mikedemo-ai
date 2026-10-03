@@ -1,3 +1,10 @@
+---
+title: "Read Project Details — skill"
+description: "Get the full detail record for one portfolio project by slug, via JSON or the project page."
+canonical: "https://mikedemo.dev/skills/read-project/SKILL.md"
+last-updated: "2026-10-03"
+---
+
 # Read Project Details
 
 Get the full detail record for one project in the MikeDemo AI portfolio (mikedemo.dev).

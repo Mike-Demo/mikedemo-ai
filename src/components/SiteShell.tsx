@@ -33,6 +33,9 @@ export function SiteShell({ children }: { children: ReactNode }): ReactElement {
           <Link to="/agent-skills/" className="site-nav-link" activeProps={{ className: "is-active" }}>
             Skills Guide
           </Link>
+          <Link to="/about/" className="site-nav-link" activeProps={{ className: "is-active" }}>
+            About
+          </Link>
           <Link to="/licenses/" className="site-nav-link" activeProps={{ className: "is-active" }}>
             Credits
           </Link>

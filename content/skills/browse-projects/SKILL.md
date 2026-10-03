@@ -1,3 +1,10 @@
+---
+title: "Browse AI Projects — skill"
+description: "List and filter the AI projects in the MikeDemo portfolio via the static JSON API."
+canonical: "https://mikedemo.dev/skills/browse-projects/SKILL.md"
+last-updated: "2026-10-03"
+---
+
 # Browse AI Projects
 
 List and filter the projects in the MikeDemo AI portfolio (mikedemo.dev), a retro arcade-styled showcase of AI experiments by Mike "Demo" Demopoulos.

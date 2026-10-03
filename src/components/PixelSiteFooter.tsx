@@ -87,9 +87,21 @@ export function PixelSiteFooter({
           <NesIcon name="coin" size="small" />
           Open Source
         </a>
+        <a href="/about/" className="pixel-site-footer-link">
+          About
+        </a>
+        <a href="/developers/" className="pixel-site-footer-link">
+          Developers
+        </a>
         <a href="/openapi.json" className="pixel-site-footer-link">
           <NesIcon name="star" size="small" />
           API
+        </a>
+        <a href="/contact/" className="pixel-site-footer-link">
+          Contact
+        </a>
+        <a href="/privacy/" className="pixel-site-footer-link">
+          Privacy
         </a>
       </nav>
 

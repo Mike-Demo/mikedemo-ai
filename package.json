@@ -32,7 +32,7 @@
   "name": "custom_design_system_tanstack",
   "private": true,
   "scripts": {
-    "build": "node scripts/generate-projects.mjs && node scripts/generate-api-json.mjs && node scripts/generate-sitemap.mjs && vite build && node scripts/copy-static-output.mjs && node scripts/generate-md-txt.mjs",
+    "build": "node scripts/generate-projects.mjs && node scripts/generate-api-json.mjs && node scripts/generate-sitemap.mjs && node scripts/generate-project-md.mjs && node scripts/generate-schema-feed.mjs && vite build && node scripts/copy-static-output.mjs && node scripts/generate-md-txt.mjs",
     "build:dev": "node scripts/generate-projects.mjs && node scripts/generate-api-json.mjs && node scripts/generate-sitemap.mjs && vite build --mode development && node scripts/copy-static-output.mjs && node scripts/generate-md-txt.mjs",
     "dev": "vite dev",
     "lint": "eslint .",

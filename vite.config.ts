@@ -49,6 +49,10 @@ function prerenderPages(): { path: string }[] {
     "/agent-skills",
     "/claude-code-skills",
     "/licenses",
+    "/about",
+    "/contact",
+    "/privacy",
+    "/developers",
   ]);
 
   for (const row of generatedProjectRows) {

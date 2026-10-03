@@ -1,0 +1,104 @@
+# Response headers, compiled by SpaceFast at publish time.
+# - /.well-known/api-catalog must serve application/linkset+json (RFC 9727).
+# - The .md twins are served from /md/*.txt via _redirects rewrites;
+#   header rules match the URL the visitor asked for, so the .md URLs get
+#   the markdown content type here.
+
+/.well-known/api-catalog
+  Content-Type: application/linkset+json
+
+/index.md
+  Content-Type: text/markdown
+
+/auth.md
+  Content-Type: text/markdown
+
+/pricing.md
+  Content-Type: text/markdown
+
+/llms.md
+  Content-Type: text/markdown
+
+/about.md
+  Content-Type: text/markdown
+
+/contact.md
+  Content-Type: text/markdown
+
+/privacy.md
+  Content-Type: text/markdown
+
+/developers.md
+  Content-Type: text/markdown
+
+/licenses.md
+  Content-Type: text/markdown
+
+/projects.md
+  Content-Type: text/markdown
+
+/agent-skills.md
+  Content-Type: text/markdown
+
+/claude-code-skills.md
+  Content-Type: text/markdown
+
+/bugle-crowns.md
+  Content-Type: text/markdown
+
+/skills/browse-projects/SKILL.md
+  Content-Type: text/markdown
+
+/skills/read-project/SKILL.md
+  Content-Type: text/markdown
+
+/skills/site-navigation/SKILL.md
+  Content-Type: text/markdown
+
+/projects/eat-well.md
+  Content-Type: text/markdown
+
+/projects/lite-analytics.md
+  Content-Type: text/markdown
+
+/projects/ceo-owl.md
+  Content-Type: text/markdown
+
+/projects/freshink.md
+  Content-Type: text/markdown
+
+/projects/queercade-connect.md
+  Content-Type: text/markdown
+
+/projects/rainbow-jot.md
+  Content-Type: text/markdown
+
+/projects/on-device-ai.md
+  Content-Type: text/markdown
+
+/projects/mikedemo-portfolio.md
+  Content-Type: text/markdown
+
+/projects/ai-deployer.md
+  Content-Type: text/markdown
+
+/projects/crosspost.md
+  Content-Type: text/markdown
+
+/projects/awesome-design-system.md
+  Content-Type: text/markdown
+
+/projects/skill-finder-plus.md
+  Content-Type: text/markdown
+
+/projects/pretendpro.md
+  Content-Type: text/markdown
+
+/projects/awesome-adventure-cv.md
+  Content-Type: text/markdown
+
+/projects/pride-blobs.md
+  Content-Type: text/markdown
+
+/projects/sta-2e-d20-roller.md
+  Content-Type: text/markdown

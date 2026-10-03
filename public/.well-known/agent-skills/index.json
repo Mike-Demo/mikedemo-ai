@@ -1,1 +1,26 @@
-{"$schema":"https://schemas.agentskills.io/discovery/0.2.0/schema.json","skills":[{"description":"List and filter the AI projects in the MikeDemo portfolio via the static JSON API","digest":"sha256:3e70150b7993427983c278ff6f3372784c22d5ebec7e47b908a2584dbe6c3796","name":"Browse AI Projects","type":"skill-md","url":"https://mikedemo.dev/skills/browse-projects/SKILL.md"},{"description":"Get the full detail record for one portfolio project by slug, via JSON or the project page","digest":"sha256:ec641eb380f070c666200236a3b96d78d4862b0fd96d2674d291138f0df5f17f","name":"Read Project Details","type":"skill-md","url":"https://mikedemo.dev/skills/read-project/SKILL.md"},{"description":"Find pages, feeds, and machine-readable entry points across mikedemo.dev","digest":"sha256:31fba86bd8819375bf3ee146a28f976422a838b4987ec71f95185a8e8fd526da","name":"Site Navigation","type":"skill-md","url":"https://mikedemo.dev/skills/site-navigation/SKILL.md"}]}
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "description": "List and filter the AI projects in the MikeDemo portfolio via the static JSON API",
+      "digest": "sha256:15fdf5052e9e2d65a3196102d0492eed5016ef551f8b1c9fd547d7b4c4e20e97",
+      "name": "Browse AI Projects",
+      "type": "skill-md",
+      "url": "https://mikedemo.dev/skills/browse-projects/SKILL.md"
+    },
+    {
+      "description": "Get the full detail record for one portfolio project by slug, via JSON or the project page",
+      "digest": "sha256:896aae6d5372f2f0cba48c90970dd330d048701d5953798544868d6aa708a5cd",
+      "name": "Read Project Details",
+      "type": "skill-md",
+      "url": "https://mikedemo.dev/skills/read-project/SKILL.md"
+    },
+    {
+      "description": "Find pages, feeds, and machine-readable entry points across mikedemo.dev",
+      "digest": "sha256:0dcf2aca9fa3dde433af35822b5f29ad6bee52a53e303db2ad246778d64f5026",
+      "name": "Site Navigation",
+      "type": "skill-md",
+      "url": "https://mikedemo.dev/skills/site-navigation/SKILL.md"
+    }
+  ]
+}

@@ -1,3 +1,10 @@
+---
+title: "Site Navigation — skill"
+description: "Find pages, feeds, and machine-readable resources on mikedemo.dev."
+canonical: "https://mikedemo.dev/skills/site-navigation/SKILL.md"
+last-updated: "2026-10-03"
+---
+
 # Site Navigation
 
 Find your way around mikedemo.dev, the AI project portfolio of Mike "Demo" Demopoulos.

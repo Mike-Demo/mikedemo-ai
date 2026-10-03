@@ -1,3 +1,10 @@
+---
+title: "MikeDemo — AI Project Portfolio"
+description: "Retro arcade-styled portfolio of AI experiments by Mike "Demo" Demopoulos."
+canonical: "https://mikedemo.dev/"
+last-updated: "2026-10-03"
+---
+
 # MikeDemo — AI Project Portfolio
 
 > Retro arcade-styled portfolio of AI experiments by Mike "Demo" Demopoulos: on-device browser ML, AI deployment tooling, agent skills, and playful web toys.

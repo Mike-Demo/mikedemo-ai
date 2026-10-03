@@ -1,3 +1,10 @@
+---
+title: "Authentication — MikeDemo"
+description: "How AI agents and developers authenticate with mikedemo.dev: they don't — everything is public and read-only."
+canonical: "https://mikedemo.dev/auth.md"
+last-updated: "2026-10-03"
+---
+
 # Authentication
 
 How AI agents and developers authenticate with mikedemo.dev.

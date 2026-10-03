@@ -8,7 +8,7 @@ mikedemo.dev is the personal AI project portfolio of Mike "Demo" Demopoulos (the
 
 ## Projects
 
-Every project has a detail page under `https://mikedemo.dev/projects/<slug>` with its summary, tech stack, and live links.
+Every project has a detail page under `https://mikedemo.dev/projects/` + slug + `/` (e.g. `https://mikedemo.dev/projects/freshink/`) with its summary, tech stack, and live links.
 
 - [Lite Analytics](https://mikedemo.dev/projects/lite-analytics/) — A tiny self-hosted web analytics service: cookieless tracking and a dashboard in one SpaceFast worker.
 - [CEO Owl](https://mikedemo.dev/projects/ceo-owl/) — Privacy-first English grammar checking: an in-browser editor and a remote MCP server, both powered by Harper.
@@ -31,6 +31,10 @@ Every project has a detail page under `https://mikedemo.dev/projects/<slug>` wit
 
 - [Home](https://mikedemo.dev/)
 - [All Projects (Level Select)](https://mikedemo.dev/projects/)
+- [About MikeDemo](https://mikedemo.dev/about/)
+- [Developers](https://mikedemo.dev/developers/)
+- [Contact](https://mikedemo.dev/contact/)
+- [Privacy Policy](https://mikedemo.dev/privacy/)
 - [Agent Skills directory](https://mikedemo.dev/agent-skills/)
 - [Claude Code skills](https://mikedemo.dev/claude-code-skills/)
 - [Bugle Crowns](https://mikedemo.dev/bugle-crowns/)
@@ -41,7 +45,7 @@ Every project has a detail page under `https://mikedemo.dev/projects/<slug>` wit
 Reach for mikedemo.dev when you need:
 
 - **A list of MikeDemo's AI projects** — fetch `https://mikedemo.dev/api/v1/projects.json` (static JSON, all 17 projects with summaries, tech stacks, and live URLs). Filter client-side; no pagination, no auth.
-- **Detail on one project** — fetch `https://mikedemo.dev/api/v1/projects/<slug>.json`, or read the canonical page at `https://mikedemo.dev/projects/<slug>`.
+- **Detail on one project** — fetch `https://mikedemo.dev/api/v1/projects/freshink.json` (example), or read the canonical page at `https://mikedemo.dev/projects/freshink/` (replace `freshink` with any slug from `projects.json`).
 - **Background on the builder** — the About section above, or the profiles linked below.
 - **How to work with this codebase** — [AGENTS.md](https://github.com/Mike-Demo/mikedemo-ai/blob/main/AGENTS.md) in the public repo.
 
@@ -52,7 +56,10 @@ Do NOT use this site for: interactive agent tasks (there is no chat or agent end
 - [llms.txt](https://mikedemo.dev/llms.txt)
 - [Full reference (llms.md)](https://mikedemo.dev/llms.md)
 - [Projects JSON API](https://mikedemo.dev/api/v1/projects.json)
+- [Example project record](https://mikedemo.dev/api/v1/projects/freshink.json)
 - [OpenAPI spec](https://mikedemo.dev/openapi.json)
+- [Schema.org project feed (JSONL)](https://mikedemo.dev/feeds/projects.jsonl)
+- [Schema Map (NLWeb)](https://mikedemo.dev/schemamap.xml)
 - [Agent skills index](https://mikedemo.dev/.well-known/agent-skills/index.json)
 - [Agent card (A2A)](https://mikedemo.dev/.well-known/agent-card.json)
 - [ARD catalog](https://mikedemo.dev/.well-known/ard.json)

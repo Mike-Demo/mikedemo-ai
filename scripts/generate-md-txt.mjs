@@ -21,10 +21,28 @@ const FILES = [
   ["auth.md", "auth.txt", "/auth.md"],
   ["pricing.md", "pricing.txt", "/pricing.md"],
   ["llms-full.md", "llms-full.txt", "/llms.md"],
+  ["about.md", "about.txt", "/about.md"],
+  ["contact.md", "contact.txt", "/contact.md"],
+  ["privacy.md", "privacy.txt", "/privacy.md"],
+  ["developers.md", "developers.txt", "/developers.md"],
+  ["licenses.md", "licenses.txt", "/licenses.md"],
+  ["projects.md", "projects.txt", "/projects.md"],
+  ["agent-skills.md", "agent-skills.txt", "/agent-skills.md"],
+  ["claude-code-skills.md", "claude-code-skills.txt", "/claude-code-skills.md"],
+  ["bugle-crowns.md", "bugle-crowns.txt", "/bugle-crowns.md"],
   ["skills/browse-projects/SKILL.md", "skills-browse-projects.txt", "/skills/browse-projects/SKILL.md"],
   ["skills/read-project/SKILL.md", "skills-read-project.txt", "/skills/read-project/SKILL.md"],
   ["skills/site-navigation/SKILL.md", "skills-site-navigation.txt", "/skills/site-navigation/SKILL.md"],
 ];
+
+// Per-project twins written by scripts/generate-project-md.mjs:
+// /projects/<slug>.md  ->  md/projects-<slug>.txt
+// (/bugle-crowns.md serves the bugle-crowns twin; see bugle-crowns.md above.)
+for (const file of fs.readdirSync(path.join(ROOT, "content/projects"))) {
+  if (!file.endsWith(".md")) continue;
+  const slug = file.slice(0, -3);
+  FILES.push([`projects/${file}`, `projects-${slug}.txt`, `/projects/${slug}.md`]);
+}
 
 fs.mkdirSync(OUT, { recursive: true });
 
