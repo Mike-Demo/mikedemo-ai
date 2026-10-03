@@ -1,1 +1,11 @@
+# Markdown twins: the host does not serve .md files, so these rewrites serve the
+# byte-identical markdown content as text/plain from /md/*.txt (written by
+# scripts/generate-md-txt.mjs). Specific rules first; the SPA catch-all last.
+/index.md  /md/index.txt  200
+/auth.md  /md/auth.txt  200
+/pricing.md  /md/pricing.txt  200
+/llms.md  /md/llms-full.txt  200
+/skills/browse-projects/SKILL.md  /md/skills-browse-projects.txt  200
+/skills/read-project/SKILL.md  /md/skills-read-project.txt  200
+/skills/site-navigation/SKILL.md  /md/skills-site-navigation.txt  200
 /*  /index.html  200

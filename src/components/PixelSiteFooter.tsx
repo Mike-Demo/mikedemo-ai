@@ -87,6 +87,10 @@ export function PixelSiteFooter({
           <NesIcon name="coin" size="small" />
           Open Source
         </a>
+        <a href="/openapi.json" className="pixel-site-footer-link">
+          <NesIcon name="star" size="small" />
+          API
+        </a>
       </nav>
 
       <nav aria-label="Social links" className="pixel-site-footer-social">

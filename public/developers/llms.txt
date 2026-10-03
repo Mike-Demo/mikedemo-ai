@@ -1,0 +1,25 @@
+# Developers — mikedemo.dev
+
+Machine-readable resources for working with the mikedemo.dev portfolio site programmatically.
+
+## JSON API
+
+Static exports under `https://mikedemo.dev/api/v1/`, regenerated at every build. Read-only; no auth, no rate limits.
+
+- [projects.json](https://mikedemo.dev/api/v1/projects.json) — all projects
+- [projects/{slug}.json](https://mikedemo.dev/api/v1/projects/freshink.json) — one project (example slug)
+- [site.json](https://mikedemo.dev/api/v1/site.json) — site metadata
+- [OpenAPI 3.1 spec](https://mikedemo.dev/openapi.json) — documents the above
+
+Versioning: the version is in the URL path (`/v1/`). A breaking change would ship as `/v2/` with `/v1/` kept until a sunset date announced on the site.
+
+## Agent entry points
+
+- [llms.txt](https://mikedemo.dev/llms.txt) — orientation index
+- [llms.md](https://mikedemo.dev/llms.md) — full reference
+- [Agent skills index](https://mikedemo.dev/.well-known/agent-skills/index.json)
+- [ARD catalog](https://mikedemo.dev/.well-known/ard.json)
+
+## Source
+
+Public repo: [Mike-Demo/mikedemo-ai](https://github.com/Mike-Demo/mikedemo-ai). Coding-agent instructions: [AGENTS.md](https://github.com/Mike-Demo/mikedemo-ai/blob/main/AGENTS.md).

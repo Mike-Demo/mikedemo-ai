@@ -1,0 +1,26 @@
+{
+  "slug": "sta-2e-d20-roller",
+  "name": "STA 2e D20 Roller — LCARS",
+  "domain": "2d20.space",
+  "summary": "A Star Trek Adventures 2d20 dice roller with an LCARS interface.",
+  "description": "STA 2e D20 Roller brings the Star Trek Adventures 2d20 system to the table with a full LCARS-styled interface — challenge dice, momentum, threat, and a dice guide, all wrapped in Starfleet's favorite operating system.",
+  "tech": [
+    "TypeScript",
+    "React",
+    "Tailwind CSS"
+  ],
+  "url": "https://2d20.space",
+  "started": "2026-02-23",
+  "detail_path": null,
+  "credits": [
+    {
+      "url": "https://www.modiphius.net",
+      "name": "Star Trek Adventures (Modiphius Entertainment)"
+    },
+    {
+      "url": "https://thelcars.com",
+      "name": "LCARS design by Jim Robertus"
+    }
+  ],
+  "sites": []
+}

@@ -1,0 +1,29 @@
+{
+  "slug": "eat-well",
+  "name": "Eat Well",
+  "domain": "eat-well-demo.view.fast",
+  "summary": "A dietary restaurant finder for the Pimoroni Tufty 2350 badge: 557 vegan, vegetarian, gluten-free, kosher, and halal spots across 14 US cities, with MapQuest QR codes on every detail screen.",
+  "description": "Eat Well is a dietary restaurant finder built for the Pimoroni Tufty 2350 (Badger/Badgeware) and entered in the SELECT Badge Contest. Pick a city, filter by diet, browse results, and open a detail view with cuisine, price, rating, neighborhood, and notes — each with a precomputed QR code that opens the restaurant in MapQuest. The 557-listing dataset spans 14 US metros, with an AI-powered web companion (Qwen3 running in-browser via WebGPU) for natural-language search. Built for a friend who keeps kosher and a vegan co-diner.",
+  "tech": [
+    "Python",
+    "Badgeware",
+    "Pimoroni Tufty 2350",
+    "Qwen3",
+    "WebLLM",
+    "SpaceFast"
+  ],
+  "url": "https://github.com/Mike-Demo/eat-well",
+  "started": "2026-10-02",
+  "detail_path": null,
+  "credits": [],
+  "sites": [
+    {
+      "name": "Live demo",
+      "url": "https://eat-well-demo.view.fast/"
+    },
+    {
+      "name": "AI companion",
+      "url": "https://eat-well-ai.view.fast/"
+    }
+  ]
+}

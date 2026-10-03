@@ -1,0 +1,27 @@
+{
+  "slug": "crosspost",
+  "name": "Crosspost",
+  "domain": "tweet.mikedemo.dev",
+  "summary": "Crossposting from tweet.app to X, automatically.",
+  "description": "Crosspost keeps your posts in sync: write once on tweet.app and it republishes to X automatically. One composer, two timelines, zero copy-pasting.",
+  "tech": [
+    "TypeScript",
+    "React",
+    "TanStack Start",
+    "Supabase"
+  ],
+  "url": "https://tweet.mikedemo.dev",
+  "started": "2026-09-06",
+  "detail_path": null,
+  "credits": [
+    {
+      "url": "https://tweet.app",
+      "name": "tweet.app"
+    },
+    {
+      "url": "https://x.com",
+      "name": "X"
+    }
+  ],
+  "sites": []
+}

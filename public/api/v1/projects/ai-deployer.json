@@ -1,0 +1,32 @@
+{
+  "slug": "ai-deployer",
+  "name": "AI Deployer",
+  "domain": "local.mikedemo.dev",
+  "summary": "Copy-and-paste install guides for self-hosted AI agents — no live SSH, no accounts.",
+  "description": "AI Deployer generates personalized, copy-and-paste install guides for self-hosted AI agents like OpenClaw, Ollama, and n8n. Pick your stack, get a tailored VPS install guide — no live SSH sessions and no account required.",
+  "tech": [
+    "TypeScript",
+    "React",
+    "TanStack Start",
+    "Tailwind CSS",
+    "Zod"
+  ],
+  "url": "https://local.mikedemo.dev",
+  "started": "2026-09-09",
+  "detail_path": null,
+  "credits": [
+    {
+      "url": "https://github.com/openclaw",
+      "name": "OpenClaw"
+    },
+    {
+      "url": "https://github.com/ollama/ollama",
+      "name": "Ollama"
+    },
+    {
+      "url": "https://github.com/n8n-io/n8n",
+      "name": "n8n"
+    }
+  ],
+  "sites": []
+}

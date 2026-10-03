@@ -1,0 +1,41 @@
+{
+  "slug": "awesome-design-system",
+  "name": "Design Systems",
+  "domain": "NES + AWESOME",
+  "summary": "Two complementary design systems powering this portfolio: retro NES pixels and accessible Web Awesome components.",
+  "description": "Design Systems combines a retro NES component library with Font Awsome & Web Awesome (\"Awesome DS\"), pairing expressive pixel styling with accessible components, icons, design tokens, layout utilities, and reusable patterns.",
+  "tech": [
+    "TypeScript",
+    "React",
+    "NES.css",
+    "Web Awesome",
+    "Font Awesome Free"
+  ],
+  "url": "https://design.1.MikeDemo.dev",
+  "started": "2026-09-03",
+  "detail_path": null,
+  "credits": [
+    {
+      "url": "https://nostalgic-css.github.io/NES.css/",
+      "name": "NES.css"
+    },
+    {
+      "url": "https://webawesome.com",
+      "name": "Web Awesome"
+    },
+    {
+      "url": "https://fontawesome.com",
+      "name": "Font Awesome Free"
+    }
+  ],
+  "sites": [
+    {
+      "url": "https://design.2.mikedemo.dev",
+      "name": "NES Design System"
+    },
+    {
+      "url": "https://design.1.MikeDemo.dev",
+      "name": "Font Awsome & Web Awesome"
+    }
+  ]
+}

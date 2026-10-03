@@ -1,1 +1,278 @@
-{"info":{"description":"API for the MikeDemo AI portfolio — a retro arcade-styled showcase of AI experiments by Mike 'Demo' Demopoulos. This is a static content site; the API exposes project metadata, skills directory, and site navigation.","title":"MikeDemo AI Portfolio API","version":"1.0.0"},"openapi":"3.1.0","paths":{"/agent-skills":{"get":{"description":"List agent skills for AI assistants","operationId":"listSkills","responses":{"200":{"content":{"application/json":{"schema":{"items":{"$ref":"#/components/schemas/Skill"},"type":"array"}}},"description":"Array of skills"}}}},"/projects":{"get":{"description":"List all AI projects in the portfolio","operationId":"listProjects","responses":{"200":{"content":{"application/json":{"schema":{"items":{"$ref":"#/components/schemas/Project"},"type":"array"}}},"description":"Array of projects"}}}},"/projects/{slug}":{"get":{"description":"Get details for a specific project by its slug","operationId":"getProject","parameters":[{"in":"path","name":"slug","required":true,"schema":{"type":"string"}}],"responses":{"200":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/Project"}}},"description":"Project details"},"404":{"description":"Project not found"}}}}},"servers":[{"url":"https://mikedemo.dev"}],"components":{"schemas":{"Project":{"type":"object","properties":{"slug":{"type":"string"},"name":{"type":"string"},"summary":{"type":"string"},"description":{"type":"string"},"tech":{"type":"array","items":{"type":"string"}},"url":{"type":"string","format":"uri"},"started":{"type":"string","format":"date"}}},"Skill":{"type":"object","properties":{"name":{"type":"string"},"description":{"type":"string"},"url":{"type":"string","format":"uri"}}}}}}
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "MikeDemo Portfolio API",
+    "version": "1.0.0",
+    "description": "Read-only JSON API for mikedemo.dev, the AI project portfolio of Mike \"Demo\" Demopoulos. These are static exports regenerated at build time from the portfolio database \u2014 there are no write operations, no authentication, and no rate limits. API versioning: the version is in the URL path (/api/v1/). A future breaking change would ship as /api/v2/ with /api/v1/ kept serving until a sunset date announced on the site. Unknown slugs have no JSON file; the static host answers with its HTML 404 page, not JSON.",
+    "contact": {
+      "name": "Mike Demopoulos",
+      "url": "https://mikedemo.dev"
+    },
+    "license": {
+      "name": "See https://mikedemo.dev/licenses/"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://mikedemo.dev/api/v1",
+      "description": "Production (static exports)"
+    }
+  ],
+  "paths": {
+    "/projects.json": {
+      "get": {
+        "operationId": "listProjects",
+        "summary": "List all portfolio projects",
+        "description": "Returns the complete project collection as a JSON array. No pagination \u2014 the collection is small and served whole.",
+        "responses": {
+          "200": {
+            "description": "Array of projects.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "description": "One portfolio project.",
+                    "properties": {
+                      "slug": {
+                        "type": "string",
+                        "description": "URL-safe project identifier, e.g. \"freshink\"."
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "Display name."
+                      },
+                      "domain": {
+                        "type": "string",
+                        "description": "The project's own live domain, when it has one."
+                      },
+                      "summary": {
+                        "type": "string",
+                        "description": "One-line summary."
+                      },
+                      "description": {
+                        "type": "string",
+                        "description": "Long-form writeup."
+                      },
+                      "tech": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "description": "Tech stack tags."
+                      },
+                      "url": {
+                        "type": "string",
+                        "description": "Live project URL."
+                      },
+                      "started": {
+                        "type": "string",
+                        "description": "ISO date the project was first built."
+                      },
+                      "detail_path": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "description": "Bespoke detail page path on mikedemo.dev, when the project has one instead of /projects/<slug>."
+                      },
+                      "credits": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "string"
+                            },
+                            "url": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      },
+                      "sites": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "string"
+                            },
+                            "url": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "required": [
+                      "slug",
+                      "name",
+                      "summary",
+                      "description",
+                      "tech",
+                      "url",
+                      "started"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/projects/{slug}.json": {
+      "get": {
+        "operationId": "getProject",
+        "summary": "Get one project by slug",
+        "description": "Returns the detail record for a single project. Slugs are listed by listProjects.",
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "path",
+            "required": true,
+            "description": "Project slug, e.g. \"freshink\".",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The project record.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "One portfolio project.",
+                  "properties": {
+                    "slug": {
+                      "type": "string",
+                      "description": "URL-safe project identifier, e.g. \"freshink\"."
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "Display name."
+                    },
+                    "domain": {
+                      "type": "string",
+                      "description": "The project's own live domain, when it has one."
+                    },
+                    "summary": {
+                      "type": "string",
+                      "description": "One-line summary."
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "Long-form writeup."
+                    },
+                    "tech": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "Tech stack tags."
+                    },
+                    "url": {
+                      "type": "string",
+                      "description": "Live project URL."
+                    },
+                    "started": {
+                      "type": "string",
+                      "description": "ISO date the project was first built."
+                    },
+                    "detail_path": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "description": "Bespoke detail page path on mikedemo.dev, when the project has one instead of /projects/<slug>."
+                    },
+                    "credits": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string"
+                          },
+                          "url": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "sites": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string"
+                          },
+                          "url": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "slug",
+                    "name",
+                    "summary",
+                    "description",
+                    "tech",
+                    "url",
+                    "started"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/site.json": {
+      "get": {
+        "operationId": "getSiteInfo",
+        "summary": "Get site metadata",
+        "description": "Name, URL, description, and owner of mikedemo.dev.",
+        "responses": {
+          "200": {
+            "description": "Site metadata.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "url": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "owner": {
+                      "type": "string"
+                    },
+                    "api_version": {
+                      "type": "string"
+                    },
+                    "openapi": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

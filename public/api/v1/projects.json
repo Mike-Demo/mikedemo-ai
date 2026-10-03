@@ -1,0 +1,453 @@
+[
+  {
+    "slug": "eat-well",
+    "name": "Eat Well",
+    "domain": "eat-well-demo.view.fast",
+    "summary": "A dietary restaurant finder for the Pimoroni Tufty 2350 badge: 557 vegan, vegetarian, gluten-free, kosher, and halal spots across 14 US cities, with MapQuest QR codes on every detail screen.",
+    "description": "Eat Well is a dietary restaurant finder built for the Pimoroni Tufty 2350 (Badger/Badgeware) and entered in the SELECT Badge Contest. Pick a city, filter by diet, browse results, and open a detail view with cuisine, price, rating, neighborhood, and notes — each with a precomputed QR code that opens the restaurant in MapQuest. The 557-listing dataset spans 14 US metros, with an AI-powered web companion (Qwen3 running in-browser via WebGPU) for natural-language search. Built for a friend who keeps kosher and a vegan co-diner.",
+    "tech": [
+      "Python",
+      "Badgeware",
+      "Pimoroni Tufty 2350",
+      "Qwen3",
+      "WebLLM",
+      "SpaceFast"
+    ],
+    "url": "https://github.com/Mike-Demo/eat-well",
+    "started": "2026-10-02",
+    "detail_path": null,
+    "credits": [],
+    "sites": [
+      {
+        "name": "Live demo",
+        "url": "https://eat-well-demo.view.fast/"
+      },
+      {
+        "name": "AI companion",
+        "url": "https://eat-well-ai.view.fast/"
+      }
+    ]
+  },
+  {
+    "slug": "lite-analytics",
+    "name": "Lite Analytics",
+    "domain": "umami-lite.view.fast",
+    "summary": "A tiny self-hosted web analytics service: cookieless tracking and a dashboard in one SpaceFast worker.",
+    "description": "Lite Analytics is a self-hosted, cookieless web analytics service that runs as a single SpaceFast Functions worker with zero runtime dependencies. It collects Umami-compatible tracker payloads, serves its own minimal tracker script, and renders a server-side dashboard with pageviews, visitors, bounce rate, live traffic, top pages, referrers, and custom events. One admin login, PBKDF2-hashed passwords, HMAC-signed sessions. It now powers stats across the whole portfolio.",
+    "tech": [
+      "TypeScript",
+      "SpaceFast Functions",
+      "SQLite",
+      "Umami-compatible tracker"
+    ],
+    "url": "https://github.com/Mike-Demo/umami-spacefast",
+    "started": "2026-09-27",
+    "detail_path": null,
+    "credits": [
+      {
+        "name": "Umami",
+        "url": "https://umami.is/"
+      }
+    ],
+    "sites": []
+  },
+  {
+    "slug": "ceo-owl",
+    "name": "CEO Owl",
+    "domain": "ceoowl.com",
+    "summary": "Privacy-first English grammar checking: an in-browser editor and a remote MCP server, both powered by Harper.",
+    "description": "CEO Owl is a privacy-first English grammar checker built on Harper. It has two ways in: a browser editor where Harper runs entirely on the reader's device, so text never leaves it, and a remote MCP server exposing one check_grammar tool so AI clients can check writing as the signed-in user. No language model is involved, English only, and nothing submitted is ever stored or used for training.",
+    "tech": [
+      "TypeScript",
+      "TanStack Start",
+      "Harper",
+      "Model Context Protocol",
+      "Gutenberg"
+    ],
+    "url": "https://ceoowl.com/",
+    "started": "2026-09-27",
+    "detail_path": null,
+    "credits": [
+      {
+        "name": "Harper",
+        "url": "https://writewithharper.com/"
+      }
+    ],
+    "sites": []
+  },
+  {
+    "slug": "freshink",
+    "name": "Fresh Ink",
+    "domain": "freshink.art",
+    "summary": "An AI-agent bookable tattoo studio: custom linework in Saint Paul, bookable by humans and AI agents alike.",
+    "description": "Fresh Ink is an appointment-only custom linework tattoo studio in Saint Paul, Minnesota. Clients book through a guided session flow that covers picking a day, locking a slot, and getting a session pass. AI agents can book too, through a public MCP server exposing studio info, open times, slot holds, and booking status.",
+    "tech": [
+      "TypeScript",
+      "React",
+      "TanStack Start",
+      "Tailwind CSS",
+      "AI Agents",
+      "Paddle"
+    ],
+    "url": "https://freshink.art/",
+    "started": "2026-09-25",
+    "detail_path": null,
+    "credits": [],
+    "sites": []
+  },
+  {
+    "slug": "queercade-connect",
+    "name": "QueerCade Connect",
+    "domain": "queercade.mikedemo.dev",
+    "summary": "A curated arcade of games with LGBTQ+ characters and stories, built for discovery and personal play tracking.",
+    "description": "QueerCade Connect is a curated arcade for discovering games with LGBTQ+ characters and stories. Players can browse featured picks, search and filter the full library, explore human-curated collections, and track games they are playing, completed, wishlisting, or dropping. Its editorial workflow combines IGDB source data with content curated in Sanity.",
+    "tech": [
+      "TypeScript",
+      "React",
+      "TanStack Start",
+      "Lovable Cloud",
+      "IGDB",
+      "Sanity",
+      "NES.css"
+    ],
+    "url": "https://queercade.mikedemo.dev/",
+    "started": "2026-09-19",
+    "detail_path": null,
+    "credits": [
+      {
+        "url": "https://www.igdb.com/",
+        "name": "IGDB"
+      },
+      {
+        "url": "https://www.sanity.io/",
+        "name": "Sanity"
+      }
+    ],
+    "sites": []
+  },
+  {
+    "slug": "rainbow-jot",
+    "name": "Rainbow Jot",
+    "domain": "Collaborative Ideation",
+    "summary": "A pride-themed idea board for capturing, arranging, and voting on a room’s thoughts.",
+    "description": "A colorful, session-only idea board built for group ideation. Add and edit sticky notes, drag them into clusters, vote with hearts, invite participants by QR code, switch to a full-screen presentation view, and clear the board when the session ends. Ideas stay in the browser session and are not saved.",
+    "tech": [
+      "TypeScript",
+      "React",
+      "TanStack Start",
+      "Web Awesome",
+      "Font Awesome"
+    ],
+    "url": "https://mikedemo.one/",
+    "started": "2026-09-19",
+    "detail_path": null,
+    "credits": [
+      {
+        "url": "https://webawesome.com/",
+        "name": "Web Awesome"
+      },
+      {
+        "url": "https://fontawesome.com/",
+        "name": "Font Awesome"
+      }
+    ],
+    "sites": [
+      {
+        "url": "https://mikedemo.one/",
+        "name": "Rainbow Jot"
+      }
+    ]
+  },
+  {
+    "slug": "on-device-ai",
+    "name": "On-Device AI",
+    "domain": "ai.mikedemo.dev",
+    "summary": "An AI model running inside the page — on-device inference with no server round-trips.",
+    "description": "On-Device AI runs a real language model entirely inside the browser. Inference happens on your own hardware via WebLLM and WebGPU — no server round-trips, and no data ever leaves your machine. It includes on-device inference demos, model comparisons, and diagnostics.",
+    "tech": [
+      "TypeScript",
+      "React",
+      "WebLLM",
+      "WebGPU"
+    ],
+    "url": "https://ai.mikedemo.dev",
+    "started": "2026-09-11",
+    "detail_path": null,
+    "credits": [
+      {
+        "url": "https://github.com/mlc-ai/web-llm",
+        "name": "WebLLM by MLC AI"
+      },
+      {
+        "url": "https://www.w3.org/TR/webgpu/",
+        "name": "WebGPU"
+      }
+    ],
+    "sites": []
+  },
+  {
+    "slug": "mikedemo-portfolio",
+    "name": "AI Project Portfolio",
+    "domain": "mikedemo.dev",
+    "summary": "This site — a retro level-select portfolio of my AI projects.",
+    "description": "A flat-file, fully static portfolio styled like a retro game console. Projects live in a Lovable Cloud database and are baked into plain HTML at build time; staging runs on Lovable, production on Spacefast.",
+    "tech": [
+      "TypeScript",
+      "React",
+      "TanStack Start",
+      "NES.css",
+      "Web Awesome",
+      "Font Awesome",
+      "Lovable Cloud"
+    ],
+    "url": "https://mikedemo.dev/",
+    "started": "2026-09-11",
+    "detail_path": null,
+    "credits": [
+      {
+        "url": "https://nostalgic-css.github.io/NES.css/",
+        "name": "NES.css"
+      },
+      {
+        "url": "https://webawesome.com/",
+        "name": "Web Awesome"
+      },
+      {
+        "url": "https://fontawesome.com/",
+        "name": "Font Awesome"
+      },
+      {
+        "url": "https://fonts.google.com/specimen/Press+Start+2P",
+        "name": "Press Start 2P"
+      }
+    ],
+    "sites": []
+  },
+  {
+    "slug": "bugle-crowns",
+    "name": "Bugle Crowns",
+    "domain": "agenticfootballcup.com",
+    "summary": "My AI agent team in the AWS Agentic Football Cup — five agents, 120-second matches.",
+    "description": "Bugle Crowns is my team in the AWS Agentic Football Cup, where AI agents play 120-second football matches against each other. Each of the five positions runs its own agent with its own instructions, and every week's results feed back into the next round of tactical tuning.",
+    "tech": [
+      "AI Agents",
+      "AWS",
+      "Prompt Engineering"
+    ],
+    "url": "https://agenticfootballcup.com",
+    "started": "2026-09-10",
+    "detail_path": "/bugle-crowns",
+    "credits": [
+      {
+        "url": "https://agenticfootballcup.com",
+        "name": "AWS Agentic Football Cup"
+      }
+    ],
+    "sites": []
+  },
+  {
+    "slug": "ai-deployer",
+    "name": "AI Deployer",
+    "domain": "local.mikedemo.dev",
+    "summary": "Copy-and-paste install guides for self-hosted AI agents — no live SSH, no accounts.",
+    "description": "AI Deployer generates personalized, copy-and-paste install guides for self-hosted AI agents like OpenClaw, Ollama, and n8n. Pick your stack, get a tailored VPS install guide — no live SSH sessions and no account required.",
+    "tech": [
+      "TypeScript",
+      "React",
+      "TanStack Start",
+      "Tailwind CSS",
+      "Zod"
+    ],
+    "url": "https://local.mikedemo.dev",
+    "started": "2026-09-09",
+    "detail_path": null,
+    "credits": [
+      {
+        "url": "https://github.com/openclaw",
+        "name": "OpenClaw"
+      },
+      {
+        "url": "https://github.com/ollama/ollama",
+        "name": "Ollama"
+      },
+      {
+        "url": "https://github.com/n8n-io/n8n",
+        "name": "n8n"
+      }
+    ],
+    "sites": []
+  },
+  {
+    "slug": "crosspost",
+    "name": "Crosspost",
+    "domain": "tweet.mikedemo.dev",
+    "summary": "Crossposting from tweet.app to X, automatically.",
+    "description": "Crosspost keeps your posts in sync: write once on tweet.app and it republishes to X automatically. One composer, two timelines, zero copy-pasting.",
+    "tech": [
+      "TypeScript",
+      "React",
+      "TanStack Start",
+      "Supabase"
+    ],
+    "url": "https://tweet.mikedemo.dev",
+    "started": "2026-09-06",
+    "detail_path": null,
+    "credits": [
+      {
+        "url": "https://tweet.app",
+        "name": "tweet.app"
+      },
+      {
+        "url": "https://x.com",
+        "name": "X"
+      }
+    ],
+    "sites": []
+  },
+  {
+    "slug": "awesome-design-system",
+    "name": "Design Systems",
+    "domain": "NES + AWESOME",
+    "summary": "Two complementary design systems powering this portfolio: retro NES pixels and accessible Web Awesome components.",
+    "description": "Design Systems combines a retro NES component library with Font Awsome & Web Awesome (\"Awesome DS\"), pairing expressive pixel styling with accessible components, icons, design tokens, layout utilities, and reusable patterns.",
+    "tech": [
+      "TypeScript",
+      "React",
+      "NES.css",
+      "Web Awesome",
+      "Font Awesome Free"
+    ],
+    "url": "https://design.1.MikeDemo.dev",
+    "started": "2026-09-03",
+    "detail_path": null,
+    "credits": [
+      {
+        "url": "https://nostalgic-css.github.io/NES.css/",
+        "name": "NES.css"
+      },
+      {
+        "url": "https://webawesome.com",
+        "name": "Web Awesome"
+      },
+      {
+        "url": "https://fontawesome.com",
+        "name": "Font Awesome Free"
+      }
+    ],
+    "sites": [
+      {
+        "url": "https://design.2.mikedemo.dev",
+        "name": "NES Design System"
+      },
+      {
+        "url": "https://design.1.MikeDemo.dev",
+        "name": "Font Awsome & Web Awesome"
+      }
+    ]
+  },
+  {
+    "slug": "skill-finder-plus",
+    "name": "Skill Finder Plus",
+    "domain": "skills.mikedemo.dev",
+    "summary": "A directory of agent skills for Claude, ChatGPT, Cursor, Copilot, Grok, MCP, and Perplexity.",
+    "description": "Skill Finder Plus is a browsable library of agent skills across every major AI platform — Claude, ChatGPT, Cursor, GitHub Copilot, Grok, MCP servers, and Perplexity. Find the right skill for your assistant of choice without digging through repos.",
+    "tech": [
+      "TypeScript",
+      "React",
+      "AI SDK",
+      "Supabase",
+      "hCaptcha"
+    ],
+    "url": "https://skills.mikedemo.dev",
+    "started": "2026-09-02",
+    "detail_path": null,
+    "credits": [],
+    "sites": []
+  },
+  {
+    "slug": "pretendpro",
+    "name": "PretendPro Office Suite",
+    "domain": "pretend.pro",
+    "summary": "A fake productivity suite — set up your fake workday.",
+    "description": "PretendPro Office Suite is a parody productivity platform built purely for entertainment. Set up your fake workday with mock applications that simulate a convincingly busy environment — spreadsheets that type themselves, meetings that attend themselves, and more.",
+    "tech": [
+      "TypeScript",
+      "React",
+      "Tailwind CSS",
+      "shadcn/ui",
+      "Supabase"
+    ],
+    "url": "https://pretend.pro",
+    "started": "2026-08-30",
+    "detail_path": null,
+    "credits": [],
+    "sites": []
+  },
+  {
+    "slug": "awesome-adventure-cv",
+    "name": "Awesome Adventure CV",
+    "domain": "mikedemo.work",
+    "summary": "A playable résumé as a retro text adventure — type commands to explore a career.",
+    "description": "Awesome Adventure CV turns a professional résumé into an interactive, retro-style text adventure. Navigate rooms that represent real career milestones, collect artifacts, and uncover contact details by typing classic adventure commands.",
+    "tech": [
+      "TypeScript",
+      "React",
+      "TanStack Start",
+      "Tailwind CSS"
+    ],
+    "url": "https://mikedemo.work/",
+    "started": "2026-08-25",
+    "detail_path": null,
+    "credits": [],
+    "sites": []
+  },
+  {
+    "slug": "pride-blobs",
+    "name": "Pride Blobs",
+    "domain": "blobs.gay",
+    "summary": "Deterministic pride-flag blobatars from any name — same string, same avatar, every time.",
+    "description": "Pride Blobs (Pridatar) is a pride-focused fork of blobatar. Type any name and get a striped pride blobatar rendered as SVG. Fifteen flags, a live playground, and downloadable PNGs, all generated in the browser with no backend.",
+    "tech": [
+      "TypeScript",
+      "React",
+      "SVG",
+      "Canvas API"
+    ],
+    "url": "https://blobs.gay",
+    "started": "2026-08-24",
+    "detail_path": null,
+    "credits": [
+      {
+        "url": "https://github.com/Alain00/blobatar",
+        "name": "blobatar by Alain00 (MIT)"
+      }
+    ],
+    "sites": []
+  },
+  {
+    "slug": "sta-2e-d20-roller",
+    "name": "STA 2e D20 Roller — LCARS",
+    "domain": "2d20.space",
+    "summary": "A Star Trek Adventures 2d20 dice roller with an LCARS interface.",
+    "description": "STA 2e D20 Roller brings the Star Trek Adventures 2d20 system to the table with a full LCARS-styled interface — challenge dice, momentum, threat, and a dice guide, all wrapped in Starfleet's favorite operating system.",
+    "tech": [
+      "TypeScript",
+      "React",
+      "Tailwind CSS"
+    ],
+    "url": "https://2d20.space",
+    "started": "2026-02-23",
+    "detail_path": null,
+    "credits": [
+      {
+        "url": "https://www.modiphius.net",
+        "name": "Star Trek Adventures (Modiphius Entertainment)"
+      },
+      {
+        "url": "https://thelcars.com",
+        "name": "LCARS design by Jim Robertus"
+      }
+    ],
+    "sites": []
+  }
+]

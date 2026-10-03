@@ -1,0 +1,27 @@
+{
+  "slug": "on-device-ai",
+  "name": "On-Device AI",
+  "domain": "ai.mikedemo.dev",
+  "summary": "An AI model running inside the page — on-device inference with no server round-trips.",
+  "description": "On-Device AI runs a real language model entirely inside the browser. Inference happens on your own hardware via WebLLM and WebGPU — no server round-trips, and no data ever leaves your machine. It includes on-device inference demos, model comparisons, and diagnostics.",
+  "tech": [
+    "TypeScript",
+    "React",
+    "WebLLM",
+    "WebGPU"
+  ],
+  "url": "https://ai.mikedemo.dev",
+  "started": "2026-09-11",
+  "detail_path": null,
+  "credits": [
+    {
+      "url": "https://github.com/mlc-ai/web-llm",
+      "name": "WebLLM by MLC AI"
+    },
+    {
+      "url": "https://www.w3.org/TR/webgpu/",
+      "name": "WebGPU"
+    }
+  ],
+  "sites": []
+}

@@ -8,7 +8,7 @@ mikedemo.dev is the personal AI project portfolio of Mike "Demo" Demopoulos (the
 
 ## Projects
 
-Every project has a detail page under `https://mikedemo.dev/projects/<slug>` with its summary, tech stack, and live links.
+Every project has a detail page under `https://mikedemo.dev/projects/<slug>` with its summary, tech stack, and live links. Machine-readable project data is available at `https://mikedemo.dev/api/v1/projects.json`, with one file per project at `https://mikedemo.dev/api/v1/projects/<slug>.json`.
 
 - [Lite Analytics](https://mikedemo.dev/projects/lite-analytics/) — A tiny self-hosted web analytics service: cookieless tracking and a dashboard in one SpaceFast worker.
 - [CEO Owl](https://mikedemo.dev/projects/ceo-owl/) — Privacy-first English grammar checking: an in-browser editor and a remote MCP server, both powered by Harper.
@@ -27,24 +27,20 @@ Every project has a detail page under `https://mikedemo.dev/projects/<slug>` wit
 - [Pride Blobs](https://mikedemo.dev/projects/pride-blobs/) — Deterministic pride-flag blobatars from any name — same string, same avatar, every time.
 - [STA 2e D20 Roller](https://mikedemo.dev/projects/sta-2e-d20-roller/) — A Star Trek Adventures 2d20 dice roller with an LCARS interface.
 
-## Pages
+## Machine-readable resources
 
-- [Home](https://mikedemo.dev/)
-- [All Projects (Level Select)](https://mikedemo.dev/projects/)
-- [Agent Skills directory](https://mikedemo.dev/agent-skills/)
-- [Claude Code skills](https://mikedemo.dev/claude-code-skills/)
-- [Bugle Crowns](https://mikedemo.dev/bugle-crowns/)
-- [Licenses](https://mikedemo.dev/licenses/)
-
-## Machine-readable
-
-- [llms.txt](https://mikedemo.dev/llms.txt)
-- [Agent card (A2A)](https://mikedemo.dev/.well-known/agent.json)
+- [llms.txt](https://mikedemo.dev/llms.txt) — agent orientation index
+- [Full reference (llms.md)](https://mikedemo.dev/llms.md) — expanded machine-readable reference
+- [Projects JSON API](https://mikedemo.dev/api/v1/projects.json) — all projects as JSON
+- [OpenAPI spec](https://mikedemo.dev/openapi.json) — documents the JSON API
+- [Agent skills index](https://mikedemo.dev/.well-known/agent-skills/index.json) — skill artifacts
+- [Agent card (A2A)](https://mikedemo.dev/.well-known/agent-card.json)
+- [ARD catalog](https://mikedemo.dev/.well-known/ard.json) — agentic resource discovery
 - [XML sitemap](https://mikedemo.dev/sitemap.xml)
 - [robots.txt](https://mikedemo.dev/robots.txt)
 
 ## Notes for AI agents
 
-- This is a static, human-readable portfolio site, not an interactive agent or API. There are no POST endpoints, no chat, and no authentication.
-- The best way to enumerate content is the sitemap above; project detail pages contain the canonical description and outbound links.
+- This is a static, human-readable portfolio site, not an interactive agent. There are no POST endpoints, no chat, and no authentication. The JSON files under `/api/v1/` are static exports regenerated at build time.
+- The best way to enumerate content is the sitemap or `/api/v1/projects.json`; project detail pages contain the canonical description and outbound links.
 - Mike's profiles: [LinkedIn](https://www.linkedin.com/in/mikedemopoulos), [X](https://x.com/mike_demo), [Threads](https://www.threads.com/@mdemop).

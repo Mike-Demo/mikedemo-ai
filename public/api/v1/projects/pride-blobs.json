@@ -1,0 +1,23 @@
+{
+  "slug": "pride-blobs",
+  "name": "Pride Blobs",
+  "domain": "blobs.gay",
+  "summary": "Deterministic pride-flag blobatars from any name — same string, same avatar, every time.",
+  "description": "Pride Blobs (Pridatar) is a pride-focused fork of blobatar. Type any name and get a striped pride blobatar rendered as SVG. Fifteen flags, a live playground, and downloadable PNGs, all generated in the browser with no backend.",
+  "tech": [
+    "TypeScript",
+    "React",
+    "SVG",
+    "Canvas API"
+  ],
+  "url": "https://blobs.gay",
+  "started": "2026-08-24",
+  "detail_path": null,
+  "credits": [
+    {
+      "url": "https://github.com/Alain00/blobatar",
+      "name": "blobatar by Alain00 (MIT)"
+    }
+  ],
+  "sites": []
+}

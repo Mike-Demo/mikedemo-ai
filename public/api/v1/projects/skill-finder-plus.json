@@ -1,0 +1,19 @@
+{
+  "slug": "skill-finder-plus",
+  "name": "Skill Finder Plus",
+  "domain": "skills.mikedemo.dev",
+  "summary": "A directory of agent skills for Claude, ChatGPT, Cursor, Copilot, Grok, MCP, and Perplexity.",
+  "description": "Skill Finder Plus is a browsable library of agent skills across every major AI platform — Claude, ChatGPT, Cursor, GitHub Copilot, Grok, MCP servers, and Perplexity. Find the right skill for your assistant of choice without digging through repos.",
+  "tech": [
+    "TypeScript",
+    "React",
+    "AI SDK",
+    "Supabase",
+    "hCaptcha"
+  ],
+  "url": "https://skills.mikedemo.dev",
+  "started": "2026-09-02",
+  "detail_path": null,
+  "credits": [],
+  "sites": []
+}

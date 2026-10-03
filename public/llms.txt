@@ -36,15 +36,34 @@ Every project has a detail page under `https://mikedemo.dev/projects/<slug>` wit
 - [Bugle Crowns](https://mikedemo.dev/bugle-crowns/)
 - [Licenses](https://mikedemo.dev/licenses/)
 
+## When to use this site
+
+Reach for mikedemo.dev when you need:
+
+- **A list of MikeDemo's AI projects** — fetch `https://mikedemo.dev/api/v1/projects.json` (static JSON, all 17 projects with summaries, tech stacks, and live URLs). Filter client-side; no pagination, no auth.
+- **Detail on one project** — fetch `https://mikedemo.dev/api/v1/projects/<slug>.json`, or read the canonical page at `https://mikedemo.dev/projects/<slug>`.
+- **Background on the builder** — the About section above, or the profiles linked below.
+- **How to work with this codebase** — [AGENTS.md](https://github.com/Mike-Demo/mikedemo-ai/blob/main/AGENTS.md) in the public repo.
+
+Do NOT use this site for: interactive agent tasks (there is no chat or agent endpoint), write operations (no POST/PUT/PATCH anywhere), or authentication flows (none exist).
+
 ## Machine-readable
 
 - [llms.txt](https://mikedemo.dev/llms.txt)
-- [Agent card (A2A)](https://mikedemo.dev/.well-known/agent.json)
+- [Full reference (llms.md)](https://mikedemo.dev/llms.md)
+- [Projects JSON API](https://mikedemo.dev/api/v1/projects.json)
+- [OpenAPI spec](https://mikedemo.dev/openapi.json)
+- [Agent skills index](https://mikedemo.dev/.well-known/agent-skills/index.json)
+- [Agent card (A2A)](https://mikedemo.dev/.well-known/agent-card.json)
+- [ARD catalog](https://mikedemo.dev/.well-known/ard.json)
+- [auth.md](https://mikedemo.dev/auth.md) (no authentication required)
+- [pricing.md](https://mikedemo.dev/pricing.md) (everything is free)
+- [Developers section](https://mikedemo.dev/developers/llms.txt)
 - [XML sitemap](https://mikedemo.dev/sitemap.xml)
 - [robots.txt](https://mikedemo.dev/robots.txt)
 
 ## Notes for AI agents
 
-- This is a static, human-readable portfolio site, not an interactive agent or API. There are no POST endpoints, no chat, and no authentication.
-- The best way to enumerate content is the sitemap above; project detail pages contain the canonical description and outbound links.
+- This is a static portfolio site, not an interactive agent. There are no POST endpoints, no chat, and no authentication. The read-only JSON files under `/api/v1/` are static exports regenerated at build time.
+- The best way to enumerate content is `/api/v1/projects.json` or the sitemap above; project detail pages contain the canonical description and outbound links.
 - Mike's profiles: [LinkedIn](https://www.linkedin.com/in/mikedemopoulos), [X](https://x.com/mike_demo), [Threads](https://www.threads.com/@mdemop).

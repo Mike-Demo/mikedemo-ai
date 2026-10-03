@@ -1,0 +1,19 @@
+{
+  "slug": "pretendpro",
+  "name": "PretendPro Office Suite",
+  "domain": "pretend.pro",
+  "summary": "A fake productivity suite — set up your fake workday.",
+  "description": "PretendPro Office Suite is a parody productivity platform built purely for entertainment. Set up your fake workday with mock applications that simulate a convincingly busy environment — spreadsheets that type themselves, meetings that attend themselves, and more.",
+  "tech": [
+    "TypeScript",
+    "React",
+    "Tailwind CSS",
+    "shadcn/ui",
+    "Supabase"
+  ],
+  "url": "https://pretend.pro",
+  "started": "2026-08-30",
+  "detail_path": null,
+  "credits": [],
+  "sites": []
+}

@@ -36,6 +36,57 @@ export function identityJsonLd(): string {
         url: SITE_URL,
         author: { "@id": person["@id"] },
       },
+      {
+        "@type": "Organization",
+        "@id": `${SITE_URL}/#organization`,
+        name: SITE_NAME,
+        url: SITE_URL,
+        founder: { "@id": person["@id"] },
+        contactPoint: {
+          "@type": "ContactPoint",
+          email: "hey.demo@mikedemo.email",
+          contactType: "general",
+        },
+        sameAs: person.sameAs,
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${SITE_URL}/#faq`,
+        mainEntity: [
+          {
+            "@type": "Question",
+            name: "What is mikedemo.dev?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "The personal AI project portfolio of Mike 'Demo' Demopoulos — a retro arcade-styled showcase of AI experiments including on-device browser ML, AI deployment tooling, agent skills, and playful web toys.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Do I need an account or API key to use mikedemo.dev?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "No. Everything on mikedemo.dev is public, read-only, and free. There is no login, no registration, and no API keys.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Is there a machine-readable API?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Yes. Static JSON exports live under https://mikedemo.dev/api/v1/ (projects.json, projects/<slug>.json, site.json), documented by the OpenAPI spec at https://mikedemo.dev/openapi.json.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "How much does mikedemo.dev cost?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Nothing. It is a free personal portfolio; there are no paid plans or usage limits.",
+            },
+          },
+        ],
+      },
     ],
   });
 }
