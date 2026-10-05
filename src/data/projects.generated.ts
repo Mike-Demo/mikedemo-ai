@@ -381,7 +381,12 @@ export const generatedProjectRows: readonly GeneratedProjectRow[] = [
     "started": "2026-09-02",
     "detail_path": null,
     "credits": [],
-    "sites": []
+    "sites": [
+      {
+        "name": "Agent skills repo",
+        "url": "https://github.com/Mike-Demo/agent-skills"
+      }
+    ]
   },
   {
     "slug": "pretendpro",
