@@ -60,7 +60,8 @@ export const generatedProjectRows: readonly GeneratedProjectRow[] = [
       "TypeScript",
       "React",
       "TanStack Start",
-      "REST API"
+      "REST API",
+      "Lovable Cloud"
     ],
     "url": "https://magicmanta.com/",
     "icon": "magnifying-glass",
