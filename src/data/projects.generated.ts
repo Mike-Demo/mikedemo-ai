@@ -6,6 +6,75 @@ import type { GeneratedProjectRow } from "./projects.generated-types";
 
 export const generatedProjectRows: readonly GeneratedProjectRow[] = [
   {
+    "slug": "grass-journal",
+    "name": "Grass Journal",
+    "domain": "grass-journal.view.fast",
+    "summary": "A private, offline-first voice+text journal PWA — no account, no backend, no analytics; everything stays in your browser.",
+    "description": "Grass Journal is a private offline-first journal you keep in your pocket: typed entries with autosave, voice capture with on-device Whisper transcription, and a tap-only feeling-wheel check-in (with a watch-sized companion page). Your words never leave the device — storage is local IndexedDB with AES-GCM-256 encrypted backups, plus a one-click privacy check that proves zero network requests. Built for Hacktoberfest 2026's 'Touch Grass' challenge.",
+    "tech": [
+      "TypeScript",
+      "PWA",
+      "IndexedDB",
+      "Whisper",
+      "WebGPU",
+      "SpaceFast"
+    ],
+    "url": "https://github.com/Mike-Demo/grass-journal",
+    "icon": "book-open",
+    "started": "2026-10-05",
+    "detail_path": null,
+    "credits": [],
+    "sites": [
+      {
+        "name": "Live demo",
+        "url": "https://grass-journal.view.fast/"
+      }
+    ]
+  },
+  {
+    "slug": "agent-skills",
+    "name": "Agent Skills",
+    "domain": "github.com",
+    "summary": "A public collection of 30 production-ready agent skills — job search, partnerships, content, and dev workflows — in the OpenSkills SKILL.md format.",
+    "description": "Agent Skills is my open library of reusable agent skills: resume tailoring, job-feed search, LinkedIn cross-posting, grammar and AI-detection passes, media generation, and more. Each skill ships with tested instructions, examples, and evals, installable via openskills into Claude, ChatGPT, Cursor, Copilot, and other agents. MIT licensed.",
+    "tech": [
+      "Markdown",
+      "YAML",
+      "AI Agents",
+      "Evals"
+    ],
+    "url": "https://github.com/Mike-Demo/agent-skills",
+    "icon": "puzzle-piece",
+    "started": "2026-10-05",
+    "detail_path": null,
+    "credits": [],
+    "sites": []
+  },
+  {
+    "slug": "magic-manta",
+    "name": "Magic Manta",
+    "domain": "magicmanta.com",
+    "summary": "Look up any brand and get its verified social profiles — X, Threads, LinkedIn — each backed by a visible evidence chain.",
+    "description": "Magic Manta (Brand Connector Pro) takes a brand name and returns its verified social profiles across X, Threads, and LinkedIn, with every result backed by a computed evidence-strength label instead of a black-box score. Empty results and bot-blocked sites are reported honestly, lookups can be batched, and results share as self-contained snapshot links. A documented JSON API, llms.txt, and an A2A agent card make it machine-readable too.",
+    "tech": [
+      "TypeScript",
+      "React",
+      "TanStack Start",
+      "REST API"
+    ],
+    "url": "https://magicmanta.com/",
+    "icon": "magnifying-glass",
+    "started": "2026-09-29",
+    "detail_path": null,
+    "credits": [],
+    "sites": [
+      {
+        "name": "Live site",
+        "url": "https://magicmanta.com/"
+      }
+    ]
+  },
+  {
     "slug": "eat-well",
     "name": "Eat Well",
     "domain": "eat-well-demo.view.fast",
