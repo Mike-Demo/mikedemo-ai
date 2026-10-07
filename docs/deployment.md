@@ -16,6 +16,10 @@ Nothing needs configuring: the repo's *default* build is the static build.
 Spacefast picks up the GitHub repository, auto-detects the commands, and the
 result is plain HTML.
 
+The repo deliberately keeps both `bun.lock` and `package-lock.json`: Bun stays
+the preferred local package manager, while the npm lockfile makes the fallback
+`npm ci` path reproducible when Spacefast chooses it.
+
 Two hard rules follow from Spacefast scanning the **repository** (not the build
 output) for Cloudflare features:
 
