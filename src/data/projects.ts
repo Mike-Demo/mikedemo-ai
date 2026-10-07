@@ -3,13 +3,16 @@
  * (public.projects); only the bundled logo images stay in code.
  */
 import aiDeployerLogo from "@/assets/project-icons/ai-deployer.svg";
+import agentSkillsLogo from "@/assets/project-icons/agent-skills.png";
 import awesomeAdventureCvLogo from "@/assets/project-icons/awesome-adventure-cv.png";
 import bugleCrownsLogo from "@/assets/project-icons/bugle-crowns.png";
 import ceoOwlLogo from "@/assets/project-icons/ceo-owl.jpg";
 import crosspostLogo from "@/assets/project-icons/crosspost.png";
 import designSystemsLogo from "@/assets/project-icons/design-systems.svg";
 import freshInkLogo from "@/assets/project-icons/fresh-ink.svg";
+import grassJournalLogo from "@/assets/project-icons/grass-journal.png";
 import liteAnalyticsLogo from "@/assets/project-icons/lite-analytics.svg";
+import magicMantaLogo from "@/assets/project-icons/magic-manta.png";
 import mikedemoPortfolioLogo from "@/assets/project-icons/mikedemo-portfolio.png";
 import onDeviceAiLogo from "@/assets/project-icons/on-device-ai.svg";
 import pretendProLogo from "@/assets/project-icons/pretendpro.png";
@@ -53,13 +56,16 @@ export interface Project {
 /** Bundled site icons, matched to a project by slug. */
 export const projectLogos: Readonly<Record<string, string>> = {
   "ai-deployer": aiDeployerLogo,
+  "agent-skills": agentSkillsLogo,
   "awesome-adventure-cv": awesomeAdventureCvLogo,
   "bugle-crowns": bugleCrownsLogo,
   "ceo-owl": ceoOwlLogo,
   crosspost: crosspostLogo,
   "awesome-design-system": designSystemsLogo,
   freshink: freshInkLogo,
+  "grass-journal": grassJournalLogo,
   "lite-analytics": liteAnalyticsLogo,
+  "magic-manta": magicMantaLogo,
   "mikedemo-portfolio": mikedemoPortfolioLogo,
   "on-device-ai": onDeviceAiLogo,
   pretendpro: pretendProLogo,
