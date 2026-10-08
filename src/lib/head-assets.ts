@@ -18,6 +18,9 @@ export const fontAwesomeLinks = [
   {
     rel: "stylesheet",
     href: `${JSDELIVR}/@fortawesome/fontawesome-free@${FONT_AWESOME_VERSION}/css/all.min.css`,
+    integrity:
+      "sha384-qrALq7+6jBOZIQsNnT6xGkMDru64qD6uTlDra39xrt2SoXl4pO3FX6Roz/RpR/BS",
+    crossOrigin: "anonymous",
   },
 ] as const;
 
@@ -26,13 +29,22 @@ export const webAwesomeLinks = [
   {
     rel: "stylesheet",
     href: `${JSDELIVR}/@awesome.me/webawesome@${WEB_AWESOME_VERSION}/dist/styles/webawesome.css`,
+    integrity:
+      "sha384-EcX+ovNyMol+lJfWp9QOYohWQoxo3XNk8eYPv4NLKejxtQ3Ret8v1LPzsGbwYzwY",
+    crossOrigin: "anonymous",
   },
   {
     rel: "stylesheet",
     href: `${JSDELIVR}/@awesome.me/webawesome@${WEB_AWESOME_VERSION}/dist/styles/themes/default.css`,
+    integrity:
+      "sha384-twy8NsWxJjyu9cLjLe4XWolvF7zHexOmAvSzUAFOtfIInRxoebJtvBGoKBLPvPNS",
+    crossOrigin: "anonymous",
   },
   {
     rel: "stylesheet",
     href: `${JSDELIVR}/@awesome.me/webawesome@${WEB_AWESOME_VERSION}/dist/styles/utilities.css`,
+    integrity:
+      "sha384-Oo5pyR/mjEQe9TIxK9xlS2UXe2V5WawkJoVF7AQxBdThQYmjZF2krqqVQFvVuyhd",
+    crossOrigin: "anonymous",
   },
 ] as const;

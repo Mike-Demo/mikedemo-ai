@@ -24,17 +24,23 @@ import { identityJsonLd } from "@/lib/jsonld";
  * - Images: Vite inlines assets under its inline limit as data: URIs,
  *   so img-src also allows data: (images never execute script, so this is
  *   not an XSS vector).
- * - Analytics: the private umami-lite tracker loads from
- *   https://umami-lite.view.fast/tracker.js and POSTs to /api/send there
+ * - Analytics: the private umami-lite tracker is SELF-HOSTED at
+ *   /vendor/umami-tracker.js (vendored from https://umami-lite.view.fast —
+ *   re-sync the file if that tracker is ever redeployed) and POSTs to
+ *   https://umami-lite.view.fast/api/send via data-host-url
  *   (script-src + connect-src allowlist it). No cookies, no IP storage.
+ *   Self-hosting removes the last third-party script host, so script-src
+ *   needs no allowlisted origins at all.
  *
  * Notes:
- * - script-src needs 'unsafe-inline': TanStack Start boots/hydrates through
- *   inline <script> tags (scroll-restoration snippet, streaming hydration
- *   parts with per-request serialized data). Nonces cannot be delivered via
- *   a static meta tag, and hashes are unusable because stream content varies
- *   per request. External script injection is still blocked: only 'self' and
- *   inline are allowed, no third-party script hosts.
+ * - script-src carries 'unsafe-inline' ONLY as a build-time placeholder:
+ *   scripts/inject-csp-hashes.mjs runs at the end of `npm run build` and
+ *   replaces it with per-page sha256 hashes of every inline script in the
+ *   prerendered HTML (the build is fully static, so the hashes are
+ *   deterministic). The script is fail-closed: the build fails if any inline
+ *   script is not covered. TanStack Start boots/hydrates through inline
+ *   <script> tags, so a static meta tag cannot use nonces; hashes are the
+ *   tightest option that keeps hydration working.
  * - The <script type="application/ld+json"> blocks are not governed by
  *   script-src (non-executable script types are exempt).
  * - style-src intentionally omits 'unsafe-inline': SSR HTML contains no
@@ -47,7 +53,7 @@ import { identityJsonLd } from "@/lib/jsonld";
  */
 const CONTENT_SECURITY_POLICY = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline' https://umami-lite.view.fast",
+  "script-src 'self' 'unsafe-inline'",
   "style-src 'self' https://cdn.jsdelivr.net",
   "font-src 'self' https://cdn.jsdelivr.net",
   "img-src 'self' data:",
@@ -114,8 +120,9 @@ function RootShell({ children }: { children: ReactNode }) {
         <HeadContent />
         <script
           defer
-          src="https://umami-lite.view.fast/tracker.js"
+          src="/vendor/umami-tracker.js"
           data-website-id="80498e4e-5b55-4f01-955f-0b4ea2757654"
+          data-host-url="https://umami-lite.view.fast"
         />
       </head>
       <body>

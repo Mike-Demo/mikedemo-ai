@@ -3,6 +3,16 @@
 # - The .md twins are served from /md/*.txt via _redirects rewrites;
 #   header rules match the URL the visitor asked for, so the .md URLs get
 #   the markdown content type here.
+# - The /* block carries the security headers the <meta> CSP cannot express:
+#   frame-ancestors is ignored in meta-delivered policies, so clickjacking
+#   protection must be an HTTP header (this also satisfies Aikido's
+#   "CSP fallback directive" check). X-Frame-Options is defense-in-depth.
+
+/*
+  Content-Security-Policy: frame-ancestors 'self'
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
 
 /.well-known/api-catalog
   Content-Type: application/linkset+json;profile="https://www.rfc-editor.org/info/rfc9727"
