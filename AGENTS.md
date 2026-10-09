@@ -15,6 +15,8 @@ node scripts/generate-sitemap.mjs
 vite build
 node scripts/copy-static-output.mjs
 node scripts/generate-md-txt.mjs     # content/*.md -> dist/client/md/*.txt (markdown twins)
+node scripts/fix-route-manifest.mjs  # strip TanStack null-byte route IDs (upstream bug #7581) before CSP hashing
+node scripts/inject-csp-hashes.mjs   # hash-based CSP, fail-closed; must run last
 ```
 
 `npm run build` runs all of the above. See SPACEFAST.md for the two build targets (static vs Lovable/Cloudflare) and the hard rules: never commit `wrangler.*`, keep the `@cloudflare/vite-plugin` import lazy.
