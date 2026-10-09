@@ -1,0 +1,26 @@
+{
+  "slug": "magic-manta",
+  "name": "Magic Manta",
+  "domain": "magicmanta.com",
+  "summary": "Look up any brand and get its verified social profiles — X, Threads, LinkedIn — each backed by a visible evidence chain.",
+  "description": "Magic Manta (Brand Connector Pro) takes a brand name and returns its verified social profiles across X, Threads, and LinkedIn, with every result backed by a computed evidence-strength label instead of a black-box score. Empty results and bot-blocked sites are reported honestly, lookups can be batched, and results share as self-contained snapshot links. A documented JSON API, llms.txt, and an A2A agent card make it machine-readable too.",
+  "tech": [
+    "TypeScript",
+    "React",
+    "Vite",
+    "Tailwind CSS",
+    "Supabase",
+    "Lovable Cloud",
+    "MCP"
+  ],
+  "url": "https://magicmanta.com/",
+  "started": "2026-09-29",
+  "detail_path": null,
+  "credits": [],
+  "sites": [
+    {
+      "name": "Live site",
+      "url": "https://magicmanta.com/"
+    }
+  ]
+}
