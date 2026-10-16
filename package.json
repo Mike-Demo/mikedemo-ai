@@ -2,9 +2,9 @@
   "dependencies": {
     "@supabase/supabase-js": "^2.116.0",
     "@tanstack/react-query": "^5.101.1",
-    "@tanstack/react-router": "^1.170.16",
+    "@tanstack/react-router": "1.170.42",
     "@tanstack/react-start": "1.168.61",
-    "@tanstack/router-plugin": "^1.168.37",
+    "@tanstack/router-plugin": "1.168.43",
     "date-fns": "^4.1.0",
     "eventsource-parser": "^4.1.0",
     "react": "^19.2.0",
