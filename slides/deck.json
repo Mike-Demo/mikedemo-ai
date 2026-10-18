@@ -1,0 +1,239 @@
+{
+  "boltSlidesVersion": 1,
+  "boltSlidesId": "11011050-f9d6-4d43-8a9e-3e43af51bbaf",
+  "deck": {
+    "title": "Magic Manta — AI Copilot for Magicians",
+    "transition": "fade",
+    "font": "playfair",
+    "accent": "#e2b13c"
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "position": 0,
+      "layout": "cover",
+      "props": {
+        "kicker": "An AI copilot for working magicians",
+        "title": "Magic ==Manta==",
+        "subtitle": "The first AI workspace built for the craft of performance — routines, scripts, shows, and the business of being a magician.",
+        "foot": "magicmanta.com"
+      },
+      "background": {
+        "type": "gradient",
+        "from": "#2a1045",
+        "to": "#0a0714",
+        "angle": 160
+      },
+      "animation": "cascade",
+      "transition": "zoom",
+      "nav": null,
+      "notes": "Open with the hook: every magician knows the loneliness of the craft. Magic Manta is the copilot that finally knows the work.",
+      "status": "none"
+    },
+    {
+      "id": "s2",
+      "position": 1,
+      "layout": "contrast",
+      "props": {
+        "kicker": "The problem",
+        "title": "Performing is a team sport — run by a ==team of one==.",
+        "left": {
+          "label": "Generic AI",
+          "title": "Knows nothing of the craft",
+          "points": [
+            "No sense of method, misdirection, or stakes",
+            "Ignores stage timing, pacing, and applause beats",
+            "Writes patter that reads well — and plays badly"
+          ]
+        },
+        "right": {
+          "label": "The working magician",
+          "title": "Does it all alone",
+          "points": [
+            "Writes every script and line of patter solo",
+            "Structures shows with no second opinion",
+            "Prepares the business side after midnight"
+          ]
+        }
+      },
+      "background": { "type": "color", "color": "var(--bg)" },
+      "animation": "cascade",
+      "transition": null,
+      "nav": null,
+      "notes": "Two problems compound: the magician is a solo creator, and generic AI tools are useless for performance craft. Neither side understands the other.",
+      "status": "none"
+    },
+    {
+      "id": "s3",
+      "position": 2,
+      "layout": "pillars",
+      "props": {
+        "title": "A workspace shaped like a ==magician's week==.",
+        "items": [
+          {
+            "title": "Develop routines",
+            "body": "Turn an effect or a rough idea into material with real shape — structure, arcs, and beats."
+          },
+          {
+            "title": "Write and refine patter",
+            "body": "Scripts and patter drafted, tightened, and rehearsed until they play as well as they read."
+          },
+          {
+            "title": "Structure the show",
+            "body": "Order, transitions, and pacing across the whole set — not just one trick in isolation."
+          },
+          {
+            "title": "Prepare the business",
+            "body": "The performing life around the show: promotion, clients, and the materials bookings require."
+          }
+        ]
+      },
+      "background": { "type": "color", "color": "var(--bg)" },
+      "animation": "cascade",
+      "transition": null,
+      "nav": null,
+      "notes": "Four pillars, one workflow. Magic Manta isn't a chatbot bolted onto magic — it's a workspace arranged around how a performer actually spends the week.",
+      "status": "none"
+    },
+    {
+      "id": "s4",
+      "position": 3,
+      "layout": "chat",
+      "props": {
+        "kicker": "How it works",
+        "title": "From an idea to ==performable material==.",
+        "name": "Magic Manta",
+        "messages": [
+          {
+            "from": "user",
+            "text": "I want to build a close-up routine around a borrowed ring."
+          },
+          {
+            "from": "ai",
+            "text": "Strong premise. Let's give it shape: three phases, a rising emotional arc, and one clean impossibility at the end. Shall I draft the structure?"
+          },
+          {
+            "from": "user",
+            "text": "Yes — and tighten the patter for the reveal."
+          },
+          {
+            "from": "ai",
+            "text": "Here's a full script with beats timed to the moves, transitions between phases, and rehearsal notes for the moments that need the most practice."
+          }
+        ]
+      },
+      "background": { "type": "color", "color": "var(--bg)" },
+      "animation": "cascade",
+      "transition": null,
+      "nav": null,
+      "notes": "Walk the arc out loud: the performer brings an effect or an idea; Magic Manta returns structure, script, transitions, and rehearsal notes. It ends in material you can actually perform.",
+      "status": "none"
+    },
+    {
+      "id": "s5",
+      "position": 4,
+      "layout": "manifesto",
+      "props": {
+        "label": "Craft-first design",
+        "text": "Built with a working performer's respect for ==secrets==. Magic Manta supports the creative process — and never exposes the method."
+      },
+      "background": {
+        "type": "gradient",
+        "from": "#1c0c33",
+        "to": "#0a0714",
+        "angle": 160
+      },
+      "animation": "fade",
+      "transition": null,
+      "nav": null,
+      "notes": "This is the trust beat. Pause here. The magicians' community only adopts tools that respect the sanctity of the method — that respect is designed in, not promised.",
+      "status": "none"
+    },
+    {
+      "id": "s6",
+      "position": 5,
+      "layout": "bento",
+      "props": {
+        "kicker": "Key features",
+        "title": "Everything between the ==idea== and the applause.",
+        "tiles": [
+          {
+            "k": "01",
+            "title": "Routine developer",
+            "body": "Shape effects into structured, performable routines with deliberate arcs."
+          },
+          {
+            "k": "02",
+            "title": "Script & patter studio",
+            "body": "Draft, refine, and rehearse every spoken moment of the material."
+          },
+          {
+            "k": "03",
+            "title": "Show structure",
+            "body": "Order, transitions, and pacing across the full set."
+          },
+          {
+            "k": "04",
+            "title": "Business prep",
+            "body": "The materials a working performer needs to get and keep bookings."
+          },
+          {
+            "k": "05",
+            "title": "Rehearsal notes",
+            "body": "Targeted notes on the beats and transitions that need the most work."
+          },
+          {
+            "k": "06",
+            "title": "Method-safe by design",
+            "body": "Supports your creativity without ever exposing secrets.",
+            "variant": "accent"
+          }
+        ]
+      },
+      "background": { "type": "color", "color": "var(--bg)" },
+      "animation": "cascade",
+      "transition": null,
+      "nav": null,
+      "notes": "Don't read the grid — pick two tiles that match the audience and move on. The accent tile is the differentiator: method-safe by design.",
+      "status": "none"
+    },
+    {
+      "id": "s7",
+      "position": 6,
+      "layout": "statement",
+      "props": {
+        "kicker": "Status",
+        "title": "Live in production — ==today==.",
+        "body": "Working magicians are already developing routines, scripts, and shows with Magic Manta at magicmanta.com."
+      },
+      "background": { "type": "color", "color": "var(--bg)" },
+      "animation": "cascade",
+      "transition": "zoom",
+      "nav": null,
+      "notes": "This is not a concept or a waitlist. The product is live and in use right now — say it plainly, then pause.",
+      "status": "none"
+    },
+    {
+      "id": "s8",
+      "position": 7,
+      "layout": "cover",
+      "props": {
+        "kicker": "Magic Manta · The AI copilot for magicians",
+        "title": "Bring your ==next effect== to life.",
+        "subtitle": "Develop, script, and stage your material with an AI that knows the craft.",
+        "foot": "magicmanta.com"
+      },
+      "background": {
+        "type": "gradient",
+        "from": "#2a1045",
+        "to": "#0a0714",
+        "angle": 160
+      },
+      "animation": "cascade",
+      "transition": "zoom",
+      "nav": null,
+      "notes": "Close on the invite: bring the effect you've been putting off. Magic Manta at magicmanta.com.",
+      "status": "none"
+    }
+  ]
+}
