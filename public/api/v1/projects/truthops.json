@@ -1,0 +1,18 @@
+{
+  "slug": "truthops",
+  "name": "TruthOps",
+  "domain": "github.com",
+  "summary": "Don't just detect misinformation. Resolve it — a transparent verification pipeline with a human approval gate.",
+  "description": "TruthOps is a transparent, rule-based misinformation verification pipeline: it scores high-risk claims, runs a scripted contrarian check and photo forensics over curated evidence, and produces evidence-backed response plans behind a human approval gate. Built for neatHack 2026.",
+  "tech": [
+    "Python",
+    "Photo Forensics",
+    "Rule-based Verification",
+    "Human-in-the-loop"
+  ],
+  "url": "https://github.com/Mike-Demo/truthops",
+  "started": "2026-10-10",
+  "detail_path": null,
+  "credits": [],
+  "sites": []
+}

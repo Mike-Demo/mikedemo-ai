@@ -1,0 +1,18 @@
+{
+  "slug": "verdict",
+  "name": "Verdict",
+  "domain": "github.com",
+  "summary": "The intent-led decision forge: agents declare intent, evidence decides, humans approve.",
+  "description": "Verdict is a prototype Git platform for the agent era, built on Cloudflare Workers and Artifacts for the Build the Next-Gen Git Platform competition. Agents declare intent, evidence decides, and humans approve — decision-making as a forge, not a feed.",
+  "tech": [
+    "TypeScript",
+    "Cloudflare Workers",
+    "Cloudflare Artifacts",
+    "Git"
+  ],
+  "url": "https://github.com/Mike-Demo/verdict",
+  "started": "2026-10-12",
+  "detail_path": null,
+  "credits": [],
+  "sites": []
+}

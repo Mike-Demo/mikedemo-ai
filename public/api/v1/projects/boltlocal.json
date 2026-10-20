@@ -1,0 +1,23 @@
+{
+  "slug": "boltlocal",
+  "name": "BoltLocal",
+  "domain": "github.com",
+  "summary": "A fork of bolt.diy made one-click: build full-stack apps with any LLM, locally and in plain language.",
+  "description": "BoltLocal is my fork of bolt.diy, the open-source AI developer workspace, tuned for ease of use: one-click first run, plain-language flows, automatic preview, and autosave. Prompt, run, edit, and deploy full-stack web applications using the LLM of your choice.",
+  "tech": [
+    "TypeScript",
+    "React",
+    "WebContainers",
+    "AI Agents"
+  ],
+  "url": "https://github.com/Mike-Demo/bolt.diy",
+  "started": "2026-10-17",
+  "detail_path": null,
+  "credits": [
+    {
+      "name": "bolt.diy by StackBlitz Labs",
+      "url": "https://github.com/stackblitz-labs/bolt.diy"
+    }
+  ],
+  "sites": []
+}

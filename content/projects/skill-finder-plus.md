@@ -20,6 +20,10 @@ Skill Finder Plus is a browsable library of agent skills across every major AI p
 - Tech: TypeScript, React, AI SDK, Supabase, hCaptcha
 - Started: 2026-09-02
 
+## Related sites
+
+- Agent skills repo: https://github.com/Mike-Demo/agent-skills
+
 ## Machine-readable
 
 - Project record: https://mikedemo.dev/api/v1/projects/skill-finder-plus.json

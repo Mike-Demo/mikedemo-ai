@@ -1,0 +1,23 @@
+{
+  "slug": "localmodel-hub",
+  "name": "LocalModel Hub",
+  "domain": "privatebrain.app",
+  "summary": "A privacy-first AI assistant that runs open-source LLMs entirely in your browser — your data never leaves your machine.",
+  "description": "LocalModel Hub (privatebrain.app) is a privacy-first, open-source model discovery and chat app that runs open-source large language models entirely on-device in the browser. No server inference, no account, nothing sent anywhere after the model file is fetched. Built for Bolt Builder Week.",
+  "tech": [
+    "TypeScript",
+    "React",
+    "WebLLM",
+    "WebGPU"
+  ],
+  "url": "https://privatebrain.app",
+  "started": "2026-10-14",
+  "detail_path": null,
+  "credits": [],
+  "sites": [
+    {
+      "name": "GitHub",
+      "url": "https://github.com/Mike-Demo/local-ai-assistant-web-app"
+    }
+  ]
+}

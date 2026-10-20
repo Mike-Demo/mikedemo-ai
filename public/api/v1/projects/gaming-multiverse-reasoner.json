@@ -1,0 +1,23 @@
+{
+  "slug": "gaming-multiverse-reasoner",
+  "name": "Gaming Multiverse Reasoner",
+  "domain": "codeengine.appdomain.cloud",
+  "summary": "Every game is connected: find the hidden paths, bridge nodes, and communities between any two to four games.",
+  "description": "Gaming Multiverse Reasoner builds a graph of more than 50,000 games (84,000+ nodes, over a million edges) in FalkorDB and computes the hidden paths, bridge nodes, and communities joining any set of games, narrated live by IBM watsonx on IBM Cloud Code Engine. Built for the WeMakeDevs x FalkorDB Graph Hacks hackathon.",
+  "tech": [
+    "Python",
+    "FalkorDB",
+    "IBM watsonx",
+    "Graph Databases"
+  ],
+  "url": "https://multiverse.2fy1rnikhcll.us-south.codeengine.appdomain.cloud",
+  "started": "2026-10-14",
+  "detail_path": null,
+  "credits": [],
+  "sites": [
+    {
+      "name": "GitHub",
+      "url": "https://github.com/Mike-Demo/gaming-multiverse-reasoner"
+    }
+  ]
+}

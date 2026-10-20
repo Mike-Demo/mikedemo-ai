@@ -1,5 +1,192 @@
 [
   {
+    "slug": "gitcheck",
+    "name": "GitCheck",
+    "domain": "gitcheck.tech",
+    "summary": "Scan a public repo's dependency licenses, map the whole chain, and see exactly where they clash.",
+    "description": "GitCheck scans a public GitHub, GitLab, or Bitbucket repo for open-source license compatibility: it detects the project's own license (SPDX), parses dependency manifests, resolves direct and transitive dependencies, maps the license chain, and highlights the risks. Built on bolt.new Forge.",
+    "tech": [
+      "TypeScript",
+      "React",
+      "Bolt.new Forge",
+      "SPDX"
+    ],
+    "url": "https://gitcheck.tech",
+    "started": "2026-10-17",
+    "detail_path": null,
+    "credits": [],
+    "sites": [
+      {
+        "name": "GitHub",
+        "url": "https://github.com/Mike-Demo/gitcheck.tech"
+      }
+    ]
+  },
+  {
+    "slug": "boltlocal",
+    "name": "BoltLocal",
+    "domain": "github.com",
+    "summary": "A fork of bolt.diy made one-click: build full-stack apps with any LLM, locally and in plain language.",
+    "description": "BoltLocal is my fork of bolt.diy, the open-source AI developer workspace, tuned for ease of use: one-click first run, plain-language flows, automatic preview, and autosave. Prompt, run, edit, and deploy full-stack web applications using the LLM of your choice.",
+    "tech": [
+      "TypeScript",
+      "React",
+      "WebContainers",
+      "AI Agents"
+    ],
+    "url": "https://github.com/Mike-Demo/bolt.diy",
+    "started": "2026-10-17",
+    "detail_path": null,
+    "credits": [
+      {
+        "name": "bolt.diy by StackBlitz Labs",
+        "url": "https://github.com/stackblitz-labs/bolt.diy"
+      }
+    ],
+    "sites": []
+  },
+  {
+    "slug": "agentkey-sign-in",
+    "name": "AgentKey Sign-In",
+    "domain": "github.com",
+    "summary": "Sign in with AgentID for WordPress and WooCommerce — verified AI agents sign in as themselves.",
+    "description": "AgentKey Sign-In is an independent, community-built WordPress plugin that adds Sign in with AgentID (by AgentMail) to WordPress and WooCommerce, so verified AI agents can sign in as themselves, with a human owner on record, instead of sharing a person's password. Currently in WordPress.org plugin review.",
+    "tech": [
+      "PHP",
+      "WordPress",
+      "WooCommerce",
+      "OpenID Connect"
+    ],
+    "url": "https://github.com/Mike-Demo/agentkey-sign-in-agentid",
+    "started": "2026-10-16",
+    "detail_path": null,
+    "credits": [],
+    "sites": []
+  },
+  {
+    "slug": "bob-modernization-factory",
+    "name": "Bob Modernization Factory",
+    "domain": "github.com",
+    "summary": "An Express.js API gateway modernized through the IBM Bob factory stages, G0 to G4.",
+    "description": "Bob Modernization Factory is my submission for the IBM Bob Modernization Factory hackathon: a microservices API gateway built on Express.js, carried through the factory's G0–G4 modernization stages with AI-assisted analysis, refactoring, and verification at each gate.",
+    "tech": [
+      "JavaScript",
+      "Express.js",
+      "Microservices",
+      "IBM Bob"
+    ],
+    "url": "https://github.com/Mike-Demo/express-gateway",
+    "started": "2026-10-15",
+    "detail_path": null,
+    "credits": [],
+    "sites": []
+  },
+  {
+    "slug": "localmodel-hub",
+    "name": "LocalModel Hub",
+    "domain": "privatebrain.app",
+    "summary": "A privacy-first AI assistant that runs open-source LLMs entirely in your browser — your data never leaves your machine.",
+    "description": "LocalModel Hub (privatebrain.app) is a privacy-first, open-source model discovery and chat app that runs open-source large language models entirely on-device in the browser. No server inference, no account, nothing sent anywhere after the model file is fetched. Built for Bolt Builder Week.",
+    "tech": [
+      "TypeScript",
+      "React",
+      "WebLLM",
+      "WebGPU"
+    ],
+    "url": "https://privatebrain.app",
+    "started": "2026-10-14",
+    "detail_path": null,
+    "credits": [],
+    "sites": [
+      {
+        "name": "GitHub",
+        "url": "https://github.com/Mike-Demo/local-ai-assistant-web-app"
+      }
+    ]
+  },
+  {
+    "slug": "gaming-multiverse-reasoner",
+    "name": "Gaming Multiverse Reasoner",
+    "domain": "codeengine.appdomain.cloud",
+    "summary": "Every game is connected: find the hidden paths, bridge nodes, and communities between any two to four games.",
+    "description": "Gaming Multiverse Reasoner builds a graph of more than 50,000 games (84,000+ nodes, over a million edges) in FalkorDB and computes the hidden paths, bridge nodes, and communities joining any set of games, narrated live by IBM watsonx on IBM Cloud Code Engine. Built for the WeMakeDevs x FalkorDB Graph Hacks hackathon.",
+    "tech": [
+      "Python",
+      "FalkorDB",
+      "IBM watsonx",
+      "Graph Databases"
+    ],
+    "url": "https://multiverse.2fy1rnikhcll.us-south.codeengine.appdomain.cloud",
+    "started": "2026-10-14",
+    "detail_path": null,
+    "credits": [],
+    "sites": [
+      {
+        "name": "GitHub",
+        "url": "https://github.com/Mike-Demo/gaming-multiverse-reasoner"
+      }
+    ]
+  },
+  {
+    "slug": "migrateme",
+    "name": "MigrateMe",
+    "domain": "migrateme.tech",
+    "summary": "An open-source, dry-run-first toolkit for migrating CMS content — WordPress to Markdown/MDX first, anything-to-anything next.",
+    "description": "MigrateMe is an open-source AI-assisted CMS migration toolkit: dry-run-first and local-first, it migrates WordPress content to Markdown/MDX via CLI, MCP, web, and agents. Its Universal edition routes every source through a canonical manifest (the Open Migration Package) so any source can go to any destination without N×N converters.",
+    "tech": [
+      "TypeScript",
+      "CLI",
+      "MCP",
+      "Markdown"
+    ],
+    "url": "https://migrateme.tech",
+    "started": "2026-10-12",
+    "detail_path": null,
+    "credits": [],
+    "sites": [
+      {
+        "name": "GitHub",
+        "url": "https://github.com/Mike-Demo/migrateme.tech"
+      }
+    ]
+  },
+  {
+    "slug": "verdict",
+    "name": "Verdict",
+    "domain": "github.com",
+    "summary": "The intent-led decision forge: agents declare intent, evidence decides, humans approve.",
+    "description": "Verdict is a prototype Git platform for the agent era, built on Cloudflare Workers and Artifacts for the Build the Next-Gen Git Platform competition. Agents declare intent, evidence decides, and humans approve — decision-making as a forge, not a feed.",
+    "tech": [
+      "TypeScript",
+      "Cloudflare Workers",
+      "Cloudflare Artifacts",
+      "Git"
+    ],
+    "url": "https://github.com/Mike-Demo/verdict",
+    "started": "2026-10-12",
+    "detail_path": null,
+    "credits": [],
+    "sites": []
+  },
+  {
+    "slug": "truthops",
+    "name": "TruthOps",
+    "domain": "github.com",
+    "summary": "Don't just detect misinformation. Resolve it — a transparent verification pipeline with a human approval gate.",
+    "description": "TruthOps is a transparent, rule-based misinformation verification pipeline: it scores high-risk claims, runs a scripted contrarian check and photo forensics over curated evidence, and produces evidence-backed response plans behind a human approval gate. Built for neatHack 2026.",
+    "tech": [
+      "Python",
+      "Photo Forensics",
+      "Rule-based Verification",
+      "Human-in-the-loop"
+    ],
+    "url": "https://github.com/Mike-Demo/truthops",
+    "started": "2026-10-10",
+    "detail_path": null,
+    "credits": [],
+    "sites": []
+  },
+  {
     "slug": "grass-journal",
     "name": "Grass Journal",
     "domain": "grass-journal.view.fast",

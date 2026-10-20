@@ -1,0 +1,18 @@
+{
+  "slug": "agentkey-sign-in",
+  "name": "AgentKey Sign-In",
+  "domain": "github.com",
+  "summary": "Sign in with AgentID for WordPress and WooCommerce — verified AI agents sign in as themselves.",
+  "description": "AgentKey Sign-In is an independent, community-built WordPress plugin that adds Sign in with AgentID (by AgentMail) to WordPress and WooCommerce, so verified AI agents can sign in as themselves, with a human owner on record, instead of sharing a person's password. Currently in WordPress.org plugin review.",
+  "tech": [
+    "PHP",
+    "WordPress",
+    "WooCommerce",
+    "OpenID Connect"
+  ],
+  "url": "https://github.com/Mike-Demo/agentkey-sign-in-agentid",
+  "started": "2026-10-16",
+  "detail_path": null,
+  "credits": [],
+  "sites": []
+}

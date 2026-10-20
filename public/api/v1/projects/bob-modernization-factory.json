@@ -1,0 +1,18 @@
+{
+  "slug": "bob-modernization-factory",
+  "name": "Bob Modernization Factory",
+  "domain": "github.com",
+  "summary": "An Express.js API gateway modernized through the IBM Bob factory stages, G0 to G4.",
+  "description": "Bob Modernization Factory is my submission for the IBM Bob Modernization Factory hackathon: a microservices API gateway built on Express.js, carried through the factory's G0–G4 modernization stages with AI-assisted analysis, refactoring, and verification at each gate.",
+  "tech": [
+    "JavaScript",
+    "Express.js",
+    "Microservices",
+    "IBM Bob"
+  ],
+  "url": "https://github.com/Mike-Demo/express-gateway",
+  "started": "2026-10-15",
+  "detail_path": null,
+  "credits": [],
+  "sites": []
+}

@@ -1,0 +1,23 @@
+{
+  "slug": "gitcheck",
+  "name": "GitCheck",
+  "domain": "gitcheck.tech",
+  "summary": "Scan a public repo's dependency licenses, map the whole chain, and see exactly where they clash.",
+  "description": "GitCheck scans a public GitHub, GitLab, or Bitbucket repo for open-source license compatibility: it detects the project's own license (SPDX), parses dependency manifests, resolves direct and transitive dependencies, maps the license chain, and highlights the risks. Built on bolt.new Forge.",
+  "tech": [
+    "TypeScript",
+    "React",
+    "Bolt.new Forge",
+    "SPDX"
+  ],
+  "url": "https://gitcheck.tech",
+  "started": "2026-10-17",
+  "detail_path": null,
+  "credits": [],
+  "sites": [
+    {
+      "name": "GitHub",
+      "url": "https://github.com/Mike-Demo/gitcheck.tech"
+    }
+  ]
+}
