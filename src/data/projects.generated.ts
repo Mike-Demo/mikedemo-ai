@@ -6,6 +6,35 @@ import type { GeneratedProjectRow } from "./projects.generated-types";
 
 export const generatedProjectRows: readonly GeneratedProjectRow[] = [
   {
+      "slug": "football-universe-copilot",
+      "name": "Football Universe Copilot",
+      "domain": "mike-demo.github.io",
+      "summary": "Four agents turn synthetic match events into explainable intelligence — a timed broadcast overlay and a story for every fan, narrated by Microsoft's Phi-4-mini on Foundry.",
+      "description": "Football Universe Copilot is a four-agent match-intelligence studio built for Microsoft's Inside the Game hackathon (Premier League). A zero-dependency Python engine generates fully synthetic, football-realistic match events — 512 simulated fixtures across the Premier League and WSL — and four agents (Interpreter, GraphContext, Narrator, Personalizer) turn them into a timed broadcast overlay and a story tuned to each fan. Every insight is grounded in a football knowledge graph (shortest paths and Brandes betweenness, computed live) and narrated by Phi-4-mini-instruct on Microsoft Foundry via an Azure Functions API, with the narration source always labeled. A Tactical Lab adds Voronoi zones, expected threat and Poisson what-ifs from real pitch snapshots; two easter eggs — a hidden Chaos Arcade and a proudly visible Pride Matchday — run on the same data.",
+      "tech": [
+          "Python",
+          "Azure Functions",
+          "Microsoft Foundry",
+          "Phi-4-mini",
+          "GitHub Pages"
+      ],
+      "url": "https://mike-demo.github.io/football-universe-copilot/",
+      "icon": "network",
+      "started": "2026-10-19",
+      "detail_path": null,
+      "credits": [],
+      "sites": [
+          {
+              "name": "GitHub",
+              "url": "https://github.com/Mike-Demo/football-universe-copilot"
+          },
+          {
+              "name": "YouTube",
+              "url": "https://www.youtube.com/watch?v=RPxx-0EvKbw"
+          }
+      ]
+  },
+  {
     "slug": "black-box",
     "name": "Black Box",
     "domain": "black-box-sy5x.onrender.com",

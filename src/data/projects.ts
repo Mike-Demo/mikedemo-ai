@@ -15,6 +15,7 @@ import bugleCrownsLogo from "@/assets/project-icons/bugle-crowns.png";
 import ceoOwlLogo from "@/assets/project-icons/ceo-owl.jpg";
 import crosspostLogo from "@/assets/project-icons/crosspost.png";
 import designSystemsLogo from "@/assets/project-icons/design-systems.svg";
+import footballUniverseCopilotLogo from "@/assets/project-icons/football-universe-copilot.png";
 import freshInkLogo from "@/assets/project-icons/fresh-ink.svg";
 import gamingMultiverseReasonerLogo from "@/assets/project-icons/gaming-multiverse-reasoner.png";
 import gitCheckLogo from "@/assets/project-icons/gitcheck.png";
@@ -78,6 +79,7 @@ export const projectLogos: Readonly<Record<string, string>> = {
   "ceo-owl": ceoOwlLogo,
   crosspost: crosspostLogo,
   "awesome-design-system": designSystemsLogo,
+  "football-universe-copilot": footballUniverseCopilotLogo,
   freshink: freshInkLogo,
   "gaming-multiverse-reasoner": gamingMultiverseReasonerLogo,
   gitcheck: gitCheckLogo,
