@@ -8,6 +8,7 @@ import agentKeySignInLogo from "@/assets/project-icons/agentkey-sign-in.png";
 import aiDeployerLogo from "@/assets/project-icons/ai-deployer.svg";
 import agentSkillsLogo from "@/assets/project-icons/agent-skills.png";
 import awesomeAdventureCvLogo from "@/assets/project-icons/awesome-adventure-cv.png";
+import blackBoxLogo from "@/assets/project-icons/black-box.png";
 import bobModernizationFactoryLogo from "@/assets/project-icons/bob-modernization-factory.png";
 import boltLocalLogo from "@/assets/project-icons/boltlocal.png";
 import bugleCrownsLogo from "@/assets/project-icons/bugle-crowns.png";
@@ -70,6 +71,7 @@ export const projectLogos: Readonly<Record<string, string>> = {
   "ai-deployer": aiDeployerLogo,
   "agent-skills": agentSkillsLogo,
   "awesome-adventure-cv": awesomeAdventureCvLogo,
+  "black-box": blackBoxLogo,
   "bob-modernization-factory": bobModernizationFactoryLogo,
   boltlocal: boltLocalLogo,
   "bugle-crowns": bugleCrownsLogo,

@@ -1,0 +1,30 @@
+---
+title: "Black Box — MikeDemo AI project"
+description: "A job search app that slows you down on purpose: a once-a-day vault, a breathing gate, a daily application budget, and a 48-hour hold."
+canonical: "https://mikedemo.dev/projects/black-box.md"
+last-updated: "2026-10-03"
+---
+
+# Black Box
+
+A job search app that slows you down on purpose: a once-a-day vault, a breathing gate, a daily application budget, and a 48-hour hold.
+
+## About
+
+Black Box is a job search app that deliberately slows you down. Application statuses stay in a vault that opens once a day behind a 4-4-4 breathing gate; a daily budget caps applications; drafts sit in a 48-hour hold before they can be sent. Gemma 4 scores job descriptions against your profile and reframes outcome emails in plainer words without changing a fact — running locally via Ollama by default, so the most sensitive text in a job search never has to leave your machine. All data lives in the browser; there is no database and no server account. Built for the DEV Hacktoberfest Open-Source AI Challenge Week 3: Slow and Steady, and deployed as a single Render web service.
+
+## Details
+
+- Live: https://black-box-sy5x.onrender.com
+- Portfolio page: https://mikedemo.dev/projects/black-box/
+- Tech: TypeScript, Next.js, React, Gemma 4, Ollama, Render
+- Started: 2026-10-19
+
+## Related sites
+
+- GitHub: https://github.com/Mike-Demo/black-box
+- DEV: https://dev.to/mpmike/i-built-a-job-search-app-that-fights-you-back-because-slow-and-steady-is-the-only-strategy-that-3mc4
+
+## Machine-readable
+
+- Project record: https://mikedemo.dev/api/v1/projects/black-box.json
