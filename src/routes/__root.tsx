@@ -56,7 +56,7 @@ const CONTENT_SECURITY_POLICY = [
   "script-src 'self' 'unsafe-inline'",
   "style-src 'self' https://cdn.jsdelivr.net",
   "font-src 'self' https://cdn.jsdelivr.net",
-  "img-src 'self' data:",
+  "img-src 'self' data: https://brandmylaptop.com",
   "connect-src 'self' https://cdn.jsdelivr.net https://umami-lite.view.fast",
   "object-src 'none'",
   "base-uri 'self'",
