@@ -24,6 +24,10 @@ Spacefast refuses to convert — when `LOVABLE` or `LOVABLE_BUILD=1` is set in t
 environment. Spacefast's runner sets neither, so its auto-detected build produces
 plain static files.
 
+The repository now commits both `bun.lock` and `package-lock.json` on purpose:
+Bun remains the preferred local package manager, and the npm lockfile keeps the
+fallback `npm ci` install path reproducible when Spacefast selects it.
+
 Two hard rules follow from Spacefast scanning the **repository** (not the build
 output) for Cloudflare features:
 
